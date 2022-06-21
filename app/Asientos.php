@@ -23,7 +23,8 @@ class Asientos extends Model
 		'fecha',
 		'concepto',
 		'detalle',
-		'idTipologia'
+		'idTipologia',
+		'idEmpresa'
 	];
 
 	public function tipologia()
