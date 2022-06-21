@@ -8,21 +8,21 @@ class Ciudades extends Model
 {
     //
 	protected $table = 'ciudades';
-	protected $primaryKey = 'ID_CIUDADES';
+	protected $primaryKey = 'id';
 	public $timestamps = false;
 
 	protected $casts = [
-		'ID_DEPARTAMENTOS' => 'int'
+		'idDepartamentos' => 'int'
 	];
 
 	protected $fillable = [
-		'DETALLE_CIUDADES',
-		'ESTADO',
-		'ID_DEPARTAMENTOS'
+		'detalle',
+		'estado',
+		'idDepartamentos'
 	];
 
 	public function departamentos()
 	{
-		return $this->belongsTo(Departamentos::class, 'ID_DEPARTAMENTOS');
+		return $this->belongsTo(Departamentos::class, 'id');
 	}
 }

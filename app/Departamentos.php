@@ -8,16 +8,16 @@ class Departamentos extends Model
 {
     //
 	protected $table = 'departamentos';
-	protected $primaryKey = 'ID_DEPARTAMENTOS';
+	protected $primaryKey = 'id';
 	public $timestamps = false;
 
 	protected $fillable = [
-		'DETALLE_DEPARTAMENTOS',
-		'ESTADO'
+		'detalle',
+		'estado'
 	];
 
 	public function ciudades()
 	{
-		return $this->hasMany(Ciudades::class, 'ID_DEPARTAMENTOS');
+		return $this->hasMany(Ciudades::class, 'idDepartamentos');
 	}
 }

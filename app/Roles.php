@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Roles extends Model
 {
 	protected $table = 'roles';
-	protected $primaryKey = 'idroles';
+	protected $primaryKey = 'id';
 	public $timestamps = false;
 
 	protected $fillable = [
@@ -16,6 +16,6 @@ class Roles extends Model
 
 	public function usuarios()
 	{
-		return $this->hasMany(User::class, 'idusuarios');
+		return $this->hasMany(User::class, 'id');
 	}
 }
