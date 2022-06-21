@@ -5,11 +5,11 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Sistema Gestión Fundación Jesús es mi roca">
-  <meta name="author" content="SOFTCLASS">
-  <meta name="keyword" content="Sistema Gestión Fundación Jesús es mi roca">
+  <meta name="description" content="Sistema Integral de Seguimiento Interno, Facturación y Organización">
+  <meta name="author" content="Softclass">
+  <meta name="keyword" content="Sistema Integral de Seguimiento Interno, Facturación y Organización">
 
-  <title>Sistema Gestión Fundación Jesús es mi roca</title>
+  <title>S.I.S.I.F.O</title>
 
   <!-- Main styles for this application -->
   <link href="css/plantilla.css" rel="stylesheet">

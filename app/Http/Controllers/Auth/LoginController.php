@@ -52,7 +52,7 @@ class LoginController extends Controller
         ]);
 
         $affected = DB::table('users')
-              ->where('idusuarios', $id)
+              ->where('id', $id)
               ->update(['password' => $clavehashed]);
               Auth::logout();
               $request->session()->invalidate();

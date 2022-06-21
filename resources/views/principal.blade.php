@@ -108,7 +108,7 @@
                         <label class="col-md-4 form-control-label" for="passnueva-input">Nueva clave</label>
                         <div class="col-md-8">
                             <input type="password" name="passnueva" id="passnueva" class="form-control" placeholder="Ingrese su nueva clave"/>
-                            <input type="hidden" name="idusuarios" id="idusuarios" value="{{Auth::user()->idusuarios}}"/>
+                            <input type="hidden" name="idusuarios" id="idusuarios" value="{{Auth::user()->id}}"/>
                         </div>
                     </div>
 
