@@ -23,8 +23,8 @@ class CreateProductosTable extends Migration {
 			$table->integer('pvp');
 			$table->foreignId('idImpuesto')->constrained('impuesto');
 			$table->foreignId('idGrupos')->constrained('grupos');
-			$table->integer('estado')->default(1);
 			$table->foreignId('idEmpresa')->constrained('empresa');
+            $table->integer('estado')->default(1);
 		});
 	}
 

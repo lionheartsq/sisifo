@@ -16,7 +16,8 @@ class CreateTipofacturaTable extends Migration {
 		Schema::create('tipofactura', function(Blueprint $table)
 		{
 			$table->id();
-			$table->string('detalleTipoFactura', 250);
+			$table->string('detalle', 250);
+            $table->integer('estado')->default(1);
 		});
 	}
 

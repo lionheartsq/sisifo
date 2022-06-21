@@ -25,8 +25,8 @@ class CreateFacturasTable extends Migration {
 			$table->foreignId('idVendedor')->constrained('users');
 			$table->foreignId('tipoFactura')->constrained('tipofactura');
 			$table->foreignId('idClientes')->constrained('clientes');
-			$table->integer('estado')->default(1);
 			$table->foreignId('idEmpresa')->constrained('empresa');
+            $table->integer('estado')->default(1);
 		});
 	}
 

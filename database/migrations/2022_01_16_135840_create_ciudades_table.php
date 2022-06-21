@@ -17,8 +17,8 @@ class CreateCiudadesTable extends Migration {
 		{
 			$table->id();
 			$table->string('detalle', 250);
-            $table->integer('estado')->default(1);
             $table->foreignId('idDepartamentos')->constrained('departamentos');
+            $table->integer('estado')->default(1);
 		});
 	}
 

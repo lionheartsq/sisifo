@@ -23,6 +23,7 @@ class CreateEmpresaTable extends Migration {
 			$table->string('direccion', 500);
 			$table->string('telefonos', 250);
 			$table->enum('tipo', array('1','2','3'))->default('2')->comment('1-Ppal 2-Suc 3-Maq');
+            $table->integer('estado')->default(1);
 		});
 	}
 

@@ -18,6 +18,7 @@ class CreateImpuestoTable extends Migration {
 			$table->id();
 			$table->string('nombre', 75);
 			$table->integer('valor');
+            $table->integer('estado')->default(1);
 		});
 	}
 
