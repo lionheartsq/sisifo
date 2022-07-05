@@ -16,26 +16,25 @@ class UsuariosController extends Controller
         $criterio= $request->criterio;
 
         if ($buscar=='') {
-            $usuarios = User::join("roles","usuarios.idroles","=","roles.idroles")
-                ->select('usuarios.idusuarios','usuarios.documento','roles.rol',
-                'usuarios.estado as estado','usuarios.telefono as telefono','usuarios.email as email',
-                DB::raw('UPPER (concat(usuarios.nombres," ",usuarios.apellidos)) as acudiente')
-                )
-                ->whereIn('usuarios.estado', ['A'])
-                ->whereNotIn('usuarios.idroles', ['5'])
-                ->whereNotIn('usuarios.documento', ['13514998'])
-                ->orderBy('usuarios.idusuarios','desc')
-                ->paginate(5);
+            $usuarios = User::join("roles","users.idRol","=","roles.id")
+            ->join("empresa","users.idEmpresa","=","empresa.id")
+            ->where('users.estado','=','1')
+            ->select('users.id','users.documento','roles.rol','users.email as email','users.estado',
+                DB::raw('UPPER (concat(users.nombres," ",users.apellidos)) as usuario'),
+                'empresa.razonSocial','roles.id as idRol','empresa.id as idEmpresa')
+            ->whereNotIn('users.id', ['1'])
+            ->orderBy('users.id','desc')
+            ->paginate(5);
         }
         else {
-            $usuarios = User::join("roles","usuarios.idroles","=","roles.idroles")
-            ->select('usuarios.idusuarios','usuarios.documento','roles.rol',
-            'usuarios.estado as estado','usuarios.telefono as telefono','usuarios.email as email',
-            DB::raw('UPPER (concat(usuarios.nombres," ",usuarios.apellidos)) as acudiente')
-            )
+            $usuarios = User::join("roles","users.idRol","=","roles.id")
+            ->join("empresa","users.idEmpresa","=","empresa.id")
+            ->where('users.estado','=','1')
+            ->select('users.id','users.documento','roles.rol','users.email as email','users.estado',
+                DB::raw('UPPER (concat(users.nombres," ",users.apellidos)) as usuario'),
+                'empresa.razonSocial','roles.id as idRol','empresa.id as idEmpresa')
             ->where($criterio, 'like', '%'. $buscar . '%')
-            ->whereNotIn('usuarios.idroles', ['5'])
-            ->whereNotIn('usuarios.documento', ['13514998'])
+            ->whereNotIn('usuarios.id', ['1'])
             ->orderBy('idusuarios','desc')
             ->paginate(5);
         }
@@ -52,4 +51,19 @@ class UsuariosController extends Controller
                 'usuarios' => $usuarios,
         ];
     }
+
+    public function listado(){
+
+        $usuarios = User::join("roles","users.idRol","=","roles.id")
+        ->join("empresa","users.idEmpresa","=","empresa.id")
+        ->where('users.estado','=','1')
+        ->select('users.id','users.documento','roles.rol','users.email as email','users.estado',
+            DB::raw('UPPER (concat(users.nombres," ",users.apellidos)) as usuario'),
+            'empresa.razonSocial','roles.id as idRol','empresa.id as idEmpresa')
+        ->orderBy('users.id','asc')->get();
+
+        return ['usuarios' => $usuarios];
+    }
+
+
 }

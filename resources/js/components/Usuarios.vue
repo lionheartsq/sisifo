@@ -11,7 +11,7 @@
                     <div class="card">
                         <div class="card-header">
                             <i class="fa fa-align-justify"></i> Usuario &nbsp;
-                            <button type="button" @click="abrirModal('residente','crear')" class="btn btn-secondary">
+                            <button type="button" @click="abrirModal('usuario','crear')" class="btn btn-secondary">
                                 <i class="icon-plus"></i>&nbsp;Nuevo
                             </button>
                         </div>
@@ -20,14 +20,13 @@
                                 <div class="col-md-9">
                                     <div class="input-group">
                                         <select class="form-control col-md-3" v-model="criterio">
-                                        <option value="documentor">Documento</option>
-                                        <option value="nombresr">Nombre</option>
-                                        <option value="apellidosr">Apellido</option>
+                                        <option value="documento">Documento</option>
+                                        <option value="nombres">Nombre</option>
                                         <option value="apellidosr">Rol</option>
                                         <option value="estado">Estado</option>
                                         </select>
-                                        <input type="text" v-model="buscar" @keyup.enter="listarResidente(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
-                                        <button type="submit" @click="listarResidente(1,buscar,criterio)" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
+                                        <input type="text" v-model="buscar" @keyup.enter="listarUsuario(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
+                                        <button type="submit" @click="listarUsuario(1,buscar,criterio)" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
                                     </div>
                                 </div>
                             </div>
@@ -39,78 +38,48 @@
                                         <th>Documento</th>
                                         <th>Nombre usuario</th>
                                         <th>Email</th>
-                                        <th>Teléfono</th>
                                         <th>Rol</th>
                                         <th>Estado</th>
                                     </tr>
                                 </thead>
                                 <tbody>
 
-                                    <tr v-for="residente in arrayResidentes" :key="residente.id">
+                                    <tr v-for="usuario in arrayUsuarios" :key="usuario.id">
                                         <td>
-                                            <button type="button" @click="abrirModal('residente','actualizar',residente)" class="btn btn-info btn-sm">
+                                            <button type="button" @click="abrirModal('usuario','actualizar',usuario)" class="btn btn-info btn-sm">
                                             <i class="icon-eye" title="Ver detalles"></i>
                                             </button> &nbsp;
 
-                                            <button type="button" @click="abrirModal('residente','actualizar',residente)" class="btn btn-warning btn-sm">
+                                            <button type="button" @click="abrirModal('usuario','actualizar',usuario)" class="btn btn-warning btn-sm">
                                             <i class="icon-pencil" title="Editar datos"></i>
                                             </button> &nbsp;
 
-                                        <template v-if="residente.estado == 'A'">
-                                            <button type="button" class="btn btn-danger btn-sm" @click="desactivarResidente(residente.id)">
+                                        <template v-if="usuario.estado == 'A'">
+                                            <button type="button" class="btn btn-danger btn-sm" @click="desactivarUsuario(usuario.id)">
                                                 <i class="icon-trash" title="Desactivar"></i>
                                             </button>
                                         </template>
-                                        <template v-if="residente.estado == 'E'">
-                                            <button type="button" class="btn btn-danger btn-sm" @click="desactivarResidente(residente.id)">
+                                        <template v-if="usuario.estado == 'E'">
+                                            <button type="button" class="btn btn-danger btn-sm" @click="desactivarUsuario(usuario.id)">
                                                 <i class="icon-trash" title="Desactivar"></i>
                                             </button>
                                         </template>
-                                        <template v-if="residente.estado == 'I'">
-                                            <button type="button" class="btn btn-success btn-sm" @click="activarResidente(residente.id)">
+                                        <template v-if="usuario.estado == 'I'">
+                                            <button type="button" class="btn btn-success btn-sm" @click="activarUsuario(usuario.id)">
                                                 <i class="icon-check" title="Reactivar"></i>
                                             </button>
                                         </template>
 
                                         </td>
-                                        <td v-text="residente.documento"></td>
-                                        <td v-text="residente.acudiente"></td>
-                                        <td v-text="residente.email"></td>
-                                        <td v-text="residente.telefono"></td>
+                                        <td v-text="usuario.documento"></td>
+                                        <td v-text="usuario.usuario"></td>
+                                        <td v-text="usuario.email"></td>
+                                        <td v-text="usuario.rol"></td>
                                         <td>
-                                            <div v-if="residente.rol == 'Bda'">
-                                            Gestor base de datos
-                                            </div>
-                                            <div v-if="residente.rol == 'Superadmin'">
-                                            Super Administrador
-                                            </div>
-                                            <div v-if="residente.rol == 'Administrador'">
-                                            Administrador
-                                            </div>
-                                            <div v-if="residente.rol == 'Psicologo'">
-                                            Psicólogo
-                                            </div>
-                                            <div v-if="residente.rol == 'Terapeuta general'">
-                                            Terapeuta general
-                                            </div>
-                                            <div v-if="residente.rol == 'Practicante'">
-                                            Practicante
-                                            </div>
-                                            <div v-if="residente.rol == 'Minutas'">
-                                            Minutas
-                                            </div>
-                                            <div v-if="residente.rol == 'Cajero'">
-                                            Cajero
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div v-if="residente.estado == 'A'">
+                                            <div v-if="usuario.estado == '1'">
                                             <span class="badge badge-success">Activo</span>
                                             </div>
-                                            <div v-if="residente.estado == 'E'">
-                                            <span class="badge badge-warning">Activo</span>
-                                            </div>
-                                            <div v-if="residente.estado == 'I'">
+                                            <div v-if="usuario.estado == '2'">
                                             <span class="badge badge-danger">Desactivado</span>
                                             </div>
                                         </td>
@@ -151,7 +120,7 @@
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="residente" class="form-control" placeholder="Nombre de residente">
+                                            <input type="text" v-model="usuario" class="form-control" placeholder="Nombre de usuario">
                                             <span class="help-block">(*) Ingrese el nombre del usuario</span>
                                         </div>
                                     </div>
@@ -165,7 +134,7 @@
                                     </div>
                                     -->
 
-                                    <div class="form-group row div-error" v-show="errorResidente">
+                                    <div class="form-group row div-error" v-show="errorUsuario">
                                         <div class="text-center text-error">
                                             <div v-for="error in errorMensaje" :key="error" v-text="error"></div>
                                         </div>
@@ -175,8 +144,8 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" @click="cerrarModal()">Cerrar</button>
-                                <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="crearResidente()">Guardar</button>
-                                <button type="button" v-if="tipoAccion==2" class="btn btn-warning" @click="editarResidente()">Editar</button>
+                                <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="crearUsuario()">Guardar</button>
+                                <button type="button" v-if="tipoAccion==2" class="btn btn-warning" @click="editarUsuario()">Editar</button>
                             </div>
                         </div>
                         <!-- /.modal-content -->
@@ -191,15 +160,15 @@
     export default {
         data(){
             return{
-                idResidente:0,
+                idUsuario:0,
                 id:'',
-                residente:'',
+                usuario:'',
                 estado:'',
-                arrayResidentes : [],
+                arrayUsuarios : [],
                 modal : 0,
                 tituloModal : '',
                 tipoAccion : 0,
-                errorResidente : 0,
+                errorUsuario : 0,
                 errorMensaje : [],
                 pagination : {
                     'total' : 0,
@@ -210,7 +179,7 @@
                     'to' : 0,
                 },
                 offset : 3,
-                criterio : 'nombresr',
+                criterio : 'usuario',
                 buscar : ''
             }
         },
@@ -244,14 +213,14 @@
             }
         },
         methods : {
-            listarResidente(page,buscar,criterio){
+            listarUsuario(page,buscar,criterio){
                 let me=this;
                 var url='/usuarios?page=' + page + '&buscar=' + buscar + '&criterio=' + criterio;
                 // Make a request for a user with a given ID
                 axios.get(url).then(function (response) {
                     // handle success
                 var respuesta=response.data;
-                me.arrayResidentes=respuesta.usuarios.data;
+                me.arrayUsuarios=respuesta.usuarios.data;
                 me.pagination=respuesta.pagination;
                     //console.log(response);
                 })
@@ -265,11 +234,11 @@
                 //Actualiza la pagina actual
                 me.pagination.current_page = page;
                 //envia peticion para ver los valores asociados a esa pagina
-                me.listarResidente(page,buscar,criterio);
+                me.listarUsuario(page,buscar,criterio);
             },
-            crearResidente(){
+            crearUsuario(){
                 //valido con el metodo de validacion creado
-                if(this.validarResidente()){
+                if(this.validarUsuario()){
                     return;
                 }
 
@@ -280,32 +249,32 @@
                     //'dato': this.dato
                 }).then(function (response) {
                 me.cerrarModal();
-                me.listarResidente(1,'','residente');
+                me.listarUsuario(1,'','Usuario');
                 })
                 .catch(function (error) {
                     console.log(error);
                 });
             },
-            editarResidente(){
-                if(this.validarResidente()){
+            editarUsuario(){
+                if(this.validarUsuario()){
                     return;
                 }
 
                 let me=this;
                 axios.put('/usuarios/update',{
-                    'residente': this.residente,
-                    'id': this.idResidente
+                    'Usuario': this.usuario,
+                    'id': this.idUsuario
                     //'estado': this.estado,
                     //'dato': this.dato
                 }).then(function (response) {
                 me.cerrarModal();
-                me.listarResidente(1,'','residente');
+                me.listarUsuario(1,'','usuario');
                 })
                 .catch(function (error) {
                     console.log(error);
                 });
             },
-            desactivarResidente(id){
+            desactivarUsuario(id){
                 const swalWithBootstrapButtons = Swal.mixin({
                 customClass: {
                     confirmButton: 'btn btn-success',
@@ -327,7 +296,7 @@
                     axios.put('/usuarios/deactivate',{
                         'id': id
                     }).then(function (response) {
-                    me.listarResidente(1,'','usuarios');
+                    me.listarUsuario(1,'','usuario');
                     swalWithBootstrapButtons.fire(
                     'Usuario desactivado!'
                     )
@@ -338,11 +307,11 @@
                     /* Read more about handling dismissals below */
                     result.dismiss === Swal.DismissReason.cancel
                 ) {
-                    me.listarResidente();
+                    me.listarUsuario();
                 }
                 })
             },
-            activarResidente(id){
+            activarUsuario(id){
                 const swalWithBootstrapButtons = Swal.mixin({
                 customClass: {
                     confirmButton: 'btn btn-success',
@@ -364,7 +333,7 @@
                     axios.put('/usuarios/activate',{
                         'id': id
                     }).then(function (response) {
-                    me.listarResidente(1,'','residente');
+                    me.listarUsuario(1,'','usuario');
                     swalWithBootstrapButtons.fire(
                     'Usuario activado!'
                     )
@@ -375,33 +344,33 @@
                     /* Read more about handling dismissals below */
                     result.dismiss === Swal.DismissReason.cancel
                 ) {
-                    me.listarResidente();
+                    me.listarUsuario();
                 }
                 })
             },
-            validarResidente(){
-                this.errorResidente=0;
+            validarUsuario(){
+                this.errorUsuario=0;
                 this.errorMensaje=[];
 
-                if (!this.residente) this.errorMensaje.push("El nombre del usuario no puede estar vacio");
-                if (this.errorMensaje.length) this.errorResidente=1;
+                if (!this.Usuario) this.errorMensaje.push("El nombre del usuario no puede estar vacio");
+                if (this.errorMensaje.length) this.errorUsuario=1;
 
-                return this.errorResidente;
+                return this.errorUsuario;
             },
             cerrarModal(){
                 this.modal=0;
                 this.tituloModal='';
-                this.residente='';
+                this.Usuario='';
             },
             abrirModal(modelo, accion, data=[]){
             //tres argumentos, el modelo a modificar o crear, la accion como tal y el arreglo del registro en la tabla
             switch(modelo){
-                case "residente":
+                case "Usuario":
                 {
                     switch (accion) {
                         case 'crear':{
                             this.modal=1;
-                            this.residente='';
+                            this.Usuario='';
                             this.tituloModal='Crear nuevo usuario';
                             this.tipoAccion= 1;
                             break;
@@ -411,8 +380,8 @@
                             this.modal=1;
                             this.tituloModal='Editar usuario';
                             this.tipoAccion= 2;
-                            this.idResidente=data['id'];
-                            this.residente=data['residente'];
+                            this.idUsuario=data['id'];
+                            this.Usuario=data['usuario'];
                             break;
                         }
                     }
@@ -421,7 +390,7 @@
             }
         },
         mounted() {
-            this.listarResidente(1,this.buscar,this.criterio);
+            this.listarUsuario(1,this.buscar,this.criterio);
         }
     }
 </script>

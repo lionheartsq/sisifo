@@ -18,6 +18,7 @@ class CreateMedidaTable extends Migration {
 			$table->id();
 			$table->string('nombre', 45);
             $table->integer('estado')->default(1);
+            $table->foreignId('idEmpresas')->constrained('empresa');
 		});
 	}
 

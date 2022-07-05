@@ -22,5 +22,25 @@ class UserSeeder extends Seeder
             'idEmpresa' => '1',
             'idRol' => '1',
         ]);
+
+        DB::table('users')->insert([
+            'documento' => '12345',
+            'email' => 'empresario@empresario.co',
+            'nombres' => 'Empresario',
+            'apellidos' => 'Prueba',
+            'password' => bcrypt('12345'),
+            'idEmpresa' => '1',
+            'idRol' => '2',
+        ]);
+
+        DB::table('users')->insert([
+            'documento' => '67890',
+            'email' => 'usuario@usuario.co',
+            'nombres' => 'Usuario',
+            'apellidos' => 'Prueba',
+            'password' => bcrypt('12345'),
+            'idEmpresa' => '1',
+            'idRol' => '3',
+        ]);
     }
 }

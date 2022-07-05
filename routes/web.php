@@ -43,23 +43,24 @@ Route::group(['middleware' => ['guest']], function () {
 
 Route::group(['middleware' => ['Superadministrador']], function () {
 
-    Route::get("/residentes", "ResidentesController@index");
-    Route::post("/residentes/store", "ResidentesController@store");
-    Route::put("/residentes/update", "ResidentesController@update");
-    Route::put("/residentes/deactivate", "ResidentesController@deactivate");
-    Route::put("/residentes/activate", "ResidentesController@activate");
+    Route::get("/clientes", "ClientesController@index");
+    Route::post("/clientes/store", "ClientesController@store");
+    Route::put("/clientes/update", "ClientesController@update");
+    Route::put("/clientes/deactivate", "ClientesController@deactivate");
+    Route::put("/clientes/activate", "ClientesController@activate");
 
-    Route::get("/acudientes", "AcudientesController@index");
-    Route::post("/acudientes/store", "AcudientesController@store");
-    Route::put("/acudientes/update", "AcudientesController@update");
-    Route::put("/acudientes/deactivate", "AcudientesController@deactivate");
-    Route::put("/acudientes/activate", "AcudientesController@activate");
+    Route::get("/proveedores", "ProveedoresController@index");
+    Route::post("/proveedores/store", "ProveedoresController@store");
+    Route::put("/proveedores/update", "ProveedoresController@update");
+    Route::put("/proveedores/deactivate", "ProveedoresController@deactivate");
+    Route::put("/proveedores/activate", "ProveedoresController@activate");
 
     Route::get("/usuarios", "UsuariosController@index");
     Route::post("/usuarios/store", "UsuariosController@store");
     Route::put("/usuarios/update", "UsuariosController@update");
     Route::put("/usuarios/deactivate", "UsuariosController@deactivate");
     Route::put("/usuarios/activate", "UsuariosController@activate");
+    Route::get("/listado", "UsuariosController@listado");
 
     });
 

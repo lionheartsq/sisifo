@@ -2146,49 +2146,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      idResidente: 0,
+      idUsuario: 0,
       id: '',
-      residente: '',
+      usuario: '',
       estado: '',
-      arrayResidentes: [],
+      arrayUsuarios: [],
       modal: 0,
       tituloModal: '',
       tipoAccion: 0,
-      errorResidente: 0,
+      errorUsuario: 0,
       errorMensaje: [],
       pagination: {
         'total': 0,
@@ -2199,7 +2168,7 @@ __webpack_require__.r(__webpack_exports__);
         'to': 0
       },
       offset: 3,
-      criterio: 'nombresr',
+      criterio: 'usuario',
       buscar: ''
     };
   },
@@ -2236,14 +2205,14 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
-    listarResidente: function listarResidente(page, buscar, criterio) {
+    listarUsuario: function listarUsuario(page, buscar, criterio) {
       var me = this;
       var url = '/usuarios?page=' + page + '&buscar=' + buscar + '&criterio=' + criterio; // Make a request for a user with a given ID
 
       axios.get(url).then(function (response) {
         // handle success
         var respuesta = response.data;
-        me.arrayResidentes = respuesta.usuarios.data;
+        me.arrayUsuarios = respuesta.usuarios.data;
         me.pagination = respuesta.pagination; //console.log(response);
       })["catch"](function (error) {
         // handle error
@@ -2255,11 +2224,11 @@ __webpack_require__.r(__webpack_exports__);
 
       me.pagination.current_page = page; //envia peticion para ver los valores asociados a esa pagina
 
-      me.listarResidente(page, buscar, criterio);
+      me.listarUsuario(page, buscar, criterio);
     },
-    crearResidente: function crearResidente() {
+    crearUsuario: function crearUsuario() {
       //valido con el metodo de validacion creado
-      if (this.validarResidente()) {
+      if (this.validarUsuario()) {
         return;
       }
 
@@ -2270,30 +2239,30 @@ __webpack_require__.r(__webpack_exports__);
 
       }).then(function (response) {
         me.cerrarModal();
-        me.listarResidente(1, '', 'residente');
+        me.listarUsuario(1, '', 'Usuario');
       })["catch"](function (error) {
         console.log(error);
       });
     },
-    editarResidente: function editarResidente() {
-      if (this.validarResidente()) {
+    editarUsuario: function editarUsuario() {
+      if (this.validarUsuario()) {
         return;
       }
 
       var me = this;
       axios.put('/usuarios/update', {
-        'residente': this.residente,
-        'id': this.idResidente //'estado': this.estado,
+        'Usuario': this.usuario,
+        'id': this.idUsuario //'estado': this.estado,
         //'dato': this.dato
 
       }).then(function (response) {
         me.cerrarModal();
-        me.listarResidente(1, '', 'residente');
+        me.listarUsuario(1, '', 'usuario');
       })["catch"](function (error) {
         console.log(error);
       });
     },
-    desactivarResidente: function desactivarResidente(id) {
+    desactivarUsuario: function desactivarUsuario(id) {
       var _this = this;
 
       var swalWithBootstrapButtons = Swal.mixin({
@@ -2316,7 +2285,7 @@ __webpack_require__.r(__webpack_exports__);
           axios.put('/usuarios/deactivate', {
             'id': id
           }).then(function (response) {
-            _me.listarResidente(1, '', 'usuarios');
+            _me.listarUsuario(1, '', 'usuario');
 
             swalWithBootstrapButtons.fire('Usuario desactivado!');
           })["catch"](function (error) {
@@ -2325,11 +2294,11 @@ __webpack_require__.r(__webpack_exports__);
         } else if (
         /* Read more about handling dismissals below */
         result.dismiss === Swal.DismissReason.cancel) {
-          me.listarResidente();
+          me.listarUsuario();
         }
       });
     },
-    activarResidente: function activarResidente(id) {
+    activarUsuario: function activarUsuario(id) {
       var _this2 = this;
 
       var swalWithBootstrapButtons = Swal.mixin({
@@ -2352,7 +2321,7 @@ __webpack_require__.r(__webpack_exports__);
           axios.put('/usuarios/activate', {
             'id': id
           }).then(function (response) {
-            _me2.listarResidente(1, '', 'residente');
+            _me2.listarUsuario(1, '', 'usuario');
 
             swalWithBootstrapButtons.fire('Usuario activado!');
           })["catch"](function (error) {
@@ -2361,34 +2330,34 @@ __webpack_require__.r(__webpack_exports__);
         } else if (
         /* Read more about handling dismissals below */
         result.dismiss === Swal.DismissReason.cancel) {
-          me.listarResidente();
+          me.listarUsuario();
         }
       });
     },
-    validarResidente: function validarResidente() {
-      this.errorResidente = 0;
+    validarUsuario: function validarUsuario() {
+      this.errorUsuario = 0;
       this.errorMensaje = [];
-      if (!this.residente) this.errorMensaje.push("El nombre del usuario no puede estar vacio");
-      if (this.errorMensaje.length) this.errorResidente = 1;
-      return this.errorResidente;
+      if (!this.Usuario) this.errorMensaje.push("El nombre del usuario no puede estar vacio");
+      if (this.errorMensaje.length) this.errorUsuario = 1;
+      return this.errorUsuario;
     },
     cerrarModal: function cerrarModal() {
       this.modal = 0;
       this.tituloModal = '';
-      this.residente = '';
+      this.Usuario = '';
     },
     abrirModal: function abrirModal(modelo, accion) {
       var data = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [];
 
       //tres argumentos, el modelo a modificar o crear, la accion como tal y el arreglo del registro en la tabla
       switch (modelo) {
-        case "residente":
+        case "Usuario":
           {
             switch (accion) {
               case 'crear':
                 {
                   this.modal = 1;
-                  this.residente = '';
+                  this.Usuario = '';
                   this.tituloModal = 'Crear nuevo usuario';
                   this.tipoAccion = 1;
                   break;
@@ -2400,8 +2369,8 @@ __webpack_require__.r(__webpack_exports__);
                   this.modal = 1;
                   this.tituloModal = 'Editar usuario';
                   this.tipoAccion = 2;
-                  this.idResidente = data['id'];
-                  this.residente = data['residente'];
+                  this.idUsuario = data['id'];
+                  this.Usuario = data['usuario'];
                   break;
                 }
             }
@@ -2410,7 +2379,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
-    this.listarResidente(1, this.buscar, this.criterio);
+    this.listarUsuario(1, this.buscar, this.criterio);
   }
 });
 
@@ -39102,7 +39071,7 @@ var render = function() {
               attrs: { type: "button" },
               on: {
                 click: function($event) {
-                  return _vm.abrirModal("residente", "crear")
+                  return _vm.abrirModal("usuario", "crear")
                 }
               }
             },
@@ -39146,16 +39115,12 @@ var render = function() {
                     }
                   },
                   [
-                    _c("option", { attrs: { value: "documentor" } }, [
+                    _c("option", { attrs: { value: "documento" } }, [
                       _vm._v("Documento")
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "nombresr" } }, [
+                    _c("option", { attrs: { value: "nombres" } }, [
                       _vm._v("Nombre")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "apellidosr" } }, [
-                      _vm._v("Apellido")
                     ]),
                     _vm._v(" "),
                     _c("option", { attrs: { value: "apellidosr" } }, [
@@ -39188,7 +39153,7 @@ var render = function() {
                       ) {
                         return null
                       }
-                      return _vm.listarResidente(1, _vm.buscar, _vm.criterio)
+                      return _vm.listarUsuario(1, _vm.buscar, _vm.criterio)
                     },
                     input: function($event) {
                       if ($event.target.composing) {
@@ -39206,7 +39171,7 @@ var render = function() {
                     attrs: { type: "submit" },
                     on: {
                       click: function($event) {
-                        return _vm.listarResidente(1, _vm.buscar, _vm.criterio)
+                        return _vm.listarUsuario(1, _vm.buscar, _vm.criterio)
                       }
                     }
                   },
@@ -39225,8 +39190,8 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "tbody",
-                  _vm._l(_vm.arrayResidentes, function(residente) {
-                    return _c("tr", { key: residente.id }, [
+                  _vm._l(_vm.arrayUsuarios, function(usuario) {
+                    return _c("tr", { key: usuario.id }, [
                       _c(
                         "td",
                         [
@@ -39238,9 +39203,9 @@ var render = function() {
                               on: {
                                 click: function($event) {
                                   return _vm.abrirModal(
-                                    "residente",
+                                    "usuario",
                                     "actualizar",
-                                    residente
+                                    usuario
                                   )
                                 }
                               }
@@ -39261,9 +39226,9 @@ var render = function() {
                               on: {
                                 click: function($event) {
                                   return _vm.abrirModal(
-                                    "residente",
+                                    "usuario",
                                     "actualizar",
-                                    residente
+                                    usuario
                                   )
                                 }
                               }
@@ -39276,7 +39241,7 @@ var render = function() {
                             ]
                           ),
                           _vm._v("  \n\n                                "),
-                          residente.estado == "A"
+                          usuario.estado == "A"
                             ? [
                                 _c(
                                   "button",
@@ -39285,9 +39250,7 @@ var render = function() {
                                     attrs: { type: "button" },
                                     on: {
                                       click: function($event) {
-                                        return _vm.desactivarResidente(
-                                          residente.id
-                                        )
+                                        return _vm.desactivarUsuario(usuario.id)
                                       }
                                     }
                                   },
@@ -39301,7 +39264,7 @@ var render = function() {
                               ]
                             : _vm._e(),
                           _vm._v(" "),
-                          residente.estado == "E"
+                          usuario.estado == "E"
                             ? [
                                 _c(
                                   "button",
@@ -39310,9 +39273,7 @@ var render = function() {
                                     attrs: { type: "button" },
                                     on: {
                                       click: function($event) {
-                                        return _vm.desactivarResidente(
-                                          residente.id
-                                        )
+                                        return _vm.desactivarUsuario(usuario.id)
                                       }
                                     }
                                   },
@@ -39326,7 +39287,7 @@ var render = function() {
                               ]
                             : _vm._e(),
                           _vm._v(" "),
-                          residente.estado == "I"
+                          usuario.estado == "I"
                             ? [
                                 _c(
                                   "button",
@@ -39335,9 +39296,7 @@ var render = function() {
                                     attrs: { type: "button" },
                                     on: {
                                       click: function($event) {
-                                        return _vm.activarResidente(
-                                          residente.id
-                                        )
+                                        return _vm.activarUsuario(usuario.id)
                                       }
                                     }
                                   },
@@ -39355,89 +39314,23 @@ var render = function() {
                       ),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(residente.documento) }
+                        domProps: { textContent: _vm._s(usuario.documento) }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(residente.acudiente) }
+                        domProps: { textContent: _vm._s(usuario.usuario) }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(residente.email) }
+                        domProps: { textContent: _vm._s(usuario.email) }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(residente.telefono) }
+                        domProps: { textContent: _vm._s(usuario.rol) }
                       }),
                       _vm._v(" "),
                       _c("td", [
-                        residente.rol == "Bda"
-                          ? _c("div", [
-                              _vm._v(
-                                "\n                                    Gestor base de datos\n                                    "
-                              )
-                            ])
-                          : _vm._e(),
-                        _vm._v(" "),
-                        residente.rol == "Superadmin"
-                          ? _c("div", [
-                              _vm._v(
-                                "\n                                    Super Administrador\n                                    "
-                              )
-                            ])
-                          : _vm._e(),
-                        _vm._v(" "),
-                        residente.rol == "Administrador"
-                          ? _c("div", [
-                              _vm._v(
-                                "\n                                    Administrador\n                                    "
-                              )
-                            ])
-                          : _vm._e(),
-                        _vm._v(" "),
-                        residente.rol == "Psicologo"
-                          ? _c("div", [
-                              _vm._v(
-                                "\n                                    Psicólogo\n                                    "
-                              )
-                            ])
-                          : _vm._e(),
-                        _vm._v(" "),
-                        residente.rol == "Terapeuta general"
-                          ? _c("div", [
-                              _vm._v(
-                                "\n                                    Terapeuta general\n                                    "
-                              )
-                            ])
-                          : _vm._e(),
-                        _vm._v(" "),
-                        residente.rol == "Practicante"
-                          ? _c("div", [
-                              _vm._v(
-                                "\n                                    Practicante\n                                    "
-                              )
-                            ])
-                          : _vm._e(),
-                        _vm._v(" "),
-                        residente.rol == "Minutas"
-                          ? _c("div", [
-                              _vm._v(
-                                "\n                                    Minutas\n                                    "
-                              )
-                            ])
-                          : _vm._e(),
-                        _vm._v(" "),
-                        residente.rol == "Cajero"
-                          ? _c("div", [
-                              _vm._v(
-                                "\n                                    Cajero\n                                    "
-                              )
-                            ])
-                          : _vm._e()
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [
-                        residente.estado == "A"
+                        usuario.estado == "1"
                           ? _c("div", [
                               _c(
                                 "span",
@@ -39447,17 +39340,7 @@ var render = function() {
                             ])
                           : _vm._e(),
                         _vm._v(" "),
-                        residente.estado == "E"
-                          ? _c("div", [
-                              _c(
-                                "span",
-                                { staticClass: "badge badge-warning" },
-                                [_vm._v("Activo")]
-                              )
-                            ])
-                          : _vm._e(),
-                        _vm._v(" "),
-                        residente.estado == "I"
+                        usuario.estado == "2"
                           ? _c("div", [
                               _c(
                                 "span",
@@ -39636,22 +39519,22 @@ var render = function() {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.residente,
-                              expression: "residente"
+                              value: _vm.usuario,
+                              expression: "usuario"
                             }
                           ],
                           staticClass: "form-control",
                           attrs: {
                             type: "text",
-                            placeholder: "Nombre de residente"
+                            placeholder: "Nombre de usuario"
                           },
-                          domProps: { value: _vm.residente },
+                          domProps: { value: _vm.usuario },
                           on: {
                             input: function($event) {
                               if ($event.target.composing) {
                                 return
                               }
-                              _vm.residente = $event.target.value
+                              _vm.usuario = $event.target.value
                             }
                           }
                         }),
@@ -39669,8 +39552,8 @@ var render = function() {
                           {
                             name: "show",
                             rawName: "v-show",
-                            value: _vm.errorResidente,
-                            expression: "errorResidente"
+                            value: _vm.errorUsuario,
+                            expression: "errorUsuario"
                           }
                         ],
                         staticClass: "form-group row div-error"
@@ -39716,7 +39599,7 @@ var render = function() {
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
-                            return _vm.crearResidente()
+                            return _vm.crearUsuario()
                           }
                         }
                       },
@@ -39732,7 +39615,7 @@ var render = function() {
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
-                            return _vm.editarResidente()
+                            return _vm.editarUsuario()
                           }
                         }
                       },
@@ -39771,8 +39654,6 @@ var staticRenderFns = [
         _c("th", [_vm._v("Nombre usuario")]),
         _vm._v(" "),
         _c("th", [_vm._v("Email")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Teléfono")]),
         _vm._v(" "),
         _c("th", [_vm._v("Rol")]),
         _vm._v(" "),
@@ -71534,8 +71415,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\sisifo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\sisifo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\desarrollo\github\sisifo\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\desarrollo\github\sisifo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
