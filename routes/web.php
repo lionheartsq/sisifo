@@ -70,7 +70,7 @@ Route::group(['middleware' => ['Superadministrador']], function () {
     Route::put("/asientos/deactivate", "AsientosController@deactivate");
     Route::put("/asientos/activate", "AsientosController@activate");
     Route::get("/asientos/listado", "AsientosController@listado");
-    
+
     Route::get("/asociacion", "AsociacionController@index");
     Route::post("/asociacion/store", "AsociacionController@store");
     Route::put("/asociacion/update", "AsociacionController@update");
@@ -134,13 +134,6 @@ Route::group(['middleware' => ['Superadministrador']], function () {
     Route::put("/facturas/activate", "FacturasController@activate");
     Route::get("/facturas/listado", "FacturasController@listado");
 
-    Route::get("/failed_jobs", "Failed_jobsController@index");
-    Route::post("/failed_jobs/store", "Failed_jobsController@store");
-    Route::put("/failed_jobs/update", "Failed_jobsController@update");
-    Route::put("/failed_jobs/deactivate", "Failed_jobsController@deactivate");
-    Route::put("/failed_jobs/activate", "Failed_jobsController@activate");
-    Route::get("/failed_jobs/listado", "Failed_jobsController@listado");
-
     Route::get("/grupos", "GruposController@index");
     Route::post("/grupos/store", "GruposController@store");
     Route::put("/grupos/update", "GruposController@update");
@@ -168,13 +161,6 @@ Route::group(['middleware' => ['Superadministrador']], function () {
     Route::put("/medida/deactivate", "MedidaController@deactivate");
     Route::put("/medida/activate", "MedidaController@activate");
     Route::get("/medida/listado", "MedidaController@listado");
-
-    Route::get("/migrations", "MigrationsController@index");
-    Route::post("/migrations/store", "MigrationsController@store");
-    Route::put("/migrations/update", "MigrationsController@update");
-    Route::put("/migrations/deactivate", "MigrationsController@deactivate");
-    Route::put("/migrations/activate", "MigrationsController@activate");
-    Route::get("/migrations/listado", "MigrationsController@listado");
 
     Route::get("/pagos", "PagosController@index");
     Route::post("/pagos/store", "PagosController@store");
