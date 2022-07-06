@@ -48,19 +48,21 @@ Route::group(['middleware' => ['Superadministrador']], function () {
     Route::put("/clientes/update", "ClientesController@update");
     Route::put("/clientes/deactivate", "ClientesController@deactivate");
     Route::put("/clientes/activate", "ClientesController@activate");
+    Route::get("/clientes/listado", "ClientesController@listado");
 
     Route::get("/proveedores", "ProveedoresController@index");
     Route::post("/proveedores/store", "ProveedoresController@store");
     Route::put("/proveedores/update", "ProveedoresController@update");
     Route::put("/proveedores/deactivate", "ProveedoresController@deactivate");
     Route::put("/proveedores/activate", "ProveedoresController@activate");
+    Route::get("/proveedores/listado", "ProveedoresController@listado");
 
     Route::get("/usuarios", "UsuariosController@index");
     Route::post("/usuarios/store", "UsuariosController@store");
     Route::put("/usuarios/update", "UsuariosController@update");
     Route::put("/usuarios/deactivate", "UsuariosController@deactivate");
     Route::put("/usuarios/activate", "UsuariosController@activate");
-    Route::get("/listado", "UsuariosController@listado");
+    Route::get("/usuarios/listado", "UsuariosController@listado");
 
     });
 
