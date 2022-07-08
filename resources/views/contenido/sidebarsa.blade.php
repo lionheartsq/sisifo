@@ -13,7 +13,13 @@
                 <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-settings"></i> <b>Administración</b></a>
                 <ul class="nav-dropdown-items">
                     <li @click="menu=1" class="nav-item">
+                        <a class="nav-link" href="#"><i class="icon-book-open"></i> Empresa</a>
+                    </li>
+                    <li @click="menu=2" class="nav-item">
                         <a class="nav-link" href="#"><i class="icon-book-open"></i> Usuarios</a>
+                    </li>
+                    <li @click="menu=3" class="nav-item">
+                        <a class="nav-link" href="#"><i class="icon-book-open"></i> Clientes</a>
                     </li>
                 </ul>
             </li>

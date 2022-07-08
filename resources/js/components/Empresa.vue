@@ -35,10 +35,12 @@
                                 <thead>
                                     <tr>
                                         <th>Opciones</th>
-                                        <th>Documento</th>
                                         <th>Nombre empresa</th>
-                                        <th>Email</th>
-                                        <th>Rol</th>
+                                        <th>Documento</th>
+                                        <th>Representante</th>
+                                        <th>Régimen</th>
+                                        <th>Dirección</th>
+                                        <th>Teléfonos</th>
                                         <th>Estado</th>
                                     </tr>
                                 </thead>
@@ -54,27 +56,24 @@
                                             <i class="icon-pencil" title="Editar datos"></i>
                                             </button> &nbsp;
 
-                                        <template v-if="empresa.estado == 'A'">
+                                        <template v-if="empresa.estado == '1'">
                                             <button type="button" class="btn btn-danger btn-sm" @click="desactivarEmpresa(empresa.id)">
                                                 <i class="icon-trash" title="Desactivar"></i>
                                             </button>
                                         </template>
-                                        <template v-if="empresa.estado == 'E'">
-                                            <button type="button" class="btn btn-danger btn-sm" @click="desactivarEmpresa(empresa.id)">
-                                                <i class="icon-trash" title="Desactivar"></i>
-                                            </button>
-                                        </template>
-                                        <template v-if="empresa.estado == 'I'">
+                                        <template v-if="empresa.estado == '2'">
                                             <button type="button" class="btn btn-success btn-sm" @click="activarEmpresa(empresa.id)">
                                                 <i class="icon-check" title="Reactivar"></i>
                                             </button>
                                         </template>
 
                                         </td>
-                                        <td v-text="empresa.documento"></td>
-                                        <td v-text="empresa.empresa"></td>
-                                        <td v-text="empresa.email"></td>
-                                        <td v-text="empresa.rol"></td>
+                                        <td v-text="empresa.razonSocial"></td>
+                                        <td v-text="empresa.nit"></td>
+                                        <td v-text="empresa.representante"></td>
+                                        <td v-text="empresa.regimen"></td>
+                                        <td v-text="empresa.direccion"></td>
+                                        <td v-text="empresa.telefonos"></td>
                                         <td>
                                             <div v-if="empresa.estado == '1'">
                                             <span class="badge badge-success">Activo</span>

@@ -68,8 +68,31 @@ Vue.use(VueCurrencyFilter,[
 
 Vue.component('example', require('./components/ExampleComponent.vue').default);
 Vue.component('bienvenida', require('./components/Bienvenida.vue').default);
+Vue.component('asientos', require('./components/Asientos.vue').default);
+Vue.component('asociacion', require('./components/Asociacion.vue').default);
+Vue.component('ciudades', require('./components/Ciudades.vue').default);
+Vue.component('clientes', require('./components/Clientes.vue').default);
+Vue.component('cobros', require('./components/Cobros.vue').default);
+Vue.component('cobrosasientos', require('./components/Cobrosasientos.vue').default);
+Vue.component('departamentos', require('./components/Departamentos.vue').default);
+Vue.component('detallefacturas', require('./components/Detallefacturas.vue').default);
+Vue.component('detallepedidos', require('./components/Detallepedidos.vue').default);
+Vue.component('empresa', require('./components/Empresa.vue').default);
+Vue.component('facturas', require('./components/Facturas.vue').default);
+Vue.component('grupos', require('./components/Grupos.vue').default);
+Vue.component('impuesto', require('./components/Impuesto.vue').default);
+Vue.component('libromayor', require('./components/Libromayor.vue').default);
+Vue.component('medida', require('./components/Medida.vue').default);
+Vue.component('pagos', require('./components/Pagos.vue').default);
+Vue.component('pagosasientos', require('./components/Pagosasientos.vue').default);
+Vue.component('pedidos', require('./components/Pedidos.vue').default);
+Vue.component('productos', require('./components/Productos.vue').default);
+Vue.component('proveedores', require('./components/Proveedores.vue').default);
+Vue.component('registros', require('./components/Registros.vue').default);
+Vue.component('roles', require('./components/Roles.vue').default);
+Vue.component('tipofactura', require('./components/Tipofactura.vue').default);
+Vue.component('tipologia', require('./components/Tipologia.vue').default);
 Vue.component('usuarios', require('./components/Usuarios.vue').default);
-
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
