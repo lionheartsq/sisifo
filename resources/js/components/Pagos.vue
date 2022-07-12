@@ -20,10 +20,11 @@
                                 <div class="col-md-9">
                                     <div class="input-group">
                                         <select class="form-control col-md-3" v-model="criterio">
-                                        <option value="documento">Documento</option>
-                                        <option value="nombres">Nombre</option>
-                                        <option value="apellidosr">Rol</option>
-                                        <option value="estado">Estado</option>
+                                        <option value="fechaAbono">FechaAbono</option>
+                                        <option value="valorPago">ValorPago</option>
+                                        <option value="abono">Abono</option>
+                                        <option value="idPedidos">idPedidos</option>
+                                        <option value="idEmpresa">idEmpresa</option>
                                         </select>
                                         <input type="text" v-model="buscar" @keyup.enter="listarPagos(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
                                         <button type="submit" @click="listarPagos(1,buscar,criterio)" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
@@ -34,12 +35,11 @@
                             <table class="table table-bordered table-striped table-sm">
                                 <thead>
                                     <tr>
-                                        <th>Opciones</th>
-                                        <th>Documento</th>
-                                        <th>Nombre pagos</th>
-                                        <th>Email</th>
-                                        <th>Rol</th>
-                                        <th>Estado</th>
+                                        <th>FechaAbono</th>
+                                        <th>ValorPago</th>
+                                        <th>Abono</th>
+                                        <th>idPedidos</th>
+                                        <th>idEmpresa</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -71,10 +71,11 @@
                                         </template>
 
                                         </td>
-                                        <td v-text="pagos.documento"></td>
-                                        <td v-text="pagos.pagos"></td>
-                                        <td v-text="pagos.email"></td>
-                                        <td v-text="pagos.rol"></td>
+                                        <td v-text="pagos.fechaAbono"></td>
+                                        <td v-text="pagos.valorPago"></td>
+                                        <td v-text="pagos.abono"></td>
+                                        <td v-text="pagos.idPedidos"></td>
+                                        <td v-text="pagos.idEmpresa"></td>
                                         <td>
                                             <div v-if="pagos.estado == '1'">
                                             <span class="badge badge-success">Activo</span>

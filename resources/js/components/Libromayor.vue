@@ -20,10 +20,10 @@
                                 <div class="col-md-9">
                                     <div class="input-group">
                                         <select class="form-control col-md-3" v-model="criterio">
-                                        <option value="documento">Documento</option>
-                                        <option value="nombres">Nombre</option>
-                                        <option value="apellidosr">Rol</option>
-                                        <option value="estado">Estado</option>
+                                        <option value="valorEntrada">ValorEntrada</option>
+                                        <option value="valorSalida">ValorSalida</option>
+                                        <option value="acumulado">Acumulado</option>
+                                        <option value="idAsientos">idAsientos</option>
                                         </select>
                                         <input type="text" v-model="buscar" @keyup.enter="listarLibromayor(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
                                         <button type="submit" @click="listarLibromayor(1,buscar,criterio)" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
@@ -34,12 +34,10 @@
                             <table class="table table-bordered table-striped table-sm">
                                 <thead>
                                     <tr>
-                                        <th>Opciones</th>
-                                        <th>Documento</th>
-                                        <th>Nombre libromayor</th>
-                                        <th>Email</th>
-                                        <th>Rol</th>
-                                        <th>Estado</th>
+                                        <th>ValorEntrada</th>
+                                        <th>ValorSalida</th>
+                                        <th>Acumulado</th>
+                                        <th>idAsientos</th>                                     
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -71,10 +69,10 @@
                                         </template>
 
                                         </td>
-                                        <td v-text="libromayor.documento"></td>
-                                        <td v-text="libromayor.libromayor"></td>
-                                        <td v-text="libromayor.email"></td>
-                                        <td v-text="libromayor.rol"></td>
+                                        <td v-text="libromayor.valorEntrada"></td>
+                                        <td v-text="libromayor.valorSalida"></td>
+                                        <td v-text="libromayor.acumulado"></td>
+                                        <td v-text="libromayor.idAsientos"></td>
                                         <td>
                                             <div v-if="libromayor.estado == '1'">
                                             <span class="badge badge-success">Activo</span>

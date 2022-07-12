@@ -20,10 +20,8 @@
                                 <div class="col-md-9">
                                     <div class="input-group">
                                         <select class="form-control col-md-3" v-model="criterio">
-                                        <option value="documento">Documento</option>
-                                        <option value="nombres">Nombre</option>
-                                        <option value="apellidosr">Rol</option>
-                                        <option value="estado">Estado</option>
+                                        <option value="idCobros">idCobros</option>
+                                        <option value="idAsientos">idAsientos</option>                                       
                                         </select>
                                         <input type="text" v-model="buscar" @keyup.enter="listarasientosasientos(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
                                         <button type="submit" @click="listarCobrosasientos(1,buscar,criterio)" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
@@ -34,12 +32,8 @@
                             <table class="table table-bordered table-striped table-sm">
                                 <thead>
                                     <tr>
-                                        <th>Opciones</th>
-                                        <th>Documento</th>
-                                        <th>Nombre cobrosasientos</th>
-                                        <th>Email</th>
-                                        <th>Rol</th>
-                                        <th>Estado</th>
+                                        <th>idCobros</th>
+                                        <th>idAsientos</th>                                        
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -71,10 +65,8 @@
                                         </template>
 
                                         </td>
-                                        <td v-text="cobrosasientos.documento"></td>
-                                        <td v-text="cobrosasientos.cobrosasientos"></td>
-                                        <td v-text="cobrosasientos.email"></td>
-                                        <td v-text="cobrosasientos.rol"></td>
+                                        <td v-text="cobrosasientos.idCobros"></td>
+                                        <td v-text="cobrosasientos.idAsientos"></td>                                       
                                         <td>
                                             <div v-if="cobrosasientos.estado == '1'">
                                             <span class="badge badge-success">Activo</span>

@@ -20,9 +20,8 @@
                                 <div class="col-md-9">
                                     <div class="input-group">
                                         <select class="form-control col-md-3" v-model="criterio">
-                                        <option value="documento">Documento</option>
-                                        <option value="nombres">Nombre</option>
-                                        <option value="apellidosr">Rol</option>
+                                        <option value="detalle">Detalle</option>
+                                        <option value="idDepartamentos">idDepartamentos</option>                                        
                                         <option value="estado">Estado</option>
                                         </select>
                                         <input type="text" v-model="buscar" @keyup.enter="listarCiudades(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
@@ -34,11 +33,8 @@
                             <table class="table table-bordered table-striped table-sm">
                                 <thead>
                                     <tr>
-                                        <th>Opciones</th>
-                                        <th>Documento</th>
-                                        <th>Nombre ciudades</th>
-                                        <th>Email</th>
-                                        <th>Rol</th>
+                                        <th>Detalel</th>
+                                        <th>idDepartamentos</th>                                
                                         <th>Estado</th>
                                     </tr>
                                 </thead>
@@ -71,10 +67,9 @@
                                         </template>
 
                                         </td>
-                                        <td v-text="ciudades.documento"></td>
-                                        <td v-text="ciudades.ciudades"></td>
-                                        <td v-text="ciudades.email"></td>
-                                        <td v-text="ciudades.rol"></td>
+                                        <td v-text="ciudades.detalle"></td>
+                                        <td v-text="ciudades.idDepartamentos"></td>
+                                        <td v-text="ciudades.estado"></td>                              
                                         <td>
                                             <div v-if="ciudades.estado == '1'">
                                             <span class="badge badge-success">Activo</span>

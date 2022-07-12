@@ -20,10 +20,12 @@
                                 <div class="col-md-9">
                                     <div class="input-group">
                                         <select class="form-control col-md-3" v-model="criterio">
-                                        <option value="documento">Documento</option>
-                                        <option value="nombres">Nombre</option>
-                                        <option value="apellidosr">Rol</option>
-                                        <option value="estado">Estado</option>
+                                        <option value="fecha">Fecha</option>
+                                        <option value="concepto">Concepto</option>
+                                        <option value="detalle">Detalle</option>
+                                        <option value="idAsientos">idAsientos</option>
+                                        <option value="entrada">Entrada</option>
+                                        <option value="salida">Salida</option>
                                         </select>
                                         <input type="text" v-model="buscar" @keyup.enter="listarRegistros(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
                                         <button type="submit" @click="listarRegistros(1,buscar,criterio)" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
@@ -34,12 +36,12 @@
                             <table class="table table-bordered table-striped table-sm">
                                 <thead>
                                     <tr>
-                                        <th>Opciones</th>
-                                        <th>Documento</th>
-                                        <th>Nombre registros</th>
-                                        <th>Email</th>
-                                        <th>Rol</th>
-                                        <th>Estado</th>
+                                        <th>Fecha</th>
+                                        <th>Concepto</th>
+                                        <th>Detalle</th>
+                                        <th>idAsientos</th>
+                                        <th>Entrada</th>
+                                        <th>Salida</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -71,10 +73,12 @@
                                         </template>
 
                                         </td>
-                                        <td v-text="registros.documento"></td>
-                                        <td v-text="registros.registros"></td>
-                                        <td v-text="registros.email"></td>
-                                        <td v-text="registros.rol"></td>
+                                        <td v-text="registros.fecha"></td>
+                                        <td v-text="registros.concepto"></td>
+                                        <td v-text="registros.detalle"></td>
+                                        <td v-text="registros.idAsientos"></td>
+                                        <td v-text="registros.entrada"></td>
+                                        <td v-text="registros.salida"></td>
                                         <td>
                                             <div v-if="registros.estado == '1'">
                                             <span class="badge badge-success">Activo</span>

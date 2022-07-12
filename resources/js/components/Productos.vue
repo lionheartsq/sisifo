@@ -20,9 +20,14 @@
                                 <div class="col-md-9">
                                     <div class="input-group">
                                         <select class="form-control col-md-3" v-model="criterio">
-                                        <option value="documento">Documento</option>
-                                        <option value="nombres">Nombre</option>
-                                        <option value="apellidosr">Rol</option>
+                                        <option value="plu">Plu</option>
+                                        <option value="detalle">Detalle</option>
+                                        <option value="idMedida">idMedida</option>
+                                        <option value="valorCompra">ValorCompra</option>
+                                        <option value="pvp">Pvp</option>
+                                        <option value="idImpuesto">idImpuesto</option>
+                                        <option value="idGrupos">idGrupos</option>
+                                        <option value="idEmpresa">idEmpresa</option>
                                         <option value="estado">Estado</option>
                                         </select>
                                         <input type="text" v-model="buscar" @keyup.enter="listarProductos(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
@@ -34,11 +39,14 @@
                             <table class="table table-bordered table-striped table-sm">
                                 <thead>
                                     <tr>
-                                        <th>Opciones</th>
-                                        <th>Documento</th>
-                                        <th>Nombre productos</th>
-                                        <th>Email</th>
-                                        <th>Rol</th>
+                                        <th>Plu</th>
+                                        <th>Detalle</th>
+                                        <th>idMedida</th>
+                                        <th>ValorCompra</th>
+                                        <th>Pvp</th>
+                                        <th>idImpuesto</th>
+                                        <th>idGrupos</th>
+                                        <th>idEmpresa</th>
                                         <th>Estado</th>
                                     </tr>
                                 </thead>
@@ -71,10 +79,15 @@
                                         </template>
 
                                         </td>
-                                        <td v-text="productos.documento"></td>
-                                        <td v-text="productos.productos"></td>
-                                        <td v-text="productos.email"></td>
-                                        <td v-text="productos.rol"></td>
+                                        <td v-text="productos.plu"></td>
+                                        <td v-text="productos.detalle"></td>
+                                        <td v-text="productos.idMedida"></td>
+                                        <td v-text="productos.valorCompra"></td>
+                                        <td v-text="productos.pvp"></td>
+                                        <td v-text="productos.idImpuesto"></td>
+                                        <td v-text="productos.idGrupos"></td>
+                                        <td v-text="productos.idEmpresa"></td>
+                                        <td v-text="productos.estado"></td>
                                         <td>
                                             <div v-if="productos.estado == '1'">
                                             <span class="badge badge-success">Activo</span>

@@ -20,9 +20,12 @@
                                 <div class="col-md-9">
                                     <div class="input-group">
                                         <select class="form-control col-md-3" v-model="criterio">
-                                        <option value="documento">Documento</option>
-                                        <option value="nombres">Nombre</option>
-                                        <option value="apellidosr">Rol</option>
+                                        <option value="nit">Nit</option>
+                                        <option value="razonSocial">RazonSocial</option>
+                                        <option value="contacto">Contacto</option>
+                                        <option value="telefono">Telefono</option>
+                                        <option value="direccion">Direccion</option>
+                                        <option value="correo">Correo</option>
                                         <option value="estado">Estado</option>
                                         </select>
                                         <input type="text" v-model="buscar" @keyup.enter="listarProveedores(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
@@ -34,11 +37,12 @@
                             <table class="table table-bordered table-striped table-sm">
                                 <thead>
                                     <tr>
-                                        <th>Opciones</th>
-                                        <th>Documento</th>
-                                        <th>Nombre proveedores</th>
-                                        <th>Email</th>
-                                        <th>Rol</th>
+                                        <th>Nit</th>
+                                        <th>RazonSocial</th>
+                                        <th>Contacto</th>
+                                        <th>Telefono</th>
+                                        <th>Direccion</th>
+                                        <th>Correo</th>
                                         <th>Estado</th>
                                     </tr>
                                 </thead>
@@ -71,10 +75,13 @@
                                         </template>
 
                                         </td>
-                                        <td v-text="proveedores.documento"></td>
-                                        <td v-text="proveedores.proveedores"></td>
-                                        <td v-text="proveedores.email"></td>
-                                        <td v-text="proveedores.rol"></td>
+                                        <td v-text="proveedores.nit"></td>
+                                        <td v-text="proveedores.razonSocial"></td>
+                                        <td v-text="proveedores.contacto"></td>
+                                        <td v-text="proveedores.telefono"></td>
+                                        <td v-text="proveedores.direccion"></td>
+                                        <td v-text="proveedores.correo"></td>
+                                        <td v-text="proveedores.estado"></td>
                                         <td>
                                             <div v-if="proveedores.estado == '1'">
                                             <span class="badge badge-success">Activo</span>

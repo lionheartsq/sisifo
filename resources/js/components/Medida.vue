@@ -20,9 +20,7 @@
                                 <div class="col-md-9">
                                     <div class="input-group">
                                         <select class="form-control col-md-3" v-model="criterio">
-                                        <option value="documento">Documento</option>
-                                        <option value="nombres">Nombre</option>
-                                        <option value="apellidosr">Rol</option>
+                                        <option value="nombre">Nombre</option>                                                                            
                                         <option value="estado">Estado</option>
                                         </select>
                                         <input type="text" v-model="buscar" @keyup.enter="listarMedida(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
@@ -33,12 +31,8 @@
                             <div class="table-responsive">
                             <table class="table table-bordered table-striped table-sm">
                                 <thead>
-                                    <tr>
-                                        <th>Opciones</th>
-                                        <th>Documento</th>
-                                        <th>Nombre medida</th>
-                                        <th>Email</th>
-                                        <th>Rol</th>
+                                    <tr>                                       
+                                        <th>Nombre</th> 
                                         <th>Estado</th>
                                     </tr>
                                 </thead>
@@ -71,10 +65,8 @@
                                         </template>
 
                                         </td>
-                                        <td v-text="medida.documento"></td>
-                                        <td v-text="medida.medida"></td>
-                                        <td v-text="medida.email"></td>
-                                        <td v-text="medida.rol"></td>
+                                        <td v-text="medida.nombre"></td>
+                                        <td v-text="medida.estado"></td>
                                         <td>
                                             <div v-if="medida.estado == '1'">
                                             <span class="badge badge-success">Activo</span>

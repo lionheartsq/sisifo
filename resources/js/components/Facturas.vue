@@ -20,9 +20,16 @@
                                 <div class="col-md-9">
                                     <div class="input-group">
                                         <select class="form-control col-md-3" v-model="criterio">
-                                        <option value="documento">Documento</option>
-                                        <option value="nombres">Nombre</option>
-                                        <option value="apellidosr">Rol</option>
+                                        <option value="consecutivo">Consecutivo</option>
+                                        <option value="fecha">Fecha</option>
+                                        <option value="valor">Valor</option>
+                                        <option value="impuesto">Impuesto</option>
+                                        <option value="total">Total</option>
+                                        <option value="vendedor">Vendedor</option>
+                                        <option value="idVendedor">idVendedor</option>
+                                        <option value="tipoFactura">tipoFactura</option>
+                                        <option value="idClientes">idClientes</option>
+                                        <option value="idEmpresa">idEmpresa</option>
                                         <option value="estado">Estado</option>
                                         </select>
                                         <input type="text" v-model="buscar" @keyup.enter="listarFacturas(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
@@ -34,11 +41,16 @@
                             <table class="table table-bordered table-striped table-sm">
                                 <thead>
                                     <tr>
-                                        <th>Opciones</th>
-                                        <th>Documento</th>
-                                        <th>Nombre facturas</th>
-                                        <th>Email</th>
-                                        <th>Rol</th>
+                                        <th>Consecutivo</th>
+                                        <th>Fecha</th>
+                                        <th>Valor</th>
+                                        <th>Impuesto</th>
+                                        <th>Total</th>
+                                        <th>Vendedor</th>
+                                        <th>idVendedor</th>
+                                        <th>TipoFactura</th>
+                                        <th>idClientes</th>
+                                        <th>idEmpresa</th>                                        
                                         <th>Estado</th>
                                     </tr>
                                 </thead>
@@ -71,10 +83,17 @@
                                         </template>
 
                                         </td>
-                                        <td v-text="facturas.documento"></td>
-                                        <td v-text="facturas.facturas"></td>
-                                        <td v-text="facturas.email"></td>
-                                        <td v-text="facturas.rol"></td>
+                                        <td v-text="facturas.consecutivo"></td>
+                                        <td v-text="facturas.fecha"></td>
+                                        <td v-text="facturas.valor"></td>
+                                        <td v-text="facturas.impuesto"></td>
+                                        <td v-text="facturas.total"></td>
+                                        <td v-text="facturas.vendedor"></td>
+                                        <td v-text="facturas.idVendedor"></td>
+                                        <td v-text="facturas.tipoFactura"></td>
+                                        <td v-text="facturas.idClientes"></td>
+                                        <td v-text="facturas.idEmpresa"></td>
+                                        <td v-text="facturas.estado"></td>
                                         <td>
                                             <div v-if="facturas.estado == '1'">
                                             <span class="badge badge-success">Activo</span>

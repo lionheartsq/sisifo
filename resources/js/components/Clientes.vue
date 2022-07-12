@@ -20,9 +20,12 @@
                                 <div class="col-md-9">
                                     <div class="input-group">
                                         <select class="form-control col-md-3" v-model="criterio">
-                                        <option value="documento">Documento</option>
-                                        <option value="nombres">Nombre</option>
-                                        <option value="apellidosr">Rol</option>
+                                        <option value="cedula">Cedula</option>
+                                        <option value="nombres">Nombres</option>
+                                        <option value="apellidos">Apellidos</option>
+                                        <option value="direccion">Direccion</option>
+                                        <option value="telefono">Telefono</option>
+                                        <option value="correo">Correo</option>
                                         <option value="estado">Estado</option>
                                         </select>
                                         <input type="text" v-model="buscar" @keyup.enter="listarClientes(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
@@ -34,11 +37,12 @@
                             <table class="table table-bordered table-striped table-sm">
                                 <thead>
                                     <tr>
-                                        <th>Opciones</th>
-                                        <th>Documento</th>
-                                        <th>Nombre clientes</th>
-                                        <th>Email</th>
-                                        <th>Rol</th>
+                                        <th>Cedula</th>
+                                        <th>Nombres</th>
+                                        <th>Apellidos</th>
+                                        <th>Direccion</th>
+                                        <th>Telefono</th>
+                                        <th>Correo</th>
                                         <th>Estado</th>
                                     </tr>
                                 </thead>
@@ -71,10 +75,13 @@
                                         </template>
 
                                         </td>
-                                        <td v-text="clientes.documento"></td>
-                                        <td v-text="clientes.clientes"></td>
-                                        <td v-text="clientes.email"></td>
-                                        <td v-text="clientes.rol"></td>
+                                        <td v-text="clientes.cedula"></td>
+                                        <td v-text="clientes.nombres"></td>
+                                        <td v-text="clientes.apellidos"></td>
+                                        <td v-text="clientes.direccion"></td>
+                                        <td v-text="clientes.telefono"></td>
+                                        <td v-text="clientes.correo"></td>
+                                        <td v-text="clientes.estado"></td>
                                         <td>
                                             <div v-if="clientes.estado == '1'">
                                             <span class="badge badge-success">Activo</span>

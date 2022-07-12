@@ -21,8 +21,12 @@
                                     <div class="input-group">
                                         <select class="form-control col-md-3" v-model="criterio">
                                         <option value="documento">Documento</option>
-                                        <option value="nombres">Nombre</option>
-                                        <option value="apellidosr">Rol</option>
+                                        <option value="email">Email</option>
+                                        <option value="nombres">Nombres</option>
+                                        <option value="apellidos">Apellidos</option>
+                                        <option value="password">Password</option>
+                                        <option value="idEmpresa">idEmpresa</option>
+                                        <option value="idRol">idRol</option>
                                         <option value="estado">Estado</option>
                                         </select>
                                         <input type="text" v-model="buscar" @keyup.enter="listarUsuario(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
@@ -34,11 +38,13 @@
                             <table class="table table-bordered table-striped table-sm">
                                 <thead>
                                     <tr>
-                                        <th>Opciones</th>
                                         <th>Documento</th>
-                                        <th>Nombre usuario</th>
                                         <th>Email</th>
-                                        <th>Rol</th>
+                                        <th>Nombres</th>
+                                        <th>Apellidos</th>
+                                        <th>Password</th>
+                                        <th>idEmpresa</th>
+                                        <th>idRol</th>
                                         <th>Estado</th>
                                     </tr>
                                 </thead>
@@ -72,9 +78,13 @@
 
                                         </td>
                                         <td v-text="usuario.documento"></td>
-                                        <td v-text="usuario.usuario"></td>
                                         <td v-text="usuario.email"></td>
-                                        <td v-text="usuario.rol"></td>
+                                        <td v-text="usuario.nombres"></td>
+                                        <td v-text="usuario.apellidos"></td>
+                                        <td v-text="usuario.password"></td>
+                                        <td v-text="usuario.idEmpresa"></td>
+                                        <td v-text="usuario.idRol"></td>
+                                        <td v-text="usuario.estado"></td>
                                         <td>
                                             <div v-if="usuario.estado == '1'">
                                             <span class="badge badge-success">Activo</span>

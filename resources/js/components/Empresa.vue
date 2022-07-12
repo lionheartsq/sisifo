@@ -20,9 +20,13 @@
                                 <div class="col-md-9">
                                     <div class="input-group">
                                         <select class="form-control col-md-3" v-model="criterio">
-                                        <option value="documento">Documento</option>
-                                        <option value="nombres">Nombre</option>
-                                        <option value="apellidosr">Rol</option>
+                                        <option value="razonSocial">RazonSocial</option>
+                                        <option value="representante">Representante</option>
+                                        <option value="nit">Nit</option>
+                                        <option value="regimen">Regimen</option>
+                                        <option value="direccion">Direccion</option>
+                                        <option value="telefonos">Telefonos</option>
+                                        <option value="tipo">Tipo</option>
                                         <option value="estado">Estado</option>
                                         </select>
                                         <input type="text" v-model="buscar" @keyup.enter="listarEmpresa(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
@@ -34,13 +38,13 @@
                             <table class="table table-bordered table-striped table-sm">
                                 <thead>
                                     <tr>
-                                        <th>Opciones</th>
-                                        <th>Nombre empresa</th>
-                                        <th>Documento</th>
+                                        <th>RazonSocial</th>
                                         <th>Representante</th>
-                                        <th>Régimen</th>
-                                        <th>Dirección</th>
-                                        <th>Teléfonos</th>
+                                        <th>Nit</th>
+                                        <th>Regimen</th>
+                                        <th>Direccion</th>
+                                        <th>Telefonos</th>
+                                        <th>Tipo</th>
                                         <th>Estado</th>
                                     </tr>
                                 </thead>
@@ -69,11 +73,13 @@
 
                                         </td>
                                         <td v-text="empresa.razonSocial"></td>
-                                        <td v-text="empresa.nit"></td>
                                         <td v-text="empresa.representante"></td>
+                                        <td v-text="empresa.nit"></td>                                        
                                         <td v-text="empresa.regimen"></td>
                                         <td v-text="empresa.direccion"></td>
                                         <td v-text="empresa.telefonos"></td>
+                                        <td v-text="empresa.tipo"></td>
+                                        <td v-text="empresa.estado"></td>
                                         <td>
                                             <div v-if="empresa.estado == '1'">
                                             <span class="badge badge-success">Activo</span>

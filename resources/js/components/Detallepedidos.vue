@@ -20,10 +20,12 @@
                                 <div class="col-md-9">
                                     <div class="input-group">
                                         <select class="form-control col-md-3" v-model="criterio">
-                                        <option value="documento">Documento</option>
-                                        <option value="nombres">Nombre</option>
-                                        <option value="apellidosr">Rol</option>
-                                        <option value="estado">Estado</option>
+                                        <option value="cantidad">Cantidad</option>
+                                        <option value="valor">Valor</option>
+                                        <option value="valorImpuesto">ValorImpuesto</option>
+                                        <option value="total">Total</option>
+                                        <option value="idPedidos">idPedidos</option>
+                                        <option value="idProductos">idProductos</option>
                                         </select>
                                         <input type="text" v-model="buscar" @keyup.enter="listarDetallepedidos(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
                                         <button type="submit" @click="listarDetallepedidos(1,buscar,criterio)" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
@@ -34,12 +36,12 @@
                             <table class="table table-bordered table-striped table-sm">
                                 <thead>
                                     <tr>
-                                        <th>Opciones</th>
-                                        <th>Documento</th>
-                                        <th>Nombre detallepedidos</th>
-                                        <th>Email</th>
-                                        <th>Rol</th>
-                                        <th>Estado</th>
+                                        <th>Cantidad</th>
+                                        <th>Valor</th>
+                                        <th>ValorImpuesto</th>
+                                        <th>Total</th>
+                                        <th>idPedidos</th>
+                                        <th>idProductos</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -71,10 +73,12 @@
                                         </template>
 
                                         </td>
-                                        <td v-text="detallepedidos.documento"></td>
-                                        <td v-text="detallepedidos.detallepedidos"></td>
-                                        <td v-text="detallepedidos.email"></td>
-                                        <td v-text="detallepedidos.rol"></td>
+                                        <td v-text="detallepedidos.cantidad"></td>
+                                        <td v-text="detallepedidos.valor"></td>
+                                        <td v-text="detallepedidos.valorImpuesto"></td>
+                                        <td v-text="detallepedidos.total"></td>
+                                        <td v-text="detallepedidos.idPedidos"></td>
+                                        <td v-text="detallepedidos.idProductos"></td>
                                         <td>
                                             <div v-if="detallepedidos.estado == '1'">
                                             <span class="badge badge-success">Activo</span>

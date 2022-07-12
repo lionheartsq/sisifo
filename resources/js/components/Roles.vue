@@ -19,10 +19,8 @@
                             <div class="form-group row">
                                 <div class="col-md-9">
                                     <div class="input-group">
-                                        <select class="form-control col-md-3" v-model="criterio">
-                                        <option value="documento">Documento</option>
-                                        <option value="nombres">Nombre</option>
-                                        <option value="apellidosr">Rol</option>
+                                        <select class="form-control col-md-3" v-model="criterio">                                        
+                                        <option value="rol">Rol</option>
                                         <option value="estado">Estado</option>
                                         </select>
                                         <input type="text" v-model="buscar" @keyup.enter="listarRoles(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
@@ -34,10 +32,6 @@
                             <table class="table table-bordered table-striped table-sm">
                                 <thead>
                                     <tr>
-                                        <th>Opciones</th>
-                                        <th>Documento</th>
-                                        <th>Nombre roles</th>
-                                        <th>Email</th>
                                         <th>Rol</th>
                                         <th>Estado</th>
                                     </tr>
@@ -71,10 +65,8 @@
                                         </template>
 
                                         </td>
-                                        <td v-text="roles.documento"></td>
-                                        <td v-text="roles.roles"></td>
-                                        <td v-text="roles.email"></td>
                                         <td v-text="roles.rol"></td>
+                                        <td v-text="roles.estado"></td>
                                         <td>
                                             <div v-if="roles.estado == '1'">
                                             <span class="badge badge-success">Activo</span>

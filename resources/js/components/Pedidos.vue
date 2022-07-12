@@ -20,9 +20,16 @@
                                 <div class="col-md-9">
                                     <div class="input-group">
                                         <select class="form-control col-md-3" v-model="criterio">
-                                        <option value="documento">Documento</option>
-                                        <option value="nombres">Nombre</option>
-                                        <option value="apellidosr">Rol</option>
+                                        <option value="consecutivo">Consecutivo</option>
+                                        <option value="fecha">Fecha</option>
+                                        <option value="valor">Valor</option>
+                                        <option value="impuesto">Impuesto</option>
+                                        <option value="total">Total</option>
+                                        <option value="vendedor">Vendedor</option>
+                                        <option value="idVendedor">idVendedor</option>
+                                        <option value="idTipoFactura">idTipoFactura</option>
+                                        <option value="idProveedores">idProveedores</option>
+                                        <option value="idEmpresa">idEmpresa</option>
                                         <option value="estado">Estado</option>
                                         </select>
                                         <input type="text" v-model="buscar" @keyup.enter="listarPedidos(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
@@ -34,11 +41,16 @@
                             <table class="table table-bordered table-striped table-sm">
                                 <thead>
                                     <tr>
-                                        <th>Opciones</th>
-                                        <th>Documento</th>
-                                        <th>Nombre pedidos</th>
-                                        <th>Email</th>
-                                        <th>Rol</th>
+                                        <th>Consecutivo</th>
+                                        <th>Fecha</th>
+                                        <th>Valor</th>
+                                        <th>Impuesto</th>
+                                        <th>Total</th>
+                                        <th>Vendedor</th>
+                                        <th>idVendedor</th>
+                                        <th>idTipoFactura</th>
+                                        <th>idProveedores</th>
+                                        <th>idEmpresa</th>
                                         <th>Estado</th>
                                     </tr>
                                 </thead>
@@ -71,10 +83,17 @@
                                         </template>
 
                                         </td>
-                                        <td v-text="pedidos.documento"></td>
-                                        <td v-text="pedidos.pedidos"></td>
-                                        <td v-text="pedidos.email"></td>
-                                        <td v-text="pedidos.rol"></td>
+                                        <td v-text="pedidos.consecutivo"></td>
+                                        <td v-text="pedidos.fecha"></td>
+                                        <td v-text="pedidos.valor"></td>
+                                        <td v-text="pedidos.impuesto"></td>
+                                        <td v-text="pedidos.total"></td>
+                                        <td v-text="pedidos.vendedor"></td>
+                                        <td v-text="pedidos.idVendedor"></td>
+                                        <td v-text="pedidos.idTipoFactura"></td>
+                                        <td v-text="pedidos.idProveedores"></td>
+                                        <td v-text="pedidos.idEmpresa"></td>
+                                        <td v-text="pedidos.estado"></td>
                                         <td>
                                             <div v-if="pedidos.estado == '1'">
                                             <span class="badge badge-success">Activo</span>
