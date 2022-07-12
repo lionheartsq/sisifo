@@ -2108,11 +2108,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -50055,7 +50050,7 @@ var render = function() {
                             ]
                           ),
                           _vm._v("  \n\n                                "),
-                          asientos.estado == "A"
+                          asientos.estado == "1"
                             ? [
                                 _c(
                                   "button",
@@ -50080,32 +50075,7 @@ var render = function() {
                               ]
                             : _vm._e(),
                           _vm._v(" "),
-                          asientos.estado == "E"
-                            ? [
-                                _c(
-                                  "button",
-                                  {
-                                    staticClass: "btn btn-danger btn-sm",
-                                    attrs: { type: "button" },
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.desactivarAsientos(
-                                          asientos.id
-                                        )
-                                      }
-                                    }
-                                  },
-                                  [
-                                    _c("i", {
-                                      staticClass: "icon-trash",
-                                      attrs: { title: "Desactivar" }
-                                    })
-                                  ]
-                                )
-                              ]
-                            : _vm._e(),
-                          _vm._v(" "),
-                          asientos.estado == "I"
+                          asientos.estado == "2"
                             ? [
                                 _c(
                                   "button",
