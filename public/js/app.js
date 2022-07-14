@@ -2108,6 +2108,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2356,13 +2358,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -2916,10 +2911,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3168,6 +3159,14 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3732,6 +3731,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3980,13 +3981,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -4537,13 +4531,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -4792,6 +4779,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -5356,6 +5348,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -5604,6 +5601,13 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -6200,6 +6204,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -6599,13 +6623,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -6854,10 +6871,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
 //
 //
 //
@@ -7417,7 +7430,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -7666,13 +7678,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -8230,6 +8235,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -8629,13 +8636,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -8884,6 +8884,26 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -9448,6 +9468,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -9696,6 +9730,14 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -10260,6 +10302,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -10659,13 +10706,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -10914,13 +10954,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -11726,6 +11759,16 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -49924,20 +49967,24 @@ var render = function() {
                     }
                   },
                   [
-                    _c("option", { attrs: { value: "documento" } }, [
-                      _vm._v("Documento")
+                    _c("option", { attrs: { value: "fecha" } }, [
+                      _vm._v("Fecha")
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "nombres" } }, [
-                      _vm._v("Nombre")
+                    _c("option", { attrs: { value: "concepto" } }, [
+                      _vm._v("Concepto")
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "apellidosr" } }, [
-                      _vm._v("Rol")
+                    _c("option", { attrs: { value: "detalle" } }, [
+                      _vm._v("Detalle")
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "estado" } }, [
-                      _vm._v("Estado")
+                    _c("option", { attrs: { value: "tipologia" } }, [
+                      _vm._v("Tipologia")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "idEmpresa" } }, [
+                      _vm._v("idEmpresa")
                     ])
                   ]
                 ),
@@ -50102,19 +50149,23 @@ var render = function() {
                       ),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(asientos.documento) }
+                        domProps: { textContent: _vm._s(asientos.fecha) }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(asientos.asientos) }
+                        domProps: { textContent: _vm._s(asientos.concepto) }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(asientos.email) }
+                        domProps: { textContent: _vm._s(asientos.detalle) }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(asientos.rol) }
+                        domProps: { textContent: _vm._s(asientos.tipologia) }
+                      }),
+                      _vm._v(" "),
+                      _c("td", {
+                        domProps: { textContent: _vm._s(asientos.idEmpresa) }
                       }),
                       _vm._v(" "),
                       _c("td", [
@@ -50437,15 +50488,15 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", [_vm._v("Opciones")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Documento")]),
+        _c("th", [_vm._v("Fecha")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Nombre asientos")]),
+        _c("th", [_vm._v("Concepto")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Email")]),
+        _c("th", [_vm._v("Detalle")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Rol")]),
+        _c("th", [_vm._v("Tipologia")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Estado")])
+        _c("th", [_vm._v("idEmpresa")])
       ])
     ])
   }
@@ -50530,20 +50581,12 @@ var render = function() {
                     }
                   },
                   [
-                    _c("option", { attrs: { value: "documento" } }, [
-                      _vm._v("Documento")
+                    _c("option", { attrs: { value: "idClientes" } }, [
+                      _vm._v("idClientes")
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "nombres" } }, [
-                      _vm._v("Nombre")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "apellidosr" } }, [
-                      _vm._v("Rol")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "estado" } }, [
-                      _vm._v("Estado")
+                    _c("option", { attrs: { value: "idEmpresa" } }, [
+                      _vm._v("idEmpresa")
                     ])
                   ]
                 ),
@@ -50735,19 +50778,11 @@ var render = function() {
                       ),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(asociacion.documento) }
+                        domProps: { textContent: _vm._s(asociacion.idClientes) }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(asociacion.asociacion) }
-                      }),
-                      _vm._v(" "),
-                      _c("td", {
-                        domProps: { textContent: _vm._s(asociacion.email) }
-                      }),
-                      _vm._v(" "),
-                      _c("td", {
-                        domProps: { textContent: _vm._s(asociacion.rol) }
+                        domProps: { textContent: _vm._s(asociacion.idEmpresa) }
                       }),
                       _vm._v(" "),
                       _c("td", [
@@ -51072,15 +51107,9 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", [_vm._v("Opciones")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Documento")]),
+        _c("th", [_vm._v("idClientes")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Nombre asociacion")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Email")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Rol")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Estado")])
+        _c("th", [_vm._v("idEmpresa")])
       ])
     ])
   }
@@ -51223,16 +51252,12 @@ var render = function() {
                     }
                   },
                   [
-                    _c("option", { attrs: { value: "documento" } }, [
-                      _vm._v("Documento")
+                    _c("option", { attrs: { value: "detalle" } }, [
+                      _vm._v("Detalle")
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "nombres" } }, [
-                      _vm._v("Nombre")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "apellidosr" } }, [
-                      _vm._v("Rol")
+                    _c("option", { attrs: { value: "idDepartamentos" } }, [
+                      _vm._v("idDepartamentos")
                     ]),
                     _vm._v(" "),
                     _c("option", { attrs: { value: "estado" } }, [
@@ -51426,19 +51451,17 @@ var render = function() {
                       ),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(ciudades.documento) }
+                        domProps: { textContent: _vm._s(ciudades.detalle) }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(ciudades.ciudades) }
+                        domProps: {
+                          textContent: _vm._s(ciudades.idDepartamentos)
+                        }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(ciudades.email) }
-                      }),
-                      _vm._v(" "),
-                      _c("td", {
-                        domProps: { textContent: _vm._s(ciudades.rol) }
+                        domProps: { textContent: _vm._s(ciudades.estado) }
                       }),
                       _vm._v(" "),
                       _c("td", [
@@ -51761,13 +51784,9 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", [_vm._v("Opciones")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Documento")]),
+        _c("th", [_vm._v("Detalle")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Nombre ciudades")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Email")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Rol")]),
+        _c("th", [_vm._v("idDepartamentos")]),
         _vm._v(" "),
         _c("th", [_vm._v("Estado")])
       ])
@@ -51854,16 +51873,28 @@ var render = function() {
                     }
                   },
                   [
-                    _c("option", { attrs: { value: "documento" } }, [
-                      _vm._v("Documento")
+                    _c("option", { attrs: { value: "cedula" } }, [
+                      _vm._v("Cedula")
                     ]),
                     _vm._v(" "),
                     _c("option", { attrs: { value: "nombres" } }, [
-                      _vm._v("Nombre")
+                      _vm._v("Nombres")
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "apellidosr" } }, [
-                      _vm._v("Rol")
+                    _c("option", { attrs: { value: "apellidos" } }, [
+                      _vm._v("Apellidos")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "direccion" } }, [
+                      _vm._v("Direccion")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "telefono" } }, [
+                      _vm._v("Telefono")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "correo" } }, [
+                      _vm._v("Correo")
                     ]),
                     _vm._v(" "),
                     _c("option", { attrs: { value: "estado" } }, [
@@ -52057,19 +52088,31 @@ var render = function() {
                       ),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(clientes.documento) }
+                        domProps: { textContent: _vm._s(clientes.cedula) }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(clientes.clientes) }
+                        domProps: { textContent: _vm._s(clientes.nombres) }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(clientes.email) }
+                        domProps: { textContent: _vm._s(clientes.apellidos) }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(clientes.rol) }
+                        domProps: { textContent: _vm._s(clientes.direccion) }
+                      }),
+                      _vm._v(" "),
+                      _c("td", {
+                        domProps: { textContent: _vm._s(clientes.telefono) }
+                      }),
+                      _vm._v(" "),
+                      _c("td", {
+                        domProps: { textContent: _vm._s(clientes.correo) }
+                      }),
+                      _vm._v(" "),
+                      _c("td", {
+                        domProps: { textContent: _vm._s(clientes.estado) }
                       }),
                       _vm._v(" "),
                       _c("td", [
@@ -52392,13 +52435,17 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", [_vm._v("Opciones")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Documento")]),
+        _c("th", [_vm._v("Cedula")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Nombre clientes")]),
+        _c("th", [_vm._v("Nombres")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Email")]),
+        _c("th", [_vm._v("Apellidos")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Rol")]),
+        _c("th", [_vm._v("Direccion")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Telefono")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Correo")]),
         _vm._v(" "),
         _c("th", [_vm._v("Estado")])
       ])
@@ -52485,20 +52532,24 @@ var render = function() {
                     }
                   },
                   [
-                    _c("option", { attrs: { value: "documento" } }, [
-                      _vm._v("Documento")
+                    _c("option", { attrs: { value: "fechaAbono" } }, [
+                      _vm._v("fechaAbono")
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "nombres" } }, [
-                      _vm._v("Nombre")
+                    _c("option", { attrs: { value: "valorCobro" } }, [
+                      _vm._v("valorCobro")
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "apellidosr" } }, [
-                      _vm._v("Rol")
+                    _c("option", { attrs: { value: "abono" } }, [
+                      _vm._v("Abono")
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "estado" } }, [
-                      _vm._v("Estado")
+                    _c("option", { attrs: { value: "idFacturas" } }, [
+                      _vm._v("idFacturas")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "idEmpresa" } }, [
+                      _vm._v("idEmpresa")
                     ])
                   ]
                 ),
@@ -52684,19 +52735,23 @@ var render = function() {
                       ),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(cobros.documento) }
+                        domProps: { textContent: _vm._s(cobros.fechaAbono) }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(cobros.cobros) }
+                        domProps: { textContent: _vm._s(cobros.valorCobro) }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(cobros.email) }
+                        domProps: { textContent: _vm._s(cobros.abono) }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(cobros.rol) }
+                        domProps: { textContent: _vm._s(cobros.idFacturas) }
+                      }),
+                      _vm._v(" "),
+                      _c("td", {
+                        domProps: { textContent: _vm._s(cobros.idEmpresa) }
                       }),
                       _vm._v(" "),
                       _c("td", [
@@ -53019,15 +53074,15 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", [_vm._v("Opciones")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Documento")]),
+        _c("th", [_vm._v("Fecha Abono")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Nombre cobros")]),
+        _c("th", [_vm._v("Valor Cobro")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Email")]),
+        _c("th", [_vm._v("Abono")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Rol")]),
+        _c("th", [_vm._v("idFacturas")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Estado")])
+        _c("th", [_vm._v("idEmpresa")])
       ])
     ])
   }
@@ -53112,20 +53167,12 @@ var render = function() {
                     }
                   },
                   [
-                    _c("option", { attrs: { value: "documento" } }, [
-                      _vm._v("Documento")
+                    _c("option", { attrs: { value: "idCobros" } }, [
+                      _vm._v("idCobros")
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "nombres" } }, [
-                      _vm._v("Nombre")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "apellidosr" } }, [
-                      _vm._v("Rol")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "estado" } }, [
-                      _vm._v("Estado")
+                    _c("option", { attrs: { value: "idAsientos" } }, [
+                      _vm._v("idAsientos")
                     ])
                   ]
                 ),
@@ -53326,22 +53373,14 @@ var render = function() {
                       _vm._v(" "),
                       _c("td", {
                         domProps: {
-                          textContent: _vm._s(cobrosasientos.documento)
+                          textContent: _vm._s(cobrosasientos.idCobros)
                         }
                       }),
                       _vm._v(" "),
                       _c("td", {
                         domProps: {
-                          textContent: _vm._s(cobrosasientos.cobrosasientos)
+                          textContent: _vm._s(cobrosasientos.idAsientos)
                         }
-                      }),
-                      _vm._v(" "),
-                      _c("td", {
-                        domProps: { textContent: _vm._s(cobrosasientos.email) }
-                      }),
-                      _vm._v(" "),
-                      _c("td", {
-                        domProps: { textContent: _vm._s(cobrosasientos.rol) }
                       }),
                       _vm._v(" "),
                       _c("td", [
@@ -53666,15 +53705,9 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", [_vm._v("Opciones")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Documento")]),
+        _c("th", [_vm._v("idCobros")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Nombre cobrosasientos")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Email")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Rol")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Estado")])
+        _c("th", [_vm._v("idAsientos")])
       ])
     ])
   }
@@ -53759,16 +53792,8 @@ var render = function() {
                     }
                   },
                   [
-                    _c("option", { attrs: { value: "documento" } }, [
-                      _vm._v("Documento")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "nombres" } }, [
-                      _vm._v("Nombre")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "apellidosr" } }, [
-                      _vm._v("Rol")
+                    _c("option", { attrs: { value: "detalle" } }, [
+                      _vm._v("Detalle")
                     ]),
                     _vm._v(" "),
                     _c("option", { attrs: { value: "estado" } }, [
@@ -53972,23 +53997,11 @@ var render = function() {
                       ),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: {
-                          textContent: _vm._s(departamentos.documento)
-                        }
+                        domProps: { textContent: _vm._s(departamentos.detalle) }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: {
-                          textContent: _vm._s(departamentos.departamentos)
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("td", {
-                        domProps: { textContent: _vm._s(departamentos.email) }
-                      }),
-                      _vm._v(" "),
-                      _c("td", {
-                        domProps: { textContent: _vm._s(departamentos.rol) }
+                        domProps: { textContent: _vm._s(departamentos.estado) }
                       }),
                       _vm._v(" "),
                       _c("td", [
@@ -54313,13 +54326,7 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", [_vm._v("Opciones")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Documento")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Nombre departamentos")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Email")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Rol")]),
+        _c("th", [_vm._v("Detalle")]),
         _vm._v(" "),
         _c("th", [_vm._v("Estado")])
       ])
@@ -54406,20 +54413,28 @@ var render = function() {
                     }
                   },
                   [
-                    _c("option", { attrs: { value: "documento" } }, [
-                      _vm._v("Documento")
+                    _c("option", { attrs: { value: "cantidad" } }, [
+                      _vm._v("Cantidad")
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "nombres" } }, [
-                      _vm._v("Nombre")
+                    _c("option", { attrs: { value: "valor" } }, [
+                      _vm._v("Valor")
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "apellidosr" } }, [
-                      _vm._v("Rol")
+                    _c("option", { attrs: { value: "valorImpuesto" } }, [
+                      _vm._v("ValorImpuesto")
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "estado" } }, [
-                      _vm._v("Estado")
+                    _c("option", { attrs: { value: "total" } }, [
+                      _vm._v("Total")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "idFacturas" } }, [
+                      _vm._v("idFacturas")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "idProductos" } }, [
+                      _vm._v("idProductos")
                     ])
                   ]
                 ),
@@ -54620,22 +54635,34 @@ var render = function() {
                       _vm._v(" "),
                       _c("td", {
                         domProps: {
-                          textContent: _vm._s(detallefacturas.documento)
+                          textContent: _vm._s(detallefacturas.cantidad)
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("td", {
+                        domProps: { textContent: _vm._s(detallefacturas.valor) }
+                      }),
+                      _vm._v(" "),
+                      _c("td", {
+                        domProps: {
+                          textContent: _vm._s(detallefacturas.valorImpuesto)
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("td", {
+                        domProps: { textContent: _vm._s(detallefacturas.total) }
+                      }),
+                      _vm._v(" "),
+                      _c("td", {
+                        domProps: {
+                          textContent: _vm._s(detallefacturas.idFacturas)
                         }
                       }),
                       _vm._v(" "),
                       _c("td", {
                         domProps: {
-                          textContent: _vm._s(detallefacturas.detallefacturas)
+                          textContent: _vm._s(detallefacturas.idProductos)
                         }
-                      }),
-                      _vm._v(" "),
-                      _c("td", {
-                        domProps: { textContent: _vm._s(detallefacturas.email) }
-                      }),
-                      _vm._v(" "),
-                      _c("td", {
-                        domProps: { textContent: _vm._s(detallefacturas.rol) }
                       }),
                       _vm._v(" "),
                       _c("td", [
@@ -54960,15 +54987,17 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", [_vm._v("Opciones")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Documento")]),
+        _c("th", [_vm._v("Cantidad")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Nombre detallefacturas")]),
+        _c("th", [_vm._v("Valor")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Email")]),
+        _c("th", [_vm._v("Valor Impuesto")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Rol")]),
+        _c("th", [_vm._v("Total")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Estado")])
+        _c("th", [_vm._v("idFacturas")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("idProductos")])
       ])
     ])
   }
@@ -55053,20 +55082,28 @@ var render = function() {
                     }
                   },
                   [
-                    _c("option", { attrs: { value: "documento" } }, [
-                      _vm._v("Documento")
+                    _c("option", { attrs: { value: "cantidad" } }, [
+                      _vm._v("Cantidad")
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "nombres" } }, [
-                      _vm._v("Nombre")
+                    _c("option", { attrs: { value: "valor" } }, [
+                      _vm._v("Valor")
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "apellidosr" } }, [
-                      _vm._v("Rol")
+                    _c("option", { attrs: { value: "valorImpuesto" } }, [
+                      _vm._v("ValorImpuesto")
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "estado" } }, [
-                      _vm._v("Estado")
+                    _c("option", { attrs: { value: "total" } }, [
+                      _vm._v("Total")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "idPedidos" } }, [
+                      _vm._v("idPedidos")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "idProductos" } }, [
+                      _vm._v("idProductos")
                     ])
                   ]
                 ),
@@ -55267,22 +55304,34 @@ var render = function() {
                       _vm._v(" "),
                       _c("td", {
                         domProps: {
-                          textContent: _vm._s(detallepedidos.documento)
+                          textContent: _vm._s(detallepedidos.cantidad)
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("td", {
+                        domProps: { textContent: _vm._s(detallepedidos.valor) }
+                      }),
+                      _vm._v(" "),
+                      _c("td", {
+                        domProps: {
+                          textContent: _vm._s(detallepedidos.valorImpuesto)
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("td", {
+                        domProps: { textContent: _vm._s(detallepedidos.total) }
+                      }),
+                      _vm._v(" "),
+                      _c("td", {
+                        domProps: {
+                          textContent: _vm._s(detallepedidos.idPedidos)
                         }
                       }),
                       _vm._v(" "),
                       _c("td", {
                         domProps: {
-                          textContent: _vm._s(detallepedidos.detallepedidos)
+                          textContent: _vm._s(detallepedidos.idProductos)
                         }
-                      }),
-                      _vm._v(" "),
-                      _c("td", {
-                        domProps: { textContent: _vm._s(detallepedidos.email) }
-                      }),
-                      _vm._v(" "),
-                      _c("td", {
-                        domProps: { textContent: _vm._s(detallepedidos.rol) }
                       }),
                       _vm._v(" "),
                       _c("td", [
@@ -55607,15 +55656,17 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", [_vm._v("Opciones")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Documento")]),
+        _c("th", [_vm._v("Cantidad")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Nombre detallepedidos")]),
+        _c("th", [_vm._v("Valor")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Email")]),
+        _c("th", [_vm._v("Valor Impuesto")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Rol")]),
+        _c("th", [_vm._v("Total")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Estado")])
+        _c("th", [_vm._v("idPedidos")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("idProductos")])
       ])
     ])
   }
@@ -55700,16 +55751,30 @@ var render = function() {
                     }
                   },
                   [
-                    _c("option", { attrs: { value: "documento" } }, [
-                      _vm._v("Documento")
+                    _c("option", { attrs: { value: "razonSocial" } }, [
+                      _vm._v("RazonSocial")
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "nombres" } }, [
-                      _vm._v("Nombre")
+                    _c("option", { attrs: { value: "representante" } }, [
+                      _vm._v("Representante")
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "apellidosr" } }, [
-                      _vm._v("Rol")
+                    _c("option", { attrs: { value: "nit" } }, [_vm._v("Nit")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "regimen" } }, [
+                      _vm._v("Regimen")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "direccion" } }, [
+                      _vm._v("Direccion")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "telefonos" } }, [
+                      _vm._v("Telefonos")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "tipo" } }, [
+                      _vm._v("Tipo")
                     ]),
                     _vm._v(" "),
                     _c("option", { attrs: { value: "estado" } }, [
@@ -55880,11 +55945,11 @@ var render = function() {
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(empresa.nit) }
+                        domProps: { textContent: _vm._s(empresa.representante) }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(empresa.representante) }
+                        domProps: { textContent: _vm._s(empresa.nit) }
                       }),
                       _vm._v(" "),
                       _c("td", {
@@ -55897,6 +55962,14 @@ var render = function() {
                       _vm._v(" "),
                       _c("td", {
                         domProps: { textContent: _vm._s(empresa.telefonos) }
+                      }),
+                      _vm._v(" "),
+                      _c("td", {
+                        domProps: { textContent: _vm._s(empresa.tipo) }
+                      }),
+                      _vm._v(" "),
+                      _c("td", {
+                        domProps: { textContent: _vm._s(empresa.estado) }
                       }),
                       _vm._v(" "),
                       _c("td", [
@@ -56219,17 +56292,19 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", [_vm._v("Opciones")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Nombre empresa")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Documento")]),
+        _c("th", [_vm._v("Razon Social")]),
         _vm._v(" "),
         _c("th", [_vm._v("Representante")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Régimen")]),
+        _c("th", [_vm._v("Nit")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Dirección")]),
+        _c("th", [_vm._v("Regimen")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Teléfonos")]),
+        _c("th", [_vm._v("Direccion")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Telefonos")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Tipo")]),
         _vm._v(" "),
         _c("th", [_vm._v("Estado")])
       ])
@@ -56363,16 +56438,44 @@ var render = function() {
                     }
                   },
                   [
-                    _c("option", { attrs: { value: "documento" } }, [
-                      _vm._v("Documento")
+                    _c("option", { attrs: { value: "consecutivo" } }, [
+                      _vm._v("Consecutivo")
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "nombres" } }, [
-                      _vm._v("Nombre")
+                    _c("option", { attrs: { value: "fecha" } }, [
+                      _vm._v("Fecha")
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "apellidosr" } }, [
-                      _vm._v("Rol")
+                    _c("option", { attrs: { value: "valor" } }, [
+                      _vm._v("Valor")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "impuesto" } }, [
+                      _vm._v("Impuesto")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "total" } }, [
+                      _vm._v("Total")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "vendedor" } }, [
+                      _vm._v("Vendedor")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "idVendedor" } }, [
+                      _vm._v("idVendedor")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "tipoFactura" } }, [
+                      _vm._v("tipoFactura")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "idClientes" } }, [
+                      _vm._v("idClientes")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "idEmpresa" } }, [
+                      _vm._v("idEmpresa")
                     ]),
                     _vm._v(" "),
                     _c("option", { attrs: { value: "estado" } }, [
@@ -56566,19 +56669,47 @@ var render = function() {
                       ),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(facturas.documento) }
+                        domProps: { textContent: _vm._s(facturas.consecutivo) }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(facturas.facturas) }
+                        domProps: { textContent: _vm._s(facturas.fecha) }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(facturas.email) }
+                        domProps: { textContent: _vm._s(facturas.valor) }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(facturas.rol) }
+                        domProps: { textContent: _vm._s(facturas.impuesto) }
+                      }),
+                      _vm._v(" "),
+                      _c("td", {
+                        domProps: { textContent: _vm._s(facturas.total) }
+                      }),
+                      _vm._v(" "),
+                      _c("td", {
+                        domProps: { textContent: _vm._s(facturas.vendedor) }
+                      }),
+                      _vm._v(" "),
+                      _c("td", {
+                        domProps: { textContent: _vm._s(facturas.idVendedor) }
+                      }),
+                      _vm._v(" "),
+                      _c("td", {
+                        domProps: { textContent: _vm._s(facturas.tipoFactura) }
+                      }),
+                      _vm._v(" "),
+                      _c("td", {
+                        domProps: { textContent: _vm._s(facturas.idClientes) }
+                      }),
+                      _vm._v(" "),
+                      _c("td", {
+                        domProps: { textContent: _vm._s(facturas.idEmpresa) }
+                      }),
+                      _vm._v(" "),
+                      _c("td", {
+                        domProps: { textContent: _vm._s(facturas.estado) }
                       }),
                       _vm._v(" "),
                       _c("td", [
@@ -56901,13 +57032,25 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", [_vm._v("Opciones")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Documento")]),
+        _c("th", [_vm._v("Consecutivo")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Nombre facturas")]),
+        _c("th", [_vm._v("Fecha")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Email")]),
+        _c("th", [_vm._v("Valor")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Rol")]),
+        _c("th", [_vm._v("Impuesto")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Total")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Vendedor")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("idVendedor")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Tipo Factura")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("idClientes")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("idEmpresa")]),
         _vm._v(" "),
         _c("th", [_vm._v("Estado")])
       ])
@@ -56994,16 +57137,8 @@ var render = function() {
                     }
                   },
                   [
-                    _c("option", { attrs: { value: "documento" } }, [
-                      _vm._v("Documento")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "nombres" } }, [
-                      _vm._v("Nombre")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "apellidosr" } }, [
-                      _vm._v("Rol")
+                    _c("option", { attrs: { value: "detalleGrupos" } }, [
+                      _vm._v("detalleGrupos")
                     ]),
                     _vm._v(" "),
                     _c("option", { attrs: { value: "estado" } }, [
@@ -57193,19 +57328,11 @@ var render = function() {
                       ),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(grupos.documento) }
+                        domProps: { textContent: _vm._s(grupos.detalleGrupos) }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(grupos.grupos) }
-                      }),
-                      _vm._v(" "),
-                      _c("td", {
-                        domProps: { textContent: _vm._s(grupos.email) }
-                      }),
-                      _vm._v(" "),
-                      _c("td", {
-                        domProps: { textContent: _vm._s(grupos.rol) }
+                        domProps: { textContent: _vm._s(grupos.estado) }
                       }),
                       _vm._v(" "),
                       _c("td", [
@@ -57528,13 +57655,7 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", [_vm._v("Opciones")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Documento")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Nombre grupos")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Email")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Rol")]),
+        _c("th", [_vm._v("Detalle Grupos")]),
         _vm._v(" "),
         _c("th", [_vm._v("Estado")])
       ])
@@ -57621,16 +57742,12 @@ var render = function() {
                     }
                   },
                   [
-                    _c("option", { attrs: { value: "documento" } }, [
-                      _vm._v("Documento")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "nombres" } }, [
+                    _c("option", { attrs: { value: "nombre" } }, [
                       _vm._v("Nombre")
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "apellidosr" } }, [
-                      _vm._v("Rol")
+                    _c("option", { attrs: { value: "valor" } }, [
+                      _vm._v("Valor")
                     ]),
                     _vm._v(" "),
                     _c("option", { attrs: { value: "estado" } }, [
@@ -57824,19 +57941,15 @@ var render = function() {
                       ),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(impuesto.documento) }
+                        domProps: { textContent: _vm._s(impuesto.nombre) }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(impuesto.impuesto) }
+                        domProps: { textContent: _vm._s(impuesto.valor) }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(impuesto.email) }
-                      }),
-                      _vm._v(" "),
-                      _c("td", {
-                        domProps: { textContent: _vm._s(impuesto.rol) }
+                        domProps: { textContent: _vm._s(impuesto.estado) }
                       }),
                       _vm._v(" "),
                       _c("td", [
@@ -58159,13 +58272,9 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", [_vm._v("Opciones")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Documento")]),
+        _c("th", [_vm._v("Nombre")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Nombre impuesto")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Email")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Rol")]),
+        _c("th", [_vm._v("Valor")]),
         _vm._v(" "),
         _c("th", [_vm._v("Estado")])
       ])
@@ -58252,20 +58361,20 @@ var render = function() {
                     }
                   },
                   [
-                    _c("option", { attrs: { value: "documento" } }, [
-                      _vm._v("Documento")
+                    _c("option", { attrs: { value: "valorEntrada" } }, [
+                      _vm._v("ValorEntrada")
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "nombres" } }, [
-                      _vm._v("Nombre")
+                    _c("option", { attrs: { value: "valorSalida" } }, [
+                      _vm._v("ValorSalida")
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "apellidosr" } }, [
-                      _vm._v("Rol")
+                    _c("option", { attrs: { value: "acumulado" } }, [
+                      _vm._v("Acumulado")
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "estado" } }, [
-                      _vm._v("Estado")
+                    _c("option", { attrs: { value: "idAsientos" } }, [
+                      _vm._v("idAsientos")
                     ])
                   ]
                 ),
@@ -58457,19 +58566,23 @@ var render = function() {
                       ),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(libromayor.documento) }
+                        domProps: {
+                          textContent: _vm._s(libromayor.valorEntrada)
+                        }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(libromayor.libromayor) }
+                        domProps: {
+                          textContent: _vm._s(libromayor.valorSalida)
+                        }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(libromayor.email) }
+                        domProps: { textContent: _vm._s(libromayor.acumulado) }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(libromayor.rol) }
+                        domProps: { textContent: _vm._s(libromayor.idAsientos) }
                       }),
                       _vm._v(" "),
                       _c("td", [
@@ -58794,15 +58907,13 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", [_vm._v("Opciones")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Documento")]),
+        _c("th", [_vm._v("Valor Entrada")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Nombre libromayor")]),
+        _c("th", [_vm._v("Valor Salida")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Email")]),
+        _c("th", [_vm._v("Acumulado")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Rol")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Estado")])
+        _c("th", [_vm._v("idAsientos")])
       ])
     ])
   }
@@ -58887,16 +58998,8 @@ var render = function() {
                     }
                   },
                   [
-                    _c("option", { attrs: { value: "documento" } }, [
-                      _vm._v("Documento")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "nombres" } }, [
+                    _c("option", { attrs: { value: "nombre" } }, [
                       _vm._v("Nombre")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "apellidosr" } }, [
-                      _vm._v("Rol")
                     ]),
                     _vm._v(" "),
                     _c("option", { attrs: { value: "estado" } }, [
@@ -59086,19 +59189,11 @@ var render = function() {
                       ),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(medida.documento) }
+                        domProps: { textContent: _vm._s(medida.nombre) }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(medida.medida) }
-                      }),
-                      _vm._v(" "),
-                      _c("td", {
-                        domProps: { textContent: _vm._s(medida.email) }
-                      }),
-                      _vm._v(" "),
-                      _c("td", {
-                        domProps: { textContent: _vm._s(medida.rol) }
+                        domProps: { textContent: _vm._s(medida.estado) }
                       }),
                       _vm._v(" "),
                       _c("td", [
@@ -59421,13 +59516,7 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", [_vm._v("Opciones")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Documento")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Nombre medida")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Email")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Rol")]),
+        _c("th", [_vm._v("Nombre")]),
         _vm._v(" "),
         _c("th", [_vm._v("Estado")])
       ])
@@ -59514,20 +59603,24 @@ var render = function() {
                     }
                   },
                   [
-                    _c("option", { attrs: { value: "documento" } }, [
-                      _vm._v("Documento")
+                    _c("option", { attrs: { value: "fechaAbono" } }, [
+                      _vm._v("FechaAbono")
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "nombres" } }, [
-                      _vm._v("Nombre")
+                    _c("option", { attrs: { value: "valorPago" } }, [
+                      _vm._v("ValorPago")
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "apellidosr" } }, [
-                      _vm._v("Rol")
+                    _c("option", { attrs: { value: "abono" } }, [
+                      _vm._v("Abono")
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "estado" } }, [
-                      _vm._v("Estado")
+                    _c("option", { attrs: { value: "idPedidos" } }, [
+                      _vm._v("idPedidos")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "idEmpresa" } }, [
+                      _vm._v("idEmpresa")
                     ])
                   ]
                 ),
@@ -59713,19 +59806,23 @@ var render = function() {
                       ),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(pagos.documento) }
+                        domProps: { textContent: _vm._s(pagos.fechaAbono) }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(pagos.pagos) }
+                        domProps: { textContent: _vm._s(pagos.valorPago) }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(pagos.email) }
+                        domProps: { textContent: _vm._s(pagos.abono) }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(pagos.rol) }
+                        domProps: { textContent: _vm._s(pagos.idPedidos) }
+                      }),
+                      _vm._v(" "),
+                      _c("td", {
+                        domProps: { textContent: _vm._s(pagos.idEmpresa) }
                       }),
                       _vm._v(" "),
                       _c("td", [
@@ -60048,15 +60145,15 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", [_vm._v("Opciones")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Documento")]),
+        _c("th", [_vm._v("Fecha Abono")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Nombre pagos")]),
+        _c("th", [_vm._v("Valor Pago")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Email")]),
+        _c("th", [_vm._v("Abono")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Rol")]),
+        _c("th", [_vm._v("idPedidos")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Estado")])
+        _c("th", [_vm._v("idEmpresa")])
       ])
     ])
   }
@@ -60141,20 +60238,12 @@ var render = function() {
                     }
                   },
                   [
-                    _c("option", { attrs: { value: "documento" } }, [
-                      _vm._v("Documento")
+                    _c("option", { attrs: { value: "idPagos" } }, [
+                      _vm._v("idPagos")
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "nombres" } }, [
-                      _vm._v("Nombre")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "apellidosr" } }, [
-                      _vm._v("Rol")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "estado" } }, [
-                      _vm._v("Estado")
+                    _c("option", { attrs: { value: "idAsientos" } }, [
+                      _vm._v("idAsientos")
                     ])
                   ]
                 ),
@@ -60354,23 +60443,13 @@ var render = function() {
                       ),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: {
-                          textContent: _vm._s(pagosasientos.documento)
-                        }
+                        domProps: { textContent: _vm._s(pagosasientos.idPagos) }
                       }),
                       _vm._v(" "),
                       _c("td", {
                         domProps: {
-                          textContent: _vm._s(pagosasientos.pagosasientos)
+                          textContent: _vm._s(pagosasientos.idAsientos)
                         }
-                      }),
-                      _vm._v(" "),
-                      _c("td", {
-                        domProps: { textContent: _vm._s(pagosasientos.email) }
-                      }),
-                      _vm._v(" "),
-                      _c("td", {
-                        domProps: { textContent: _vm._s(pagosasientos.rol) }
                       }),
                       _vm._v(" "),
                       _c("td", [
@@ -60695,15 +60774,9 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", [_vm._v("Opciones")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Documento")]),
+        _c("th", [_vm._v("idPagos")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Nombre pagosasientos")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Email")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Rol")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Estado")])
+        _c("th", [_vm._v("idAsientos")])
       ])
     ])
   }
@@ -60788,16 +60861,44 @@ var render = function() {
                     }
                   },
                   [
-                    _c("option", { attrs: { value: "documento" } }, [
-                      _vm._v("Documento")
+                    _c("option", { attrs: { value: "consecutivo" } }, [
+                      _vm._v("Consecutivo")
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "nombres" } }, [
-                      _vm._v("Nombre")
+                    _c("option", { attrs: { value: "fecha" } }, [
+                      _vm._v("Fecha")
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "apellidosr" } }, [
-                      _vm._v("Rol")
+                    _c("option", { attrs: { value: "valor" } }, [
+                      _vm._v("Valor")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "impuesto" } }, [
+                      _vm._v("Impuesto")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "total" } }, [
+                      _vm._v("Total")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "vendedor" } }, [
+                      _vm._v("Vendedor")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "idVendedor" } }, [
+                      _vm._v("idVendedor")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "idTipoFactura" } }, [
+                      _vm._v("idTipoFactura")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "idProveedores" } }, [
+                      _vm._v("idProveedores")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "idEmpresa" } }, [
+                      _vm._v("idEmpresa")
                     ]),
                     _vm._v(" "),
                     _c("option", { attrs: { value: "estado" } }, [
@@ -60987,19 +61088,47 @@ var render = function() {
                       ),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(pedidos.documento) }
+                        domProps: { textContent: _vm._s(pedidos.consecutivo) }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(pedidos.pedidos) }
+                        domProps: { textContent: _vm._s(pedidos.fecha) }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(pedidos.email) }
+                        domProps: { textContent: _vm._s(pedidos.valor) }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(pedidos.rol) }
+                        domProps: { textContent: _vm._s(pedidos.impuesto) }
+                      }),
+                      _vm._v(" "),
+                      _c("td", {
+                        domProps: { textContent: _vm._s(pedidos.total) }
+                      }),
+                      _vm._v(" "),
+                      _c("td", {
+                        domProps: { textContent: _vm._s(pedidos.vendedor) }
+                      }),
+                      _vm._v(" "),
+                      _c("td", {
+                        domProps: { textContent: _vm._s(pedidos.idVendedor) }
+                      }),
+                      _vm._v(" "),
+                      _c("td", {
+                        domProps: { textContent: _vm._s(pedidos.idTipoFactura) }
+                      }),
+                      _vm._v(" "),
+                      _c("td", {
+                        domProps: { textContent: _vm._s(pedidos.idProveedores) }
+                      }),
+                      _vm._v(" "),
+                      _c("td", {
+                        domProps: { textContent: _vm._s(pedidos.idEmpresa) }
+                      }),
+                      _vm._v(" "),
+                      _c("td", {
+                        domProps: { textContent: _vm._s(pedidos.estado) }
                       }),
                       _vm._v(" "),
                       _c("td", [
@@ -61322,13 +61451,25 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", [_vm._v("Opciones")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Documento")]),
+        _c("th", [_vm._v("Consecutivo")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Nombre pedidos")]),
+        _c("th", [_vm._v("Fecha")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Email")]),
+        _c("th", [_vm._v("Valor")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Rol")]),
+        _c("th", [_vm._v("Impuesto")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Total")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Vendedor")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("idVendedor")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("idTipoFactura")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("idProveedores")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("idEmpresa")]),
         _vm._v(" "),
         _c("th", [_vm._v("Estado")])
       ])
@@ -61415,16 +61556,32 @@ var render = function() {
                     }
                   },
                   [
-                    _c("option", { attrs: { value: "documento" } }, [
-                      _vm._v("Documento")
+                    _c("option", { attrs: { value: "plu" } }, [_vm._v("Plu")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "detalle" } }, [
+                      _vm._v("Detalle")
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "nombres" } }, [
-                      _vm._v("Nombre")
+                    _c("option", { attrs: { value: "idMedida" } }, [
+                      _vm._v("idMedida")
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "apellidosr" } }, [
-                      _vm._v("Rol")
+                    _c("option", { attrs: { value: "valorCompra" } }, [
+                      _vm._v("ValorCompra")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "pvp" } }, [_vm._v("Pvp")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "idImpuesto" } }, [
+                      _vm._v("idImpuesto")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "idGrupos" } }, [
+                      _vm._v("idGrupos")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "idEmpresa" } }, [
+                      _vm._v("idEmpresa")
                     ]),
                     _vm._v(" "),
                     _c("option", { attrs: { value: "estado" } }, [
@@ -61620,19 +61777,39 @@ var render = function() {
                       ),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(productos.documento) }
+                        domProps: { textContent: _vm._s(productos.plu) }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(productos.productos) }
+                        domProps: { textContent: _vm._s(productos.detalle) }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(productos.email) }
+                        domProps: { textContent: _vm._s(productos.idMedida) }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(productos.rol) }
+                        domProps: { textContent: _vm._s(productos.valorCompra) }
+                      }),
+                      _vm._v(" "),
+                      _c("td", {
+                        domProps: { textContent: _vm._s(productos.pvp) }
+                      }),
+                      _vm._v(" "),
+                      _c("td", {
+                        domProps: { textContent: _vm._s(productos.idImpuesto) }
+                      }),
+                      _vm._v(" "),
+                      _c("td", {
+                        domProps: { textContent: _vm._s(productos.idGrupos) }
+                      }),
+                      _vm._v(" "),
+                      _c("td", {
+                        domProps: { textContent: _vm._s(productos.idEmpresa) }
+                      }),
+                      _vm._v(" "),
+                      _c("td", {
+                        domProps: { textContent: _vm._s(productos.estado) }
                       }),
                       _vm._v(" "),
                       _c("td", [
@@ -61955,13 +62132,21 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", [_vm._v("Opciones")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Documento")]),
+        _c("th", [_vm._v("Plu")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Nombre productos")]),
+        _c("th", [_vm._v("Detalle")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Email")]),
+        _c("th", [_vm._v("idMedida")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Rol")]),
+        _c("th", [_vm._v("ValorCompra")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Pvp")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("idImpuesto")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("idGrupos")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("idEmpresa")]),
         _vm._v(" "),
         _c("th", [_vm._v("Estado")])
       ])
@@ -62048,16 +62233,26 @@ var render = function() {
                     }
                   },
                   [
-                    _c("option", { attrs: { value: "documento" } }, [
-                      _vm._v("Documento")
+                    _c("option", { attrs: { value: "nit" } }, [_vm._v("Nit")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "razonSocial" } }, [
+                      _vm._v("RazonSocial")
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "nombres" } }, [
-                      _vm._v("Nombre")
+                    _c("option", { attrs: { value: "contacto" } }, [
+                      _vm._v("Contacto")
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "apellidosr" } }, [
-                      _vm._v("Rol")
+                    _c("option", { attrs: { value: "telefono" } }, [
+                      _vm._v("Telefono")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "direccion" } }, [
+                      _vm._v("Direccion")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "correo" } }, [
+                      _vm._v("Correo")
                     ]),
                     _vm._v(" "),
                     _c("option", { attrs: { value: "estado" } }, [
@@ -62257,21 +62452,33 @@ var render = function() {
                       ),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(proveedores.documento) }
+                        domProps: { textContent: _vm._s(proveedores.nit) }
                       }),
                       _vm._v(" "),
                       _c("td", {
                         domProps: {
-                          textContent: _vm._s(proveedores.proveedores)
+                          textContent: _vm._s(proveedores.razonSocial)
                         }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(proveedores.email) }
+                        domProps: { textContent: _vm._s(proveedores.contacto) }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(proveedores.rol) }
+                        domProps: { textContent: _vm._s(proveedores.telefono) }
+                      }),
+                      _vm._v(" "),
+                      _c("td", {
+                        domProps: { textContent: _vm._s(proveedores.direccion) }
+                      }),
+                      _vm._v(" "),
+                      _c("td", {
+                        domProps: { textContent: _vm._s(proveedores.correo) }
+                      }),
+                      _vm._v(" "),
+                      _c("td", {
+                        domProps: { textContent: _vm._s(proveedores.estado) }
                       }),
                       _vm._v(" "),
                       _c("td", [
@@ -62596,13 +62803,17 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", [_vm._v("Opciones")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Documento")]),
+        _c("th", [_vm._v("Nit")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Nombre proveedores")]),
+        _c("th", [_vm._v("Razon Social")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Email")]),
+        _c("th", [_vm._v("Contacto")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Rol")]),
+        _c("th", [_vm._v("Telefono")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Direccion")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Correo")]),
         _vm._v(" "),
         _c("th", [_vm._v("Estado")])
       ])
@@ -62689,20 +62900,28 @@ var render = function() {
                     }
                   },
                   [
-                    _c("option", { attrs: { value: "documento" } }, [
-                      _vm._v("Documento")
+                    _c("option", { attrs: { value: "fecha" } }, [
+                      _vm._v("Fecha")
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "nombres" } }, [
-                      _vm._v("Nombre")
+                    _c("option", { attrs: { value: "concepto" } }, [
+                      _vm._v("Concepto")
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "apellidosr" } }, [
-                      _vm._v("Rol")
+                    _c("option", { attrs: { value: "detalle" } }, [
+                      _vm._v("Detalle")
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "estado" } }, [
-                      _vm._v("Estado")
+                    _c("option", { attrs: { value: "idAsientos" } }, [
+                      _vm._v("idAsientos")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "entrada" } }, [
+                      _vm._v("Entrada")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "salida" } }, [
+                      _vm._v("Salida")
                     ])
                   ]
                 ),
@@ -62894,19 +63113,27 @@ var render = function() {
                       ),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(registros.documento) }
+                        domProps: { textContent: _vm._s(registros.fecha) }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(registros.registros) }
+                        domProps: { textContent: _vm._s(registros.concepto) }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(registros.email) }
+                        domProps: { textContent: _vm._s(registros.detalle) }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(registros.rol) }
+                        domProps: { textContent: _vm._s(registros.idAsientos) }
+                      }),
+                      _vm._v(" "),
+                      _c("td", {
+                        domProps: { textContent: _vm._s(registros.entrada) }
+                      }),
+                      _vm._v(" "),
+                      _c("td", {
+                        domProps: { textContent: _vm._s(registros.salida) }
                       }),
                       _vm._v(" "),
                       _c("td", [
@@ -63229,15 +63456,17 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", [_vm._v("Opciones")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Documento")]),
+        _c("th", [_vm._v("Fecha")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Nombre registros")]),
+        _c("th", [_vm._v("Concepto")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Email")]),
+        _c("th", [_vm._v("Detalle")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Rol")]),
+        _c("th", [_vm._v("idAsientos")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Estado")])
+        _c("th", [_vm._v("Entrada")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Salida")])
       ])
     ])
   }
@@ -63322,17 +63551,7 @@ var render = function() {
                     }
                   },
                   [
-                    _c("option", { attrs: { value: "documento" } }, [
-                      _vm._v("Documento")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "nombres" } }, [
-                      _vm._v("Nombre")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "apellidosr" } }, [
-                      _vm._v("Rol")
-                    ]),
+                    _c("option", { attrs: { value: "rol" } }, [_vm._v("Rol")]),
                     _vm._v(" "),
                     _c("option", { attrs: { value: "estado" } }, [
                       _vm._v("Estado")
@@ -63521,19 +63740,11 @@ var render = function() {
                       ),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(roles.documento) }
-                      }),
-                      _vm._v(" "),
-                      _c("td", {
-                        domProps: { textContent: _vm._s(roles.roles) }
-                      }),
-                      _vm._v(" "),
-                      _c("td", {
-                        domProps: { textContent: _vm._s(roles.email) }
-                      }),
-                      _vm._v(" "),
-                      _c("td", {
                         domProps: { textContent: _vm._s(roles.rol) }
+                      }),
+                      _vm._v(" "),
+                      _c("td", {
+                        domProps: { textContent: _vm._s(roles.estado) }
                       }),
                       _vm._v(" "),
                       _c("td", [
@@ -63856,12 +64067,6 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", [_vm._v("Opciones")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Documento")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Nombre roles")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Email")]),
-        _vm._v(" "),
         _c("th", [_vm._v("Rol")]),
         _vm._v(" "),
         _c("th", [_vm._v("Estado")])
@@ -63949,16 +64154,8 @@ var render = function() {
                     }
                   },
                   [
-                    _c("option", { attrs: { value: "documento" } }, [
-                      _vm._v("Documento")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "nombres" } }, [
-                      _vm._v("Nombre")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "apellidosr" } }, [
-                      _vm._v("Rol")
+                    _c("option", { attrs: { value: "detalle" } }, [
+                      _vm._v("Detalle")
                     ]),
                     _vm._v(" "),
                     _c("option", { attrs: { value: "estado" } }, [
@@ -64158,21 +64355,11 @@ var render = function() {
                       ),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(tipofactura.documento) }
+                        domProps: { textContent: _vm._s(tipofactura.detalle) }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: {
-                          textContent: _vm._s(tipofactura.tipofactura)
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("td", {
-                        domProps: { textContent: _vm._s(tipofactura.email) }
-                      }),
-                      _vm._v(" "),
-                      _c("td", {
-                        domProps: { textContent: _vm._s(tipofactura.rol) }
+                        domProps: { textContent: _vm._s(tipofactura.estado) }
                       }),
                       _vm._v(" "),
                       _c("td", [
@@ -64497,13 +64684,7 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", [_vm._v("Opciones")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Documento")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Nombre tipofactura")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Email")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Rol")]),
+        _c("th", [_vm._v("Detalle")]),
         _vm._v(" "),
         _c("th", [_vm._v("Estado")])
       ])
@@ -65227,12 +65408,28 @@ var render = function() {
                       _vm._v("Documento")
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "nombres" } }, [
-                      _vm._v("Nombre")
+                    _c("option", { attrs: { value: "email" } }, [
+                      _vm._v("Email")
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "apellidosr" } }, [
-                      _vm._v("Rol")
+                    _c("option", { attrs: { value: "nombres" } }, [
+                      _vm._v("Nombres")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "apellidos" } }, [
+                      _vm._v("Apellidos")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "password" } }, [
+                      _vm._v("Password")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "idEmpresa" } }, [
+                      _vm._v("idEmpresa")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "idRol" } }, [
+                      _vm._v("idRol")
                     ]),
                     _vm._v(" "),
                     _c("option", { attrs: { value: "estado" } }, [
@@ -65426,15 +65623,31 @@ var render = function() {
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(usuario.usuario) }
-                      }),
-                      _vm._v(" "),
-                      _c("td", {
                         domProps: { textContent: _vm._s(usuario.email) }
                       }),
                       _vm._v(" "),
                       _c("td", {
-                        domProps: { textContent: _vm._s(usuario.rol) }
+                        domProps: { textContent: _vm._s(usuario.nombres) }
+                      }),
+                      _vm._v(" "),
+                      _c("td", {
+                        domProps: { textContent: _vm._s(usuario.apellidos) }
+                      }),
+                      _vm._v(" "),
+                      _c("td", {
+                        domProps: { textContent: _vm._s(usuario.password) }
+                      }),
+                      _vm._v(" "),
+                      _c("td", {
+                        domProps: { textContent: _vm._s(usuario.idEmpresa) }
+                      }),
+                      _vm._v(" "),
+                      _c("td", {
+                        domProps: { textContent: _vm._s(usuario.idRol) }
+                      }),
+                      _vm._v(" "),
+                      _c("td", {
+                        domProps: { textContent: _vm._s(usuario.estado) }
                       }),
                       _vm._v(" "),
                       _c("td", [
@@ -65755,15 +65968,19 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", [_vm._v("Opciones")]),
-        _vm._v(" "),
         _c("th", [_vm._v("Documento")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Nombre usuario")]),
         _vm._v(" "),
         _c("th", [_vm._v("Email")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Rol")]),
+        _c("th", [_vm._v("Nombres")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Apellidos")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Password")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("idEmpresa")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("idRol")]),
         _vm._v(" "),
         _c("th", [_vm._v("Estado")])
       ])

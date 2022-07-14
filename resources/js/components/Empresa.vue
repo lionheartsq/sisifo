@@ -38,7 +38,8 @@
                             <table class="table table-bordered table-striped table-sm">
                                 <thead>
                                     <tr>
-                                        <th>RazonSocial</th>
+                                        <th>Opciones</th>
+                                        <th>Razon Social</th>
                                         <th>Representante</th>
                                         <th>Nit</th>
                                         <th>Regimen</th>
@@ -74,7 +75,7 @@
                                         </td>
                                         <td v-text="empresa.razonSocial"></td>
                                         <td v-text="empresa.representante"></td>
-                                        <td v-text="empresa.nit"></td>                                        
+                                        <td v-text="empresa.nit"></td>
                                         <td v-text="empresa.regimen"></td>
                                         <td v-text="empresa.direccion"></td>
                                         <td v-text="empresa.telefonos"></td>

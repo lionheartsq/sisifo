@@ -36,9 +36,10 @@
                             <table class="table table-bordered table-striped table-sm">
                                 <thead>
                                     <tr>
+                                        <th>Opciones</th>
                                         <th>Cantidad</th>
                                         <th>Valor</th>
-                                        <th>ValorImpuesto</th>
+                                        <th>Valor Impuesto</th>
                                         <th>Total</th>
                                         <th>idFacturas</th>
                                         <th>idProductos</th>

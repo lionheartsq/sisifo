@@ -20,7 +20,7 @@
                                 <div class="col-md-9">
                                     <div class="input-group">
                                         <select class="form-control col-md-3" v-model="criterio">
-                                        <option value="detalle">Detalle</option>                                       
+                                        <option value="detalle">Detalle</option>
                                         <option value="estado">Estado</option>
                                         </select>
                                         <input type="text" v-model="buscar" @keyup.enter="listarDepartamentos(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
@@ -32,7 +32,8 @@
                             <table class="table table-bordered table-striped table-sm">
                                 <thead>
                                     <tr>
-                                        <th>Detalle</th>                                       
+                                        <th>Opciones</th>
+                                        <th>Detalle</th>
                                         <th>Estado</th>
                                     </tr>
                                 </thead>
@@ -66,7 +67,7 @@
 
                                         </td>
                                         <td v-text="departamentos.detalle"></td>
-                                        <td v-text="departamentos.estado"></td>                                        
+                                        <td v-text="departamentos.estado"></td>
                                         <td>
                                             <div v-if="departamentos.estado == '1'">
                                             <span class="badge badge-success">Activo</span>

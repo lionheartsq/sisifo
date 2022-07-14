@@ -39,6 +39,7 @@
                             <table class="table table-bordered table-striped table-sm">
                                 <thead>
                                     <tr>
+                                        <th>Opciones</th>
                                         <th>Plu</th>
                                         <th>Detalle</th>
                                         <th>idMedida</th>

@@ -41,6 +41,7 @@
                             <table class="table table-bordered table-striped table-sm">
                                 <thead>
                                     <tr>
+                                        <th>Opciones</th>
                                         <th>Consecutivo</th>
                                         <th>Fecha</th>
                                         <th>Valor</th>

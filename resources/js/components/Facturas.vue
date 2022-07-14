@@ -41,6 +41,7 @@
                             <table class="table table-bordered table-striped table-sm">
                                 <thead>
                                     <tr>
+                                        <th>Opciones</th>
                                         <th>Consecutivo</th>
                                         <th>Fecha</th>
                                         <th>Valor</th>
@@ -48,9 +49,9 @@
                                         <th>Total</th>
                                         <th>Vendedor</th>
                                         <th>idVendedor</th>
-                                        <th>TipoFactura</th>
+                                        <th>Tipo Factura</th>
                                         <th>idClientes</th>
-                                        <th>idEmpresa</th>                                        
+                                        <th>idEmpresa</th>
                                         <th>Estado</th>
                                     </tr>
                                 </thead>

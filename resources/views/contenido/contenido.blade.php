@@ -13,4 +13,7 @@
 <template v-if="menu==3">
     <clientes></clientes>
 </template>
+<template v-if="menu==4">
+    <ciudades></ciudades>
+</template>
 @endsection

@@ -21,7 +21,7 @@
                                     <div class="input-group">
                                         <select class="form-control col-md-3" v-model="criterio">
                                         <option value="idCobros">idCobros</option>
-                                        <option value="idAsientos">idAsientos</option>                                       
+                                        <option value="idAsientos">idAsientos</option>
                                         </select>
                                         <input type="text" v-model="buscar" @keyup.enter="listarasientosasientos(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
                                         <button type="submit" @click="listarCobrosasientos(1,buscar,criterio)" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
@@ -32,8 +32,9 @@
                             <table class="table table-bordered table-striped table-sm">
                                 <thead>
                                     <tr>
+                                        <th>Opciones</th>
                                         <th>idCobros</th>
-                                        <th>idAsientos</th>                                        
+                                        <th>idAsientos</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -66,7 +67,7 @@
 
                                         </td>
                                         <td v-text="cobrosasientos.idCobros"></td>
-                                        <td v-text="cobrosasientos.idAsientos"></td>                                       
+                                        <td v-text="cobrosasientos.idAsientos"></td>
                                         <td>
                                             <div v-if="cobrosasientos.estado == '1'">
                                             <span class="badge badge-success">Activo</span>

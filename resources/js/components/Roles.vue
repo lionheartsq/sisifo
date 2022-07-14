@@ -19,7 +19,7 @@
                             <div class="form-group row">
                                 <div class="col-md-9">
                                     <div class="input-group">
-                                        <select class="form-control col-md-3" v-model="criterio">                                        
+                                        <select class="form-control col-md-3" v-model="criterio">
                                         <option value="rol">Rol</option>
                                         <option value="estado">Estado</option>
                                         </select>
@@ -32,6 +32,7 @@
                             <table class="table table-bordered table-striped table-sm">
                                 <thead>
                                     <tr>
+                                        <th>Opciones</th>
                                         <th>Rol</th>
                                         <th>Estado</th>
                                     </tr>

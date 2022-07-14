@@ -21,7 +21,7 @@
                                     <div class="input-group">
                                         <select class="form-control col-md-3" v-model="criterio">
                                         <option value="idClientes">idClientes</option>
-                                        <option value="idEmpresa">idEmpresa</option>                                        
+                                        <option value="idEmpresa">idEmpresa</option>
                                         </select>
                                         <input type="text" v-model="buscar" @keyup.enter="listarAsociacion(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
                                         <button type="submit" @click="listarAsociacion(1,buscar,criterio)" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
@@ -32,8 +32,9 @@
                             <table class="table table-bordered table-striped table-sm">
                                 <thead>
                                     <tr>
-                                        <th>idClientes</th>                           
-                                        <th>idEmpresa</th>                                      
+                                        <th>Opciones</th>
+                                        <th>idClientes</th>
+                                        <th>idEmpresa</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -66,7 +67,7 @@
 
                                         </td>
                                         <td v-text="asociacion.idClientes"></td>
-                                        <td v-text="asociacion.idEmpresa"></td>                                    
+                                        <td v-text="asociacion.idEmpresa"></td>
                                         <td>
                                             <div v-if="asociacion.estado == '1'">
                                             <span class="badge badge-success">Activo</span>

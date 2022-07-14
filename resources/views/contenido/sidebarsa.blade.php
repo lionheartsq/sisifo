@@ -26,8 +26,8 @@
             <li class="nav-item nav-dropdown">
                 <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-wrench"></i> <b>Reportes</b></a>
                 <ul class="nav-dropdown-items">
-                    <li @click="menu=1" class="nav-item">
-                        <a class="nav-link" href="#"><i class="icon-book-open"></i> Usuarios</a>
+                    <li @click="menu=4" class="nav-item">
+                        <a class="nav-link" href="#"><i class="icon-book-open"></i> Ciudades</a>
                     </li>
                 </ul>
             </li>

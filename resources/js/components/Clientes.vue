@@ -37,6 +37,7 @@
                             <table class="table table-bordered table-striped table-sm">
                                 <thead>
                                     <tr>
+                                        <th>Opciones</th>
                                         <th>Cedula</th>
                                         <th>Nombres</th>
                                         <th>Apellidos</th>

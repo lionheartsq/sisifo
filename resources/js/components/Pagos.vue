@@ -35,8 +35,9 @@
                             <table class="table table-bordered table-striped table-sm">
                                 <thead>
                                     <tr>
-                                        <th>FechaAbono</th>
-                                        <th>ValorPago</th>
+                                        <th>Opciones</th>
+                                        <th>Fecha Abono</th>
+                                        <th>Valor Pago</th>
                                         <th>Abono</th>
                                         <th>idPedidos</th>
                                         <th>idEmpresa</th>

@@ -32,6 +32,7 @@
                             <table class="table table-bordered table-striped table-sm">
                                 <thead>
                                     <tr>
+                                        <th>Opciones</th>
                                         <th>idPagos</th>
                                         <th>idAsientos</th>
                                     </tr>

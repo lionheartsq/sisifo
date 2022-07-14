@@ -34,10 +34,11 @@
                             <table class="table table-bordered table-striped table-sm">
                                 <thead>
                                     <tr>
-                                        <th>ValorEntrada</th>
-                                        <th>ValorSalida</th>
+                                        <th>Opciones</th>
+                                        <th>Valor Entrada</th>
+                                        <th>Valor Salida</th>
                                         <th>Acumulado</th>
-                                        <th>idAsientos</th>                                     
+                                        <th>idAsientos</th>
                                     </tr>
                                 </thead>
                                 <tbody>

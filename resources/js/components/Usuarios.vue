@@ -38,6 +38,7 @@
                             <table class="table table-bordered table-striped table-sm">
                                 <thead>
                                     <tr>
+                                        <th>Opciones</th>
                                         <th>Documento</th>
                                         <th>Email</th>
                                         <th>Nombres</th>

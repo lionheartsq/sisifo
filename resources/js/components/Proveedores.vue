@@ -37,8 +37,9 @@
                             <table class="table table-bordered table-striped table-sm">
                                 <thead>
                                     <tr>
+                                        <th>Opciones</th>
                                         <th>Nit</th>
-                                        <th>RazonSocial</th>
+                                        <th>Razon Social</th>
                                         <th>Contacto</th>
                                         <th>Telefono</th>
                                         <th>Direccion</th>

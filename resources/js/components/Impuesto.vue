@@ -21,7 +21,7 @@
                                     <div class="input-group">
                                         <select class="form-control col-md-3" v-model="criterio">
                                         <option value="nombre">Nombre</option>
-                                        <option value="valor">Valor</option>                                        
+                                        <option value="valor">Valor</option>
                                         <option value="estado">Estado</option>
                                         </select>
                                         <input type="text" v-model="buscar" @keyup.enter="listarImpuesto(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
@@ -32,8 +32,9 @@
                             <div class="table-responsive">
                             <table class="table table-bordered table-striped table-sm">
                                 <thead>
-                                    <tr>                                       
-                                        <th>Nombre</th>                                        
+                                    <tr>
+                                        <th>Opciones</th>
+                                        <th>Nombre</th>
                                         <th>Valor</th>
                                         <th>Estado</th>
                                     </tr>
@@ -69,7 +70,7 @@
                                         </td>
                                         <td v-text="impuesto.nombre"></td>
                                         <td v-text="impuesto.valor"></td>
-                                        <td v-text="impuesto.estado"></td>                                        
+                                        <td v-text="impuesto.estado"></td>
                                         <td>
                                             <div v-if="impuesto.estado == '1'">
                                             <span class="badge badge-success">Activo</span>

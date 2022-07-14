@@ -35,11 +35,12 @@
                             <table class="table table-bordered table-striped table-sm">
                                 <thead>
                                     <tr>
-                                        <th>fechaAbono</th>
-                                        <th>valorCobro</th>
+                                        <th>Opciones</th>
+                                        <th>Fecha Abono</th>
+                                        <th>Valor Cobro</th>
                                         <th>Abono</th>
                                         <th>idFacturas</th>
-                                        <th>idEmpresa</th>                                        
+                                        <th>idEmpresa</th>
                                     </tr>
                                 </thead>
                                 <tbody>

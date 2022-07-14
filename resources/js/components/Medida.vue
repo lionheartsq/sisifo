@@ -20,7 +20,7 @@
                                 <div class="col-md-9">
                                     <div class="input-group">
                                         <select class="form-control col-md-3" v-model="criterio">
-                                        <option value="nombre">Nombre</option>                                                                            
+                                        <option value="nombre">Nombre</option>
                                         <option value="estado">Estado</option>
                                         </select>
                                         <input type="text" v-model="buscar" @keyup.enter="listarMedida(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
@@ -31,8 +31,9 @@
                             <div class="table-responsive">
                             <table class="table table-bordered table-striped table-sm">
                                 <thead>
-                                    <tr>                                       
-                                        <th>Nombre</th> 
+                                    <tr>
+                                        <th>Opciones</th>
+                                        <th>Nombre</th>
                                         <th>Estado</th>
                                     </tr>
                                 </thead>
