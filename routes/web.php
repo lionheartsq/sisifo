@@ -122,7 +122,7 @@ Route::group(['middleware' => ['Superadministrador']], function () {
 
     Route::get("/empresa", "EmpresaController@index");
     Route::post("/empresa/store", "EmpresaController@store");
-    Route::put("/empresa/update", "EmpresaController@update");
+    Route::post("/empresa/update", "EmpresaController@update");
     Route::put("/empresa/deactivate", "EmpresaController@deactivate");
     Route::put("/empresa/activate", "EmpresaController@activate");
     Route::get("/empresa/listado", "EmpresaController@listado");

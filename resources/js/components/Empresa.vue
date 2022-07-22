@@ -10,155 +10,96 @@
 
                     <div class="card">
                         <div class="card-header">
-                            <i class="fa fa-align-justify"></i> Empresa &nbsp;
-                            <button type="button" @click="abrirModal('empresa','crear')" class="btn btn-secondary">
-                                <i class="icon-plus"></i>&nbsp;Nuevo
-                            </button>
+                            <i class="fa fa-align-justify"></i> Configuración Basica Empresa &nbsp;
                         </div>
                         <div class="card-body">
-                            <div class="form-group row">
-                                <div class="col-md-9">
-                                    <div class="input-group">
-                                        <select class="form-control col-md-3" v-model="criterio">
-                                        <option value="razonSocial">RazonSocial</option>
-                                        <option value="representante">Representante</option>
-                                        <option value="nit">Nit</option>
-                                        <option value="regimen">Regimen</option>
-                                        <option value="direccion">Direccion</option>
-                                        <option value="telefonos">Telefonos</option>
-                                        <option value="tipo">Tipo</option>
-                                        <option value="estado">Estado</option>
-                                        </select>
-                                        <input type="text" v-model="buscar" @keyup.enter="listarEmpresa(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
-                                        <button type="submit" @click="listarEmpresa(1,buscar,criterio)" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="table-responsive">
+                            <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
                             <table class="table table-bordered table-striped table-sm">
-                                <thead>
-                                    <tr>
-                                        <th>Opciones</th>
-                                        <th>Razon Social</th>
-                                        <th>Representante</th>
-                                        <th>Nit</th>
-                                        <th>Regimen</th>
-                                        <th>Direccion</th>
-                                        <th>Telefonos</th>
-                                        <th>Tipo</th>
-                                        <th>Estado</th>
-                                    </tr>
-                                </thead>
                                 <tbody>
-
-                                    <tr v-for="empresa in arrayEmpresa" :key="empresa.id">
+                                    <tr>
                                         <td>
-                                            <button type="button" @click="abrirModal('empresa','actualizar',empresa)" class="btn btn-info btn-sm">
-                                            <i class="icon-eye" title="Ver detalles"></i>
-                                            </button> &nbsp;
-
-                                            <button type="button" @click="abrirModal('empresa','actualizar',empresa)" class="btn btn-warning btn-sm">
-                                            <i class="icon-pencil" title="Editar datos"></i>
-                                            </button> &nbsp;
-
-                                        <template v-if="empresa.estado == '1'">
-                                            <button type="button" class="btn btn-danger btn-sm" @click="desactivarEmpresa(empresa.id)">
-                                                <i class="icon-trash" title="Desactivar"></i>
-                                            </button>
-                                        </template>
-                                        <template v-if="empresa.estado == '2'">
-                                            <button type="button" class="btn btn-success btn-sm" @click="activarEmpresa(empresa.id)">
-                                                <i class="icon-check" title="Reactivar"></i>
-                                            </button>
-                                        </template>
-
+                                            Nombre Empresa
                                         </td>
-                                        <td v-text="empresa.razonSocial"></td>
-                                        <td v-text="empresa.representante"></td>
-                                        <td v-text="empresa.nit"></td>
-                                        <td v-text="empresa.regimen"></td>
-                                        <td v-text="empresa.direccion"></td>
-                                        <td v-text="empresa.telefonos"></td>
-                                        <td v-text="empresa.tipo"></td>
-                                        <td v-text="empresa.estado"></td>
                                         <td>
-                                            <div v-if="empresa.estado == '1'">
-                                            <span class="badge badge-success">Activo</span>
-                                            </div>
-                                            <div v-if="empresa.estado == '2'">
-                                            <span class="badge badge-danger">Desactivado</span>
-                                            </div>
+                                            <input type="text" v-model="nombre" class="form-control" placeholder="Nombre Empresa">
                                         </td>
                                     </tr>
-
+                                    <tr>
+                                        <td>
+                                            Dirección Empresa
+                                        </td>
+                                        <td>
+                                            <input type="text" v-model="direccion" class="form-control" placeholder="Dirección Empresa">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Telefono Empresa
+                                        </td>
+                                        <td>
+                                            <input type="number" v-model="telefono" step="0.01" class="form-control" placeholder="Telefono Empresa">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Caja de Compensación Empresa
+                                        </td>
+                                        <td>
+                                        <select class="form-control" v-model="cajaCompensacion">
+                                        <option value="0" disabled>Seleccione la caja de compensación</option>
+                                        <option v-for="caja in arrayCajas" :key="caja.id" :value="caja.id" v-text="caja.NombreCajaCompensacion">
+                                        </option>
+                                       </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Arl Empresa
+                                        </td>
+                                        <td>
+                                        <select class="form-control" v-model="arl">
+                                        <option value="0" disabled>Seleccione la arl</option>
+                                        <option v-for="arl in arrayArl" :key="arl.id" :value="arl.id" v-text="arl.nombreArl">
+                                        </option>
+                                       </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Nivel de Riesgo Empresa
+                                        </td>
+                                        <td>
+                                        <select class="form-control" v-model="nivelRiesgo">
+                                        <option value="0" disabled>Seleccione el nivel de riesgo</option>
+                                        <option v-for="nivel in arrayNivel" :key="nivel.id" :value="nivel.id" v-text="nivel.nivelArl">
+                                        </option>
+                                        </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Tipo Nomina Empresa
+                                        </td>
+                                        <td>
+                                        <select class="form-control" v-model="idTipoNomina">
+                                        <option value="0" disabled>Seleccione el tipo de nomina</option>
+                                        <option v-for="tiponomina in arrayTipoNomina" :key="tiponomina.id" :value="tiponomina.id" v-text="tiponomina.tipoNomina">
+                                        </option>
+                                       </select>
+                                        </td>
+                                    </tr>
                                 </tbody>
                             </table>
+                                <input type="hidden" v-model="id">
+                                <!-- <button type="button" class="btn btn-success" @click="guardarDatos()">Guardar</button> -->
+                                <button type="button" class="btn btn-primary" @click="actualizarDatos(id,nombre,direccion,telefono,cajaCompensacion,arl,nivelRiesgo,idTipoNomina)">Actualizar</button>
+                            </form>
                             </div>
-                            <nav>
-                                <ul class="pagination">
-                                    <li class="page-item" v-if="pagination.current_page > 1">
-                                        <a class="page-link" href="#" @click.prevent="cambiarPagina(pagination.current_page - 1,buscar,criterio)">Ant</a>
-                                    </li>
-                                    <li class="page-item" v-for="page in pagesNumber" :key="page" :class="[page == isActived ? 'active' : '']">
-                                        <a class="page-link" href="#" @click.prevent="cambiarPagina(page,buscar,criterio)" v-text="page"></a>
-                                    </li>
-                                    <li class="page-item" v-if="pagination.current_page < pagination.last_page">
-                                        <a class="page-link" href="#" @click.prevent="cambiarPagina(pagination.current_page + 1,buscar,criterio)">Sig</a>
-                                    </li>
-                                </ul>
-                            </nav>
                         </div>
                     </div>
                     <!-- Fin ejemplo de tabla Listado -->
                 </div>
-                <!--Inicio del modal agregar/actualizar-->
-                <div class="modal fade" tabindex="-1" :class="{'mostrar':modal}" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
-                    <div class="modal-dialog modal-primary modal-lg" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title" v-text="tituloModal"></h4>
-                                <button type="button" class="close" @click="cerrarModal()" aria-label="Close">
-                                <span aria-hidden="true">×</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
-                                    <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
-                                        <div class="col-md-9">
-                                            <input type="text" v-model="empresa" class="form-control" placeholder="Nombre de empresa">
-                                            <span class="help-block">(*) Ingrese el nombre del empresa</span>
-                                        </div>
-                                    </div>
-
-                                    <!--
-                                    <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="email-input">Descripción</label>
-                                        <div class="col-md-9">
-                                            <input type="email" v-model="estado" class="form-control" placeholder="Enter Email">
-                                        </div>
-                                    </div>
-                                    -->
-
-                                    <div class="form-group row div-error" v-show="errorEmpresa">
-                                        <div class="text-center text-error">
-                                            <div v-for="error in errorMensaje" :key="error" v-text="error"></div>
-                                        </div>
-                                    </div>
-
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" @click="cerrarModal()">Cerrar</button>
-                                <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="crearEmpresa()">Guardar</button>
-                                <button type="button" v-if="tipoAccion==2" class="btn btn-warning" @click="editarEmpresa()">Editar</button>
-                            </div>
-                        </div>
-                        <!-- /.modal-content -->
-                    </div>
-                    <!-- /.modal-dialog -->
-                </div>
-                <!--Fin del modal-->
         </main>
 </template>
 
@@ -168,7 +109,13 @@
             return{
                 idEmpresa:0,
                 id:'',
-                empresa:'',
+                razonSocial:'',
+                representante:'',
+                nit:'',
+                regimen:'',
+                direccion:'',
+                telefonos:'',
+                tipo:'',
                 estado:'',
                 arrayEmpresa : [],
                 modal : 0,
@@ -242,117 +189,30 @@
                 //envia peticion para ver los valores asociados a esa pagina
                 me.listarEmpresa(page,buscar,criterio);
             },
-            crearEmpresa(){
-                //valido con el metodo de validacion creado
-                if(this.validarEmpresa()){
-                    return;
-                }
-
+            actualizarDatos(id,razonSocial,representante,nit,regimen,direccion,telefonos,tipo){
+                const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success'
+                },
+                buttonsStyling: false
+                })
                 let me=this;
-                axios.post('/empresa/store',{
-                    'usuario': this.empresa
-                    //'estado': this.estado,
-                    //'dato': this.dato
+                axios.post('/empresa/update',{
+                    'id': this.id,
+                    'razonSocial' : this.razonSocial,
+                    'representante' : this.representante,
+                    'nit' : this.nit,
+                    'regimen' : this.regimen,
+                    'direccion' : this.direccion,
+                    'telefonos' : this.telefonos,
+                    'tipo' : this.tipo
                 }).then(function (response) {
-                me.cerrarModal();
-                me.listarEmpresa(1,'','Empresa');
+                swalWithBootstrapButtons.fire('Registro actualizado');
+                me.listarConfiguracionBasica();
                 })
                 .catch(function (error) {
                     console.log(error);
                 });
-            },
-            editarEmpresa(){
-                if(this.validarEmpresa()){
-                    return;
-                }
-
-                let me=this;
-                axios.put('/empresa/update',{
-                    'Empresa': this.empresa,
-                    'id': this.idEmpresa
-                    //'estado': this.estado,
-                    //'dato': this.dato
-                }).then(function (response) {
-                me.cerrarModal();
-                me.listarEmpresa(1,'','empresa');
-                })
-                .catch(function (error) {
-                    console.log(error);
-                });
-            },
-            desactivarEmpresa(id){
-                const swalWithBootstrapButtons = Swal.mixin({
-                customClass: {
-                    confirmButton: 'btn btn-success',
-                    cancelButton: 'btn btn-danger'
-                },
-                buttonsStyling: false
-                })
-
-                swalWithBootstrapButtons.fire({
-                title: 'Está seguro?',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonText: 'Desactivar!',
-                cancelButtonText: 'Cancelar',
-                reverseButtons: true
-                }).then((result) => {
-                if (result.value) {
-                    let me=this;
-                    axios.put('/empresa/deactivate',{
-                        'id': id
-                    }).then(function (response) {
-                    me.listarEmpresa(1,'','empresa');
-                    swalWithBootstrapButtons.fire(
-                    'Empresa desactivado!'
-                    )
-                    }).catch(function (error) {
-                        console.log(error);
-                    });
-                } else if (
-                    /* Read more about handling dismissals below */
-                    result.dismiss === Swal.DismissReason.cancel
-                ) {
-                    me.listarEmpresa();
-                }
-                })
-            },
-            activarEmpresa(id){
-                const swalWithBootstrapButtons = Swal.mixin({
-                customClass: {
-                    confirmButton: 'btn btn-success',
-                    cancelButton: 'btn btn-danger'
-                },
-                buttonsStyling: false
-                })
-
-                swalWithBootstrapButtons.fire({
-                title: 'Quiere activar este registro?',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonText: 'Activar!',
-                cancelButtonText: 'Cancelar',
-                reverseButtons: true
-                }).then((result) => {
-                if (result.value) {
-                    let me=this;
-                    axios.put('/empresa/activate',{
-                        'id': id
-                    }).then(function (response) {
-                    me.listarempresa(1,'','empresa');
-                    swalWithBootstrapButtons.fire(
-                    'Empresa activado!'
-                    )
-                    }).catch(function (error) {
-                        console.log(error);
-                    });
-                } else if (
-                    /* Read more about handling dismissals below */
-                    result.dismiss === Swal.DismissReason.cancel
-                ) {
-                    me.listarEmpresa();
-                }
-                })
             },
             validarEmpresa(){
                 this.errorEmpresa=0;
@@ -368,32 +228,6 @@
                 this.tituloModal='';
                 this.Empresa='';
             },
-            abrirModal(modelo, accion, data=[]){
-            //tres argumentos, el modelo a modificar o crear, la accion como tal y el arreglo del registro en la tabla
-            switch(modelo){
-                case "Empresa":
-                {
-                    switch (accion) {
-                        case 'crear':{
-                            this.modal=1;
-                            this.Empresa='';
-                            this.tituloModal='Crear nuevo empresa';
-                            this.tipoAccion= 1;
-                            break;
-                        }
-                        case 'actualizar':{
-                            //console.log(data);
-                            this.modal=1;
-                            this.tituloModal='Editar empresa';
-                            this.tipoAccion= 2;
-                            this.idEmpresa=data['id'];
-                            this.Empresa=data['empresa'];
-                            break;
-                        }
-                    }
-                }
-            }
-            }
         },
         mounted() {
             this.listarEmpresa(1,this.buscar,this.criterio);

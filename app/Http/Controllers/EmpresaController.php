@@ -50,4 +50,12 @@ class EmpresaController extends Controller
     }
 
 
+    public function update(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $empresa=Empresa::findOrFail($request->id);
+        $empresa->area=$request->area;
+        $empresa->estado='1';
+        $empresa->save();
+    }
+
 }
