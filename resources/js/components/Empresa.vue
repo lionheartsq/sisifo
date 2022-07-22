@@ -22,7 +22,7 @@
                                             Nombre Empresa
                                         </td>
                                         <td>
-                                            <input type="text" v-model="nombre" class="form-control" placeholder="Nombre Empresa">
+                                            <input type="text" v-model="razonSocial" class="form-control" placeholder="Nombre Empresa">
                                         </td>
                                     </tr>
                                     <tr>
@@ -38,62 +38,42 @@
                                             Telefono Empresa
                                         </td>
                                         <td>
-                                            <input type="number" v-model="telefono" step="0.01" class="form-control" placeholder="Telefono Empresa">
+                                            <input type="number" v-model="telefonos" step="0.01" class="form-control" placeholder="Telefono Empresa">
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            Caja de Compensación Empresa
+                                            Representante
                                         </td>
                                         <td>
-                                        <select class="form-control" v-model="cajaCompensacion">
-                                        <option value="0" disabled>Seleccione la caja de compensación</option>
-                                        <option v-for="caja in arrayCajas" :key="caja.id" :value="caja.id" v-text="caja.NombreCajaCompensacion">
-                                        </option>
-                                       </select>
+                                            <input type="text" v-model="representante" class="form-control" placeholder="Dirección Empresa">
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            Arl Empresa
+                                            Nit
                                         </td>
                                         <td>
-                                        <select class="form-control" v-model="arl">
-                                        <option value="0" disabled>Seleccione la arl</option>
-                                        <option v-for="arl in arrayArl" :key="arl.id" :value="arl.id" v-text="arl.nombreArl">
-                                        </option>
-                                       </select>
+                                            <input type="text" v-model="nit" class="form-control" placeholder="Dirección Empresa">
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            Nivel de Riesgo Empresa
+                                            Régimen
                                         </td>
                                         <td>
-                                        <select class="form-control" v-model="nivelRiesgo">
-                                        <option value="0" disabled>Seleccione el nivel de riesgo</option>
-                                        <option v-for="nivel in arrayNivel" :key="nivel.id" :value="nivel.id" v-text="nivel.nivelArl">
-                                        </option>
+                                        <select class="form-control" v-model="regimen">
+                                        <option value="0" disabled>Seleccione el régimen</option>
+                                        <option value="Simplificado">Simplificado</option>
+                                        <option value="Común">Común</option>
                                         </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            Tipo Nomina Empresa
-                                        </td>
-                                        <td>
-                                        <select class="form-control" v-model="idTipoNomina">
-                                        <option value="0" disabled>Seleccione el tipo de nomina</option>
-                                        <option v-for="tiponomina in arrayTipoNomina" :key="tiponomina.id" :value="tiponomina.id" v-text="tiponomina.tipoNomina">
-                                        </option>
-                                       </select>
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
                                 <input type="hidden" v-model="id">
                                 <!-- <button type="button" class="btn btn-success" @click="guardarDatos()">Guardar</button> -->
-                                <button type="button" class="btn btn-primary" @click="actualizarDatos(id,nombre,direccion,telefono,cajaCompensacion,arl,nivelRiesgo,idTipoNomina)">Actualizar</button>
+                                <button type="button" class="btn btn-primary" @click="actualizarDatos()">Actualizar</button>
                             </form>
                             </div>
                         </div>
@@ -117,23 +97,11 @@
                 telefonos:'',
                 tipo:'',
                 estado:'',
-                arrayEmpresa : [],
                 modal : 0,
                 tituloModal : '',
                 tipoAccion : 0,
                 errorEmpresa : 0,
-                errorMensaje : [],
-                pagination : {
-                    'total' : 0,
-                    'current_page' : 0,
-                    'per_page' : 0,
-                    'last_page' : 0,
-                    'from' : 0,
-                    'to' : 0,
-                },
-                offset : 3,
-                criterio : 'empresa',
-                buscar : ''
+                errorMensaje : []
             }
         },
         computed:{
@@ -173,8 +141,13 @@
                 axios.get(url).then(function (response) {
                     // handle success
                 var respuesta=response.data;
-                me.arrayEmpresa=respuesta.empresa.data;
-                me.pagination=respuesta.pagination;
+                me.id=respuesta.id;
+                me.razonSocial=respuesta.razonSocial;
+                me.direccion=respuesta.direccion;
+                me.telefonos=respuesta.telefonos;
+                me.representante=respuesta.representante;
+                me.nit=respuesta.nit;
+                me.regimen=respuesta.regimen;
                     //console.log(response);
                 })
                 .catch(function (error) {
@@ -189,7 +162,7 @@
                 //envia peticion para ver los valores asociados a esa pagina
                 me.listarEmpresa(page,buscar,criterio);
             },
-            actualizarDatos(id,razonSocial,representante,nit,regimen,direccion,telefonos,tipo){
+            actualizarDatos(){
                 const swalWithBootstrapButtons = Swal.mixin({
                 customClass: {
                     confirmButton: 'btn btn-success'

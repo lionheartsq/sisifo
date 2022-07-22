@@ -13,30 +13,34 @@ class EmpresaController extends Controller
     {
         //if(!$request->ajax()) return redirect('/');
         $buscar= $request->buscar;
-        $criterio= $request->criterio;
 
         if ($buscar=='') {
             $empresa = Empresa::where('empresa.estado','=','1')
-            ->orderBy('empresa.id','desc')
-            ->paginate(5);
+            ->get();
         }
         else {
             $empresa = Empresa::where('empresa.estado','=','1')
-            ->where($criterio, 'like', '%'. $buscar . '%')
-            ->orderBy('empresa.id','desc')
-            ->paginate(5);
+            ->get();
+        }
+
+        foreach($empresa as $item){
+            $razonSocial=$item['razonSocial'];
+            $representante=$item['representante'];
+            $nit=$item['nit'];
+            $regimen=$item['regimen'];
+            $direccion=$item['direccion'];
+            $telefonos=$item['telefonos'];
+            $tipo=$item['tipo'];
         }
 
         return [
-            'pagination' => [
-                'total'         =>$empresa->total(),
-                'current_page'  =>$empresa->currentPage(),
-                'per_page'      =>$empresa->perPage(),
-                'last_page'     =>$empresa->lastPage(),
-                'from'          =>$empresa->firstItem(),
-                'to'            =>$empresa->lastItem(),
-            ],
-                'empresa' => $empresa,
+            'razonSocial' => $razonSocial,
+            'representante'=>$representante,
+            'nit'=>$nit,
+            'regimen'=>$regimen,
+            'direccion'=>$direccion,
+            'telefonos'=>$telefonos,
+            'tipo'=>$tipo,
         ];
     }
 
@@ -53,8 +57,13 @@ class EmpresaController extends Controller
     public function update(Request $request){
         //if(!$request->ajax()) return redirect('/');
         $empresa=Empresa::findOrFail($request->id);
-        $empresa->area=$request->area;
-        $empresa->estado='1';
+        $empresa->razonSocial=$request->razonSocial;
+        $empresa->representante=$request->representante;
+        $empresa->nit=$request->nit;
+        $empresa->regimen=$request->regimen;
+        $empresa->direccion=$request->direccion;
+        $empresa->telefonos=$request->telefonos;
+        $empresa->tipo=$request->tipo;
         $empresa->save();
     }
 
