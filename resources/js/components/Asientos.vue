@@ -360,8 +360,11 @@
             validarAsientos(){
                 this.errorAsientos=0;
                 this.errorMensaje=[];
-
-                if (!this.Asientos) this.errorMensaje.push("El nombre del asientos no puede estar vacio");
+                
+                if (!this.fecha) this.errorMensaje.push("La fecha del asiento no puede estar vacio");
+                if (!this.concepto) this.errorMensaje.push("El concepto del asiento no puede estar vacio");
+                if (!this.detalle) this.errorMensaje.push("El detalle del asiento no puede estar vacio");
+                if (!this.tipologia) this.errorMensaje.push("La tipologia del asiento no puede estar vacio");
                 if (this.errorMensaje.length) this.errorAsientos=1;
 
                 return this.errorAsientos;

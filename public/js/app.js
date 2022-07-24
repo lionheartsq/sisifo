@@ -2313,7 +2313,10 @@ __webpack_require__.r(__webpack_exports__);
     validarAsientos: function validarAsientos() {
       this.errorAsientos = 0;
       this.errorMensaje = [];
-      if (!this.Asientos) this.errorMensaje.push("El nombre del asientos no puede estar vacio");
+      if (!this.fecha) this.errorMensaje.push("La fecha del asiento no puede estar vacio");
+      if (!this.concepto) this.errorMensaje.push("El concepto del asiento no puede estar vacio");
+      if (!this.detalle) this.errorMensaje.push("El detalle del asiento no puede estar vacio");
+      if (!this.tipologia) this.errorMensaje.push("La tipologia del asiento no puede estar vacio");
       if (this.errorMensaje.length) this.errorAsientos = 1;
       return this.errorAsientos;
     },
@@ -11963,7 +11966,12 @@ __webpack_require__.r(__webpack_exports__);
     validarUsuario: function validarUsuario() {
       this.errorUsuario = 0;
       this.errorMensaje = [];
+      if (!this.documento) this.errorMensaje.push("El documento del usuario no puede estar vacio");
+      if (!this.email) this.errorMensaje.push("El email del usuario no puede estar vacio");
       if (!this.nombres) this.errorMensaje.push("El nombre del usuario no puede estar vacio");
+      if (!this.apellidos) this.errorMensaje.push("Los apellidos del usuario no puede estar vacio");
+      if (!this.password) this.errorMensaje.push("La password del usuario no puede estar vacio");
+      if (!this.idRol) this.errorMensaje.push("El rol del usuario no puede estar vacio");
       if (this.errorMensaje.length) this.errorUsuario = 1;
       return this.errorUsuario;
     },
