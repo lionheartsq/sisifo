@@ -71,7 +71,8 @@
                                     </tr>
                                 </tbody>
                             </table>
-                                <input type="hidden" v-model="id">
+                                <input type="hidden" v-model="id"/>
+                                <input type="hidden" v-model="tipo"/>
                                 <!-- <button type="button" class="btn btn-success" @click="guardarDatos()">Guardar</button> -->
                                 <button type="button" class="btn btn-primary" @click="actualizarDatos()">Actualizar</button>
                             </form>
@@ -148,6 +149,7 @@
                 me.representante=respuesta.representante;
                 me.nit=respuesta.nit;
                 me.regimen=respuesta.regimen;
+                me.tipo=respuesta.tipo;
                     //console.log(response);
                 })
                 .catch(function (error) {
@@ -191,7 +193,7 @@
                 this.errorEmpresa=0;
                 this.errorMensaje=[];
 
-                if (!this.Empresa) this.errorMensaje.push("El nombre del empresa no puede estar vacio");
+                if (!this.Empresa) this.errorMensaje.push("El nombre de la empresa no puede estar vacio");
                 if (this.errorMensaje.length) this.errorEmpresa=1;
 
                 return this.errorEmpresa;

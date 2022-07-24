@@ -24,6 +24,7 @@ class EmpresaController extends Controller
         }
 
         foreach($empresa as $item){
+            $id=$item['id'];
             $razonSocial=$item['razonSocial'];
             $representante=$item['representante'];
             $nit=$item['nit'];
@@ -34,6 +35,7 @@ class EmpresaController extends Controller
         }
 
         return [
+            'id' => $id,
             'razonSocial' => $razonSocial,
             'representante'=>$representante,
             'nit'=>$nit,

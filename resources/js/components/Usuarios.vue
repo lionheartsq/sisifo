@@ -24,10 +24,6 @@
                                         <option value="email">Email</option>
                                         <option value="nombres">Nombres</option>
                                         <option value="apellidos">Apellidos</option>
-                                        <option value="password">Password</option>
-                                        <option value="idEmpresa">idEmpresa</option>
-                                        <option value="idRol">idRol</option>
-                                        <option value="estado">Estado</option>
                                         </select>
                                         <input type="text" v-model="buscar" @keyup.enter="listarUsuario(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
                                         <button type="submit" @click="listarUsuario(1,buscar,criterio)" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
@@ -43,8 +39,6 @@
                                         <th>Email</th>
                                         <th>Nombres</th>
                                         <th>Apellidos</th>
-                                        <th>Password</th>
-                                        <th>idEmpresa</th>
                                         <th>idRol</th>
                                         <th>Estado</th>
                                     </tr>
@@ -53,25 +47,16 @@
 
                                     <tr v-for="usuario in arrayUsuarios" :key="usuario.id">
                                         <td>
-                                            <button type="button" @click="abrirModal('usuario','actualizar',usuario)" class="btn btn-info btn-sm">
-                                            <i class="icon-eye" title="Ver detalles"></i>
-                                            </button> &nbsp;
+                                        <button type="button" @click="abrirModal('usuario','actualizar',usuario)" class="btn btn-warning btn-sm">
+                                        <i class="icon-pencil" title="Editar datos"></i>
+                                        </button> &nbsp;
 
-                                            <button type="button" @click="abrirModal('usuario','actualizar',usuario)" class="btn btn-warning btn-sm">
-                                            <i class="icon-pencil" title="Editar datos"></i>
-                                            </button> &nbsp;
-
-                                        <template v-if="usuario.estado == 'A'">
+                                        <template v-if="usuario.estado == '1'">
                                             <button type="button" class="btn btn-danger btn-sm" @click="desactivarUsuario(usuario.id)">
                                                 <i class="icon-trash" title="Desactivar"></i>
                                             </button>
                                         </template>
-                                        <template v-if="usuario.estado == 'E'">
-                                            <button type="button" class="btn btn-danger btn-sm" @click="desactivarUsuario(usuario.id)">
-                                                <i class="icon-trash" title="Desactivar"></i>
-                                            </button>
-                                        </template>
-                                        <template v-if="usuario.estado == 'I'">
+                                        <template v-if="usuario.estado == '2'">
                                             <button type="button" class="btn btn-success btn-sm" @click="activarUsuario(usuario.id)">
                                                 <i class="icon-check" title="Reactivar"></i>
                                             </button>
@@ -82,10 +67,9 @@
                                         <td v-text="usuario.email"></td>
                                         <td v-text="usuario.nombres"></td>
                                         <td v-text="usuario.apellidos"></td>
-                                        <td v-text="usuario.password"></td>
-                                        <td v-text="usuario.idEmpresa"></td>
-                                        <td v-text="usuario.idRol"></td>
-                                        <td v-text="usuario.estado"></td>
+                                        <td v-if="usuario.idRol==1">Superadministrador</td>
+                                        <td v-if="usuario.idRol==2">Administrador</td>
+                                        <td v-if="usuario.idRol==3">Gestor</td>
                                         <td>
                                             <div v-if="usuario.estado == '1'">
                                             <span class="badge badge-success">Activo</span>
@@ -129,22 +113,51 @@
                             <div class="modal-body">
                                 <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
+                                        <label class="col-md-3 form-control-label" for="text-input">Documento</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="usuario" class="form-control" placeholder="Nombre de usuario">
-                                            <span class="help-block">(*) Ingrese el nombre del usuario</span>
+                                            <input type="number" v-model="documento" class="form-control" placeholder="Documento del usuario">
+                                            <span class="help-block">(*) Ingrese el documento del usuario</span>
                                         </div>
                                     </div>
-
-                                    <!--
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="email-input">Descripción</label>
+                                        <label class="col-md-3 form-control-label" for="text-input">Nombres</label>
                                         <div class="col-md-9">
-                                            <input type="email" v-model="estado" class="form-control" placeholder="Enter Email">
+                                            <input type="text" v-model="nombres" class="form-control" placeholder="Nombres del usuario">
+                                            <span class="help-block">(*) Ingrese los nombres del usuario</span>
                                         </div>
                                     </div>
-                                    -->
-
+                                    <div class="form-group row">
+                                        <label class="col-md-3 form-control-label" for="text-input">Apellidos</label>
+                                        <div class="col-md-9">
+                                            <input type="text" v-model="apellidos" class="form-control" placeholder="Apellidos del usuario">
+                                            <span class="help-block">(*) Ingrese los apellidos del usuario</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3 form-control-label" for="text-input">E-mail</label>
+                                        <div class="col-md-9">
+                                            <input type="email" v-model="email" class="form-control" placeholder="E-mail del usuario">
+                                            <span class="help-block">(*) Ingrese el e-mail del usuario</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" v-if="tipoAccion==1">
+                                        <label class="col-md-3 form-control-label" for="text-input">Password</label>
+                                        <div class="col-md-9">
+                                            <input type="text" v-model="password" class="form-control" placeholder="Password del usuario">
+                                            <span class="help-block">(*) Ingrese password para el usuario</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3 form-control-label" for="text-input">Rol</label>
+                                        <div class="col-md-9">
+                                            <div class="input-group">
+                                                <select class="form-control col-md-3" v-model="idRol">
+                                                <option value="2">Administrador</option>
+                                                <option value="3">Gestor</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="form-group row div-error" v-show="errorUsuario">
                                         <div class="text-center text-error">
                                             <div v-for="error in errorMensaje" :key="error" v-text="error"></div>
@@ -173,7 +186,13 @@
             return{
                 idUsuario:0,
                 id:'',
-                usuario:'',
+                nombres:'',
+                apellidos:'',
+                documento:'',
+                email:'',
+                password:'',
+                idEmpresa:1,
+                idRol:2,
                 estado:'',
                 arrayUsuarios : [],
                 modal : 0,
@@ -254,13 +273,16 @@
                 }
 
                 let me=this;
-                axios.post('/usarios/store',{
-                    'usuario': this.usuario
-                    //'estado': this.estado,
-                    //'dato': this.dato
+                axios.post('/usuarios/store',{
+                    'nombres': this.nombres,
+                    'apellidos': this.apellidos,
+                    'documento': this.documento,
+                    'email': this.email,
+                    'idRol': this.idRol,
+                    'password': this.password
                 }).then(function (response) {
                 me.cerrarModal();
-                me.listarUsuario(1,'','Usuario');
+                me.listarUsuario(1,'','nombres');
                 })
                 .catch(function (error) {
                     console.log(error);
@@ -273,13 +295,16 @@
 
                 let me=this;
                 axios.put('/usuarios/update',{
-                    'Usuario': this.usuario,
-                    'id': this.idUsuario
-                    //'estado': this.estado,
-                    //'dato': this.dato
+                    'id': this.id,
+                    'nombres': this.nombres,
+                    'apellidos': this.apellidos,
+                    'documento': this.documento,
+                    'email': this.email,
+                    'idRol': this.idRol,
+                    'password': this.password
                 }).then(function (response) {
                 me.cerrarModal();
-                me.listarUsuario(1,'','usuario');
+                me.listarUsuario(1,'','nombres');
                 })
                 .catch(function (error) {
                     console.log(error);
@@ -307,7 +332,7 @@
                     axios.put('/usuarios/deactivate',{
                         'id': id
                     }).then(function (response) {
-                    me.listarUsuario(1,'','usuario');
+                    me.listarUsuario(1,'','nombres');
                     swalWithBootstrapButtons.fire(
                     'Usuario desactivado!'
                     )
@@ -363,7 +388,7 @@
                 this.errorUsuario=0;
                 this.errorMensaje=[];
 
-                if (!this.Usuario) this.errorMensaje.push("El nombre del usuario no puede estar vacio");
+                if (!this.nombres) this.errorMensaje.push("El nombre del usuario no puede estar vacio");
                 if (this.errorMensaje.length) this.errorUsuario=1;
 
                 return this.errorUsuario;
@@ -376,12 +401,17 @@
             abrirModal(modelo, accion, data=[]){
             //tres argumentos, el modelo a modificar o crear, la accion como tal y el arreglo del registro en la tabla
             switch(modelo){
-                case "Usuario":
+                case "usuario":
                 {
                     switch (accion) {
                         case 'crear':{
                             this.modal=1;
-                            this.Usuario='';
+                            this.documento='';
+                            this.email='';
+                            this.nombres='';
+                            this.apellidos='';
+                            this.password='';
+                            this.idRol=2;
                             this.tituloModal='Crear nuevo usuario';
                             this.tipoAccion= 1;
                             break;
@@ -391,8 +421,13 @@
                             this.modal=1;
                             this.tituloModal='Editar usuario';
                             this.tipoAccion= 2;
-                            this.idUsuario=data['id'];
-                            this.Usuario=data['usuario'];
+                            this.id=data['id'];
+                            this.documento=data['documento'];
+                            this.email=data['email'];
+                            this.nombres=data['nombres'];
+                            this.apellidos=data['apellidos'];
+                            this.password=data['password'];
+                            this.idRol=data['idRol'];
                             break;
                         }
                     }

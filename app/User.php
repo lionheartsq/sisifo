@@ -14,9 +14,6 @@ class User extends Authenticatable
 	protected $primaryKey = 'id';
 	public $timestamps = false;
 
-    protected $fillable = ['documento','email','nombres','apellidos','password','estado'];
+    protected $fillable = ['documento','email','nombres','apellidos','password','idEmpresa','idRoles','estado'];
 
-    public function roles() {
-        return $this->hasMany(Roles::class, 'id');
-    }
 }

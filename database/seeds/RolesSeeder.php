@@ -19,7 +19,7 @@ class RolesSeeder extends Seeder
             'rol' => 'Administrador',
         ]);
         DB::table('roles')->insert([
-            'rol' => 'Empresario',
+            'rol' => 'Gestor',
         ]);
     }
 }

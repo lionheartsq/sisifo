@@ -38,6 +38,23 @@
             </li>
         </ul>
         <ul class="nav navbar-nav ml-auto">
+            <li class="nav-item d-md-down-none">
+                <a class="nav-link" href="#" data-toggle="dropdown">
+                    <i class="icon-bell"></i>
+                    <span class="badge badge-pill badge-danger">5</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <div class="dropdown-header text-center">
+                        <strong>Notificaciones</strong>
+                    </div>
+                    <a class="dropdown-item" href="#">
+                        <i class="fa fa-tasks"></i> Id Empresa
+                        <span class="badge badge-danger">
+                            {{Auth::user()->idEmpresa}}
+                        </span>
+                    </a>
+                </div>
+            </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                     {{-- <img src="img/avatars/{{Auth::user()->id}}.jpg" class="img-avatar" alt="{{Auth::user()->email}}"> --}}
@@ -68,18 +85,13 @@
 
     <div class="app-body">
 
-
-        @foreach (Auth::user()->roles as $rol)
-
-            @if (($rol->id)==1)
+            @if ((Auth::user()->idRol)==1)
                 @include('contenido.sidebarsa')
-            @elseif (($rol->id)==2)
+            @elseif ((Auth::user()->idRol)==2)
                 @include('contenido.sidebarem')
             @else
                 @include('contenido.sidebarvacio')
             @endif
-
-        @endforeach
        <!--
        @include('contenido.sidebarsa')
        -->
