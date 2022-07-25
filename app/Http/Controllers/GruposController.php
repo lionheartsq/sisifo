@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Grupos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class GruposController extends Controller
 {
@@ -47,6 +48,40 @@ class GruposController extends Controller
         ->get();
 
         return ['grupos' => $grupos];
+    }
+
+    public function store(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $idEmpresa=Auth::user()->idEmpresa;
+        $Grupos=new Grupos();
+        $Grupos->detalleGrupos=$request->detalleGrupos;
+        $Grupos->estado=$request->estado;
+        $Grupos->idEmpresas=$idEmpresas;
+        $Grupos->save();
+    }
+
+    public function update(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $idEmpresa=Auth::user()->idEmpresa;
+        $Grupos=Grupos::findOrFail($request->id);
+        $Grupos->detalleGrupos=$request->detalleGrupos;
+        $Grupos->estado=$request->estado;
+        $Grupos->idEmpresas=$idEmpresas;
+        $Grupos->save();
+    }
+
+    public function deactivate(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $Grupos=Grupos::findOrFail($request->id);
+        $Grupos->estado='2';
+        $Grupos->save();
+    }
+
+    public function activate(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $Grupos=Grupos::findOrFail($request->id);
+        $Grupos->estado='1';
+        $Grupos->save();
     }
 
 

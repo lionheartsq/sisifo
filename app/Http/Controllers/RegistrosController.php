@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Registros;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class RegistrosController extends Controller
 {
@@ -49,5 +50,43 @@ class RegistrosController extends Controller
         return ['registros' => $registros];
     }
 
+    public function store(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $idEmpresa=Auth::user()->idEmpresa;
+        $Registros=new Registros();
+        $Registros->fecha=$request->fecha;
+        $Registros->concepto=$request->concepto;
+        $Registros->detalle=$request->detalle;
+        $Registros->idAsientos=$request->idAsientos;
+        $Registros->entrada=$entrada;
+        $Registros->salida=$salida;
+        $Registros->save();
+    }
 
+    public function update(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $idEmpresa=Auth::user()->idEmpresa;
+        $Registros=Registros::findOrFail($request->id);
+        $Registros->fecha=$request->fecha;
+        $Registros->concepto=$request->concepto;
+        $Registros->detalle=$request->detalle;
+        $Registros->idAsientos=$request->idAsientos;
+        $Registros->entrada=$entrada;
+        $Registros->salida=$salida;
+        $Registros->save();
+    }
+
+    public function deactivate(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $Registros=Registros::findOrFail($request->id);
+        $Registros->estado='2';
+        $Registros->save();
+    }
+
+    public function activate(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $Registros=Registros::findOrFail($request->id);
+        $Registros->estado='1';
+        $Registros->save();
+    }
 }

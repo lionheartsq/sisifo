@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Habitacion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class HabitacionController extends Controller
 {
@@ -47,6 +48,44 @@ class HabitacionController extends Controller
         ->get();
 
         return ['habitacion' => $habitacion];
+    }
+    
+    public function store(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $idEmpresa=Auth::user()->idEmpresa;
+        $Habitacion=new Habitacion();
+        $Habitacion->detalle=$request->detalle;
+        $Habitacion->estado=$request->estado;
+        $Habitacion->fecha=$request->fecha;
+        $Habitacion->idTipo=$request->idTipo;
+        $Habitacion->idEmpresas=$idEmpresas;
+        $Habitacion->save();
+    }
+
+    public function update(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $idEmpresa=Auth::user()->idEmpresa;
+        $Habitacion=Habitacion::findOrFail($request->id);
+        $Habitacion->detalle=$request->detalle;
+        $Habitacion->estado=$request->estado;
+        $Habitacion->fecha=$request->fecha;
+        $Habitacion->idTipo=$request->idTipo;
+        $Habitacion->idEmpresas=$idEmpresas;
+        $Habitacion->save();
+    }
+
+    public function deactivate(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $Habitacion=Habitacion::findOrFail($request->id);
+        $Habitacion->estado='2';
+        $Habitacion->save();
+    }
+
+    public function activate(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $Habitacion=Habitacion::findOrFail($request->id);
+        $Habitacion->estado='1';
+        $Habitacion->save();
     }
 
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Impuesto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class ImpuestoController extends Controller
 {
@@ -47,6 +48,40 @@ class ImpuestoController extends Controller
         ->get();
 
         return ['impuesto' => $impuesto];
+    }
+
+    public function store(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $idEmpresa=Auth::user()->idEmpresa;
+        $Impuesto=new Impuesto();
+        $Impuesto->nombre=$request->nombre;
+        $Impuesto->valor=$request->valor;
+        $Impuesto->estado=$request->estado;
+        $Impuesto->save();
+    }
+
+    public function update(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $idEmpresa=Auth::user()->idEmpresa;
+        $Impuesto=Impuesto::findOrFail($request->id);
+        $Impuesto->nombre=$request->nombre;
+        $Impuesto->valor=$request->valor;
+        $Impuesto->estado=$request->estado;
+        $Impuesto->save();
+    }
+
+    public function deactivate(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $Impuesto=Impuesto::findOrFail($request->id);
+        $Impuesto->estado='2';
+        $Impuesto->save();
+    }
+
+    public function activate(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $Impuesto=Impuesto::findOrFail($request->id);
+        $Impuesto->estado='1';
+        $Impuesto->save();
     }
 
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Cobros;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class CobrosController extends Controller
 {
@@ -47,6 +48,43 @@ class CobrosController extends Controller
         ->get();
 
         return ['cobros' => $cobros];
+    }
+    public function store(Request $request){  
+        //if(!$request->ajax()) return redirect('/');
+        $idEmpresa=Auth::user()->idEmpresa;
+        $Clientes=new Clientes();
+        $Clientes->fechaAbono=$request->fechaAbono;
+        $Clientes->valorCobro=$request->valorCobro;
+        $Clientes->abono=$request->abono;
+        $Clientes->idFacturas=$request->idFacturas;
+        $Clientes->idEmpresa=$idEmpresa;
+        $Clientes->save();
+    }
+
+    public function update(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $idEmpresa=Auth::user()->idEmpresa;
+        $Clientes=Clientes::findOrFail($request->id);
+        $Clientes->fechaAbono=$request->fechaAbono;
+        $Clientes->valorCobro=$request->valorCobro;
+        $Clientes->abono=$request->abono;
+        $Clientes->idFacturas=$request->idFacturas;
+        $Clientes->idEmpresa=$idEmpresa;
+        $Clientes->save();
+    }
+
+    public function deactivate(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $Clientes=Clientes::findOrFail($request->id);
+        $Clientes->estado='2';
+        $Clientes->save();
+    }
+
+    public function activate(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $Clientes=Clientes::findOrFail($request->id);
+        $Clientes->estado='1';
+        $Clientes->save();
     }
 
 

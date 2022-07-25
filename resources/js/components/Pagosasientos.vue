@@ -108,26 +108,31 @@
                                 <span aria-hidden="true">×</span>
                                 </button>
                             </div>
+
                             <div class="modal-body">
                                 <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
+                                        <label class="col-md-3 form-control-label" for="text-input">Pagos</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="pagosasientos" class="form-control" placeholder="Nombre de pagosasientos">
-                                            <span class="help-block">(*) Ingrese el nombre del pagosasientos</span>
+                                            <input type="number" v-model="idPagos" class="form-control" placeholder="Pagos de pagos asientos">
+                                            <span class="help-block">(*) Ingrese los pagos de pagos asientos</span>
                                         </div>
                                     </div>
-
-                                    <!--
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="email-input">Descripción</label>
+                                        <label class="col-md-3 form-control-label" for="text-input">Asientos</label>
                                         <div class="col-md-9">
-                                            <input type="email" v-model="estado" class="form-control" placeholder="Enter Email">
+                                            <input type="text" v-model="idAsientos" class="form-control" placeholder="Asientos de pagos asientos">
+                                            <span class="help-block">(*) Ingrese los asientos de pagos asientos</span>
                                         </div>
                                     </div>
-                                    -->
-
-                                    <div class="form-group row div-error" v-show="errorPagosasientos">
+                                    <div class="form-group row">
+                                        <label class="col-md-3 form-control-label" for="text-input">Empresas</label>
+                                        <div class="col-md-9">
+                                            <input type="text" v-model="idEmpresas" class="form-control" placeholder="Empresas de pagos asientos">
+                                            <span class="help-block">(*) Ingrese las empresas de pagos asientos</span>
+                                        </div>
+                                    </div>                                    
+                                    <div class="form-group row div-error" v-show="errorUsuario">
                                         <div class="text-center text-error">
                                             <div v-for="error in errorMensaje" :key="error" v-text="error"></div>
                                         </div>
@@ -137,8 +142,8 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" @click="cerrarModal()">Cerrar</button>
-                                <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="crearPagosasientos()">Guardar</button>
-                                <button type="button" v-if="tipoAccion==2" class="btn btn-warning" @click="editarPagosasientos()">Editar</button>
+                                <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="crearUsuario()">Guardar</button>
+                                <button type="button" v-if="tipoAccion==2" class="btn btn-warning" @click="editarUsuario()">Editar</button>
                             </div>
                         </div>
                         <!-- /.modal-content -->
@@ -345,7 +350,9 @@
                 this.errorPagosasientos=0;
                 this.errorMensaje=[];
 
-                if (!this.Pagosasientos) this.errorMensaje.push("El nombre del pagosasientos no puede estar vacio");
+                if (!this.idPagos) this.errorMensaje.push("Los pagos de pagos asientos no puede estar vacio");
+                if (!this.idAsientos) this.errorMensaje.push("Los asientos de pagos asientos no puede estar vacio");
+                if (!this.idEmpresas) this.errorMensaje.push("Las empresas de pagos asientos no puede estar vacio");
                 if (this.errorMensaje.length) this.errorPagosasientos=1;
 
                 return this.errorPagosasientos;

@@ -120,26 +120,59 @@
                                 <span aria-hidden="true">×</span>
                                 </button>
                             </div>
+
                             <div class="modal-body">
                                 <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
+                                        <label class="col-md-3 form-control-label" for="text-input">Cantidad</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="detallepedidos" class="form-control" placeholder="Nombre de detallepedidos">
-                                            <span class="help-block">(*) Ingrese el nombre del detallepedidos</span>
+                                            <input type="number" v-model="cantidad" class="form-control" placeholder="Cantidad del detalle factura">
+                                            <span class="help-block">(*) Ingrese la cantidad del detalle factura</span>
                                         </div>
                                     </div>
-
-                                    <!--
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="email-input">Descripción</label>
+                                        <label class="col-md-3 form-control-label" for="text-input">Valor</label>
                                         <div class="col-md-9">
-                                            <input type="email" v-model="estado" class="form-control" placeholder="Enter Email">
+                                            <input type="text" v-model="valor" class="form-control" placeholder="Valor del detalle factura">
+                                            <span class="help-block">(*) Ingrese el valor del detalle factura</span>
                                         </div>
                                     </div>
-                                    -->
-
-                                    <div class="form-group row div-error" v-show="errorDetallepedidos">
+                                    <div class="form-group row">
+                                        <label class="col-md-3 form-control-label" for="text-input">Valor Impuesto</label>
+                                        <div class="col-md-9">
+                                            <input type="text" v-model="valorImpuesto" class="form-control" placeholder="Valor Impuesto del detalle factura">
+                                            <span class="help-block">(*) Ingrese el valor impuesto del detalle factura</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3 form-control-label" for="text-input">Total</label>
+                                        <div class="col-md-9">
+                                            <input type="text" v-model="total" class="form-control" placeholder="Total del detalle factura">
+                                            <span class="help-block">(*) Ingrese el total del detalle factura</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3 form-control-label" for="text-input">Pedidos</label>
+                                        <div class="col-md-9">
+                                            <input type="text" v-model="idPedidos" class="form-control" placeholder="Pedidos del detalle factura">
+                                            <span class="help-block">(*) Ingrese las pedidos del detalle factura</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3 form-control-label" for="text-input">Productos</label>
+                                        <div class="col-md-9">
+                                            <input type="text" v-model="idProductos" class="form-control" placeholder="Productos del detalle factura">
+                                            <span class="help-block">(*) Ingrese los productos del detalle factura</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3 form-control-label" for="text-input">Empresas</label>
+                                        <div class="col-md-9">
+                                            <input type="text" v-model="idEmpresas" class="form-control" placeholder="Empresas del detalle factura">
+                                            <span class="help-block">(*) Ingrese las empresas del detalle factura</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row div-error" v-show="errorUsuario">
                                         <div class="text-center text-error">
                                             <div v-for="error in errorMensaje" :key="error" v-text="error"></div>
                                         </div>
@@ -149,8 +182,8 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" @click="cerrarModal()">Cerrar</button>
-                                <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="crearDetallepedidos()">Guardar</button>
-                                <button type="button" v-if="tipoAccion==2" class="btn btn-warning" @click="editarDetallepedidos()">Editar</button>
+                                <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="crearUsuario()">Guardar</button>
+                                <button type="button" v-if="tipoAccion==2" class="btn btn-warning" @click="editarUsuario()">Editar</button>
                             </div>
                         </div>
                         <!-- /.modal-content -->
@@ -357,8 +390,14 @@
                 this.errorDetallepedidos=0;
                 this.errorMensaje=[];
 
-                if (!this.Detallepedidos) this.errorMensaje.push("El nombre del detallepedidos no puede estar vacio");
-                if (this.errorMensaje.length) this.errorDetallepedidos=1;
+                if (!this.cantidad) this.errorMensaje.push("La cantidad del detalle facturas no puede estar vacio");
+                if (!this.valor) this.errorMensaje.push("El valor del detalle facturas no puede estar vacio");
+                if (!this.valorImpuesto) this.errorMensaje.push("El valor impuesto del detalle facturas no puede estar vacio");
+                if (!this.total) this.errorMensaje.push("El total del detalle facturas no puede estar vacio");
+                if (!this.idPedidos) this.errorMensaje.push("Los pedidos del detalle facturas no puede estar vacio");
+                if (!this.idProductos) this.errorMensaje.push("El productos del detalle facturas no puede estar vacio");
+                if (!this.idEmpresas) this.errorMensaje.push("El empresas del detalle facturas no puede estar vacio");
+                if (this.errorMensaje.length) this.errorDetallefacturas=1;
 
                 return this.errorDetallepedidos;
             },

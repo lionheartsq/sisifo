@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Clientes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class ClientesController extends Controller
 {
@@ -47,6 +48,46 @@ class ClientesController extends Controller
         ->get();
 
         return ['clientes' => $clientes];
+    }
+
+    public function store(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $idEmpresa=Auth::user()->idEmpresa;
+        $Clientes=new Clientes();
+        $Clientes->cedula=$request->cedula;
+        $Clientes->nombres=$request->nombres;
+        $Clientes->apellidos=$request->apellidos;
+        $Clientes->direccion=$request->direccion;
+        $Clientes->idEmpresa=$idEmpresa;
+        $Clientes->correo=$correo;
+        $Clientes->save();
+    }
+
+    public function update(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $idEmpresa=Auth::user()->idEmpresa;
+        $Clientes=Clientes::findOrFail($request->id);
+        $Clientes->cedula=$request->cedula;
+        $Clientes->nombres=$request->nombres;
+        $Clientes->apellidos=$request->apellidos;
+        $Clientes->direccion=$request->direccion;
+        $Clientes->idEmpresa=$idEmpresa;
+        $Clientes->correo=$correo;
+        $Clientes->save();
+    }
+
+    public function deactivate(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $Clientes=Clientes::findOrFail($request->id);
+        $Clientes->estado='2';
+        $Clientes->save();
+    }
+
+    public function activate(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $Clientes=Clientes::findOrFail($request->id);
+        $Clientes->estado='1';
+        $Clientes->save();
     }
 
 

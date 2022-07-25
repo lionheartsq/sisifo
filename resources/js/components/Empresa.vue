@@ -81,6 +81,87 @@
                     </div>
                     <!-- Fin ejemplo de tabla Listado -->
                 </div>
+                                <!--Inicio del modal agregar/actualizar-->
+                <div class="modal fade" tabindex="-1" :class="{'mostrar':modal}" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
+                    <div class="modal-dialog modal-primary modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title" v-text="tituloModal"></h4>
+                                <button type="button" class="close" @click="cerrarModal()" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+
+                            <div class="modal-body">
+                                <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                    <div class="form-group row">
+                                        <label class="col-md-3 form-control-label" for="text-input">Razon Social</label>
+                                        <div class="col-md-9">
+                                            <input type="number" v-model="razonSocial" class="form-control" placeholder="Razon Social de la empresa">
+                                            <span class="help-block">(*) Ingrese la razon social de la empresa</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3 form-control-label" for="text-input">Representante</label>
+                                        <div class="col-md-9">
+                                            <input type="text" v-model="representante" class="form-control" placeholder="Representante de la empresa">
+                                            <span class="help-block">(*) Ingrese el representante de la empresa</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3 form-control-label" for="text-input">Nit</label>
+                                        <div class="col-md-9">
+                                            <input type="text" v-model="nit" class="form-control" placeholder="Nit de la empresa">
+                                            <span class="help-block">(*) Ingrese el nit de la empresa</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3 form-control-label" for="text-input">Regimen</label>
+                                        <div class="col-md-9">
+                                            <input type="text" v-model="regimen" class="form-control" placeholder="Regimen de la empresa">
+                                            <span class="help-block">(*) Ingrese el regimen de la empresa</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3 form-control-label" for="text-input">Direccion</label>
+                                        <div class="col-md-9">
+                                            <input type="text" v-model="direccion" class="form-control" placeholder="Direccion de la empresa">
+                                            <span class="help-block">(*) Ingrese la direccion de la empresa</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3 form-control-label" for="text-input">Telefono</label>
+                                        <div class="col-md-9">
+                                            <input type="text" v-model="telefonos" class="form-control" placeholder="Telefono de la empresa">
+                                            <span class="help-block">(*) Ingrese el telefono de la empresa</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3 form-control-label" for="text-input">Tipo</label>
+                                        <div class="col-md-9">
+                                            <input type="text" v-model="tipo" class="form-control" placeholder="Tipo de la empresa">
+                                            <span class="help-block">(*) Ingrese el tipo de la empresa</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row div-error" v-show="errorUsuario">
+                                        <div class="text-center text-error">
+                                            <div v-for="error in errorMensaje" :key="error" v-text="error"></div>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" @click="cerrarModal()">Cerrar</button>
+                                <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="crearUsuario()">Guardar</button>
+                                <button type="button" v-if="tipoAccion==2" class="btn btn-warning" @click="editarUsuario()">Editar</button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!--Fin del modal-->
         </main>
 </template>
 
@@ -193,7 +274,13 @@
                 this.errorEmpresa=0;
                 this.errorMensaje=[];
 
-                if (!this.Empresa) this.errorMensaje.push("El nombre de la empresa no puede estar vacio");
+                if (!this.razonSocial) this.errorMensaje.push("La razon social de la empresa no puede estar vacio");
+                if (!this.representante) this.errorMensaje.push("El representante de la empresa no puede estar vacio");
+                if (!this.nit) this.errorMensaje.push("El nit de la empresa no puede estar vacio");
+                if (!this.regimen) this.errorMensaje.push("El regimen de la empresa no puede estar vacio");
+                if (!this.direccion) this.errorMensaje.push("La direccion de la empresa no puede estar vacio");
+                if (!this.telefonos) this.errorMensaje.push("El telefono de la empresa no puede estar vacio");
+                if (!this.tipo) this.errorMensaje.push("El tipo de la empresa no puede estar vacio");
                 if (this.errorMensaje.length) this.errorEmpresa=1;
 
                 return this.errorEmpresa;

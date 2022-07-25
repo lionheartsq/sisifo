@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Medida;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class MedidaController extends Controller
 {
@@ -49,5 +50,38 @@ class MedidaController extends Controller
         return ['medida' => $medida];
     }
 
+    public function store(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $idEmpresa=Auth::user()->idEmpresa;
+        $Medida=new Medida();
+        $Medida->nombre=$request->nombre;
+        $Medida->estado=$request->estado;
+        $Medida->idEmpresas=$idEmpresas;
+        $Medida->save();
+    }
+
+    public function update(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $idEmpresa=Auth::user()->idEmpresa;
+        $Medida=Medida::findOrFail($request->id);
+        $Medida->nombre=$request->nombre;
+        $Medida->estado=$request->estado;
+        $Medida->idEmpresas=$idEmpresas;
+        $Medida->save();
+    }
+
+    public function deactivate(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $Medida=Medida::findOrFail($request->id);
+        $Medida->estado='2';
+        $Medida->save();
+    }
+
+    public function activate(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $Medida=Medida::findOrFail($request->id);
+        $Medida->estado='1';
+        $Medida->save();
+    }
 
 }

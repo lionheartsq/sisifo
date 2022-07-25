@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Tipofactura;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class TipofacturaController extends Controller
 {
@@ -49,5 +50,33 @@ class TipofacturaController extends Controller
         return ['tipofactura' => $tipofactura];
     }
 
+    public function store(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $idEmpresa=Auth::user()->idEmpresa;
+        $Tipofactura=new Tipofactura();
+        $Tipofactura->detalle=$request->detalle;
+        $Tipofactura->save();
+    }
 
+    public function update(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $idEmpresa=Auth::user()->idEmpresa;
+        $Tipofactura=Tipofactura::findOrFail($request->id);
+        $Tipofactura->detalle=$request->detalle;
+        $Tipofactura->save();
+    }
+
+    public function deactivate(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $Tipofactura=Tipofactura::findOrFail($request->id);
+        $Tipofactura->estado='2';
+        $Tipofactura->save();
+    }
+
+    public function activate(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $Tipofactura=Tipofactura::findOrFail($request->id);
+        $Tipofactura->estado='1';
+        $Tipofactura->save();
+    }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Pagos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class PagosController extends Controller
 {
@@ -49,5 +50,41 @@ class PagosController extends Controller
         return ['pagos' => $pagos];
     }
 
+    public function store(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $idEmpresa=Auth::user()->idEmpresa;
+        $Pagos=new Pagos();
+        $Pagos->fechaAbono=$request->fechaAbono;
+        $Pagos->valorPago=$request->valorPago;
+        $Pagos->abono=$request->abono;
+        $Pagos->idPedidos=$request->idPedidos;
+        $Pagos->idEmpresa=$idEmpresa;
+        $Pagos->save();
+    }
 
+    public function update(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $idEmpresa=Auth::user()->idEmpresa;
+        $Pagos=Pagos::findOrFail($request->id);
+        $Pagos->fechaAbono=$request->fechaAbono;
+        $Pagos->valorPago=$request->valorPago;
+        $Pagos->abono=$request->abono;
+        $Pagos->idPedidos=$request->idPedidos;
+        $Pagos->idEmpresa=$idEmpresa;
+        $Pagos->save();
+    }
+
+    public function deactivate(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $Pagos=Pagos::findOrFail($request->id);
+        $Pagos->estado='2';
+        $Pagos->save();
+    }
+
+    public function activate(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $Pagos=Pagos::findOrFail($request->id);
+        $Pagos->estado='1';
+        $Pagos->save();
+    }
 }

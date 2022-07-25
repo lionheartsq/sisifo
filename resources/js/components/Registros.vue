@@ -120,26 +120,52 @@
                                 <span aria-hidden="true">×</span>
                                 </button>
                             </div>
+
                             <div class="modal-body">
                                 <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
+                                        <label class="col-md-3 form-control-label" for="text-input">Fecha</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="registros" class="form-control" placeholder="Nombre de registros">
-                                            <span class="help-block">(*) Ingrese el nombre del registros</span>
+                                            <input type="number" v-model="fecha" class="form-control" placeholder="Fecha de los registros">
+                                            <span class="help-block">(*) Ingrese la fecha de los registros</span>
                                         </div>
                                     </div>
-
-                                    <!--
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="email-input">Descripción</label>
+                                        <label class="col-md-3 form-control-label" for="text-input">Concepto</label>
                                         <div class="col-md-9">
-                                            <input type="email" v-model="estado" class="form-control" placeholder="Enter Email">
+                                            <input type="text" v-model="concepto" class="form-control" placeholder="Conceptos de los registros">
+                                            <span class="help-block">(*) Ingrese el concepto de los registros</span>
                                         </div>
                                     </div>
-                                    -->
-
-                                    <div class="form-group row div-error" v-show="errorRegistros">
+                                    <div class="form-group row">
+                                        <label class="col-md-3 form-control-label" for="text-input">Detalle</label>
+                                        <div class="col-md-9">
+                                            <input type="text" v-model="detalle" class="form-control" placeholder="Detalle de los registros">
+                                            <span class="help-block">(*) Ingrese el detalle de los registros</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3 form-control-label" for="text-input">Asientos</label>
+                                        <div class="col-md-9">
+                                            <input type="text" v-model="idAsientos" class="form-control" placeholder="Asientos de los registros">
+                                            <span class="help-block">(*) Ingrese los asientos de los registros</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3 form-control-label" for="text-input">Entrada</label>
+                                        <div class="col-md-9">
+                                            <input type="text" v-model="entrada" class="form-control" placeholder="Entrada de los registros">
+                                            <span class="help-block">(*) Ingrese la entrada de los registros</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3 form-control-label" for="text-input">Salida</label>
+                                        <div class="col-md-9">
+                                            <input type="text" v-model="salida" class="form-control" placeholder="Salida de los registros">
+                                            <span class="help-block">(*) Ingrese la salida de los registros</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row div-error" v-show="errorUsuario">
                                         <div class="text-center text-error">
                                             <div v-for="error in errorMensaje" :key="error" v-text="error"></div>
                                         </div>
@@ -149,8 +175,8 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" @click="cerrarModal()">Cerrar</button>
-                                <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="crearRegistros()">Guardar</button>
-                                <button type="button" v-if="tipoAccion==2" class="btn btn-warning" @click="editarRegistros()">Editar</button>
+                                <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="crearUsuario()">Guardar</button>
+                                <button type="button" v-if="tipoAccion==2" class="btn btn-warning" @click="editarUsuario()">Editar</button>
                             </div>
                         </div>
                         <!-- /.modal-content -->
@@ -357,7 +383,12 @@
                 this.errorRegistros=0;
                 this.errorMensaje=[];
 
-                if (!this.Registros) this.errorMensaje.push("El nombre del registros no puede estar vacio");
+                if (!this.fecha) this.errorMensaje.push("La fecha de los registros no puede estar vacio");
+                if (!this.concepto) this.errorMensaje.push("El concepto de los registros no puede estar vacio");
+                if (!this.detalle) this.errorMensaje.push("El detalle de los registros no puede estar vacio");
+                if (!this.idAsientos) this.errorMensaje.push("Los asientos de los registros no puede estar vacio");
+                if (!this.entrada) this.errorMensaje.push("La entrada de los registros no puede estar vacio");
+                if (!this.salida) this.errorMensaje.push("La salida de los registros no puede estar vacio");
                 if (this.errorMensaje.length) this.errorRegistros=1;
 
                 return this.errorRegistros;

@@ -111,26 +111,24 @@
                                 <span aria-hidden="true">×</span>
                                 </button>
                             </div>
+
                             <div class="modal-body">
                                 <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
+                                        <label class="col-md-3 form-control-label" for="text-input">Detalle</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="ciudades" class="form-control" placeholder="Nombre de ciudades">
-                                            <span class="help-block">(*) Ingrese el nombre del ciudades</span>
+                                            <input type="number" v-model="detalle" class="form-control" placeholder="Detalle de la ciudad">
+                                            <span class="help-block">(*) Ingrese el detalle de la ciudad</span>
                                         </div>
                                     </div>
-
-                                    <!--
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="email-input">Descripción</label>
+                                        <label class="col-md-3 form-control-label" for="text-input">Departamento</label>
                                         <div class="col-md-9">
-                                            <input type="email" v-model="estado" class="form-control" placeholder="Enter Email">
+                                            <input type="text" v-model="idDepartamentos" class="form-control" placeholder="Departamento de la ciudad">
+                                            <span class="help-block">(*) Ingrese el departamento de la ciudad</span>
                                         </div>
-                                    </div>
-                                    -->
-
-                                    <div class="form-group row div-error" v-show="errorCiudades">
+                                    </div>                                   
+                                    <div class="form-group row div-error" v-show="errorUsuario">
                                         <div class="text-center text-error">
                                             <div v-for="error in errorMensaje" :key="error" v-text="error"></div>
                                         </div>
@@ -140,8 +138,8 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" @click="cerrarModal()">Cerrar</button>
-                                <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="crearCiudades()">Guardar</button>
-                                <button type="button" v-if="tipoAccion==2" class="btn btn-warning" @click="editarCiudades()">Editar</button>
+                                <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="crearUsuario()">Guardar</button>
+                                <button type="button" v-if="tipoAccion==2" class="btn btn-warning" @click="editarUsuario()">Editar</button>
                             </div>
                         </div>
                         <!-- /.modal-content -->
@@ -348,7 +346,8 @@
                 this.errorCiudades=0;
                 this.errorMensaje=[];
 
-                if (!this.Ciudades) this.errorMensaje.push("El nombre del ciudades no puede estar vacio");
+                if (!this.detalle) this.errorMensaje.push("El detalle de la ciudad no puede estar vacio");
+                if (!this.idDepartamentos) this.errorMensaje.push("El departamento de la ciudad no puede estar vacio");
                 if (this.errorMensaje.length) this.errorCiudades=1;
 
                 return this.errorCiudades;

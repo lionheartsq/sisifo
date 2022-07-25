@@ -135,26 +135,59 @@
                                 <span aria-hidden="true">×</span>
                                 </button>
                             </div>
-                            <div class="modal-body">
+
+                            <div class="modal-body"> 
                                 <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
+                                        <label class="col-md-3 form-control-label" for="text-input">Consecutivo</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="facturas" class="form-control" placeholder="Nombre de facturas">
-                                            <span class="help-block">(*) Ingrese el nombre del facturas</span>
+                                            <input type="number" v-model="consecutivo" class="form-control" placeholder="Consecutivo de las facturas">
+                                            <span class="help-block">(*) Ingrese el consecutivo de las facturas</span>
                                         </div>
                                     </div>
-
-                                    <!--
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="email-input">Descripción</label>
+                                        <label class="col-md-3 form-control-label" for="text-input">Fecha</label>
                                         <div class="col-md-9">
-                                            <input type="email" v-model="estado" class="form-control" placeholder="Enter Email">
+                                            <input type="text" v-model="fecha" class="form-control" placeholder="Fecha de las facturas">
+                                            <span class="help-block">(*) Ingrese la fecha de las facturas</span>
                                         </div>
                                     </div>
-                                    -->
-
-                                    <div class="form-group row div-error" v-show="errorFacturas">
+                                    <div class="form-group row">
+                                        <label class="col-md-3 form-control-label" for="text-input">Valor</label>
+                                        <div class="col-md-9">
+                                            <input type="text" v-model="valor" class="form-control" placeholder="Valor de las facturas">
+                                            <span class="help-block">(*) Ingrese el valor de las facturas</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3 form-control-label" for="text-input">Impuesto</label>
+                                        <div class="col-md-9">
+                                            <input type="text" v-model="impuesto" class="form-control" placeholder="Impuesto de las facturas">
+                                            <span class="help-block">(*) Ingrese el impuesto de las facturas</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3 form-control-label" for="text-input">Total</label>
+                                        <div class="col-md-9">
+                                            <input type="text" v-model="total" class="form-control" placeholder="Total de las facturas">
+                                            <span class="help-block">(*) Ingrese el total de las facturas</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3 form-control-label" for="text-input">Vendedor</label>
+                                        <div class="col-md-9">
+                                            <input type="text" v-model="vendedor" class="form-control" placeholder="Vendedor de las facturas">
+                                            <span class="help-block">(*) Ingrese el vendedor de las facturas</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3 form-control-label" for="text-input">Tipo Factura</label>
+                                        <div class="col-md-9">
+                                            <input type="text" v-model="tipoFactura" class="form-control" placeholder="Tipo Factura de las facturas">
+                                            <span class="help-block">(*) Ingrese el Tipo Factura de las facturas</span>
+                                        </div>
+                                    </div>  
+                                    <div class="form-group row div-error" v-show="errorUsuario">
                                         <div class="text-center text-error">
                                             <div v-for="error in errorMensaje" :key="error" v-text="error"></div>
                                         </div>
@@ -164,8 +197,8 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" @click="cerrarModal()">Cerrar</button>
-                                <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="crearFacturas()">Guardar</button>
-                                <button type="button" v-if="tipoAccion==2" class="btn btn-warning" @click="editarFacturas()">Editar</button>
+                                <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="crearUsuario()">Guardar</button>
+                                <button type="button" v-if="tipoAccion==2" class="btn btn-warning" @click="editarUsuario()">Editar</button>
                             </div>
                         </div>
                         <!-- /.modal-content -->
@@ -372,8 +405,12 @@
                 this.errorFacturas=0;
                 this.errorMensaje=[];
 
-                if (!this.Facturas) this.errorMensaje.push("El nombre del facturas no puede estar vacio");
-                if (this.errorMensaje.length) this.errorFacturas=1;
+                if (!this.consecutivo) this.errorMensaje.push("El consecutivo de las facturas no puede estar vacio");
+                if (!this.fecha) this.errorMensaje.push("La fecha de las facturas no puede estar vacio");
+                if (!this.valor) this.errorMensaje.push("El valor de las facturas no puede estar vacio");
+                if (!this.impuesto) this.errorMensaje.push("El impuesto de las facturas no puede estar vacio");
+                if (!this.total) this.errorMensaje.push("El total de las facturas no puede estar vacio");
+                if (!this.vendedor) this.errorMensaje.push("El vendedor de las facturas no puede estar vacio");
 
                 return this.errorFacturas;
             },

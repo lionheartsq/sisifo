@@ -2522,8 +2522,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2715,7 +2713,8 @@ __webpack_require__.r(__webpack_exports__);
     validarAsociacion: function validarAsociacion() {
       this.errorAsociacion = 0;
       this.errorMensaje = [];
-      if (!this.Asociacion) this.errorMensaje.push("El nombre del asociacion no puede estar vacio");
+      if (!this.idClientes) this.errorMensaje.push("El cliente de la asociacion no puede estar vacio");
+      if (!this.idEmpresa) this.errorMensaje.push("La empresa de la asociacion no puede estar vacio");
       if (this.errorMensaje.length) this.errorAsociacion = 1;
       return this.errorAsociacion;
     },
@@ -2772,8 +2771,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
 //
 //
 //
@@ -3117,7 +3114,8 @@ __webpack_require__.r(__webpack_exports__);
     validarCiudades: function validarCiudades() {
       this.errorCiudades = 0;
       this.errorMensaje = [];
-      if (!this.Ciudades) this.errorMensaje.push("El nombre del ciudades no puede estar vacio");
+      if (!this.detalle) this.errorMensaje.push("El detalle de la ciudad no puede estar vacio");
+      if (!this.idDepartamentos) this.errorMensaje.push("El departamento de la ciudad no puede estar vacio");
       if (this.errorMensaje.length) this.errorCiudades = 1;
       return this.errorCiudades;
     },
@@ -3174,6 +3172,32 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3531,7 +3555,12 @@ __webpack_require__.r(__webpack_exports__);
     validarClientes: function validarClientes() {
       this.errorClientes = 0;
       this.errorMensaje = [];
-      if (!this.Clientes) this.errorMensaje.push("El nombre del clientes no puede estar vacio");
+      if (!this.cedula) this.errorMensaje.push("La cedula del cliente no puede estar vacio");
+      if (!this.nombres) this.errorMensaje.push("Los nombres del cliente no puede estar vacio");
+      if (!this.apellidos) this.errorMensaje.push("Los apellidos del cliente no puede estar vacio");
+      if (!this.direccion) this.errorMensaje.push("La direccion del cliente no puede estar vacio");
+      if (!this.telefono) this.errorMensaje.push("El telefono del cliente no puede estar vacio");
+      if (!this.correo) this.errorMensaje.push("El correo del cliente no puede estar vacio");
       if (this.errorMensaje.length) this.errorClientes = 1;
       return this.errorClientes;
     },
@@ -3588,6 +3617,25 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3939,7 +3987,11 @@ __webpack_require__.r(__webpack_exports__);
     validarCobros: function validarCobros() {
       this.errorCobros = 0;
       this.errorMensaje = [];
-      if (!this.Cobros) this.errorMensaje.push("El nombre del cobros no puede estar vacio");
+      if (!this.fechaAbono) this.errorMensaje.push("La Fecha Abono de los cobros no puede estar vacio");
+      if (!this.valorCobro) this.errorMensaje.push("El Valor Cobro de los cobros no puede estar vacio");
+      if (!this.abono) this.errorMensaje.push("El Abono de los cobros no puede estar vacio");
+      if (!this.idFacturas) this.errorMensaje.push("Las Facturas de los cobros no puede estar vacio");
+      if (!this.idEmpresa) this.errorMensaje.push("La Empresa de los cobros no puede estar vacio");
       if (this.errorMensaje.length) this.errorCobros = 1;
       return this.errorCobros;
     },
@@ -3996,8 +4048,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
 //
 //
 //
@@ -4338,8 +4388,9 @@ __webpack_require__.r(__webpack_exports__);
     validarCobrosasientos: function validarCobrosasientos() {
       this.errorCobrosasientos = 0;
       this.errorMensaje = [];
-      if (!this.Cobrosasientos) this.errorMensaje.push("El nombre del cobros no puede estar vacio");
-      if (this.errorMensaje.length) this.errorCobrosasientos = 1;
+      if (!this.idCobros) this.errorMensaje.push("Los Cobros de los cobros asientos no puede estar vacio");
+      if (!this.idAsientos) this.errorMensaje.push("Los Asientos de los cobros asientos no puede estar vacio");
+      if (this.errorMensaje.length) this.errorCobros = 1;
       return this.errorCobrosasientos;
     },
     cerrarModal: function cerrarModal() {
@@ -4395,15 +4446,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -4737,7 +4779,7 @@ __webpack_require__.r(__webpack_exports__);
     validarDepartamentos: function validarDepartamentos() {
       this.errorDepartamentos = 0;
       this.errorMensaje = [];
-      if (!this.Departamentos) this.errorMensaje.push("El nombre del departamentos no puede estar vacio");
+      if (!this.detalle) this.errorMensaje.push("El detalle de los departamentos no puede estar vacio");
       if (this.errorMensaje.length) this.errorDepartamentos = 1;
       return this.errorDepartamentos;
     },
@@ -4794,6 +4836,39 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -5148,7 +5223,13 @@ __webpack_require__.r(__webpack_exports__);
     validarDetallefacturas: function validarDetallefacturas() {
       this.errorDetallefacturas = 0;
       this.errorMensaje = [];
-      if (!this.Detallefacturas) this.errorMensaje.push("El nombre del detallefacturas no puede estar vacio");
+      if (!this.cantidad) this.errorMensaje.push("La cantidad del detalle facturas no puede estar vacio");
+      if (!this.valor) this.errorMensaje.push("El valor del detalle facturas no puede estar vacio");
+      if (!this.valorImpuesto) this.errorMensaje.push("El valor impuesto del detalle facturas no puede estar vacio");
+      if (!this.total) this.errorMensaje.push("El total del detalle facturas no puede estar vacio");
+      if (!this.idFacturas) this.errorMensaje.push("El facturas del detalle facturas no puede estar vacio");
+      if (!this.idProductos) this.errorMensaje.push("El productos del detalle facturas no puede estar vacio");
+      if (!this.idEmpresas) this.errorMensaje.push("El empresas del detalle facturas no puede estar vacio");
       if (this.errorMensaje.length) this.errorDetallefacturas = 1;
       return this.errorDetallefacturas;
     },
@@ -5205,6 +5286,39 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -5559,8 +5673,14 @@ __webpack_require__.r(__webpack_exports__);
     validarDetallepedidos: function validarDetallepedidos() {
       this.errorDetallepedidos = 0;
       this.errorMensaje = [];
-      if (!this.Detallepedidos) this.errorMensaje.push("El nombre del detallepedidos no puede estar vacio");
-      if (this.errorMensaje.length) this.errorDetallepedidos = 1;
+      if (!this.cantidad) this.errorMensaje.push("La cantidad del detalle facturas no puede estar vacio");
+      if (!this.valor) this.errorMensaje.push("El valor del detalle facturas no puede estar vacio");
+      if (!this.valorImpuesto) this.errorMensaje.push("El valor impuesto del detalle facturas no puede estar vacio");
+      if (!this.total) this.errorMensaje.push("El total del detalle facturas no puede estar vacio");
+      if (!this.idPedidos) this.errorMensaje.push("Los pedidos del detalle facturas no puede estar vacio");
+      if (!this.idProductos) this.errorMensaje.push("El productos del detalle facturas no puede estar vacio");
+      if (!this.idEmpresas) this.errorMensaje.push("El empresas del detalle facturas no puede estar vacio");
+      if (this.errorMensaje.length) this.errorDetallefacturas = 1;
       return this.errorDetallepedidos;
     },
     cerrarModal: function cerrarModal() {
@@ -5616,6 +5736,87 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -5809,7 +6010,13 @@ __webpack_require__.r(__webpack_exports__);
     validarEmpresa: function validarEmpresa() {
       this.errorEmpresa = 0;
       this.errorMensaje = [];
-      if (!this.Empresa) this.errorMensaje.push("El nombre de la empresa no puede estar vacio");
+      if (!this.razonSocial) this.errorMensaje.push("La razon social de la empresa no puede estar vacio");
+      if (!this.representante) this.errorMensaje.push("El representante de la empresa no puede estar vacio");
+      if (!this.nit) this.errorMensaje.push("El nit de la empresa no puede estar vacio");
+      if (!this.regimen) this.errorMensaje.push("El regimen de la empresa no puede estar vacio");
+      if (!this.direccion) this.errorMensaje.push("La direccion de la empresa no puede estar vacio");
+      if (!this.telefonos) this.errorMensaje.push("El telefono de la empresa no puede estar vacio");
+      if (!this.tipo) this.errorMensaje.push("El tipo de la empresa no puede estar vacio");
       if (this.errorMensaje.length) this.errorEmpresa = 1;
       return this.errorEmpresa;
     },
@@ -5868,6 +6075,39 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -6237,8 +6477,12 @@ __webpack_require__.r(__webpack_exports__);
     validarFacturas: function validarFacturas() {
       this.errorFacturas = 0;
       this.errorMensaje = [];
-      if (!this.Facturas) this.errorMensaje.push("El nombre del facturas no puede estar vacio");
-      if (this.errorMensaje.length) this.errorFacturas = 1;
+      if (!this.consecutivo) this.errorMensaje.push("El consecutivo de las facturas no puede estar vacio");
+      if (!this.fecha) this.errorMensaje.push("La fecha de las facturas no puede estar vacio");
+      if (!this.valor) this.errorMensaje.push("El valor de las facturas no puede estar vacio");
+      if (!this.impuesto) this.errorMensaje.push("El impuesto de las facturas no puede estar vacio");
+      if (!this.total) this.errorMensaje.push("El total de las facturas no puede estar vacio");
+      if (!this.vendedor) this.errorMensaje.push("El vendedor de las facturas no puede estar vacio");
       return this.errorFacturas;
     },
     cerrarModal: function cerrarModal() {
@@ -6294,6 +6538,12 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -6636,7 +6886,9 @@ __webpack_require__.r(__webpack_exports__);
     validarGrupos: function validarGrupos() {
       this.errorGrupos = 0;
       this.errorMensaje = [];
-      if (!this.Grupos) this.errorMensaje.push("El nombre del grupos no puede estar vacio");
+      if (!this.detalleGrupos) this.errorMensaje.push("El detalle grupo de los grupos no puede estar vacio");
+      if (!this.estado) this.errorMensaje.push("El estado de los grupos no puede estar vacio");
+      if (!this.idEmpresas) this.errorMensaje.push("La empresa de los grupos no puede estar vacio");
       if (this.errorMensaje.length) this.errorGrupos = 1;
       return this.errorGrupos;
     },
@@ -6693,6 +6945,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -7038,7 +7295,9 @@ __webpack_require__.r(__webpack_exports__);
     validarImpuesto: function validarImpuesto() {
       this.errorImpuesto = 0;
       this.errorMensaje = [];
-      if (!this.Impuesto) this.errorMensaje.push("El nombre del impuesto no puede estar vacio");
+      if (!this.nombre) this.errorMensaje.push("El nombre del impuesto no puede estar vacio");
+      if (!this.valor) this.errorMensaje.push("El valor del impuesto no puede estar vacio");
+      if (!this.estado) this.errorMensaje.push("El estado del impuesto no puede estar vacio");
       if (this.errorMensaje.length) this.errorImpuesto = 1;
       return this.errorImpuesto;
     },
@@ -7095,6 +7354,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -7443,7 +7707,9 @@ __webpack_require__.r(__webpack_exports__);
     validarLibromayor: function validarLibromayor() {
       this.errorLibromayor = 0;
       this.errorMensaje = [];
-      if (!this.Libromayor) this.errorMensaje.push("El nombre del libromayor no puede estar vacio");
+      if (!this.valorEntrada) this.errorMensaje.push("El valor entrada del libromayor no puede estar vacio");
+      if (!this.valorSalida) this.errorMensaje.push("El valor salida del libromayor no puede estar vacio");
+      if (!this.acumulado) this.errorMensaje.push("El acumulado del libromayor no puede estar vacio");
       if (this.errorMensaje.length) this.errorLibromayor = 1;
       return this.errorLibromayor;
     },
@@ -7500,6 +7766,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -7842,7 +8113,9 @@ __webpack_require__.r(__webpack_exports__);
     validarMedida: function validarMedida() {
       this.errorMedida = 0;
       this.errorMensaje = [];
-      if (!this.Medida) this.errorMensaje.push("El nombre del medida no puede estar vacio");
+      if (!this.nombre) this.errorMensaje.push("El nombre de la medida no puede estar vacio");
+      if (!this.estado) this.errorMensaje.push("El estado de la medida no puede estar vacio");
+      if (!this.idEmpresas) this.errorMensaje.push("La empresa de la medida no puede estar vacio");
       if (this.errorMensaje.length) this.errorMedida = 1;
       return this.errorMedida;
     },
@@ -7899,6 +8172,25 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -8250,7 +8542,11 @@ __webpack_require__.r(__webpack_exports__);
     validarPagos: function validarPagos() {
       this.errorPagos = 0;
       this.errorMensaje = [];
-      if (!this.Pagos) this.errorMensaje.push("El nombre del pagos no puede estar vacio");
+      if (!this.fechaAbono) this.errorMensaje.push("La fecha abono de los pagos no puede estar vacio");
+      if (!this.valorPago) this.errorMensaje.push("El valor pago de los pagos no puede estar vacio");
+      if (!this.abono) this.errorMensaje.push("El abono de los pagos no puede estar vacio");
+      if (!this.idPedidos) this.errorMensaje.push("Los pedidos de los pagos no puede estar vacio");
+      if (!this.idEmpresa) this.errorMensaje.push("La empresa de los pagos no puede estar vacio");
       if (this.errorMensaje.length) this.errorPagos = 1;
       return this.errorPagos;
     },
@@ -8307,6 +8603,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -8649,7 +8950,9 @@ __webpack_require__.r(__webpack_exports__);
     validarPagosasientos: function validarPagosasientos() {
       this.errorPagosasientos = 0;
       this.errorMensaje = [];
-      if (!this.Pagosasientos) this.errorMensaje.push("El nombre del pagosasientos no puede estar vacio");
+      if (!this.idPagos) this.errorMensaje.push("Los pagos de pagos asientos no puede estar vacio");
+      if (!this.idAsientos) this.errorMensaje.push("Los asientos de pagos asientos no puede estar vacio");
+      if (!this.idEmpresas) this.errorMensaje.push("Las empresas de pagos asientos no puede estar vacio");
       if (this.errorMensaje.length) this.errorPagosasientos = 1;
       return this.errorPagosasientos;
     },
@@ -8706,6 +9009,32 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -9075,7 +9404,12 @@ __webpack_require__.r(__webpack_exports__);
     validarPedidos: function validarPedidos() {
       this.errorPedidos = 0;
       this.errorMensaje = [];
-      if (!this.Pedidos) this.errorMensaje.push("El nombre del pedidos no puede estar vacio");
+      if (!this.consecutivo) this.errorMensaje.push("El consecutivo de los pedidos no puede estar vacio");
+      if (!this.fecha) this.errorMensaje.push("La fecha de los pedidos no puede estar vacio");
+      if (!this.valor) this.errorMensaje.push("El valor de los pedidos no puede estar vacio");
+      if (!this.impuesto) this.errorMensaje.push("El impuesto de los pedidos no puede estar vacio");
+      if (!this.total) this.errorMensaje.push("El total de los pedidos no puede estar vacio");
+      if (!this.vendedor) this.errorMensaje.push("El vendedor de los pedidos no puede estar vacio");
       if (this.errorMensaje.length) this.errorPedidos = 1;
       return this.errorPedidos;
     },
@@ -9132,6 +9466,25 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -9495,7 +9848,11 @@ __webpack_require__.r(__webpack_exports__);
     validarProductos: function validarProductos() {
       this.errorProductos = 0;
       this.errorMensaje = [];
-      if (!this.Productos) this.errorMensaje.push("El nombre del productos no puede estar vacio");
+      if (!this.plu) this.errorMensaje.push("El plu de los productos no puede estar vacio");
+      if (!this.detalle) this.errorMensaje.push("El detalle de los productos no puede estar vacio");
+      if (!this.idMedida) this.errorMensaje.push("La medida de los productos no puede estar vacio");
+      if (!this.valorCompra) this.errorMensaje.push("El valor compra de los productos no puede estar vacio");
+      if (!this.pvp) this.errorMensaje.push("El pvp de los productos no puede estar vacio");
       if (this.errorMensaje.length) this.errorProductos = 1;
       return this.errorProductos;
     },
@@ -9552,6 +9909,32 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -9909,7 +10292,12 @@ __webpack_require__.r(__webpack_exports__);
     validarProveedores: function validarProveedores() {
       this.errorProveedores = 0;
       this.errorMensaje = [];
-      if (!this.Proveedores) this.errorMensaje.push("El nombre del proveedores no puede estar vacio");
+      if (!this.nit) this.errorMensaje.push("El nit de los proveedores no puede estar vacio");
+      if (!this.razonSocial) this.errorMensaje.push("La razonSocial de los proveedores no puede estar vacio");
+      if (!this.contacto) this.errorMensaje.push("El contacto de los proveedores no puede estar vacio");
+      if (!this.telefono) this.errorMensaje.push("El telefono de los proveedores no puede estar vacio");
+      if (!this.direccion) this.errorMensaje.push("La direccion de los proveedores no puede estar vacio");
+      if (!this.correo) this.errorMensaje.push("El correo de los proveedores no puede estar vacio");
       if (this.errorMensaje.length) this.errorProveedores = 1;
       return this.errorProveedores;
     },
@@ -9966,6 +10354,32 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -10320,7 +10734,12 @@ __webpack_require__.r(__webpack_exports__);
     validarRegistros: function validarRegistros() {
       this.errorRegistros = 0;
       this.errorMensaje = [];
-      if (!this.Registros) this.errorMensaje.push("El nombre del registros no puede estar vacio");
+      if (!this.fecha) this.errorMensaje.push("La fecha de los registros no puede estar vacio");
+      if (!this.concepto) this.errorMensaje.push("El concepto de los registros no puede estar vacio");
+      if (!this.detalle) this.errorMensaje.push("El detalle de los registros no puede estar vacio");
+      if (!this.idAsientos) this.errorMensaje.push("Los asientos de los registros no puede estar vacio");
+      if (!this.entrada) this.errorMensaje.push("La entrada de los registros no puede estar vacio");
+      if (!this.salida) this.errorMensaje.push("La salida de los registros no puede estar vacio");
       if (this.errorMensaje.length) this.errorRegistros = 1;
       return this.errorRegistros;
     },
@@ -10377,15 +10796,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -10719,7 +11129,7 @@ __webpack_require__.r(__webpack_exports__);
     validarRoles: function validarRoles() {
       this.errorRoles = 0;
       this.errorMensaje = [];
-      if (!this.Roles) this.errorMensaje.push("El nombre del roles no puede estar vacio");
+      if (!this.rol) this.errorMensaje.push("El rol de roles no puede estar vacio");
       if (this.errorMensaje.length) this.errorRoles = 1;
       return this.errorRoles;
     },
@@ -10776,15 +11186,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -11118,7 +11519,7 @@ __webpack_require__.r(__webpack_exports__);
     validarTipofactura: function validarTipofactura() {
       this.errorTipofactura = 0;
       this.errorMensaje = [];
-      if (!this.Tipofactura) this.errorMensaje.push("El nombre del tipofactura no puede estar vacio");
+      if (!this.detalle) this.errorMensaje.push("El detalle del tipo factura no puede estar vacio");
       if (this.errorMensaje.length) this.errorTipofactura = 1;
       return this.errorTipofactura;
     },
@@ -50955,7 +51356,7 @@ var render = function() {
                           staticClass: "col-md-3 form-control-label",
                           attrs: { for: "text-input" }
                         },
-                        [_vm._v("Nombre")]
+                        [_vm._v("Cliente")]
                       ),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-md-9" }, [
@@ -50964,28 +51365,70 @@ var render = function() {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.asociacion,
-                              expression: "asociacion"
+                              value: _vm.idClientes,
+                              expression: "idClientes"
                             }
                           ],
                           staticClass: "form-control",
                           attrs: {
-                            type: "text",
-                            placeholder: "Nombre de asociacion"
+                            type: "number",
+                            placeholder: "Cliente de la asociacion"
                           },
-                          domProps: { value: _vm.asociacion },
+                          domProps: { value: _vm.idClientes },
                           on: {
                             input: function($event) {
                               if ($event.target.composing) {
                                 return
                               }
-                              _vm.asociacion = $event.target.value
+                              _vm.idClientes = $event.target.value
                             }
                           }
                         }),
                         _vm._v(" "),
                         _c("span", { staticClass: "help-block" }, [
-                          _vm._v("(*) Ingrese el nombre del asociacion")
+                          _vm._v("(*) Ingrese el cliente de la asociacion")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Empresa")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.idEmpresa,
+                              expression: "idEmpresa"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Empresa de la asociacion"
+                          },
+                          domProps: { value: _vm.idEmpresa },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.idEmpresa = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese la empresa de la asociacion")
                         ])
                       ])
                     ]),
@@ -50997,8 +51440,8 @@ var render = function() {
                           {
                             name: "show",
                             rawName: "v-show",
-                            value: _vm.errorAsociacion,
-                            expression: "errorAsociacion"
+                            value: _vm.errorUsuario,
+                            expression: "errorUsuario"
                           }
                         ],
                         staticClass: "form-group row div-error"
@@ -51044,7 +51487,7 @@ var render = function() {
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
-                            return _vm.crearAsociacion()
+                            return _vm.crearUsuario()
                           }
                         }
                       },
@@ -51060,7 +51503,7 @@ var render = function() {
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
-                            return _vm.editarAsociacion()
+                            return _vm.editarUsuario()
                           }
                         }
                       },
@@ -51634,7 +52077,7 @@ var render = function() {
                           staticClass: "col-md-3 form-control-label",
                           attrs: { for: "text-input" }
                         },
-                        [_vm._v("Nombre")]
+                        [_vm._v("Detalle")]
                       ),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-md-9" }, [
@@ -51643,28 +52086,70 @@ var render = function() {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.ciudades,
-                              expression: "ciudades"
+                              value: _vm.detalle,
+                              expression: "detalle"
                             }
                           ],
                           staticClass: "form-control",
                           attrs: {
-                            type: "text",
-                            placeholder: "Nombre de ciudades"
+                            type: "number",
+                            placeholder: "Detalle de la ciudad"
                           },
-                          domProps: { value: _vm.ciudades },
+                          domProps: { value: _vm.detalle },
                           on: {
                             input: function($event) {
                               if ($event.target.composing) {
                                 return
                               }
-                              _vm.ciudades = $event.target.value
+                              _vm.detalle = $event.target.value
                             }
                           }
                         }),
                         _vm._v(" "),
                         _c("span", { staticClass: "help-block" }, [
-                          _vm._v("(*) Ingrese el nombre del ciudades")
+                          _vm._v("(*) Ingrese el detalle de la ciudad")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Departamento")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.idDepartamentos,
+                              expression: "idDepartamentos"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Departamento de la ciudad"
+                          },
+                          domProps: { value: _vm.idDepartamentos },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.idDepartamentos = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese el departamento de la ciudad")
                         ])
                       ])
                     ]),
@@ -51676,8 +52161,8 @@ var render = function() {
                           {
                             name: "show",
                             rawName: "v-show",
-                            value: _vm.errorCiudades,
-                            expression: "errorCiudades"
+                            value: _vm.errorUsuario,
+                            expression: "errorUsuario"
                           }
                         ],
                         staticClass: "form-group row div-error"
@@ -51723,7 +52208,7 @@ var render = function() {
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
-                            return _vm.crearCiudades()
+                            return _vm.crearUsuario()
                           }
                         }
                       },
@@ -51739,7 +52224,7 @@ var render = function() {
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
-                            return _vm.editarCiudades()
+                            return _vm.editarUsuario()
                           }
                         }
                       },
@@ -52285,6 +52770,48 @@ var render = function() {
                           staticClass: "col-md-3 form-control-label",
                           attrs: { for: "text-input" }
                         },
+                        [_vm._v("Cedula")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.cedula,
+                              expression: "cedula"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "number",
+                            placeholder: "Cedula del cliente"
+                          },
+                          domProps: { value: _vm.cedula },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.cedula = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese la cedula del cliente")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
                         [_vm._v("Nombre")]
                       ),
                       _vm._v(" "),
@@ -52294,28 +52821,196 @@ var render = function() {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.clientes,
-                              expression: "clientes"
+                              value: _vm.nombres,
+                              expression: "nombres"
                             }
                           ],
                           staticClass: "form-control",
                           attrs: {
                             type: "text",
-                            placeholder: "Nombre de clientes"
+                            placeholder: "Nombres del cliente"
                           },
-                          domProps: { value: _vm.clientes },
+                          domProps: { value: _vm.nombres },
                           on: {
                             input: function($event) {
                               if ($event.target.composing) {
                                 return
                               }
-                              _vm.clientes = $event.target.value
+                              _vm.nombres = $event.target.value
                             }
                           }
                         }),
                         _vm._v(" "),
                         _c("span", { staticClass: "help-block" }, [
-                          _vm._v("(*) Ingrese el nombre del clientes")
+                          _vm._v("(*) Ingrese los nombres del cliente")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Apellidos")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.apellidos,
+                              expression: "apellidos"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Apellidos del cliente"
+                          },
+                          domProps: { value: _vm.apellidos },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.apellidos = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese los apellidos del cliente")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Direccion")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.direccion,
+                              expression: "direccion"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Direccion del cliente"
+                          },
+                          domProps: { value: _vm.direccion },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.direccion = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese la direccion del cliente")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Telefono")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.telefono,
+                              expression: "telefono"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Telefono del cliente"
+                          },
+                          domProps: { value: _vm.telefono },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.telefono = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese el telefono del cliente")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Correo")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.correo,
+                              expression: "correo"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Correo del cliente"
+                          },
+                          domProps: { value: _vm.correo },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.correo = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese el correo del cliente")
                         ])
                       ])
                     ]),
@@ -52327,8 +53022,8 @@ var render = function() {
                           {
                             name: "show",
                             rawName: "v-show",
-                            value: _vm.errorClientes,
-                            expression: "errorClientes"
+                            value: _vm.errorUsuario,
+                            expression: "errorUsuario"
                           }
                         ],
                         staticClass: "form-group row div-error"
@@ -52374,7 +53069,7 @@ var render = function() {
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
-                            return _vm.crearClientes()
+                            return _vm.crearUsuario()
                           }
                         }
                       },
@@ -52390,7 +53085,7 @@ var render = function() {
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
-                            return _vm.editarClientes()
+                            return _vm.editarUsuario()
                           }
                         }
                       },
@@ -52924,7 +53619,7 @@ var render = function() {
                           staticClass: "col-md-3 form-control-label",
                           attrs: { for: "text-input" }
                         },
-                        [_vm._v("Nombre")]
+                        [_vm._v("Fecha Abono")]
                       ),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-md-9" }, [
@@ -52933,28 +53628,196 @@ var render = function() {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.cobros,
-                              expression: "cobros"
+                              value: _vm.fechaAbono,
+                              expression: "fechaAbono"
                             }
                           ],
                           staticClass: "form-control",
                           attrs: {
-                            type: "text",
-                            placeholder: "Nombre de cobros"
+                            type: "number",
+                            placeholder: "Fecha Abono de los cobros"
                           },
-                          domProps: { value: _vm.cobros },
+                          domProps: { value: _vm.fechaAbono },
                           on: {
                             input: function($event) {
                               if ($event.target.composing) {
                                 return
                               }
-                              _vm.cobros = $event.target.value
+                              _vm.fechaAbono = $event.target.value
                             }
                           }
                         }),
                         _vm._v(" "),
                         _c("span", { staticClass: "help-block" }, [
-                          _vm._v("(*) Ingrese el nombre del cobros")
+                          _vm._v("(*) Ingrese la Fecha Abono de los cobros")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Valor Cobro")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.valorCobro,
+                              expression: "valorCobro"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Valor Cobro de los cobros"
+                          },
+                          domProps: { value: _vm.valorCobro },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.valorCobro = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese el Valor Cobro de los cobros")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Abono")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.abono,
+                              expression: "abono"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Abono de los cobros"
+                          },
+                          domProps: { value: _vm.abono },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.abono = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese el Abono de los cobros")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Facturas")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.idFacturas,
+                              expression: "idFacturas"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Facturas de los cobros"
+                          },
+                          domProps: { value: _vm.idFacturas },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.idFacturas = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese las Facturas de los cobros")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Empresa")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.idEmpresa,
+                              expression: "idEmpresa"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Empresa de los cobros"
+                          },
+                          domProps: { value: _vm.idEmpresa },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.idEmpresa = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese las Empresa de los cobros")
                         ])
                       ])
                     ]),
@@ -52966,8 +53829,8 @@ var render = function() {
                           {
                             name: "show",
                             rawName: "v-show",
-                            value: _vm.errorCobros,
-                            expression: "errorCobros"
+                            value: _vm.errorUsuario,
+                            expression: "errorUsuario"
                           }
                         ],
                         staticClass: "form-group row div-error"
@@ -53013,7 +53876,7 @@ var render = function() {
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
-                            return _vm.crearCobros()
+                            return _vm.crearUsuario()
                           }
                         }
                       },
@@ -53029,7 +53892,7 @@ var render = function() {
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
-                            return _vm.editarCobros()
+                            return _vm.editarUsuario()
                           }
                         }
                       },
@@ -53553,7 +54416,7 @@ var render = function() {
                           staticClass: "col-md-3 form-control-label",
                           attrs: { for: "text-input" }
                         },
-                        [_vm._v("Nombre")]
+                        [_vm._v("Cobros")]
                       ),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-md-9" }, [
@@ -53562,28 +54425,74 @@ var render = function() {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.cobrosasientos,
-                              expression: "cobrosasientos"
+                              value: _vm.idCobros,
+                              expression: "idCobros"
                             }
                           ],
                           staticClass: "form-control",
                           attrs: {
-                            type: "text",
-                            placeholder: "Nombre de cobrosasientos"
+                            type: "number",
+                            placeholder: "Cobros de los cobros asientos"
                           },
-                          domProps: { value: _vm.cobrosasientos },
+                          domProps: { value: _vm.idCobros },
                           on: {
                             input: function($event) {
                               if ($event.target.composing) {
                                 return
                               }
-                              _vm.cobrosasientos = $event.target.value
+                              _vm.idCobros = $event.target.value
                             }
                           }
                         }),
                         _vm._v(" "),
                         _c("span", { staticClass: "help-block" }, [
-                          _vm._v("(*) Ingrese el nombre del cobrosasientos")
+                          _vm._v(
+                            "(*) Ingrese los Cobros de los cobros asientos"
+                          )
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Asientos")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.idAsientos,
+                              expression: "idAsientos"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Asientos de los cobros asientos"
+                          },
+                          domProps: { value: _vm.idAsientos },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.idAsientos = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v(
+                            "(*) Ingrese los Asientos de los cobros asientos"
+                          )
                         ])
                       ])
                     ]),
@@ -53595,8 +54504,8 @@ var render = function() {
                           {
                             name: "show",
                             rawName: "v-show",
-                            value: _vm.errorCobrosasientos,
-                            expression: "errorCobrosasientos"
+                            value: _vm.errorUsuario,
+                            expression: "errorUsuario"
                           }
                         ],
                         staticClass: "form-group row div-error"
@@ -53642,7 +54551,7 @@ var render = function() {
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
-                            return _vm.crearCobrosasientos()
+                            return _vm.crearUsuario()
                           }
                         }
                       },
@@ -53658,7 +54567,7 @@ var render = function() {
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
-                            return _vm.editarCobrosasientos()
+                            return _vm.editarUsuario()
                           }
                         }
                       },
@@ -54174,7 +55083,7 @@ var render = function() {
                           staticClass: "col-md-3 form-control-label",
                           attrs: { for: "text-input" }
                         },
-                        [_vm._v("Nombre")]
+                        [_vm._v("Detalle")]
                       ),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-md-9" }, [
@@ -54183,28 +55092,28 @@ var render = function() {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.departamentos,
-                              expression: "departamentos"
+                              value: _vm.detalle,
+                              expression: "detalle"
                             }
                           ],
                           staticClass: "form-control",
                           attrs: {
-                            type: "text",
-                            placeholder: "Nombre de departamentos"
+                            type: "number",
+                            placeholder: "Detalle del departamento"
                           },
-                          domProps: { value: _vm.departamentos },
+                          domProps: { value: _vm.detalle },
                           on: {
                             input: function($event) {
                               if ($event.target.composing) {
                                 return
                               }
-                              _vm.departamentos = $event.target.value
+                              _vm.detalle = $event.target.value
                             }
                           }
                         }),
                         _vm._v(" "),
                         _c("span", { staticClass: "help-block" }, [
-                          _vm._v("(*) Ingrese el nombre del departamentos")
+                          _vm._v("(*) Ingrese el detalle del departamento")
                         ])
                       ])
                     ]),
@@ -54216,8 +55125,8 @@ var render = function() {
                           {
                             name: "show",
                             rawName: "v-show",
-                            value: _vm.errorDepartamentos,
-                            expression: "errorDepartamentos"
+                            value: _vm.errorUsuario,
+                            expression: "errorUsuario"
                           }
                         ],
                         staticClass: "form-group row div-error"
@@ -54263,7 +55172,7 @@ var render = function() {
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
-                            return _vm.crearDepartamentos()
+                            return _vm.crearUsuario()
                           }
                         }
                       },
@@ -54279,7 +55188,7 @@ var render = function() {
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
-                            return _vm.editarDepartamentos()
+                            return _vm.editarUsuario()
                           }
                         }
                       },
@@ -54835,7 +55744,7 @@ var render = function() {
                           staticClass: "col-md-3 form-control-label",
                           attrs: { for: "text-input" }
                         },
-                        [_vm._v("Nombre")]
+                        [_vm._v("Cantidad")]
                       ),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-md-9" }, [
@@ -54844,28 +55753,284 @@ var render = function() {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.detallefacturas,
-                              expression: "detallefacturas"
+                              value: _vm.cantidad,
+                              expression: "cantidad"
                             }
                           ],
                           staticClass: "form-control",
                           attrs: {
-                            type: "text",
-                            placeholder: "Nombre de detallefacturas"
+                            type: "number",
+                            placeholder: "Cantidad del detalle factura"
                           },
-                          domProps: { value: _vm.detallefacturas },
+                          domProps: { value: _vm.cantidad },
                           on: {
                             input: function($event) {
                               if ($event.target.composing) {
                                 return
                               }
-                              _vm.detallefacturas = $event.target.value
+                              _vm.cantidad = $event.target.value
                             }
                           }
                         }),
                         _vm._v(" "),
                         _c("span", { staticClass: "help-block" }, [
-                          _vm._v("(*) Ingrese el nombre del detallefacturas")
+                          _vm._v("(*) Ingrese la cantidad del detalle factura")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Valor")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.valor,
+                              expression: "valor"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Valor del detalle factura"
+                          },
+                          domProps: { value: _vm.valor },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.valor = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese el valor del detalle factura")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Valor Impuesto")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.valorImpuesto,
+                              expression: "valorImpuesto"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Valor Impuesto del detalle factura"
+                          },
+                          domProps: { value: _vm.valorImpuesto },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.valorImpuesto = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v(
+                            "(*) Ingrese el valor impuesto del detalle factura"
+                          )
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Total")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.total,
+                              expression: "total"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Total del detalle factura"
+                          },
+                          domProps: { value: _vm.total },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.total = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese el total del detalle factura")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Facturas")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.idFacturas,
+                              expression: "idFacturas"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Facturas del detalle factura"
+                          },
+                          domProps: { value: _vm.idFacturas },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.idFacturas = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese las facturas del detalle factura")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Productos")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.idProductos,
+                              expression: "idProductos"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Productos del detalle factura"
+                          },
+                          domProps: { value: _vm.idProductos },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.idProductos = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v(
+                            "(*) Ingrese los productos del detalle factura"
+                          )
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Empresas")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.idEmpresas,
+                              expression: "idEmpresas"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Empresas del detalle factura"
+                          },
+                          domProps: { value: _vm.idEmpresas },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.idEmpresas = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese las empresas del detalle factura")
                         ])
                       ])
                     ]),
@@ -54877,8 +56042,8 @@ var render = function() {
                           {
                             name: "show",
                             rawName: "v-show",
-                            value: _vm.errorDetallefacturas,
-                            expression: "errorDetallefacturas"
+                            value: _vm.errorUsuario,
+                            expression: "errorUsuario"
                           }
                         ],
                         staticClass: "form-group row div-error"
@@ -54924,7 +56089,7 @@ var render = function() {
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
-                            return _vm.crearDetallefacturas()
+                            return _vm.crearUsuario()
                           }
                         }
                       },
@@ -54940,7 +56105,7 @@ var render = function() {
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
-                            return _vm.editarDetallefacturas()
+                            return _vm.editarUsuario()
                           }
                         }
                       },
@@ -55504,7 +56669,7 @@ var render = function() {
                           staticClass: "col-md-3 form-control-label",
                           attrs: { for: "text-input" }
                         },
-                        [_vm._v("Nombre")]
+                        [_vm._v("Cantidad")]
                       ),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-md-9" }, [
@@ -55513,28 +56678,284 @@ var render = function() {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.detallepedidos,
-                              expression: "detallepedidos"
+                              value: _vm.cantidad,
+                              expression: "cantidad"
                             }
                           ],
                           staticClass: "form-control",
                           attrs: {
-                            type: "text",
-                            placeholder: "Nombre de detallepedidos"
+                            type: "number",
+                            placeholder: "Cantidad del detalle factura"
                           },
-                          domProps: { value: _vm.detallepedidos },
+                          domProps: { value: _vm.cantidad },
                           on: {
                             input: function($event) {
                               if ($event.target.composing) {
                                 return
                               }
-                              _vm.detallepedidos = $event.target.value
+                              _vm.cantidad = $event.target.value
                             }
                           }
                         }),
                         _vm._v(" "),
                         _c("span", { staticClass: "help-block" }, [
-                          _vm._v("(*) Ingrese el nombre del detallepedidos")
+                          _vm._v("(*) Ingrese la cantidad del detalle factura")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Valor")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.valor,
+                              expression: "valor"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Valor del detalle factura"
+                          },
+                          domProps: { value: _vm.valor },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.valor = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese el valor del detalle factura")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Valor Impuesto")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.valorImpuesto,
+                              expression: "valorImpuesto"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Valor Impuesto del detalle factura"
+                          },
+                          domProps: { value: _vm.valorImpuesto },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.valorImpuesto = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v(
+                            "(*) Ingrese el valor impuesto del detalle factura"
+                          )
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Total")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.total,
+                              expression: "total"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Total del detalle factura"
+                          },
+                          domProps: { value: _vm.total },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.total = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese el total del detalle factura")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Pedidos")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.idPedidos,
+                              expression: "idPedidos"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Pedidos del detalle factura"
+                          },
+                          domProps: { value: _vm.idPedidos },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.idPedidos = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese las pedidos del detalle factura")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Productos")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.idProductos,
+                              expression: "idProductos"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Productos del detalle factura"
+                          },
+                          domProps: { value: _vm.idProductos },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.idProductos = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v(
+                            "(*) Ingrese los productos del detalle factura"
+                          )
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Empresas")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.idEmpresas,
+                              expression: "idEmpresas"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Empresas del detalle factura"
+                          },
+                          domProps: { value: _vm.idEmpresas },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.idEmpresas = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese las empresas del detalle factura")
                         ])
                       ])
                     ]),
@@ -55546,8 +56967,8 @@ var render = function() {
                           {
                             name: "show",
                             rawName: "v-show",
-                            value: _vm.errorDetallepedidos,
-                            expression: "errorDetallepedidos"
+                            value: _vm.errorUsuario,
+                            expression: "errorUsuario"
                           }
                         ],
                         staticClass: "form-group row div-error"
@@ -55593,7 +57014,7 @@ var render = function() {
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
-                            return _vm.crearDetallepedidos()
+                            return _vm.crearUsuario()
                           }
                         }
                       },
@@ -55609,7 +57030,7 @@ var render = function() {
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
-                            return _vm.editarDetallepedidos()
+                            return _vm.editarUsuario()
                           }
                         }
                       },
@@ -56005,7 +57426,444 @@ var render = function() {
           ])
         ])
       ])
-    ])
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        class: { mostrar: _vm.modal },
+        staticStyle: { display: "none" },
+        attrs: {
+          tabindex: "-1",
+          role: "dialog",
+          "aria-labelledby": "myModalLabel",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "modal-dialog modal-primary modal-lg",
+            attrs: { role: "document" }
+          },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _c("div", { staticClass: "modal-header" }, [
+                _c("h4", {
+                  staticClass: "modal-title",
+                  domProps: { textContent: _vm._s(_vm.tituloModal) }
+                }),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "close",
+                    attrs: { type: "button", "aria-label": "Close" },
+                    on: {
+                      click: function($event) {
+                        return _vm.cerrarModal()
+                      }
+                    }
+                  },
+                  [
+                    _c("span", { attrs: { "aria-hidden": "true" } }, [
+                      _vm._v("×")
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _c(
+                  "form",
+                  {
+                    staticClass: "form-horizontal",
+                    attrs: {
+                      action: "",
+                      method: "post",
+                      enctype: "multipart/form-data"
+                    }
+                  },
+                  [
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Razon Social")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.razonSocial,
+                              expression: "razonSocial"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "number",
+                            placeholder: "Razon Social de la empresa"
+                          },
+                          domProps: { value: _vm.razonSocial },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.razonSocial = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese la razon social de la empresa")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Representante")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.representante,
+                              expression: "representante"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Representante de la empresa"
+                          },
+                          domProps: { value: _vm.representante },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.representante = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese el representante de la empresa")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Nit")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.nit,
+                              expression: "nit"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Nit de la empresa"
+                          },
+                          domProps: { value: _vm.nit },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.nit = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese el nit de la empresa")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Regimen")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.regimen,
+                              expression: "regimen"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Regimen de la empresa"
+                          },
+                          domProps: { value: _vm.regimen },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.regimen = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese el regimen de la empresa")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Direccion")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.direccion,
+                              expression: "direccion"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Direccion de la empresa"
+                          },
+                          domProps: { value: _vm.direccion },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.direccion = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese la direccion de la empresa")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Telefono")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.telefonos,
+                              expression: "telefonos"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Telefono de la empresa"
+                          },
+                          domProps: { value: _vm.telefonos },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.telefonos = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese el telefono de la empresa")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Tipo")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.tipo,
+                              expression: "tipo"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Tipo de la empresa"
+                          },
+                          domProps: { value: _vm.tipo },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.tipo = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese el tipo de la empresa")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.errorUsuario,
+                            expression: "errorUsuario"
+                          }
+                        ],
+                        staticClass: "form-group row div-error"
+                      },
+                      [
+                        _c(
+                          "div",
+                          { staticClass: "text-center text-error" },
+                          _vm._l(_vm.errorMensaje, function(error) {
+                            return _c("div", {
+                              key: error,
+                              domProps: { textContent: _vm._s(error) }
+                            })
+                          }),
+                          0
+                        )
+                      ]
+                    )
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-footer" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-secondary",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        return _vm.cerrarModal()
+                      }
+                    }
+                  },
+                  [_vm._v("Cerrar")]
+                ),
+                _vm._v(" "),
+                _vm.tipoAccion == 1
+                  ? _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-primary",
+                        attrs: { type: "button" },
+                        on: {
+                          click: function($event) {
+                            return _vm.crearUsuario()
+                          }
+                        }
+                      },
+                      [_vm._v("Guardar")]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.tipoAccion == 2
+                  ? _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-warning",
+                        attrs: { type: "button" },
+                        on: {
+                          click: function($event) {
+                            return _vm.editarUsuario()
+                          }
+                        }
+                      },
+                      [_vm._v("Editar")]
+                    )
+                  : _vm._e()
+              ])
+            ])
+          ]
+        )
+      ]
+    )
   ])
 }
 var staticRenderFns = [
@@ -56611,7 +58469,7 @@ var render = function() {
                           staticClass: "col-md-3 form-control-label",
                           attrs: { for: "text-input" }
                         },
-                        [_vm._v("Nombre")]
+                        [_vm._v("Consecutivo")]
                       ),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-md-9" }, [
@@ -56620,28 +58478,280 @@ var render = function() {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.facturas,
-                              expression: "facturas"
+                              value: _vm.consecutivo,
+                              expression: "consecutivo"
                             }
                           ],
                           staticClass: "form-control",
                           attrs: {
-                            type: "text",
-                            placeholder: "Nombre de facturas"
+                            type: "number",
+                            placeholder: "Consecutivo de las facturas"
                           },
-                          domProps: { value: _vm.facturas },
+                          domProps: { value: _vm.consecutivo },
                           on: {
                             input: function($event) {
                               if ($event.target.composing) {
                                 return
                               }
-                              _vm.facturas = $event.target.value
+                              _vm.consecutivo = $event.target.value
                             }
                           }
                         }),
                         _vm._v(" "),
                         _c("span", { staticClass: "help-block" }, [
-                          _vm._v("(*) Ingrese el nombre del facturas")
+                          _vm._v("(*) Ingrese el consecutivo de las facturas")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Fecha")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.fecha,
+                              expression: "fecha"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Fecha de las facturas"
+                          },
+                          domProps: { value: _vm.fecha },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.fecha = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese la fecha de las facturas")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Valor")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.valor,
+                              expression: "valor"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Valor de las facturas"
+                          },
+                          domProps: { value: _vm.valor },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.valor = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese el valor de las facturas")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Impuesto")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.impuesto,
+                              expression: "impuesto"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Impuesto de las facturas"
+                          },
+                          domProps: { value: _vm.impuesto },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.impuesto = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese el impuesto de las facturas")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Total")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.total,
+                              expression: "total"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Total de las facturas"
+                          },
+                          domProps: { value: _vm.total },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.total = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese el total de las facturas")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Vendedor")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.vendedor,
+                              expression: "vendedor"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Vendedor de las facturas"
+                          },
+                          domProps: { value: _vm.vendedor },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.vendedor = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese el vendedor de las facturas")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Tipo Factura")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.tipoFactura,
+                              expression: "tipoFactura"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Tipo Factura de las facturas"
+                          },
+                          domProps: { value: _vm.tipoFactura },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.tipoFactura = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese el Tipo Factura de las facturas")
                         ])
                       ])
                     ]),
@@ -56653,8 +58763,8 @@ var render = function() {
                           {
                             name: "show",
                             rawName: "v-show",
-                            value: _vm.errorFacturas,
-                            expression: "errorFacturas"
+                            value: _vm.errorUsuario,
+                            expression: "errorUsuario"
                           }
                         ],
                         staticClass: "form-group row div-error"
@@ -56700,7 +58810,7 @@ var render = function() {
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
-                            return _vm.crearFacturas()
+                            return _vm.crearUsuario()
                           }
                         }
                       },
@@ -56716,7 +58826,7 @@ var render = function() {
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
-                            return _vm.editarFacturas()
+                            return _vm.editarUsuario()
                           }
                         }
                       },
@@ -57234,7 +59344,7 @@ var render = function() {
                           staticClass: "col-md-3 form-control-label",
                           attrs: { for: "text-input" }
                         },
-                        [_vm._v("Nombre")]
+                        [_vm._v("Detalle Grupos")]
                       ),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-md-9" }, [
@@ -57243,28 +59353,112 @@ var render = function() {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.grupos,
-                              expression: "grupos"
+                              value: _vm.detalleGrupos,
+                              expression: "detalleGrupos"
                             }
                           ],
                           staticClass: "form-control",
                           attrs: {
-                            type: "text",
-                            placeholder: "Nombre de grupos"
+                            type: "number",
+                            placeholder: "Detalle Grupos de los grupos"
                           },
-                          domProps: { value: _vm.grupos },
+                          domProps: { value: _vm.detalleGrupos },
                           on: {
                             input: function($event) {
                               if ($event.target.composing) {
                                 return
                               }
-                              _vm.grupos = $event.target.value
+                              _vm.detalleGrupos = $event.target.value
                             }
                           }
                         }),
                         _vm._v(" "),
                         _c("span", { staticClass: "help-block" }, [
-                          _vm._v("(*) Ingrese el nombre del grupos")
+                          _vm._v("(*) Ingrese al detalle grupos de los grupos")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Estado")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.estado,
+                              expression: "estado"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Estado de los grupos"
+                          },
+                          domProps: { value: _vm.estado },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.estado = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese el estado de los grupos")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Empresas")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.idEmpresas,
+                              expression: "idEmpresas"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Empresas de los grupos"
+                          },
+                          domProps: { value: _vm.idEmpresas },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.idEmpresas = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese las empresas de los grupos")
                         ])
                       ])
                     ]),
@@ -57276,8 +59470,8 @@ var render = function() {
                           {
                             name: "show",
                             rawName: "v-show",
-                            value: _vm.errorGrupos,
-                            expression: "errorGrupos"
+                            value: _vm.errorUsuario,
+                            expression: "errorUsuario"
                           }
                         ],
                         staticClass: "form-group row div-error"
@@ -57323,7 +59517,7 @@ var render = function() {
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
-                            return _vm.crearGrupos()
+                            return _vm.crearUsuario()
                           }
                         }
                       },
@@ -57339,7 +59533,7 @@ var render = function() {
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
-                            return _vm.editarGrupos()
+                            return _vm.editarUsuario()
                           }
                         }
                       },
@@ -57860,28 +60054,112 @@ var render = function() {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.impuesto,
-                              expression: "impuesto"
+                              value: _vm.nombre,
+                              expression: "nombre"
                             }
                           ],
                           staticClass: "form-control",
                           attrs: {
-                            type: "text",
-                            placeholder: "Nombre de impuesto"
+                            type: "number",
+                            placeholder: "Nombre del impuesto"
                           },
-                          domProps: { value: _vm.impuesto },
+                          domProps: { value: _vm.nombre },
                           on: {
                             input: function($event) {
                               if ($event.target.composing) {
                                 return
                               }
-                              _vm.impuesto = $event.target.value
+                              _vm.nombre = $event.target.value
                             }
                           }
                         }),
                         _vm._v(" "),
                         _c("span", { staticClass: "help-block" }, [
                           _vm._v("(*) Ingrese el nombre del impuesto")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Valor")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.valor,
+                              expression: "valor"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Valors del impuesto"
+                          },
+                          domProps: { value: _vm.valor },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.valor = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese el valor del impuesto")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Estado")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.estado,
+                              expression: "estado"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Estado del impuesto"
+                          },
+                          domProps: { value: _vm.estado },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.estado = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese el estado del impuesto")
                         ])
                       ])
                     ]),
@@ -57893,8 +60171,8 @@ var render = function() {
                           {
                             name: "show",
                             rawName: "v-show",
-                            value: _vm.errorImpuesto,
-                            expression: "errorImpuesto"
+                            value: _vm.errorUsuario,
+                            expression: "errorUsuario"
                           }
                         ],
                         staticClass: "form-group row div-error"
@@ -57940,7 +60218,7 @@ var render = function() {
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
-                            return _vm.crearImpuesto()
+                            return _vm.crearUsuario()
                           }
                         }
                       },
@@ -57956,7 +60234,7 @@ var render = function() {
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
-                            return _vm.editarImpuesto()
+                            return _vm.editarUsuario()
                           }
                         }
                       },
@@ -58484,7 +60762,7 @@ var render = function() {
                           staticClass: "col-md-3 form-control-label",
                           attrs: { for: "text-input" }
                         },
-                        [_vm._v("Nombre")]
+                        [_vm._v("Valor Entrada")]
                       ),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-md-9" }, [
@@ -58493,28 +60771,112 @@ var render = function() {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.libromayor,
-                              expression: "libromayor"
+                              value: _vm.valorEntrada,
+                              expression: "valorEntrada"
                             }
                           ],
                           staticClass: "form-control",
                           attrs: {
-                            type: "text",
-                            placeholder: "Nombre de libromayor"
+                            type: "number",
+                            placeholder: "Valor Entrada del libro mayor"
                           },
-                          domProps: { value: _vm.libromayor },
+                          domProps: { value: _vm.valorEntrada },
                           on: {
                             input: function($event) {
                               if ($event.target.composing) {
                                 return
                               }
-                              _vm.libromayor = $event.target.value
+                              _vm.valorEntrada = $event.target.value
                             }
                           }
                         }),
                         _vm._v(" "),
                         _c("span", { staticClass: "help-block" }, [
-                          _vm._v("(*) Ingrese el nombre del libromayor")
+                          _vm._v("(*) Ingrese el valor entrada del libro mayor")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Valor Salida")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.valorSalida,
+                              expression: "valorSalida"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Valor Salidas del libro mayor"
+                          },
+                          domProps: { value: _vm.valorSalida },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.valorSalida = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese el valor salida del libro mayor")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Acumulado")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.acumulado,
+                              expression: "acumulado"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Acumulado del libro mayor"
+                          },
+                          domProps: { value: _vm.acumulado },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.acumulado = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese el acumulado del libro mayor")
                         ])
                       ])
                     ]),
@@ -58526,8 +60888,8 @@ var render = function() {
                           {
                             name: "show",
                             rawName: "v-show",
-                            value: _vm.errorLibromayor,
-                            expression: "errorLibromayor"
+                            value: _vm.errorUsuario,
+                            expression: "errorUsuario"
                           }
                         ],
                         staticClass: "form-group row div-error"
@@ -58573,7 +60935,7 @@ var render = function() {
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
-                            return _vm.crearLibromayor()
+                            return _vm.crearUsuario()
                           }
                         }
                       },
@@ -58589,7 +60951,7 @@ var render = function() {
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
-                            return _vm.editarLibromayor()
+                            return _vm.editarUsuario()
                           }
                         }
                       },
@@ -59104,28 +61466,112 @@ var render = function() {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.medida,
-                              expression: "medida"
+                              value: _vm.nombre,
+                              expression: "nombre"
                             }
                           ],
                           staticClass: "form-control",
                           attrs: {
-                            type: "text",
-                            placeholder: "Nombre de medida"
+                            type: "number",
+                            placeholder: "Nombre de la medida"
                           },
-                          domProps: { value: _vm.medida },
+                          domProps: { value: _vm.nombre },
                           on: {
                             input: function($event) {
                               if ($event.target.composing) {
                                 return
                               }
-                              _vm.medida = $event.target.value
+                              _vm.nombre = $event.target.value
                             }
                           }
                         }),
                         _vm._v(" "),
                         _c("span", { staticClass: "help-block" }, [
-                          _vm._v("(*) Ingrese el nombre del medida")
+                          _vm._v("(*) Ingrese el nombre de la medida")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Estado")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.estado,
+                              expression: "estado"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Estado de la medida"
+                          },
+                          domProps: { value: _vm.estado },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.estado = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese el estado de la medida")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Empresa")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.idEmpresa,
+                              expression: "idEmpresa"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Empresa de la medida"
+                          },
+                          domProps: { value: _vm.idEmpresa },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.idEmpresa = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese la empresa de la medida")
                         ])
                       ])
                     ]),
@@ -59137,8 +61583,8 @@ var render = function() {
                           {
                             name: "show",
                             rawName: "v-show",
-                            value: _vm.errorMedida,
-                            expression: "errorMedida"
+                            value: _vm.errorUsuario,
+                            expression: "errorUsuario"
                           }
                         ],
                         staticClass: "form-group row div-error"
@@ -59184,7 +61630,7 @@ var render = function() {
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
-                            return _vm.crearMedida()
+                            return _vm.crearUsuario()
                           }
                         }
                       },
@@ -59200,7 +61646,7 @@ var render = function() {
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
-                            return _vm.editarMedida()
+                            return _vm.editarUsuario()
                           }
                         }
                       },
@@ -59724,7 +62170,7 @@ var render = function() {
                           staticClass: "col-md-3 form-control-label",
                           attrs: { for: "text-input" }
                         },
-                        [_vm._v("Nombre")]
+                        [_vm._v("Fecha Abono")]
                       ),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-md-9" }, [
@@ -59733,28 +62179,196 @@ var render = function() {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.pagos,
-                              expression: "pagos"
+                              value: _vm.fechaAbono,
+                              expression: "fechaAbono"
                             }
                           ],
                           staticClass: "form-control",
                           attrs: {
-                            type: "text",
-                            placeholder: "Nombre de pagos"
+                            type: "number",
+                            placeholder: "Fecha Abono de los pagos"
                           },
-                          domProps: { value: _vm.pagos },
+                          domProps: { value: _vm.fechaAbono },
                           on: {
                             input: function($event) {
                               if ($event.target.composing) {
                                 return
                               }
-                              _vm.pagos = $event.target.value
+                              _vm.fechaAbono = $event.target.value
                             }
                           }
                         }),
                         _vm._v(" "),
                         _c("span", { staticClass: "help-block" }, [
-                          _vm._v("(*) Ingrese el nombre del pagos")
+                          _vm._v("(*) Ingrese la fecha abono de los pagos")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Valor Pago")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.valorPago,
+                              expression: "valorPago"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Valor Pagos de los pagos"
+                          },
+                          domProps: { value: _vm.valorPago },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.valorPago = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese el valor pago de los pagos")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Abono")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.abono,
+                              expression: "abono"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Abono de los pagos"
+                          },
+                          domProps: { value: _vm.abono },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.abono = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese el abono de los pagos")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Pedidos")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.idPedidos,
+                              expression: "idPedidos"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Pedidos de los pagos"
+                          },
+                          domProps: { value: _vm.idPedidos },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.idPedidos = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese los pedidos de los pagos")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Empresa")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.idEmpresa,
+                              expression: "idEmpresa"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Empresa de los pagos"
+                          },
+                          domProps: { value: _vm.idEmpresa },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.idEmpresa = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese la empresa  de los pagos")
                         ])
                       ])
                     ]),
@@ -59766,8 +62380,8 @@ var render = function() {
                           {
                             name: "show",
                             rawName: "v-show",
-                            value: _vm.errorPagos,
-                            expression: "errorPagos"
+                            value: _vm.errorUsuario,
+                            expression: "errorUsuario"
                           }
                         ],
                         staticClass: "form-group row div-error"
@@ -59813,7 +62427,7 @@ var render = function() {
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
-                            return _vm.crearPagos()
+                            return _vm.crearUsuario()
                           }
                         }
                       },
@@ -59829,7 +62443,7 @@ var render = function() {
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
-                            return _vm.editarPagos()
+                            return _vm.editarUsuario()
                           }
                         }
                       },
@@ -60351,7 +62965,7 @@ var render = function() {
                           staticClass: "col-md-3 form-control-label",
                           attrs: { for: "text-input" }
                         },
-                        [_vm._v("Nombre")]
+                        [_vm._v("Pagos")]
                       ),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-md-9" }, [
@@ -60360,28 +62974,112 @@ var render = function() {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.pagosasientos,
-                              expression: "pagosasientos"
+                              value: _vm.idPagos,
+                              expression: "idPagos"
                             }
                           ],
                           staticClass: "form-control",
                           attrs: {
-                            type: "text",
-                            placeholder: "Nombre de pagosasientos"
+                            type: "number",
+                            placeholder: "Pagos de pagos asientos"
                           },
-                          domProps: { value: _vm.pagosasientos },
+                          domProps: { value: _vm.idPagos },
                           on: {
                             input: function($event) {
                               if ($event.target.composing) {
                                 return
                               }
-                              _vm.pagosasientos = $event.target.value
+                              _vm.idPagos = $event.target.value
                             }
                           }
                         }),
                         _vm._v(" "),
                         _c("span", { staticClass: "help-block" }, [
-                          _vm._v("(*) Ingrese el nombre del pagosasientos")
+                          _vm._v("(*) Ingrese los pagos de pagos asientos")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Asientos")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.idAsientos,
+                              expression: "idAsientos"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Asientos de pagos asientos"
+                          },
+                          domProps: { value: _vm.idAsientos },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.idAsientos = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese los asientos de pagos asientos")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Empresas")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.idEmpresas,
+                              expression: "idEmpresas"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Empresas de pagos asientos"
+                          },
+                          domProps: { value: _vm.idEmpresas },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.idEmpresas = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese las empresas de pagos asientos")
                         ])
                       ])
                     ]),
@@ -60393,8 +63091,8 @@ var render = function() {
                           {
                             name: "show",
                             rawName: "v-show",
-                            value: _vm.errorPagosasientos,
-                            expression: "errorPagosasientos"
+                            value: _vm.errorUsuario,
+                            expression: "errorUsuario"
                           }
                         ],
                         staticClass: "form-group row div-error"
@@ -60440,7 +63138,7 @@ var render = function() {
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
-                            return _vm.crearPagosasientos()
+                            return _vm.crearUsuario()
                           }
                         }
                       },
@@ -60456,7 +63154,7 @@ var render = function() {
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
-                            return _vm.editarPagosasientos()
+                            return _vm.editarUsuario()
                           }
                         }
                       },
@@ -61030,7 +63728,7 @@ var render = function() {
                           staticClass: "col-md-3 form-control-label",
                           attrs: { for: "text-input" }
                         },
-                        [_vm._v("Nombre")]
+                        [_vm._v("Consecutivo")]
                       ),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-md-9" }, [
@@ -61039,28 +63737,238 @@ var render = function() {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.pedidos,
-                              expression: "pedidos"
+                              value: _vm.consecutivo,
+                              expression: "consecutivo"
                             }
                           ],
                           staticClass: "form-control",
                           attrs: {
-                            type: "text",
-                            placeholder: "Nombre de pedidos"
+                            type: "number",
+                            placeholder: "Consecutivo de los pedidos"
                           },
-                          domProps: { value: _vm.pedidos },
+                          domProps: { value: _vm.consecutivo },
                           on: {
                             input: function($event) {
                               if ($event.target.composing) {
                                 return
                               }
-                              _vm.pedidos = $event.target.value
+                              _vm.consecutivo = $event.target.value
                             }
                           }
                         }),
                         _vm._v(" "),
                         _c("span", { staticClass: "help-block" }, [
-                          _vm._v("(*) Ingrese el nombre del pedidos")
+                          _vm._v("(*) Ingrese el consecutivo de los pedidos")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Fecha")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.fecha,
+                              expression: "fecha"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Fechas de los pedidos"
+                          },
+                          domProps: { value: _vm.fecha },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.fecha = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese la fecha de los pedidos")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Valor")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.valor,
+                              expression: "valor"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Valor de los pedidos"
+                          },
+                          domProps: { value: _vm.valor },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.valor = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese el valor de los pedidos")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Impuesto")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.impuesto,
+                              expression: "impuesto"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Impuesto de los pedidos"
+                          },
+                          domProps: { value: _vm.impuesto },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.impuesto = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese el impuesto de los pedidos")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Total")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.total,
+                              expression: "total"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Total de los pedidos"
+                          },
+                          domProps: { value: _vm.total },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.total = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese el total de los pedidos")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Vendedor")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.vendedor,
+                              expression: "vendedor"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Vendedor de los pedidos"
+                          },
+                          domProps: { value: _vm.vendedor },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.vendedor = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese el vendedor de los pedidos")
                         ])
                       ])
                     ]),
@@ -61072,8 +63980,8 @@ var render = function() {
                           {
                             name: "show",
                             rawName: "v-show",
-                            value: _vm.errorPedidos,
-                            expression: "errorPedidos"
+                            value: _vm.errorUsuario,
+                            expression: "errorUsuario"
                           }
                         ],
                         staticClass: "form-group row div-error"
@@ -61119,7 +64027,7 @@ var render = function() {
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
-                            return _vm.crearPedidos()
+                            return _vm.crearUsuario()
                           }
                         }
                       },
@@ -61135,7 +64043,7 @@ var render = function() {
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
-                            return _vm.editarPedidos()
+                            return _vm.editarUsuario()
                           }
                         }
                       },
@@ -61711,7 +64619,7 @@ var render = function() {
                           staticClass: "col-md-3 form-control-label",
                           attrs: { for: "text-input" }
                         },
-                        [_vm._v("Nombre")]
+                        [_vm._v("plu")]
                       ),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-md-9" }, [
@@ -61720,28 +64628,196 @@ var render = function() {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.productos,
-                              expression: "productos"
+                              value: _vm.plu,
+                              expression: "plu"
                             }
                           ],
                           staticClass: "form-control",
                           attrs: {
-                            type: "text",
-                            placeholder: "Nombre de productos"
+                            type: "number",
+                            placeholder: "plu de los productos"
                           },
-                          domProps: { value: _vm.productos },
+                          domProps: { value: _vm.plu },
                           on: {
                             input: function($event) {
                               if ($event.target.composing) {
                                 return
                               }
-                              _vm.productos = $event.target.value
+                              _vm.plu = $event.target.value
                             }
                           }
                         }),
                         _vm._v(" "),
                         _c("span", { staticClass: "help-block" }, [
-                          _vm._v("(*) Ingrese el nombre del productos")
+                          _vm._v("(*) Ingrese el plu de los productos")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Detalle")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.detalle,
+                              expression: "detalle"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Detalles de los productos"
+                          },
+                          domProps: { value: _vm.detalle },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.detalle = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese el detalle de los productos")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Medida")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.idMedida,
+                              expression: "idMedida"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Medida de los productos"
+                          },
+                          domProps: { value: _vm.idMedida },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.idMedida = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese la medida de los productos")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Valor Compra")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.valorCompra,
+                              expression: "valorCompra"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Valor Compra de los productos"
+                          },
+                          domProps: { value: _vm.valorCompra },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.valorCompra = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese el valor compra de los productos")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("pvp")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.pvp,
+                              expression: "pvp"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "pvp de los productos"
+                          },
+                          domProps: { value: _vm.pvp },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.pvp = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese el pvp de los productos")
                         ])
                       ])
                     ]),
@@ -61753,8 +64829,8 @@ var render = function() {
                           {
                             name: "show",
                             rawName: "v-show",
-                            value: _vm.errorProductos,
-                            expression: "errorProductos"
+                            value: _vm.errorUsuario,
+                            expression: "errorUsuario"
                           }
                         ],
                         staticClass: "form-group row div-error"
@@ -61800,7 +64876,7 @@ var render = function() {
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
-                            return _vm.crearProductos()
+                            return _vm.crearUsuario()
                           }
                         }
                       },
@@ -61816,7 +64892,7 @@ var render = function() {
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
-                            return _vm.editarProductos()
+                            return _vm.editarUsuario()
                           }
                         }
                       },
@@ -62380,7 +65456,7 @@ var render = function() {
                           staticClass: "col-md-3 form-control-label",
                           attrs: { for: "text-input" }
                         },
-                        [_vm._v("Nombre")]
+                        [_vm._v("nit")]
                       ),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-md-9" }, [
@@ -62389,28 +65465,240 @@ var render = function() {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.proveedores,
-                              expression: "proveedores"
+                              value: _vm.nit,
+                              expression: "nit"
                             }
                           ],
                           staticClass: "form-control",
                           attrs: {
-                            type: "text",
-                            placeholder: "Nombre de proveedores"
+                            type: "number",
+                            placeholder: "nit de los proveedores"
                           },
-                          domProps: { value: _vm.proveedores },
+                          domProps: { value: _vm.nit },
                           on: {
                             input: function($event) {
                               if ($event.target.composing) {
                                 return
                               }
-                              _vm.proveedores = $event.target.value
+                              _vm.nit = $event.target.value
                             }
                           }
                         }),
                         _vm._v(" "),
                         _c("span", { staticClass: "help-block" }, [
-                          _vm._v("(*) Ingrese el nombre del proveedores")
+                          _vm._v("(*) Ingrese el nit de los proveedores")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Razon Social")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.razonSocial,
+                              expression: "razonSocial"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Razon Social de los proveedores"
+                          },
+                          domProps: { value: _vm.razonSocial },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.razonSocial = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v(
+                            "(*) Ingrese la razonSocial de los proveedores"
+                          )
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Contacto")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.contacto,
+                              expression: "contacto"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Contacto de los proveedores"
+                          },
+                          domProps: { value: _vm.contacto },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.contacto = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese el contacto de los proveedores")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Telefono")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.telefono,
+                              expression: "telefono"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Telefono de los proveedores"
+                          },
+                          domProps: { value: _vm.telefono },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.telefono = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese el telefono de los proveedores")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Direccion")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.direccion,
+                              expression: "direccion"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Direccion de los proveedores"
+                          },
+                          domProps: { value: _vm.direccion },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.direccion = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese la direccion de los proveedores")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Correo")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.correo,
+                              expression: "correo"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Correo de los proveedores"
+                          },
+                          domProps: { value: _vm.correo },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.correo = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese el correo de los proveedores")
                         ])
                       ])
                     ]),
@@ -62422,8 +65710,8 @@ var render = function() {
                           {
                             name: "show",
                             rawName: "v-show",
-                            value: _vm.errorProveedores,
-                            expression: "errorProveedores"
+                            value: _vm.errorUsuario,
+                            expression: "errorUsuario"
                           }
                         ],
                         staticClass: "form-group row div-error"
@@ -62469,7 +65757,7 @@ var render = function() {
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
-                            return _vm.crearProveedores()
+                            return _vm.crearUsuario()
                           }
                         }
                       },
@@ -62485,7 +65773,7 @@ var render = function() {
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
-                            return _vm.editarProveedores()
+                            return _vm.editarUsuario()
                           }
                         }
                       },
@@ -63035,7 +66323,7 @@ var render = function() {
                           staticClass: "col-md-3 form-control-label",
                           attrs: { for: "text-input" }
                         },
-                        [_vm._v("Nombre")]
+                        [_vm._v("Fecha")]
                       ),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-md-9" }, [
@@ -63044,28 +66332,238 @@ var render = function() {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.registros,
-                              expression: "registros"
+                              value: _vm.fecha,
+                              expression: "fecha"
                             }
                           ],
                           staticClass: "form-control",
                           attrs: {
-                            type: "text",
-                            placeholder: "Nombre de registros"
+                            type: "number",
+                            placeholder: "Fecha de los registros"
                           },
-                          domProps: { value: _vm.registros },
+                          domProps: { value: _vm.fecha },
                           on: {
                             input: function($event) {
                               if ($event.target.composing) {
                                 return
                               }
-                              _vm.registros = $event.target.value
+                              _vm.fecha = $event.target.value
                             }
                           }
                         }),
                         _vm._v(" "),
                         _c("span", { staticClass: "help-block" }, [
-                          _vm._v("(*) Ingrese el nombre del registros")
+                          _vm._v("(*) Ingrese la fecha de los registros")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Concepto")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.concepto,
+                              expression: "concepto"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Conceptos de los registros"
+                          },
+                          domProps: { value: _vm.concepto },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.concepto = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese el concepto de los registros")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Detalle")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.detalle,
+                              expression: "detalle"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Detalle de los registros"
+                          },
+                          domProps: { value: _vm.detalle },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.detalle = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese el detalle de los registros")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Asientos")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.idAsientos,
+                              expression: "idAsientos"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Asientos de los registros"
+                          },
+                          domProps: { value: _vm.idAsientos },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.idAsientos = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese los asientos de los registros")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Entrada")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.entrada,
+                              expression: "entrada"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Entrada de los registros"
+                          },
+                          domProps: { value: _vm.entrada },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.entrada = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese la entrada de los registros")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Salida")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.salida,
+                              expression: "salida"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Salida de los registros"
+                          },
+                          domProps: { value: _vm.salida },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.salida = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese la salida de los registros")
                         ])
                       ])
                     ]),
@@ -63077,8 +66575,8 @@ var render = function() {
                           {
                             name: "show",
                             rawName: "v-show",
-                            value: _vm.errorRegistros,
-                            expression: "errorRegistros"
+                            value: _vm.errorUsuario,
+                            expression: "errorUsuario"
                           }
                         ],
                         staticClass: "form-group row div-error"
@@ -63124,7 +66622,7 @@ var render = function() {
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
-                            return _vm.crearRegistros()
+                            return _vm.crearUsuario()
                           }
                         }
                       },
@@ -63140,7 +66638,7 @@ var render = function() {
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
-                            return _vm.editarRegistros()
+                            return _vm.editarUsuario()
                           }
                         }
                       },
@@ -63646,7 +67144,7 @@ var render = function() {
                           staticClass: "col-md-3 form-control-label",
                           attrs: { for: "text-input" }
                         },
-                        [_vm._v("Nombre")]
+                        [_vm._v("Rol")]
                       ),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-md-9" }, [
@@ -63655,28 +67153,28 @@ var render = function() {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.roles,
-                              expression: "roles"
+                              value: _vm.rol,
+                              expression: "rol"
                             }
                           ],
                           staticClass: "form-control",
                           attrs: {
-                            type: "text",
-                            placeholder: "Nombre de roles"
+                            type: "number",
+                            placeholder: "Rol de roles"
                           },
-                          domProps: { value: _vm.roles },
+                          domProps: { value: _vm.rol },
                           on: {
                             input: function($event) {
                               if ($event.target.composing) {
                                 return
                               }
-                              _vm.roles = $event.target.value
+                              _vm.rol = $event.target.value
                             }
                           }
                         }),
                         _vm._v(" "),
                         _c("span", { staticClass: "help-block" }, [
-                          _vm._v("(*) Ingrese el nombre del roles")
+                          _vm._v("(*) Ingrese el rol de roles")
                         ])
                       ])
                     ]),
@@ -63688,8 +67186,8 @@ var render = function() {
                           {
                             name: "show",
                             rawName: "v-show",
-                            value: _vm.errorRoles,
-                            expression: "errorRoles"
+                            value: _vm.errorUsuario,
+                            expression: "errorUsuario"
                           }
                         ],
                         staticClass: "form-group row div-error"
@@ -63735,7 +67233,7 @@ var render = function() {
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
-                            return _vm.crearRoles()
+                            return _vm.crearUsuario()
                           }
                         }
                       },
@@ -63751,7 +67249,7 @@ var render = function() {
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
-                            return _vm.editarRoles()
+                            return _vm.editarUsuario()
                           }
                         }
                       },
@@ -64261,7 +67759,7 @@ var render = function() {
                           staticClass: "col-md-3 form-control-label",
                           attrs: { for: "text-input" }
                         },
-                        [_vm._v("Nombre")]
+                        [_vm._v("Detalle")]
                       ),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-md-9" }, [
@@ -64270,28 +67768,28 @@ var render = function() {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.tipofactura,
-                              expression: "tipofactura"
+                              value: _vm.detalle,
+                              expression: "detalle"
                             }
                           ],
                           staticClass: "form-control",
                           attrs: {
-                            type: "text",
-                            placeholder: "Nombre de tipofactura"
+                            type: "number",
+                            placeholder: "Detalle del Tipo Factura"
                           },
-                          domProps: { value: _vm.tipofactura },
+                          domProps: { value: _vm.detalle },
                           on: {
                             input: function($event) {
                               if ($event.target.composing) {
                                 return
                               }
-                              _vm.tipofactura = $event.target.value
+                              _vm.detalle = $event.target.value
                             }
                           }
                         }),
                         _vm._v(" "),
                         _c("span", { staticClass: "help-block" }, [
-                          _vm._v("(*) Ingrese el nombre del tipofactura")
+                          _vm._v("(*) Ingrese el detalle del Tipo Factura")
                         ])
                       ])
                     ]),
@@ -64303,8 +67801,8 @@ var render = function() {
                           {
                             name: "show",
                             rawName: "v-show",
-                            value: _vm.errorTipofactura,
-                            expression: "errorTipofactura"
+                            value: _vm.errorUsuario,
+                            expression: "errorUsuario"
                           }
                         ],
                         staticClass: "form-group row div-error"
@@ -64350,7 +67848,7 @@ var render = function() {
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
-                            return _vm.crearTipofactura()
+                            return _vm.crearUsuario()
                           }
                         }
                       },
@@ -64366,7 +67864,7 @@ var render = function() {
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
-                            return _vm.editarTipofactura()
+                            return _vm.editarUsuario()
                           }
                         }
                       },

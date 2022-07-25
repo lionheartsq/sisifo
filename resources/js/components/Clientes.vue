@@ -123,26 +123,52 @@
                                 <span aria-hidden="true">×</span>
                                 </button>
                             </div>
+
                             <div class="modal-body">
                                 <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
                                     <div class="form-group row">
+                                        <label class="col-md-3 form-control-label" for="text-input">Cedula</label>
+                                        <div class="col-md-9">
+                                            <input type="number" v-model="cedula" class="form-control" placeholder="Cedula del cliente">
+                                            <span class="help-block">(*) Ingrese la cedula del cliente</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="clientes" class="form-control" placeholder="Nombre de clientes">
-                                            <span class="help-block">(*) Ingrese el nombre del clientes</span>
+                                            <input type="text" v-model="nombres" class="form-control" placeholder="Nombres del cliente">
+                                            <span class="help-block">(*) Ingrese los nombres del cliente</span>
                                         </div>
                                     </div>
-
-                                    <!--
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="email-input">Descripción</label>
+                                        <label class="col-md-3 form-control-label" for="text-input">Apellidos</label>
                                         <div class="col-md-9">
-                                            <input type="email" v-model="estado" class="form-control" placeholder="Enter Email">
+                                            <input type="text" v-model="apellidos" class="form-control" placeholder="Apellidos del cliente">
+                                            <span class="help-block">(*) Ingrese los apellidos del cliente</span>
                                         </div>
                                     </div>
-                                    -->
-
-                                    <div class="form-group row div-error" v-show="errorClientes">
+                                    <div class="form-group row">
+                                        <label class="col-md-3 form-control-label" for="text-input">Direccion</label>
+                                        <div class="col-md-9">
+                                            <input type="text" v-model="direccion" class="form-control" placeholder="Direccion del cliente">
+                                            <span class="help-block">(*) Ingrese la direccion del cliente</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3 form-control-label" for="text-input">Telefono</label>
+                                        <div class="col-md-9">
+                                            <input type="text" v-model="telefono" class="form-control" placeholder="Telefono del cliente">
+                                            <span class="help-block">(*) Ingrese el telefono del cliente</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3 form-control-label" for="text-input">Correo</label>
+                                        <div class="col-md-9">
+                                            <input type="text" v-model="correo" class="form-control" placeholder="Correo del cliente">
+                                            <span class="help-block">(*) Ingrese el correo del cliente</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row div-error" v-show="errorUsuario">
                                         <div class="text-center text-error">
                                             <div v-for="error in errorMensaje" :key="error" v-text="error"></div>
                                         </div>
@@ -152,8 +178,8 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" @click="cerrarModal()">Cerrar</button>
-                                <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="crearClientes()">Guardar</button>
-                                <button type="button" v-if="tipoAccion==2" class="btn btn-warning" @click="editarClientes()">Editar</button>
+                                <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="crearUsuario()">Guardar</button>
+                                <button type="button" v-if="tipoAccion==2" class="btn btn-warning" @click="editarUsuario()">Editar</button>
                             </div>
                         </div>
                         <!-- /.modal-content -->
@@ -360,7 +386,12 @@
                 this.errorClientes=0;
                 this.errorMensaje=[];
 
-                if (!this.Clientes) this.errorMensaje.push("El nombre del clientes no puede estar vacio");
+                if (!this.cedula) this.errorMensaje.push("La cedula del cliente no puede estar vacio");
+                if (!this.nombres) this.errorMensaje.push("Los nombres del cliente no puede estar vacio");
+                if (!this.apellidos) this.errorMensaje.push("Los apellidos del cliente no puede estar vacio");
+                if (!this.direccion) this.errorMensaje.push("La direccion del cliente no puede estar vacio");
+                if (!this.telefono) this.errorMensaje.push("El telefono del cliente no puede estar vacio");
+                if (!this.correo) this.errorMensaje.push("El correo del cliente no puede estar vacio");
                 if (this.errorMensaje.length) this.errorClientes=1;
 
                 return this.errorClientes;

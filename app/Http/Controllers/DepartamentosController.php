@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Departamentos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class DepartamentosController extends Controller
 {
@@ -47,6 +48,36 @@ class DepartamentosController extends Controller
         ->get();
 
         return ['departamentos' => $departamentos];
+    }
+
+    public function store(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $idEmpresa=Auth::user()->idEmpresa;
+        $Departamentos=new Departamentos();
+        $Departamentos->detalle=$request->detalle;
+        $Departamentos->save();
+    }
+
+    public function update(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $idEmpresa=Auth::user()->idEmpresa;
+        $Departamentos=Departamentos::findOrFail($request->id);
+        $Departamentos->detalle=$request->detalle;
+        $Departamentos->save();
+    }
+
+    public function deactivate(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $Departamentos=Departamentos::findOrFail($request->id);
+        $Departamentos->estado='2';
+        $Departamentos->save();
+    }
+
+    public function activate(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $Departamentos=Departamentos::findOrFail($request->id);
+        $Departamentos->estado='1';
+        $Departamentos->save();
     }
 
 

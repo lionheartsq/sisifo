@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Productos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class ProductosController extends Controller
 {
@@ -49,5 +50,41 @@ class ProductosController extends Controller
         return ['productos' => $productos];
     }
 
+    public function store(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $idEmpresa=Auth::user()->idEmpresa;
+        $Productos=new Productos();
+        $Productos->plu=$request->plu;
+        $Productos->detalle=$request->detalle;
+        $Productos->idMedida=$request->idMedida;
+        $Productos->valorCompra=$request->valorCompra;
+        $Productos->pvp=$pvp;
+        $Productos->save();
+    }
 
+    public function update(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $idEmpresa=Auth::user()->idEmpresa;
+        $Productos=Productos::findOrFail($request->id);
+        $Productos->plu=$request->plu;
+        $Productos->detalle=$request->detalle;
+        $Productos->idMedida=$request->idMedida;
+        $Productos->valorCompra=$request->valorCompra;
+        $Productos->pvp=$pvp;
+        $Productos->save();
+    }
+
+    public function deactivate(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $Productos=Productos::findOrFail($request->id);
+        $Productos->estado='2';
+        $Productos->save();
+    }
+
+    public function activate(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $Productos=Productos::findOrFail($request->id);
+        $Productos->estado='1';
+        $Productos->save();
+    }
 }

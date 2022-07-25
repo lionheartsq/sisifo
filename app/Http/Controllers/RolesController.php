@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Roles;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class RolesController extends Controller
 {
@@ -49,5 +50,33 @@ class RolesController extends Controller
         return ['roles' => $roles];
     }
 
+    public function store(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $idEmpresa=Auth::user()->idEmpresa;
+        $Roles=new Roles();
+        $Roles->rol=$request->rol;
+        $Roles->save();
+    }
 
+    public function update(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $idEmpresa=Auth::user()->idEmpresa;
+        $Roles=Roles::findOrFail($request->id);
+        $Roles->rol=$request->rol;
+        $Roles->save();
+    }
+
+    public function deactivate(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $Roles=Roles::findOrFail($request->id);
+        $Roles->estado='2';
+        $Roles->save();
+    }
+
+    public function activate(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $Roles=Roles::findOrFail($request->id);
+        $Roles->estado='1';
+        $Roles->save();
+    }
 }

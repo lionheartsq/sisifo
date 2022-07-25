@@ -117,26 +117,45 @@
                                 <span aria-hidden="true">×</span>
                                 </button>
                             </div>
+
                             <div class="modal-body">
                                 <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
+                                        <label class="col-md-3 form-control-label" for="text-input">Detalle</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="habitacion" class="form-control" placeholder="Nombre de habitacion">
-                                            <span class="help-block">(*) Ingrese el nombre del habitacion</span>
+                                            <input type="number" v-model="detalle" class="form-control" placeholder="Detalle de la habitacion">
+                                            <span class="help-block">(*) Ingrese el detalle de la habitacion</span>
                                         </div>
                                     </div>
-
-                                    <!--
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="email-input">Descripción</label>
+                                        <label class="col-md-3 form-control-label" for="text-input">Estado</label>
                                         <div class="col-md-9">
-                                            <input type="email" v-model="estado" class="form-control" placeholder="Enter Email">
+                                            <input type="text" v-model="estado" class="form-control" placeholder="Estado de la habitacion">
+                                            <span class="help-block">(*) Ingrese el estado de la habitacion</span>
                                         </div>
                                     </div>
-                                    -->
-
-                                    <div class="form-group row div-error" v-show="errorHabitacion">
+                                    <div class="form-group row">
+                                        <label class="col-md-3 form-control-label" for="text-input">Fecha</label>
+                                        <div class="col-md-9">
+                                            <input type="text" v-model="fecha" class="form-control" placeholder="Fecha de la habitacion">
+                                            <span class="help-block">(*) Ingrese la fecha de la habitacion</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3 form-control-label" for="text-input">Tipo</label>
+                                        <div class="col-md-9">
+                                            <input type="text" v-model="idTipo" class="form-control" placeholder="Tipo de la habitacion">
+                                            <span class="help-block">(*) Ingrese el tipo de la habitacion</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3 form-control-label" for="text-input">Empresas</label>
+                                        <div class="col-md-9">
+                                            <input type="text" v-model="idEmpresas" class="form-control" placeholder="Empresas de la habitacion">
+                                            <span class="help-block">(*) Ingrese la empresa de la habitacion</span>
+                                        </div>
+                                    </div>                                    
+                                    <div class="form-group row div-error" v-show="errorUsuario">
                                         <div class="text-center text-error">
                                             <div v-for="error in errorMensaje" :key="error" v-text="error"></div>
                                         </div>
@@ -146,8 +165,8 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" @click="cerrarModal()">Cerrar</button>
-                                <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="crearHabitacion()">Guardar</button>
-                                <button type="button" v-if="tipoAccion==2" class="btn btn-warning" @click="editarHabitacion()">Editar</button>
+                                <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="crearUsuario()">Guardar</button>
+                                <button type="button" v-if="tipoAccion==2" class="btn btn-warning" @click="editarUsuario()">Editar</button>
                             </div>
                         </div>
                         <!-- /.modal-content -->
@@ -354,7 +373,11 @@
                 this.errorHabitacion=0;
                 this.errorMensaje=[];
 
-                if (!this.Habitacion) this.errorMensaje.push("El nombre del habitacion no puede estar vacio");
+                if (!this.detalle) this.errorMensaje.push("El detalle de la habitacion no puede estar vacio");
+                if (!this.estado) this.errorMensaje.push("El estado de la habitacion no puede estar vacio");
+                if (!this.fecha) this.errorMensaje.push("La fecha de la habitacion no puede estar vacio");
+                if (!this.idTipo) this.errorMensaje.push("El tipo de la habitacion no puede estar vacio");
+                if (!this.idEmpresas) this.errorMensaje.push("La empresa de la habitacion no puede estar vacio");
                 if (this.errorMensaje.length) this.errorHabitacion=1;
 
                 return this.errorHabitacion;

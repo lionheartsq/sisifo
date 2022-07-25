@@ -108,26 +108,17 @@
                                 <span aria-hidden="true">×</span>
                                 </button>
                             </div>
+
                             <div class="modal-body">
                                 <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
+                                        <label class="col-md-3 form-control-label" for="text-input">Detalle</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="tipofactura" class="form-control" placeholder="Nombre de tipofactura">
-                                            <span class="help-block">(*) Ingrese el nombre del tipofactura</span>
+                                            <input type="number" v-model="detalle" class="form-control" placeholder="Detalle del Tipo Factura">
+                                            <span class="help-block">(*) Ingrese el detalle del Tipo Factura</span>
                                         </div>
-                                    </div>
-
-                                    <!--
-                                    <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="email-input">Descripción</label>
-                                        <div class="col-md-9">
-                                            <input type="email" v-model="estado" class="form-control" placeholder="Enter Email">
-                                        </div>
-                                    </div>
-                                    -->
-
-                                    <div class="form-group row div-error" v-show="errorTipofactura">
+                                    </div>                                    
+                                    <div class="form-group row div-error" v-show="errorUsuario">
                                         <div class="text-center text-error">
                                             <div v-for="error in errorMensaje" :key="error" v-text="error"></div>
                                         </div>
@@ -137,8 +128,8 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" @click="cerrarModal()">Cerrar</button>
-                                <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="crearTipofactura()">Guardar</button>
-                                <button type="button" v-if="tipoAccion==2" class="btn btn-warning" @click="editarTipofactura()">Editar</button>
+                                <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="crearUsuario()">Guardar</button>
+                                <button type="button" v-if="tipoAccion==2" class="btn btn-warning" @click="editarUsuario()">Editar</button>
                             </div>
                         </div>
                         <!-- /.modal-content -->
@@ -345,7 +336,7 @@
                 this.errorTipofactura=0;
                 this.errorMensaje=[];
 
-                if (!this.Tipofactura) this.errorMensaje.push("El nombre del tipofactura no puede estar vacio");
+                if (!this.detalle) this.errorMensaje.push("El detalle del tipo factura no puede estar vacio");
                 if (this.errorMensaje.length) this.errorTipofactura=1;
 
                 return this.errorTipofactura;

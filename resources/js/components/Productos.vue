@@ -129,26 +129,45 @@
                                 <span aria-hidden="true">×</span>
                                 </button>
                             </div>
+
                             <div class="modal-body">
                                 <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
+                                        <label class="col-md-3 form-control-label" for="text-input">plu</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="productos" class="form-control" placeholder="Nombre de productos">
-                                            <span class="help-block">(*) Ingrese el nombre del productos</span>
+                                            <input type="number" v-model="plu" class="form-control" placeholder="plu de los productos">
+                                            <span class="help-block">(*) Ingrese el plu de los productos</span>
                                         </div>
                                     </div>
-
-                                    <!--
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="email-input">Descripción</label>
+                                        <label class="col-md-3 form-control-label" for="text-input">Detalle</label>
                                         <div class="col-md-9">
-                                            <input type="email" v-model="estado" class="form-control" placeholder="Enter Email">
+                                            <input type="text" v-model="detalle" class="form-control" placeholder="Detalles de los productos">
+                                            <span class="help-block">(*) Ingrese el detalle de los productos</span>
                                         </div>
                                     </div>
-                                    -->
-
-                                    <div class="form-group row div-error" v-show="errorProductos">
+                                    <div class="form-group row">
+                                        <label class="col-md-3 form-control-label" for="text-input">Medida</label>
+                                        <div class="col-md-9">
+                                            <input type="text" v-model="idMedida" class="form-control" placeholder="Medida de los productos">
+                                            <span class="help-block">(*) Ingrese la medida de los productos</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3 form-control-label" for="text-input">Valor Compra</label>
+                                        <div class="col-md-9">
+                                            <input type="text" v-model="valorCompra" class="form-control" placeholder="Valor Compra de los productos">
+                                            <span class="help-block">(*) Ingrese el valor compra de los productos</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3 form-control-label" for="text-input">pvp</label>
+                                        <div class="col-md-9">
+                                            <input type="text" v-model="pvp" class="form-control" placeholder="pvp de los productos">
+                                            <span class="help-block">(*) Ingrese el pvp de los productos</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row div-error" v-show="errorUsuario">
                                         <div class="text-center text-error">
                                             <div v-for="error in errorMensaje" :key="error" v-text="error"></div>
                                         </div>
@@ -158,8 +177,8 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" @click="cerrarModal()">Cerrar</button>
-                                <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="crearProductos()">Guardar</button>
-                                <button type="button" v-if="tipoAccion==2" class="btn btn-warning" @click="editarProductos()">Editar</button>
+                                <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="crearUsuario()">Guardar</button>
+                                <button type="button" v-if="tipoAccion==2" class="btn btn-warning" @click="editarUsuario()">Editar</button>
                             </div>
                         </div>
                         <!-- /.modal-content -->
@@ -366,7 +385,11 @@
                 this.errorProductos=0;
                 this.errorMensaje=[];
 
-                if (!this.Productos) this.errorMensaje.push("El nombre del productos no puede estar vacio");
+                if (!this.plu) this.errorMensaje.push("El plu de los productos no puede estar vacio");
+                if (!this.detalle) this.errorMensaje.push("El detalle de los productos no puede estar vacio");
+                if (!this.idMedida) this.errorMensaje.push("La medida de los productos no puede estar vacio");
+                if (!this.valorCompra) this.errorMensaje.push("El valor compra de los productos no puede estar vacio");
+                if (!this.pvp) this.errorMensaje.push("El pvp de los productos no puede estar vacio");
                 if (this.errorMensaje.length) this.errorProductos=1;
 
                 return this.errorProductos;

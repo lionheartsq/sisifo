@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Pagosasientos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class PagosasientosController extends Controller
 {
@@ -49,5 +50,38 @@ class PagosasientosController extends Controller
         return ['pagosasientos' => $pagosasientos];
     }
 
+    public function store(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $idEmpresa=Auth::user()->idEmpresa;
+        $Pagosasientos=new Pagosasientos();
+        $Pagosasientos->idPagos=$request->idPagos;
+        $Pagosasientos->idAsientos=$request->idAsientos;
+        $Pagosasientos->idEmpresas=$idEmpresas;
+        $Pagosasientos->save();
+    }
 
+    public function update(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $idEmpresa=Auth::user()->idEmpresa;
+        $Pagosasientos=Pagosasientos::findOrFail($request->id);
+        $Pagosasientos->idPagos=$request->idPagos;
+        $Pagosasientos->idAsientos=$request->idAsientos;
+        $Pagosasientos->idEmpresas=$idEmpresas;
+        $Pagosasientos->save();
+    }
+    }
+
+    public function deactivate(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $Pagosasientos=Pagosasientos::findOrFail($request->id);
+        $Pagosasientos->estado='2';
+        $Pagosasientos->save();
+    }
+
+    public function activate(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $Pagosasientos=Pagosasientos::findOrFail($request->id);
+        $Pagosasientos->estado='1';
+        $Pagosasientos->save();
+    }
 }

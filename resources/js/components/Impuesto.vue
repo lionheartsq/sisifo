@@ -111,26 +111,31 @@
                                 <span aria-hidden="true">×</span>
                                 </button>
                             </div>
+
                             <div class="modal-body">
                                 <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="impuesto" class="form-control" placeholder="Nombre de impuesto">
+                                            <input type="number" v-model="nombre" class="form-control" placeholder="Nombre del impuesto">
                                             <span class="help-block">(*) Ingrese el nombre del impuesto</span>
                                         </div>
                                     </div>
-
-                                    <!--
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="email-input">Descripción</label>
+                                        <label class="col-md-3 form-control-label" for="text-input">Valor</label>
                                         <div class="col-md-9">
-                                            <input type="email" v-model="estado" class="form-control" placeholder="Enter Email">
+                                            <input type="text" v-model="valor" class="form-control" placeholder="Valors del impuesto">
+                                            <span class="help-block">(*) Ingrese el valor del impuesto</span>
                                         </div>
                                     </div>
-                                    -->
-
-                                    <div class="form-group row div-error" v-show="errorImpuesto">
+                                    <div class="form-group row">
+                                        <label class="col-md-3 form-control-label" for="text-input">Estado</label>
+                                        <div class="col-md-9">
+                                            <input type="text" v-model="estado" class="form-control" placeholder="Estado del impuesto">
+                                            <span class="help-block">(*) Ingrese el estado del impuesto</span>
+                                        </div>
+                                    </div>                                    
+                                    <div class="form-group row div-error" v-show="errorUsuario">
                                         <div class="text-center text-error">
                                             <div v-for="error in errorMensaje" :key="error" v-text="error"></div>
                                         </div>
@@ -140,8 +145,8 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" @click="cerrarModal()">Cerrar</button>
-                                <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="crearImpuesto()">Guardar</button>
-                                <button type="button" v-if="tipoAccion==2" class="btn btn-warning" @click="editarImpuesto()">Editar</button>
+                                <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="crearUsuario()">Guardar</button>
+                                <button type="button" v-if="tipoAccion==2" class="btn btn-warning" @click="editarUsuario()">Editar</button>
                             </div>
                         </div>
                         <!-- /.modal-content -->
@@ -348,7 +353,9 @@
                 this.errorImpuesto=0;
                 this.errorMensaje=[];
 
-                if (!this.Impuesto) this.errorMensaje.push("El nombre del impuesto no puede estar vacio");
+                if (!this.nombre) this.errorMensaje.push("El nombre del impuesto no puede estar vacio");
+                if (!this.valor) this.errorMensaje.push("El valor del impuesto no puede estar vacio");
+                if (!this.estado) this.errorMensaje.push("El estado del impuesto no puede estar vacio");
                 if (this.errorMensaje.length) this.errorImpuesto=1;
 
                 return this.errorImpuesto;

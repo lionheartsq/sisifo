@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Ciudades;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class CiudadesController extends Controller
 {
@@ -47,6 +48,38 @@ class CiudadesController extends Controller
         ->get();
 
         return ['ciudades' => $ciudades];
+    }
+
+    public function store(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $idEmpresa=Auth::user()->idEmpresa;
+        $Ciudades=new Ciudades();
+        $Ciudades->detalle=$request->detalle;
+        $Ciudades->idDepartamentos=$idDepartamentos;
+        $Ciudades->save();
+    }
+
+    public function update(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $idEmpresa=Auth::user()->idEmpresa;
+        $Ciudades=Ciudades::findOrFail($request->id);
+        $Ciudades->detalle=$request->detalle;
+        $Ciudades->idDepartamentos=$idDepartamentos;
+        $Ciudades->save();
+    }
+
+    public function deactivate(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $Ciudades=Ciudades::findOrFail($request->id);
+        $Ciudades->estado='2';
+        $Ciudades->save();
+    }
+
+    public function activate(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $Ciudades=Ciudades::findOrFail($request->id);
+        $Ciudades->estado='1';
+        $Ciudades->save();
     }
 
 

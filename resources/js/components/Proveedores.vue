@@ -123,26 +123,52 @@
                                 <span aria-hidden="true">×</span>
                                 </button>
                             </div>
+
                             <div class="modal-body">
                                 <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
+                                        <label class="col-md-3 form-control-label" for="text-input">nit</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="proveedores" class="form-control" placeholder="Nombre de proveedores">
-                                            <span class="help-block">(*) Ingrese el nombre del proveedores</span>
+                                            <input type="number" v-model="nit" class="form-control" placeholder="nit de los proveedores">
+                                            <span class="help-block">(*) Ingrese el nit de los proveedores</span>
                                         </div>
                                     </div>
-
-                                    <!--
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="email-input">Descripción</label>
+                                        <label class="col-md-3 form-control-label" for="text-input">Razon Social</label>
                                         <div class="col-md-9">
-                                            <input type="email" v-model="estado" class="form-control" placeholder="Enter Email">
+                                            <input type="text" v-model="razonSocial" class="form-control" placeholder="Razon Social de los proveedores">
+                                            <span class="help-block">(*) Ingrese la razonSocial de los proveedores</span>
                                         </div>
                                     </div>
-                                    -->
-
-                                    <div class="form-group row div-error" v-show="errorProveedores">
+                                    <div class="form-group row">
+                                        <label class="col-md-3 form-control-label" for="text-input">Contacto</label>
+                                        <div class="col-md-9">
+                                            <input type="text" v-model="contacto" class="form-control" placeholder="Contacto de los proveedores">
+                                            <span class="help-block">(*) Ingrese el contacto de los proveedores</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3 form-control-label" for="text-input">Telefono</label>
+                                        <div class="col-md-9">
+                                            <input type="text" v-model="telefono" class="form-control" placeholder="Telefono de los proveedores">
+                                            <span class="help-block">(*) Ingrese el telefono de los proveedores</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3 form-control-label" for="text-input">Direccion</label>
+                                        <div class="col-md-9">
+                                            <input type="text" v-model="direccion" class="form-control" placeholder="Direccion de los proveedores">
+                                            <span class="help-block">(*) Ingrese la direccion de los proveedores</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3 form-control-label" for="text-input">Correo</label>
+                                        <div class="col-md-9">
+                                            <input type="text" v-model="correo" class="form-control" placeholder="Correo de los proveedores">
+                                            <span class="help-block">(*) Ingrese el correo de los proveedores</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row div-error" v-show="errorUsuario">
                                         <div class="text-center text-error">
                                             <div v-for="error in errorMensaje" :key="error" v-text="error"></div>
                                         </div>
@@ -152,8 +178,8 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" @click="cerrarModal()">Cerrar</button>
-                                <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="crearProveedores()">Guardar</button>
-                                <button type="button" v-if="tipoAccion==2" class="btn btn-warning" @click="editarProveedores()">Editar</button>
+                                <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="crearUsuario()">Guardar</button>
+                                <button type="button" v-if="tipoAccion==2" class="btn btn-warning" @click="editarUsuario()">Editar</button>
                             </div>
                         </div>
                         <!-- /.modal-content -->
@@ -360,7 +386,12 @@
                 this.errorProveedores=0;
                 this.errorMensaje=[];
 
-                if (!this.Proveedores) this.errorMensaje.push("El nombre del proveedores no puede estar vacio");
+                if (!this.nit) this.errorMensaje.push("El nit de los proveedores no puede estar vacio");
+                if (!this.razonSocial) this.errorMensaje.push("La razonSocial de los proveedores no puede estar vacio");
+                if (!this.contacto) this.errorMensaje.push("El contacto de los proveedores no puede estar vacio");
+                if (!this.telefono) this.errorMensaje.push("El telefono de los proveedores no puede estar vacio");
+                if (!this.direccion) this.errorMensaje.push("La direccion de los proveedores no puede estar vacio");
+                if (!this.correo) this.errorMensaje.push("El correo de los proveedores no puede estar vacio");
                 if (this.errorMensaje.length) this.errorProveedores=1;
 
                 return this.errorProveedores;

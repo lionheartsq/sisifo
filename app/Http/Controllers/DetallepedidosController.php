@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Detallepedidos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class DetallepedidosController extends Controller
 {
@@ -49,5 +50,45 @@ class DetallepedidosController extends Controller
         return ['detallepedidos' => $detallepedidos];
     }
 
+    public function store(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $idEmpresa=Auth::user()->idEmpresa;
+        $Detallefacturas=new Detallefacturas();
+        $Detallefacturas->cantidad=$request->cantidad;
+        $Detallefacturas->valor=$request->valor;
+        $Detallefacturas->valorImpuesto=$request->valorImpuesto;
+        $Detallefacturas->total=$request->total;
+        $Detallefacturas->idPedidos=$idPedidos;
+        $Detallefacturas->idProductos=$idProductos;
+        $Detallefacturas->idEmpresas=$idEmpresas;
+        $Detallefacturas->save();
+    }
 
+    public function update(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $idEmpresa=Auth::user()->idEmpresa;
+        $Detallefacturas=Detallefacturas::findOrFail($request->id);
+        $Detallefacturas->cantidad=$request->cantidad;
+        $Detallefacturas->valor=$request->valor;
+        $Detallefacturas->valorImpuesto=$request->valorImpuesto;
+        $Detallefacturas->total=$request->total;
+        $Detallefacturas->idPedidos=$idPedidos;
+        $Detallefacturas->idProductos=$idProductos;
+        $Detallefacturas->idEmpresas=$idEmpresas;
+        $Detallefacturas->save();
+    }
+
+    public function deactivate(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $Detallefacturas=Detallefacturas::findOrFail($request->id);
+        $Detallefacturas->estado='2';
+        $Detallefacturas->save();
+    }
+
+    public function activate(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $Detallefacturas=Detallefacturas::findOrFail($request->id);
+        $Detallefacturas->estado='1';
+        $Detallefacturas->save();
+    }
 }

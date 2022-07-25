@@ -108,26 +108,32 @@
                                 <span aria-hidden="true">×</span>
                                 </button>
                             </div>
+
                             <div class="modal-body">
                                 <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
+                                        <label class="col-md-3 form-control-label" for="text-input">Detalle Grupos</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="grupos" class="form-control" placeholder="Nombre de grupos">
-                                            <span class="help-block">(*) Ingrese el nombre del grupos</span>
+                                            <input type="number" v-model="detalleGrupos" class="form-control" placeholder="Detalle Grupos de los grupos">
+                                            <span class="help-block">(*) Ingrese al detalle grupos de los grupos</span>
                                         </div>
                                     </div>
-
-                                    <!--
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="email-input">Descripción</label>
+                                        <label class="col-md-3 form-control-label" for="text-input">Estado</label>
                                         <div class="col-md-9">
-                                            <input type="email" v-model="estado" class="form-control" placeholder="Enter Email">
+                                            <input type="text" v-model="estado" class="form-control" placeholder="Estado de los grupos">
+                                            <span class="help-block">(*) Ingrese el estado de los grupos</span>
                                         </div>
                                     </div>
-                                    -->
-
-                                    <div class="form-group row div-error" v-show="errorGrupos">
+                                    <div class="form-group row">
+                                        <label class="col-md-3 form-control-label" for="text-input">Empresas</label>
+                                        <div class="col-md-9">
+                                            <input type="text" v-model="idEmpresas" class="form-control" placeholder="Empresas de los grupos">
+                                            <span class="help-block">(*) Ingrese las empresas de los grupos</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group row div-error" v-show="errorUsuario">
                                         <div class="text-center text-error">
                                             <div v-for="error in errorMensaje" :key="error" v-text="error"></div>
                                         </div>
@@ -137,8 +143,8 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" @click="cerrarModal()">Cerrar</button>
-                                <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="crearGrupos()">Guardar</button>
-                                <button type="button" v-if="tipoAccion==2" class="btn btn-warning" @click="editarGrupos()">Editar</button>
+                                <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="crearUsuario()">Guardar</button>
+                                <button type="button" v-if="tipoAccion==2" class="btn btn-warning" @click="editarUsuario()">Editar</button>
                             </div>
                         </div>
                         <!-- /.modal-content -->
@@ -345,7 +351,9 @@
                 this.errorGrupos=0;
                 this.errorMensaje=[];
 
-                if (!this.Grupos) this.errorMensaje.push("El nombre del grupos no puede estar vacio");
+                if (!this.detalleGrupos) this.errorMensaje.push("El detalle grupo de los grupos no puede estar vacio");
+                if (!this.estado) this.errorMensaje.push("El estado de los grupos no puede estar vacio");
+                if (!this.idEmpresas) this.errorMensaje.push("La empresa de los grupos no puede estar vacio");
                 if (this.errorMensaje.length) this.errorGrupos=1;
 
                 return this.errorGrupos;

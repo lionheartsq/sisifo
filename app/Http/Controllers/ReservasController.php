@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Reservas;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class ReservasController extends Controller
 {
@@ -49,5 +50,37 @@ class ReservasController extends Controller
         return ['reservas' => $reservas];
     }
 
+    public function store(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $idEmpresa=Auth::user()->idEmpresa;
+        $Reservas=new Reservas();
+        $Reservas->detalle=$request->detalle;
+        $Reservas->estado=$request->estado;
+        $Reservas->fecha=$request->fecha;
+        $Reservas->save();
+    }
 
+    public function update(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $idEmpresa=Auth::user()->idEmpresa;
+        $Reservas=Reservas::findOrFail($request->id);
+        $Reservas->detalle=$request->detalle;
+        $Reservas->estado=$request->estado;
+        $Reservas->fecha=$request->fecha;
+        $Reservas->save();
+    }
+
+    public function deactivate(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $Reservas=Reservas::findOrFail($request->id);
+        $Reservas->estado='2';
+        $Reservas->save();
+    }
+
+    public function activate(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $Reservas=Reservas::findOrFail($request->id);
+        $Reservas->estado='1';
+        $Reservas->save();
+    }
 }

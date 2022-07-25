@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Libromayor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class LibromayorController extends Controller
 {
@@ -47,6 +48,40 @@ class LibromayorController extends Controller
         ->get();
 
         return ['libromayor' => $libromayor];
+    }
+
+    public function store(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $idEmpresa=Auth::user()->idEmpresa;
+        $Libromayor=new Libromayor();
+        $Libromayor->valorEntrada=$request->valorEntrada;
+        $Libromayor->valorSalida=$request->valorSalida;
+        $Libromayor->acumulado=$request->acumulado;
+        $Libromayor->save();
+    }
+
+    public function update(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $idEmpresa=Auth::user()->idEmpresa;
+        $Libromayor=Libromayor::findOrFail($request->id);
+        $Libromayor->valorEntrada=$request->valorEntrada;
+        $Libromayor->valorSalida=$request->valorSalida;
+        $Libromayor->acumulado=$request->acumulado;
+        $Libromayor->save();
+    }
+
+    public function deactivate(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $Libromayor=Libromayor::findOrFail($request->id);
+        $Libromayor->estado='2';
+        $Libromayor->save();
+    }
+
+    public function activate(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $Libromayor=Libromayor::findOrFail($request->id);
+        $Libromayor->estado='1';
+        $Libromayor->save();
     }
 
 

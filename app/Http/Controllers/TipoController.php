@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Tipo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class TipoController extends Controller
 {
@@ -49,5 +50,35 @@ class TipoController extends Controller
         return ['tipo' => $tipo];
     }
 
+    public function store(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $idEmpresa=Auth::user()->idEmpresa;
+        $Tipo=new Tipo();
+        $Tipo->nombre=$request->nombre;
+        $Tipo->estado=$request->estado;
+        $Tipo->save();
+    }
 
+    public function update(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $idEmpresa=Auth::user()->idEmpresa;
+        $Tipo=Tipo::findOrFail($request->id);
+        $Tipo->nombre=$request->nombre;
+        $Tipo->estado=$request->estado;
+        $Tipo->save();
+    }
+
+    public function deactivate(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $Tipo=Tipo::findOrFail($request->id);
+        $Tipo->estado='2';
+        $Tipo->save();
+    }
+
+    public function activate(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $Tipo=Tipo::findOrFail($request->id);
+        $Tipo->estado='1';
+        $Tipo->save();
+    }
 }

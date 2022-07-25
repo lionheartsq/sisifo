@@ -114,26 +114,31 @@
                                 <span aria-hidden="true">×</span>
                                 </button>
                             </div>
+
                             <div class="modal-body">
                                 <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
+                                        <label class="col-md-3 form-control-label" for="text-input">Valor Entrada</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="libromayor" class="form-control" placeholder="Nombre de libromayor">
-                                            <span class="help-block">(*) Ingrese el nombre del libromayor</span>
+                                            <input type="number" v-model="valorEntrada" class="form-control" placeholder="Valor Entrada del libro mayor">
+                                            <span class="help-block">(*) Ingrese el valor entrada del libro mayor</span>
                                         </div>
                                     </div>
-
-                                    <!--
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="email-input">Descripción</label>
+                                        <label class="col-md-3 form-control-label" for="text-input">Valor Salida</label>
                                         <div class="col-md-9">
-                                            <input type="email" v-model="estado" class="form-control" placeholder="Enter Email">
+                                            <input type="text" v-model="valorSalida" class="form-control" placeholder="Valor Salidas del libro mayor">
+                                            <span class="help-block">(*) Ingrese el valor salida del libro mayor</span>
                                         </div>
                                     </div>
-                                    -->
-
-                                    <div class="form-group row div-error" v-show="errorLibromayor">
+                                    <div class="form-group row">
+                                        <label class="col-md-3 form-control-label" for="text-input">Acumulado</label>
+                                        <div class="col-md-9">
+                                            <input type="text" v-model="acumulado" class="form-control" placeholder="Acumulado del libro mayor">
+                                            <span class="help-block">(*) Ingrese el acumulado del libro mayor</span>
+                                        </div>
+                                    </div>                                    
+                                    <div class="form-group row div-error" v-show="errorUsuario">
                                         <div class="text-center text-error">
                                             <div v-for="error in errorMensaje" :key="error" v-text="error"></div>
                                         </div>
@@ -143,8 +148,8 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" @click="cerrarModal()">Cerrar</button>
-                                <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="crearLibromayor()">Guardar</button>
-                                <button type="button" v-if="tipoAccion==2" class="btn btn-warning" @click="editarLibromayor()">Editar</button>
+                                <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="crearUsuario()">Guardar</button>
+                                <button type="button" v-if="tipoAccion==2" class="btn btn-warning" @click="editarUsuario()">Editar</button>
                             </div>
                         </div>
                         <!-- /.modal-content -->
@@ -351,7 +356,9 @@
                 this.errorLibromayor=0;
                 this.errorMensaje=[];
 
-                if (!this.Libromayor) this.errorMensaje.push("El nombre del libromayor no puede estar vacio");
+                if (!this.valorEntrada) this.errorMensaje.push("El valor entrada del libromayor no puede estar vacio");
+                if (!this.valorSalida) this.errorMensaje.push("El valor salida del libromayor no puede estar vacio");
+                if (!this.acumulado) this.errorMensaje.push("El acumulado del libromayor no puede estar vacio");
                 if (this.errorMensaje.length) this.errorLibromayor=1;
 
                 return this.errorLibromayor;

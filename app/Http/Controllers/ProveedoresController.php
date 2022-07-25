@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Proveedores;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class ProveedoresController extends Controller
 {
@@ -49,5 +50,43 @@ class ProveedoresController extends Controller
         return ['proveedores' => $proveedores];
     }
 
+    public function store(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $idEmpresa=Auth::user()->idEmpresa;
+        $Proveedores=new Proveedores();
+        $Proveedores->nit=$request->nit;
+        $Proveedores->razonSocial=$request->razonSocial;
+        $Proveedores->contacto=$request->contacto;
+        $Proveedores->telefono=$request->telefono;
+        $Proveedores->direccion=$direccion;
+        $Proveedores->correo=$correo;
+        $Proveedores->save();
+    }
 
+    public function update(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $idEmpresa=Auth::user()->idEmpresa;
+        $Proveedores=Proveedores::findOrFail($request->id);
+        $Proveedores->nit=$request->nit;
+        $Proveedores->razonSocial=$request->razonSocial;
+        $Proveedores->contacto=$request->contacto;
+        $Proveedores->telefono=$request->telefono;
+        $Proveedores->direccion=$direccion;
+        $Proveedores->correo=$correo;
+        $Proveedores->save();
+    }
+
+    public function deactivate(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $Proveedores=Proveedores::findOrFail($request->id);
+        $Proveedores->estado='2';
+        $Proveedores->save();
+    }
+
+    public function activate(Request $request){
+        //if(!$request->ajax()) return redirect('/');
+        $Proveedores=Proveedores::findOrFail($request->id);
+        $Proveedores->estado='1';
+        $Proveedores->save();
+    }
 }
