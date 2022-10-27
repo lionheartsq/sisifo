@@ -218,6 +218,37 @@ Route::group(['middleware' => ['Superadministrador']], function () {
     Route::put("/tipologia/activate", "TipologiaController@activate");
     Route::get("/tipologia/listado", "TipologiaController@listado");
 
+    Route::get("/empleados", "EmpleadosController@index");
+    Route::post("/empleados/store", "EmpleadosController@store");
+    Route::put("/empleados/update", "EmpleadosController@update");
+    Route::put("/empleados/deactivate", "EmpleadosController@deactivate");
+    Route::put("/empleados/activate", "EmpleadosController@activate");
+    Route::get("/empleados/listado", "EmpleadosController@listado");
+    Route::get("/empleados/selectEmpleados", "EmpleadosController@selectEmpleados");
+    
+    Route::get("/control", "ControlController@index");
+    Route::post("/control/store", "ControlController@store");
+    Route::put("/control/update", "ControlController@update");
+    Route::put("/control/deactivate", "ControlController@deactivate");
+    Route::put("/control/activate", "ControlController@activate");
+    Route::get("/control/listado", "ControlController@listado");
+    Route::get("/control/selectNombresApellidos/{documento}", "ControlController@selectNombresApellidos");
+    Route::get("/control/selectcontrol", "ControlController@selectControl");
+
+    Route::get("/historico", "HistoricoController@index");
+    Route::get("/historico/listarfecha", "HistoricoController@listarfecha");
+    Route::post("/historico/store", "HistoricoController@store");  
+    Route::post("/historico/store2", "HistoricoController@store2");
+    Route::put("/historico/update", "HistoricoController@update");
+    Route::put("/historico/deactivate", "HistoricoController@deactivate");
+    Route::put("/historico/activate", "HistoricoController@activate");
+    Route::get("/historico/listado", "HistoricoController@listado");
+    Route::get("/historico/selectNombresApellidos/{documento}", "HistoricoController@selectNombresApellidos");
+    Route::get("/historico/selecthistorico", "HistoricoController@selectHistorico");
+    Route::get("/historico/mostrartHistorico", "HistoricoController@mostrarHistorico");
+    Route::get("/historico/mostrarIngresos", "HistoricoController@mostrarIngresos");
+    Route::get("/historico/mostrartSalidas", "HistoricoController@mostrarSalidas");
+
     });
 
 

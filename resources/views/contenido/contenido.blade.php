@@ -16,4 +16,13 @@
 <template v-if="menu==4">
     <ciudades></ciudades>
 </template>
+<template v-if="menu==5">
+    <empleados></empleados>
+</template>
+<template v-if="menu==6">
+    <control></control>
+</template>
+<template v-if="menu==7">
+    <historico></historico>
+</template>
 @endsection

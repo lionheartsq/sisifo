@@ -39,6 +39,21 @@
                     </li>
                 </ul>
             </li>
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-settings"></i> <b>Control ingreso</b></a>
+                <ul class="nav-dropdown-items">
+                    <li @click="menu=5" class="nav-item">
+                        <a class="nav-link" href="#"><i class="icon-book-open"></i> Empleados</a>
+                    </li>
+                    <li @click="menu=6" class="nav-item">
+                        <a class="nav-link" href="#"><i class="icon-book-open"></i> Ingreso y salida</a>
+                    </li>
+                    <li @click="menu=7" class="nav-item">
+                        <a class="nav-link" href="#"><i class="icon-book-open"></i> Historico Ingresos</a>
+                    </li>
+                    
+                </ul>
+            </li>
         </ul>
     </nav>
     <button class="sidebar-minimizer brand-minimizer" type="button"></button>
