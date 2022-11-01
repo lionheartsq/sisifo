@@ -30,7 +30,7 @@ class UserSeeder extends Seeder
             'apellidos' => 'Prueba',
             'password' => bcrypt('12345'),
             'idEmpresa' => '1',
-            'idRol' => '2',
+            'idRol' => '1',
         ]);
 
         DB::table('users')->insert([
@@ -40,7 +40,7 @@ class UserSeeder extends Seeder
             'apellidos' => 'Prueba',
             'password' => bcrypt('12345'),
             'idEmpresa' => '1',
-            'idRol' => '3',
+            'idRol' => '2',
         ]);
     }
 }
