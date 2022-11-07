@@ -6718,11 +6718,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     validarempleados: function validarempleados() {
       this.errorempleados = 0;
       this.errorMensaje = [];
-      if (!this.documento) this.errorMensaje.push("El documento del empleados no puede estar vacio");
-      if (!this.email) this.errorMensaje.push("El email del empleados no puede estar vacio");
-      if (!this.nombres) this.errorMensaje.push("El nombre del empleados no puede estar vacio");
-      if (!this.apellidos) this.errorMensaje.push("Los apellidos del empleados no puede estar vacio");
-      if (!this.direccion) this.errorMensaje.push("El direccion del empleado no puede estar vacio");
+      if (!this.documento) this.errorMensaje.push("El documento del empleado no puede estar vacio");
+      if (!this.email) this.errorMensaje.push("El email del empleado no puede estar vacio");
+      if (!this.nombres) this.errorMensaje.push("El nombre del empleado no puede estar vacio");
+      if (!this.apellidos) this.errorMensaje.push("Los apellidos del empleado no pueden estar vacio");
+      if (!this.direccion) this.errorMensaje.push("El direccion del empleado no puede estar vacia");
       if (!this.cargo) this.errorMensaje.push("el cargo del empleado no puede estar vacio");
       if (!this.telefono) this.errorMensaje.push("El telefono del empleado no puede estar vacio");
       if (this.errorMensaje.length) this.errorempleados = 1;
@@ -6751,7 +6751,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                   this.direccion = '';
                   this.cargo = '';
                   this.telefono = '';
-                  this.tituloModal = 'Crear nuevo empleados';
+                  this.tituloModal = 'Crear nuevo empleado';
                   this.tipoAccion = 1;
                   break;
                 }
@@ -6760,7 +6760,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 {
                   //console.log(data);
                   this.modal = 1;
-                  this.tituloModal = 'Editar empleados';
+                  this.tituloModal = 'Editar empleado';
                   this.tipoAccion = 2;
                   this.id = data['id'];
                   this.documento = data['documento'];
@@ -60162,7 +60162,7 @@ var render = function() {
                           staticClass: "form-control",
                           attrs: {
                             type: "number",
-                            placeholder: "Documento del empleados"
+                            placeholder: "Documento del empleado"
                           },
                           domProps: { value: _vm.documento },
                           on: {
@@ -60176,7 +60176,7 @@ var render = function() {
                         }),
                         _vm._v(" "),
                         _c("span", { staticClass: "help-block" }, [
-                          _vm._v("(*) Ingrese el documento del empleados")
+                          _vm._v("(*) Ingrese el documento del empleado")
                         ])
                       ])
                     ]),
@@ -60204,7 +60204,7 @@ var render = function() {
                           staticClass: "form-control",
                           attrs: {
                             type: "text",
-                            placeholder: "Nombres del empleados"
+                            placeholder: "Nombres del empleado"
                           },
                           domProps: { value: _vm.nombres },
                           on: {
@@ -60218,7 +60218,7 @@ var render = function() {
                         }),
                         _vm._v(" "),
                         _c("span", { staticClass: "help-block" }, [
-                          _vm._v("(*) Ingrese los nombres del empleados")
+                          _vm._v("(*) Ingrese los nombres del empleado")
                         ])
                       ])
                     ]),
@@ -60246,7 +60246,7 @@ var render = function() {
                           staticClass: "form-control",
                           attrs: {
                             type: "text",
-                            placeholder: "Apellidos del empleados"
+                            placeholder: "Apellidos del empleado"
                           },
                           domProps: { value: _vm.apellidos },
                           on: {
@@ -60260,7 +60260,7 @@ var render = function() {
                         }),
                         _vm._v(" "),
                         _c("span", { staticClass: "help-block" }, [
-                          _vm._v("(*) Ingrese los apellidos del empleados")
+                          _vm._v("(*) Ingrese los apellidos del empleado")
                         ])
                       ])
                     ]),
@@ -60288,7 +60288,7 @@ var render = function() {
                           staticClass: "form-control",
                           attrs: {
                             type: "email",
-                            placeholder: "E-mail del empleados"
+                            placeholder: "E-mail del empleado"
                           },
                           domProps: { value: _vm.email },
                           on: {
@@ -60302,7 +60302,7 @@ var render = function() {
                         }),
                         _vm._v(" "),
                         _c("span", { staticClass: "help-block" }, [
-                          _vm._v("(*) Ingrese el e-mail del empleados")
+                          _vm._v("(*) Ingrese el e-mail del empleado")
                         ])
                       ])
                     ]),
@@ -60344,7 +60344,7 @@ var render = function() {
                         }),
                         _vm._v(" "),
                         _c("span", { staticClass: "help-block" }, [
-                          _vm._v("(*) Ingrese los direccion del empleados")
+                          _vm._v("(*) Ingrese la direccion del empleado")
                         ])
                       ])
                     ]),
@@ -60372,7 +60372,7 @@ var render = function() {
                           staticClass: "form-control",
                           attrs: {
                             type: "text",
-                            placeholder: "cargo del empleados"
+                            placeholder: "cargo del empleado"
                           },
                           domProps: { value: _vm.cargo },
                           on: {
@@ -60386,7 +60386,7 @@ var render = function() {
                         }),
                         _vm._v(" "),
                         _c("span", { staticClass: "help-block" }, [
-                          _vm._v("(*) Ingrese los cargo del empleados")
+                          _vm._v("(*) Ingrese el cargo del empleado")
                         ])
                       ])
                     ]),
@@ -60414,7 +60414,7 @@ var render = function() {
                           staticClass: "form-control",
                           attrs: {
                             type: "text",
-                            placeholder: "telefono del empleados"
+                            placeholder: "telefono del empleado"
                           },
                           domProps: { value: _vm.telefono },
                           on: {
@@ -60428,7 +60428,7 @@ var render = function() {
                         }),
                         _vm._v(" "),
                         _c("span", { staticClass: "help-block" }, [
-                          _vm._v("(*) Ingrese los telefono del empleados")
+                          _vm._v("(*) Ingrese el telefono del empleado")
                         ])
                       ])
                     ]),
@@ -107781,8 +107781,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\sisifo-master\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\sisifo-master\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\sisifo\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\sisifo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -118,50 +118,50 @@
                                 <div class="form-group row">
                                     <label class="col-md-3 form-control-label" for="text-input">Documento</label>
                                     <div class="col-md-9">
-                                        <input type="number" v-model="documento" class="form-control" placeholder="Documento del empleados">
-                                        <span class="help-block">(*) Ingrese el documento del empleados</span>
+                                        <input type="number" v-model="documento" class="form-control" placeholder="Documento del empleado">
+                                        <span class="help-block">(*) Ingrese el documento del empleado</span>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-md-3 form-control-label" for="text-input">Nombres</label>
                                     <div class="col-md-9">
-                                        <input type="text" v-model="nombres" class="form-control" placeholder="Nombres del empleados">
-                                        <span class="help-block">(*) Ingrese los nombres del empleados</span>
+                                        <input type="text" v-model="nombres" class="form-control" placeholder="Nombres del empleado">
+                                        <span class="help-block">(*) Ingrese los nombres del empleado</span>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-md-3 form-control-label" for="text-input">Apellidos</label>
                                     <div class="col-md-9">
-                                        <input type="text" v-model="apellidos" class="form-control" placeholder="Apellidos del empleados">
-                                        <span class="help-block">(*) Ingrese los apellidos del empleados</span>
+                                        <input type="text" v-model="apellidos" class="form-control" placeholder="Apellidos del empleado">
+                                        <span class="help-block">(*) Ingrese los apellidos del empleado</span>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-md-3 form-control-label" for="text-input">E-mail</label>
                                     <div class="col-md-9">
-                                        <input type="email" v-model="email" class="form-control" placeholder="E-mail del empleados">
-                                        <span class="help-block">(*) Ingrese el e-mail del empleados</span>
+                                        <input type="email" v-model="email" class="form-control" placeholder="E-mail del empleado">
+                                        <span class="help-block">(*) Ingrese el e-mail del empleado</span>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-md-3 form-control-label" for="text-input">Direccion</label>
                                     <div class="col-md-9">
                                         <input type="text" v-model="direccion" class="form-control" placeholder="direccion del empleado">
-                                        <span class="help-block">(*) Ingrese los direccion del empleados</span>
+                                        <span class="help-block">(*) Ingrese la direccion del empleado</span>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-md-3 form-control-label" for="text-input">Cargo</label>
                                     <div class="col-md-9">
-                                        <input type="text" v-model="cargo" class="form-control" placeholder="cargo del empleados">
-                                        <span class="help-block">(*) Ingrese los cargo del empleados</span>
+                                        <input type="text" v-model="cargo" class="form-control" placeholder="cargo del empleado">
+                                        <span class="help-block">(*) Ingrese el cargo del empleado</span>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-md-3 form-control-label" for="text-input">Telefono</label>
                                     <div class="col-md-9">
-                                        <input type="text" v-model="telefono" class="form-control" placeholder="telefono del empleados">
-                                        <span class="help-block">(*) Ingrese los telefono del empleados</span>
+                                        <input type="text" v-model="telefono" class="form-control" placeholder="telefono del empleado">
+                                        <span class="help-block">(*) Ingrese el telefono del empleado</span>
                                     </div>
                                 </div>
                                 
@@ -401,11 +401,11 @@ export default {
             this.errorempleados=0;
             this.errorMensaje=[];
             
-            if (!this.documento) this.errorMensaje.push("El documento del empleados no puede estar vacio");
-            if (!this.email) this.errorMensaje.push("El email del empleados no puede estar vacio");
-            if (!this.nombres) this.errorMensaje.push("El nombre del empleados no puede estar vacio");
-            if (!this.apellidos) this.errorMensaje.push("Los apellidos del empleados no puede estar vacio");
-            if (!this.direccion) this.errorMensaje.push("El direccion del empleado no puede estar vacio");
+            if (!this.documento) this.errorMensaje.push("El documento del empleado no puede estar vacio");
+            if (!this.email) this.errorMensaje.push("El email del empleado no puede estar vacio");
+            if (!this.nombres) this.errorMensaje.push("El nombre del empleado no puede estar vacio");
+            if (!this.apellidos) this.errorMensaje.push("Los apellidos del empleado no pueden estar vacio");
+            if (!this.direccion) this.errorMensaje.push("El direccion del empleado no puede estar vacia");
             if (!this.cargo) this.errorMensaje.push("el cargo del empleado no puede estar vacio");
             if (!this.telefono) this.errorMensaje.push("El telefono del empleado no puede estar vacio");
             if (this.errorMensaje.length) this.errorempleados=1;
@@ -432,14 +432,14 @@ export default {
                         this.direccion='';
                         this.cargo='';
                         this.telefono='';
-                        this.tituloModal='Crear nuevo empleados';
+                        this.tituloModal='Crear nuevo empleado';
                         this.tipoAccion= 1;
                         break;
                     }
                     case 'actualizar':{
                         //console.log(data);
                         this.modal=1;
-                        this.tituloModal='Editar empleados';
+                        this.tituloModal='Editar empleado';
                         this.tipoAccion= 2;
                         this.id=data['id'];
                         this.documento=data['documento'];
