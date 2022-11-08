@@ -23,7 +23,10 @@
                                 <input id="fecha" type="date" value="salida" class="form-control" placeholder="Fecha">
                                 <span class="help-block">(*) Fecha fin</span>
                             </div>
-                            <button id="bfecha" type="submit" @click="listarhistoricof()" class="btn btn-primary"><i class="fa fa-search"></i> Filtrar por Fecha</button>
+                            <div id="fecha" class="col-md-9">
+                            <button id="bfecha" type="submit" @click="listarhistoricof()" class="btn btn-primary">
+                                <i class="fa fa-search"></i> Filtrar por Fecha</button>
+                            </div>
                         </div>
                   
                     <div class="card-body">
@@ -652,6 +655,9 @@ export default {
 .text-error{
     color: red !important;
     font-weight: bold;
+}
+#bfecha {
+    margin-top: 0.3rem;
 }
 
 </style>

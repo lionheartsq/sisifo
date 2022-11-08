@@ -151,9 +151,17 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
+                                    
                                     <label class="col-md-3 form-control-label" for="text-input">Cargo</label>
                                     <div class="col-md-9">
-                                        <input type="text" v-model="cargo" class="form-control" placeholder="cargo del empleado">
+                                        <select class="form-control" v-model="cargo" placeholder="cargo del empleado">
+                                                    <option  value="Operario">Operario</option>
+                                                    <option value="Contadora">Contadora</option>
+                                                    <option value="Vigilante">Vigilante</option>
+                                                    <option value="Gerente">Gerente</option>
+                                                    <option value="Administrativo">Administrativo</option>
+                                                </select>
+                                        <!-- <input type="text" v-model="cargo" class="form-control" placeholder="cargo del empleado"> -->
                                         <span class="help-block">(*) Ingrese el cargo del empleado</span>
                                     </div>
                                 </div>

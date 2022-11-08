@@ -6514,6 +6514,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -8004,6 +8012,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
 //
 //
 //
@@ -18852,7 +18863,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.modal-content{\r\n    width: 100% !important;\r\n    position: absolute !important;\n}\n.mostrar{\r\n    display: list-item !important;\r\n    opacity: 1 !important;\r\n    position: absolute !important;\r\n    background-color: #3c29297a !important;\n}\n.div-error{\r\n    display: flex;\r\n    justify-content: center;\n}\n.text-error{\r\n    color: red !important;\r\n    font-weight: bold;\n}\r\n\r\n", ""]);
+exports.push([module.i, "\n.modal-content{\r\n    width: 100% !important;\r\n    position: absolute !important;\n}\n.mostrar{\r\n    display: list-item !important;\r\n    opacity: 1 !important;\r\n    position: absolute !important;\r\n    background-color: #3c29297a !important;\n}\n.div-error{\r\n    display: flex;\r\n    justify-content: center;\n}\n.text-error{\r\n    color: red !important;\r\n    font-weight: bold;\n}\n#bfecha {\r\n    margin-top: 0.3rem;\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -60360,30 +60371,59 @@ var render = function() {
                       ),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-md-9" }, [
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.cargo,
-                              expression: "cargo"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          attrs: {
-                            type: "text",
-                            placeholder: "cargo del empleado"
-                          },
-                          domProps: { value: _vm.cargo },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.cargo,
+                                expression: "cargo"
                               }
-                              _vm.cargo = $event.target.value
+                            ],
+                            staticClass: "form-control",
+                            attrs: { placeholder: "cargo del empleado" },
+                            on: {
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.cargo = $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              }
                             }
-                          }
-                        }),
+                          },
+                          [
+                            _c("option", { attrs: { value: "Operario" } }, [
+                              _vm._v("Operario")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "Contadora" } }, [
+                              _vm._v("Contadora")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "Vigilante" } }, [
+                              _vm._v("Vigilante")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "Gerente" } }, [
+                              _vm._v("Gerente")
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "option",
+                              { attrs: { value: "Administrativo" } },
+                              [_vm._v("Administrativo")]
+                            )
+                          ]
+                        ),
                         _vm._v(" "),
                         _c("span", { staticClass: "help-block" }, [
                           _vm._v("(*) Ingrese el cargo del empleado")
@@ -63082,22 +63122,24 @@ var render = function() {
           _vm._v(" "),
           _vm._m(3),
           _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-primary",
-              attrs: { id: "bfecha", type: "submit" },
-              on: {
-                click: function($event) {
-                  return _vm.listarhistoricof()
+          _c("div", { staticClass: "col-md-9", attrs: { id: "fecha" } }, [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-primary",
+                attrs: { id: "bfecha", type: "submit" },
+                on: {
+                  click: function($event) {
+                    return _vm.listarhistoricof()
+                  }
                 }
-              }
-            },
-            [
-              _c("i", { staticClass: "fa fa-search" }),
-              _vm._v(" Filtrar por Fecha")
-            ]
-          )
+              },
+              [
+                _c("i", { staticClass: "fa fa-search" }),
+                _vm._v(" Filtrar por Fecha")
+              ]
+            )
+          ])
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "card-body" }, [
