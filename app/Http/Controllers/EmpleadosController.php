@@ -74,12 +74,12 @@ class EmpleadosController extends Controller
         $control->estado='0';
         $control->save();
 
-        $idempleado=$empleados->id;
+        // $idempleado=$empleados->id;
 
-        $historico=new Historico();
-        $historico->idEmpleado=$idempleado;
-        $historico->estado='0';
-        $historico->save();
+        // $historico=new Historico();
+        // $historico->idEmpleado=$idempleado;
+        // $historico->estado='0';
+        // $historico->save();
    
     }
 

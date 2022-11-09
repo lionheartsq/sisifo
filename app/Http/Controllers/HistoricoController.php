@@ -104,7 +104,7 @@ class HistoricoController extends Controller
         $historico=new Historico();
         $historico->idEmpleado=$request->idEmpleado;
         $historico->ingreso=$request->ingreso;
-        $historico->salida=$request->salida;
+        $historico->salida= $request->salida;
         $historico->estado='1';
         $historico->save();
 
