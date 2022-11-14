@@ -64,23 +64,9 @@ class EmpleadosController extends Controller
         $empleados->direccion=$request->direccion;
         $empleados->telefono=$request->telefono;
         $empleados->email=$request->email;
+        $empleados->idEmpresa=$idEmpresa;
         $empleados->estado='1';
         $empleados->save();
-
-        $control=new Control();
-        $control->documento=$request->documento;
-        $control->nombres=$request->nombres;
-        $control->apellidos=$request->apellidos;
-        $control->estado='0';
-        $control->save();
-
-        // $idempleado=$empleados->id;
-
-        // $historico=new Historico();
-        // $historico->idEmpleado=$idempleado;
-        // $historico->estado='0';
-        // $historico->save();
-   
     }
 
     public function update(Request $request){
@@ -94,15 +80,9 @@ class EmpleadosController extends Controller
         $empleados->direccion=$request->direccion;
         $empleados->telefono=$request->telefono;
         $empleados->email=$request->email;
+        $empleados->idEmpresa=$idEmpresa;
         $empleados->estado='1';
         $empleados->save();
-
-        $control=Control::findOrFail($request->id);
-        $control->documento=$request->documento;
-        $control->nombres=$request->nombres;
-        $control->apellidos=$request->apellidos;
-        $control->estado='0';
-        $control->save();
     }
 
     public function deactivate(Request $request){

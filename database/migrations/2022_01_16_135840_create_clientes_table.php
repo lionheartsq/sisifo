@@ -22,6 +22,7 @@ class CreateClientesTable extends Migration {
 			$table->string('direccion', 750)->nullable();
 			$table->string('telefono', 45)->nullable();
 			$table->string('correo', 70)->nullable();
+            $table->foreignId('idEmpresa')->constrained('empresa');
 			$table->integer('estado')->default(1);
 		});
 	}

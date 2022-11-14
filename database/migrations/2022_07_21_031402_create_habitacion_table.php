@@ -19,7 +19,7 @@ class CreateHabitacionTable extends Migration
 			$table->string('estado', 250);
             $table->date('fecha');
 			$table->foreignId('idTipo')->constrained('tipo');
-            $table->foreignId('idEmpresas')->constrained('empresa');
+            $table->foreignId('idEmpresa')->constrained('empresa');
         });
     }
 

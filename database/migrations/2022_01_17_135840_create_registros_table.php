@@ -22,7 +22,7 @@ class CreateRegistrosTable extends Migration {
 			$table->foreignId('idAsientos')->constrained('asientos');
 			$table->integer('entrada');
 			$table->integer('salida');
-            $table->foreignId('idEmpresas')->constrained('empresa');
+            $table->foreignId('idEmpresa')->constrained('empresa');
 		});
 	}
 

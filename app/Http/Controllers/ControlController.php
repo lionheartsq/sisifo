@@ -43,7 +43,6 @@ class ControlController extends Controller
     }
 
     public function listado(){
-
         $control = Control::where('control.estado','=','1')
         ->orderBy('control.id','desc')
         ->get();
@@ -55,25 +54,21 @@ class ControlController extends Controller
         if(!$request->ajax()) return redirect('/');
         $idEmpresa=Auth::user()->idEmpresa;
         $control=new Control();
-        $control->documento=$request->documento;
-        $control->nombres=$request->nombres;
-        $control->apellidos=$request->apellidos;
-        $control->ingreso=$request->ingreso;
-        $control->salida=$request->salida;
+        $control->idEmpleado=$request->idEmpleado;
+        $control->idEmpresa=$idEmpresa;
         $control->estado='1';
         $control->save();
-       
+
     }
 
     public function update(Request $request){
         if(!$request->ajax()) return redirect('/');
         $idEmpresa=Auth::user()->idEmpresa;
         $control=Control::findOrFail($request->id);
-        $control->documento=$request->documento;
-        $control->nombres=$request->nombres;
-        $control->apellidos=$request->apellidos;
+        $control->idEmpleado=$request->idEmpleado;
         $control->ingreso=$request->ingreso;
         $control->salida=$request->salida;
+        $control->idEmpresa=$idEmpresa;
         $control->estado='1';
         $control->save();
     }
@@ -81,8 +76,6 @@ class ControlController extends Controller
     public function deactivate(Request $request){
         if(!$request->ajax()) return redirect('/');
         $control=Control::findOrFail($request->id);
-        $control->ingreso=$request->ingreso;
-        $control->salida=$request->salida;
         $control->estado='0';
         $control->save();
 
@@ -91,29 +84,8 @@ class ControlController extends Controller
     public function activate(Request $request){
         if(!$request->ajax()) return redirect('/');
         $control=Control::findOrFail($request->id);
-        $control->ingreso=$request->ingreso;
-        $control->salida=$request->salida;
         $control->estado='1';
         $control->save();
-
-        
-
-    }
-
-    public function selectNombresApellidos($documento){
-        
-        $resultado=Empleados::select('empleados.nombres','empleados.apellidos')
-        ->where('empleados.documento','=',$documento)
-        ->get();
-
-        foreach($resultado as $a){
-            $nombres = $a->nombres;
-            $apellidos = $a->apellidos;
-        }
-
-        return ['nombres' => $nombres,
-                'apellidos' => $apellidos
-                ];
     }
 
     public function selectControl(){

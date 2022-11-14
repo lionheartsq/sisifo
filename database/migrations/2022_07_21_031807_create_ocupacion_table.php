@@ -23,7 +23,7 @@ class CreateOcupacionTable extends Migration
             $table->time('horaSalida');
 			$table->foreignId('idCliente')->constrained('clientes');
             $table->foreignId('idHabitacion')->constrained('habitacion');
-            $table->foreignId('idEmpresas')->constrained('empresa');
+            $table->foreignId('idEmpresa')->constrained('empresa');
         });
     }
 

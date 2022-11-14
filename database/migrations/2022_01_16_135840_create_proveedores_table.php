@@ -23,7 +23,7 @@ class CreateProveedoresTable extends Migration {
 			$table->string('direccion', 250)->nullable();
 			$table->string('correo', 250)->nullable();
 			$table->integer('estado')->default(1);
-            $table->foreignId('idEmpresas')->constrained('empresa');
+            $table->foreignId('idEmpresa')->constrained('empresa');
 		});
 	}
 

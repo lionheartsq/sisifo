@@ -15,16 +15,17 @@ class CreateEmpleadosTable extends Migration
     {
         Schema::create('empleados', function (Blueprint $table) {
             $table->id();
-			$table->bigInteger('documento');         
+			$table->bigInteger('documento');
 			$table->string('nombres', 250);
 			$table->string('apellidos', 250);
             $table->string('direccion', 250);
             $table->string('cargo', 250);
 			$table->bigInteger('telefono')->default('1');
             $table->string('email');
+            $table->foreignId('idEmpresa')->constrained('empresa');
             $table->boolean('estado')->default(1);
         });
-       
+
     }
 
     /**

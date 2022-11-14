@@ -18,7 +18,7 @@ class CreatePagosasientosTable extends Migration {
 			$table->id();
 			$table->foreignId('idPagos')->constrained('pagos');
 			$table->foreignId('idAsientos')->constrained('asientos');
-            $table->foreignId('idEmpresas')->constrained('empresa');
+            $table->foreignId('idEmpresa')->constrained('empresa');
 		});
 	}
 

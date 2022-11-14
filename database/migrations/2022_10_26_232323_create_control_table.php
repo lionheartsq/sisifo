@@ -15,13 +15,11 @@ class CreateControlTable extends Migration
     {
         Schema::create('control', function (Blueprint $table) {
             $table->id();
-			$table->bigInteger('documento');
-			$table->string('nombres', 250);
-            $table->string('apellidos', 250);
+			$table->foreignId('idEmpleado')->constrained('empleados');
             $table->timestamp('ingreso')->useCurrent();
-            $table->timestamp('salida')->useCurrent();			
+            $table->timestamp('salida')->nullable();
+            $table->foreignId('idEmpresa')->constrained('empresa');
             $table->boolean('estado')->default(1);
-          
         });
     }
 
