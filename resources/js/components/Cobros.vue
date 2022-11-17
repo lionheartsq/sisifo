@@ -154,7 +154,7 @@
                                             <input type="text" v-model="idEmpresa" class="form-control" placeholder="Empresa de los cobros">
                                             <span class="help-block">(*) Ingrese las Empresa de los cobros</span>
                                         </div>
-                                    </div>                                    
+                                    </div>
                                     <div class="form-group row div-error" v-show="errorUsuario">
                                         <div class="text-center text-error">
                                             <div v-for="error in errorMensaje" :key="error" v-text="error"></div>
@@ -165,8 +165,8 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" @click="cerrarModal()">Cerrar</button>
-                                <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="crearUsuario()">Guardar</button>
-                                <button type="button" v-if="tipoAccion==2" class="btn btn-warning" @click="editarUsuario()">Editar</button>
+                                <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="crearCobros()">Guardar</button>
+                                <button type="button" v-if="tipoAccion==2" class="btn btn-warning" @click="editarCobros()">Editar</button>
                             </div>
                         </div>
                         <!-- /.modal-content -->

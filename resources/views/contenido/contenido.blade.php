@@ -46,4 +46,7 @@
 <template v-if="menu==14">
     <productos></productos>
 </template>
+<template v-if="menu==15">
+    <grupos></grupos>
+</template>
 @endsection

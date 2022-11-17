@@ -40,6 +40,9 @@
             <li class="nav-item nav-dropdown">
                 <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-wrench"></i> <b>Facturación</b></a>
                 <ul class="nav-dropdown-items">
+                    <li @click="menu=15" class="nav-item">
+                        <a class="nav-link" href="#"><i class="icon-book-open"></i> Grupos</a>
+                    </li>
                     <li @click="menu=14" class="nav-item">
                         <a class="nav-link" href="#"><i class="icon-book-open"></i> Productos</a>
                     </li>

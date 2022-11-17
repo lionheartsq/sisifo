@@ -117,7 +117,7 @@
                                             <input type="number" v-model="rol" class="form-control" placeholder="Rol de roles">
                                             <span class="help-block">(*) Ingrese el rol de roles</span>
                                         </div>
-                                    </div>                                    
+                                    </div>
                                     <div class="form-group row div-error" v-show="errorUsuario">
                                         <div class="text-center text-error">
                                             <div v-for="error in errorMensaje" :key="error" v-text="error"></div>
@@ -128,8 +128,8 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" @click="cerrarModal()">Cerrar</button>
-                                <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="crearUsuario()">Guardar</button>
-                                <button type="button" v-if="tipoAccion==2" class="btn btn-warning" @click="editarUsuario()">Editar</button>
+                                <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="crearRoles()">Guardar</button>
+                                <button type="button" v-if="tipoAccion==2" class="btn btn-warning" @click="editarRoles()">Editar</button>
                             </div>
                         </div>
                         <!-- /.modal-content -->

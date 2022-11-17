@@ -134,7 +134,7 @@
                                             <input type="text" v-model="estado" class="form-control" placeholder="Estado del impuesto">
                                             <span class="help-block">(*) Ingrese el estado del impuesto</span>
                                         </div>
-                                    </div>                                    
+                                    </div>
                                     <div class="form-group row div-error" v-show="errorUsuario">
                                         <div class="text-center text-error">
                                             <div v-for="error in errorMensaje" :key="error" v-text="error"></div>
@@ -145,8 +145,8 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" @click="cerrarModal()">Cerrar</button>
-                                <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="crearUsuario()">Guardar</button>
-                                <button type="button" v-if="tipoAccion==2" class="btn btn-warning" @click="editarUsuario()">Editar</button>
+                                <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="crearImpuesto()">Guardar</button>
+                                <button type="button" v-if="tipoAccion==2" class="btn btn-warning" @click="editarImpuesto()">Editar</button>
                             </div>
                         </div>
                         <!-- /.modal-content -->

@@ -117,7 +117,7 @@
                                             <input type="number" v-model="detalle" class="form-control" placeholder="Detalle del departamento">
                                             <span class="help-block">(*) Ingrese el detalle del departamento</span>
                                         </div>
-                                    </div>                                    
+                                    </div>
                                     <div class="form-group row div-error" v-show="errorUsuario">
                                         <div class="text-center text-error">
                                             <div v-for="error in errorMensaje" :key="error" v-text="error"></div>
@@ -128,8 +128,8 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" @click="cerrarModal()">Cerrar</button>
-                                <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="crearUsuario()">Guardar</button>
-                                <button type="button" v-if="tipoAccion==2" class="btn btn-warning" @click="editarUsuario()">Editar</button>
+                                <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="crearDepartamentos()">Guardar</button>
+                                <button type="button" v-if="tipoAccion==2" class="btn btn-warning" @click="editarDepartamentos()">Editar</button>
                             </div>
                         </div>
                         <!-- /.modal-content -->

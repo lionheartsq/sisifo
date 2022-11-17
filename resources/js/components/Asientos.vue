@@ -153,8 +153,8 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" @click="cerrarModal()">Cerrar</button>
-                                <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="crearUsuario()">Guardar</button>
-                                <button type="button" v-if="tipoAccion==2" class="btn btn-warning" @click="editarUsuario()">Editar</button>
+                                <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="crearAsientos()">Guardar</button>
+                                <button type="button" v-if="tipoAccion==2" class="btn btn-warning" @click="editarAsientos()">Editar</button>
                             </div>
                         </div>
                         <!-- /.modal-content -->
@@ -360,7 +360,7 @@
             validarAsientos(){
                 this.errorAsientos=0;
                 this.errorMensaje=[];
-                
+
                 if (!this.fecha) this.errorMensaje.push("La fecha del asiento no puede estar vacio");
                 if (!this.concepto) this.errorMensaje.push("El concepto del asiento no puede estar vacio");
                 if (!this.detalle) this.errorMensaje.push("El detalle del asiento no puede estar vacio");

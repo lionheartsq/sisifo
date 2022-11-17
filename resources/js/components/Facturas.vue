@@ -136,7 +136,7 @@
                                 </button>
                             </div>
 
-                            <div class="modal-body"> 
+                            <div class="modal-body">
                                 <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Consecutivo</label>
@@ -186,7 +186,7 @@
                                             <input type="text" v-model="tipoFactura" class="form-control" placeholder="Tipo Factura de las facturas">
                                             <span class="help-block">(*) Ingrese el Tipo Factura de las facturas</span>
                                         </div>
-                                    </div>  
+                                    </div>
                                     <div class="form-group row div-error" v-show="errorUsuario">
                                         <div class="text-center text-error">
                                             <div v-for="error in errorMensaje" :key="error" v-text="error"></div>
@@ -197,8 +197,8 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" @click="cerrarModal()">Cerrar</button>
-                                <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="crearUsuario()">Guardar</button>
-                                <button type="button" v-if="tipoAccion==2" class="btn btn-warning" @click="editarUsuario()">Editar</button>
+                                <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="crearFacturas()">Guardar</button>
+                                <button type="button" v-if="tipoAccion==2" class="btn btn-warning" @click="editarFacturas()">Editar</button>
                             </div>
                         </div>
                         <!-- /.modal-content -->

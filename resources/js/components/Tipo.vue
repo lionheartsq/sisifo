@@ -113,7 +113,7 @@
                             </div>
 
                             <div class="modal-body">
-                                <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">                                    
+                                <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
                                         <div class="col-md-9">
@@ -138,8 +138,8 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" @click="cerrarModal()">Cerrar</button>
-                                <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="crearUsuario()">Guardar</button>
-                                <button type="button" v-if="tipoAccion==2" class="btn btn-warning" @click="editarUsuario()">Editar</button>
+                                <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="crearTipo()">Guardar</button>
+                                <button type="button" v-if="tipoAccion==2" class="btn btn-warning" @click="editarTipo()">Editar</button>
                             </div>
                         </div>
                         <!-- /.modal-content -->

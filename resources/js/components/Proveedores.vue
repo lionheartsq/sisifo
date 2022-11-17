@@ -82,7 +82,6 @@
                                         <td v-text="proveedores.telefono"></td>
                                         <td v-text="proveedores.direccion"></td>
                                         <td v-text="proveedores.correo"></td>
-                                        <td v-text="proveedores.estado"></td>
                                         <td>
                                             <div v-if="proveedores.estado == '1'">
                                             <span class="badge badge-success">Activo</span>
@@ -178,8 +177,8 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" @click="cerrarModal()">Cerrar</button>
-                                <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="crearUsuario()">Guardar</button>
-                                <button type="button" v-if="tipoAccion==2" class="btn btn-warning" @click="editarUsuario()">Editar</button>
+                                <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="crearProveedores()">Guardar</button>
+                                <button type="button" v-if="tipoAccion==2" class="btn btn-warning" @click="editarProveedores()">Editar</button>
                             </div>
                         </div>
                         <!-- /.modal-content -->
