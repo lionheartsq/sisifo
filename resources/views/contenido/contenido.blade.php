@@ -2,7 +2,7 @@
 @section('contenido')
 
 <template v-if="menu==0">
-    <bienvenida></bienvenida>
+    <facturacion></facturacion>
 </template>
 <template v-if="menu==1">
     <empresa></empresa>

@@ -23,7 +23,7 @@
                     </li>
                     <li @click="menu=7" class="nav-item">
                         <a class="nav-link" href="#"><i class="icon-book-open"></i> Proveedores</a>
-                    </li>                   
+                    </li>
                 </ul>
             </li>
             <li class="nav-item nav-dropdown">
@@ -63,6 +63,9 @@
             <li class="nav-item nav-dropdown">
                 <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-basket"></i> <b>Contabilidad</b></a>
                 <ul class="nav-dropdown-items">
+                    <li @click="menu=0" class="nav-item">
+                        <a class="nav-link" href="#"><i class="icon-book-open"></i> Facturar</a>
+                    </li>
                     <li @click="menu=8" class="nav-item">
                         <a class="nav-link" href="#"><i class="icon-book-open"></i> Asientos</a>
                     </li>

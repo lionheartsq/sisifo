@@ -67,7 +67,7 @@ Vue.use(VueCurrencyFilter,[
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example', require('./components/ExampleComponent.vue').default);
-Vue.component('bienvenida', require('./components/Bienvenida.vue').default);
+Vue.component('facturacion', require('./components/Facturacion.vue').default);
 Vue.component('asientos', require('./components/Asientos.vue').default);
 Vue.component('asociacion', require('./components/Asociacion.vue').default);
 Vue.component('ciudades', require('./components/Ciudades.vue').default);
