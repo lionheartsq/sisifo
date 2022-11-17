@@ -2330,7 +2330,7 @@ __webpack_require__.r(__webpack_exports__);
 
       //tres argumentos, el modelo a modificar o crear, la accion como tal y el arreglo del registro en la tabla
       switch (modelo) {
-        case "Asientos":
+        case "asientos":
           {
             switch (accion) {
               case 'crear':
@@ -2728,7 +2728,7 @@ __webpack_require__.r(__webpack_exports__);
 
       //tres argumentos, el modelo a modificar o crear, la accion como tal y el arreglo del registro en la tabla
       switch (modelo) {
-        case "Asociacion":
+        case "asociacion":
           {
             switch (accion) {
               case 'crear':
@@ -3129,7 +3129,7 @@ __webpack_require__.r(__webpack_exports__);
 
       //tres argumentos, el modelo a modificar o crear, la accion como tal y el arreglo del registro en la tabla
       switch (modelo) {
-        case "Ciudades":
+        case "ciudades":
           {
             switch (accion) {
               case 'crear':
@@ -3574,7 +3574,7 @@ __webpack_require__.r(__webpack_exports__);
 
       //tres argumentos, el modelo a modificar o crear, la accion como tal y el arreglo del registro en la tabla
       switch (modelo) {
-        case "Clientes":
+        case "clientes":
           {
             switch (accion) {
               case 'crear':
@@ -4005,7 +4005,7 @@ __webpack_require__.r(__webpack_exports__);
 
       //tres argumentos, el modelo a modificar o crear, la accion como tal y el arreglo del registro en la tabla
       switch (modelo) {
-        case "Cobros":
+        case "cobros":
           {
             switch (accion) {
               case 'crear':
@@ -4403,7 +4403,7 @@ __webpack_require__.r(__webpack_exports__);
 
       //tres argumentos, el modelo a modificar o crear, la accion como tal y el arreglo del registro en la tabla
       switch (modelo) {
-        case "Cobrosasientos":
+        case "cobrosasientos":
           {
             switch (accion) {
               case 'crear':
@@ -5379,7 +5379,7 @@ __webpack_require__.r(__webpack_exports__);
 
       //tres argumentos, el modelo a modificar o crear, la accion como tal y el arreglo del registro en la tabla
       switch (modelo) {
-        case "Departamentos":
+        case "departamentos":
           {
             switch (accion) {
               case 'crear':
@@ -5829,7 +5829,7 @@ __webpack_require__.r(__webpack_exports__);
 
       //tres argumentos, el modelo a modificar o crear, la accion como tal y el arreglo del registro en la tabla
       switch (modelo) {
-        case "Detallefacturas":
+        case "detallefacturas":
           {
             switch (accion) {
               case 'crear':
@@ -6279,7 +6279,7 @@ __webpack_require__.r(__webpack_exports__);
 
       //tres argumentos, el modelo a modificar o crear, la accion como tal y el arreglo del registro en la tabla
       switch (modelo) {
-        case "Detallepedidos":
+        case "detallepedidos":
           {
             switch (accion) {
               case 'crear':
@@ -7560,7 +7560,7 @@ __webpack_require__.r(__webpack_exports__);
 
       //tres argumentos, el modelo a modificar o crear, la accion como tal y el arreglo del registro en la tabla
       switch (modelo) {
-        case "Facturas":
+        case "facturas":
           {
             switch (accion) {
               case 'crear':
@@ -7967,7 +7967,7 @@ __webpack_require__.r(__webpack_exports__);
 
       //tres argumentos, el modelo a modificar o crear, la accion como tal y el arreglo del registro en la tabla
       switch (modelo) {
-        case "Grupos":
+        case "grupos":
           {
             switch (accion) {
               case 'crear':
@@ -8999,7 +8999,7 @@ __webpack_require__.r(__webpack_exports__);
 
       //tres argumentos, el modelo a modificar o crear, la accion como tal y el arreglo del registro en la tabla
       switch (modelo) {
-        case "Impuesto":
+        case "impuesto":
           {
             switch (accion) {
               case 'crear':
@@ -9411,7 +9411,7 @@ __webpack_require__.r(__webpack_exports__);
 
       //tres argumentos, el modelo a modificar o crear, la accion como tal y el arreglo del registro en la tabla
       switch (modelo) {
-        case "Libromayor":
+        case "libromayor":
           {
             switch (accion) {
               case 'crear':
@@ -9817,7 +9817,7 @@ __webpack_require__.r(__webpack_exports__);
 
       //tres argumentos, el modelo a modificar o crear, la accion como tal y el arreglo del registro en la tabla
       switch (modelo) {
-        case "Medida":
+        case "medida":
           {
             switch (accion) {
               case 'crear':
@@ -10248,7 +10248,7 @@ __webpack_require__.r(__webpack_exports__);
 
       //tres argumentos, el modelo a modificar o crear, la accion como tal y el arreglo del registro en la tabla
       switch (modelo) {
-        case "Pagos":
+        case "pagos":
           {
             switch (accion) {
               case 'crear':
@@ -10654,7 +10654,7 @@ __webpack_require__.r(__webpack_exports__);
 
       //tres argumentos, el modelo a modificar o crear, la accion como tal y el arreglo del registro en la tabla
       switch (modelo) {
-        case "Pagosasientos":
+        case "pagosasientos":
           {
             switch (accion) {
               case 'crear':
@@ -11111,7 +11111,7 @@ __webpack_require__.r(__webpack_exports__);
 
       //tres argumentos, el modelo a modificar o crear, la accion como tal y el arreglo del registro en la tabla
       switch (modelo) {
-        case "Pedidos":
+        case "pedidos":
           {
             switch (accion) {
               case 'crear':
@@ -11554,7 +11554,7 @@ __webpack_require__.r(__webpack_exports__);
 
       //tres argumentos, el modelo a modificar o crear, la accion como tal y el arreglo del registro en la tabla
       switch (modelo) {
-        case "Productos":
+        case "productos":
           {
             switch (accion) {
               case 'crear':
@@ -11999,7 +11999,7 @@ __webpack_require__.r(__webpack_exports__);
 
       //tres argumentos, el modelo a modificar o crear, la accion como tal y el arreglo del registro en la tabla
       switch (modelo) {
-        case "Proveedores":
+        case "proveedores":
           {
             switch (accion) {
               case 'crear':
@@ -12441,7 +12441,7 @@ __webpack_require__.r(__webpack_exports__);
 
       //tres argumentos, el modelo a modificar o crear, la accion como tal y el arreglo del registro en la tabla
       switch (modelo) {
-        case "Registros":
+        case "registros":
           {
             switch (accion) {
               case 'crear':
@@ -12831,7 +12831,7 @@ __webpack_require__.r(__webpack_exports__);
 
       //tres argumentos, el modelo a modificar o crear, la accion como tal y el arreglo del registro en la tabla
       switch (modelo) {
-        case "Roles":
+        case "roles":
           {
             switch (accion) {
               case 'crear':
@@ -13221,7 +13221,7 @@ __webpack_require__.r(__webpack_exports__);
 
       //tres argumentos, el modelo a modificar o crear, la accion como tal y el arreglo del registro en la tabla
       switch (modelo) {
-        case "Tipofactura":
+        case "tipofactura":
           {
             switch (accion) {
               case 'crear':
@@ -13627,7 +13627,7 @@ __webpack_require__.r(__webpack_exports__);
 
       //tres argumentos, el modelo a modificar o crear, la accion como tal y el arreglo del registro en la tabla
       switch (modelo) {
-        case "Tipologia":
+        case "tipologia":
           {
             switch (accion) {
               case 'crear':

@@ -409,7 +409,7 @@
             abrirModal(modelo, accion, data=[]){
             //tres argumentos, el modelo a modificar o crear, la accion como tal y el arreglo del registro en la tabla
             switch(modelo){
-                case "Detallepedidos":
+                case "detallepedidos":
                 {
                     switch (accion) {
                         case 'crear':{

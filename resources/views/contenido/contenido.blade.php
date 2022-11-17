@@ -23,6 +23,27 @@
     <control></control>
 </template>
 <template v-if="menu==7">
-    <historico></historico>
+    <proveedores></proveedores>
+</template>
+<template v-if="menu==8">
+    <asientos></asientos>
+</template>
+<template v-if="menu==9">
+    <cobros></cobros>
+</template>
+<template v-if="menu==10">
+    <departamentos></departamentos>
+</template>
+<template v-if="menu==11">
+    <facturas></facturas>
+</template>
+<template v-if="menu==12">
+    <pagos></pagos>
+</template>
+<template v-if="menu==13">
+    <pedidos></pedidos>
+</template>
+<template v-if="menu==14">
+    <productos></productos>
 </template>
 @endsection
