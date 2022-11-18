@@ -47,6 +47,10 @@
 
                                     <tr v-for="usuario in arrayUsuarios" :key="usuario.id">
                                         <td>
+                                        <button type="button" @click="abrirModal('clientes','actualizar',clientes)" class="btn btn-info btn-sm">
+                                        <i class="icon-eye" title="Ver detalles"></i>
+                                        </button> &nbsp;
+
                                         <button type="button" @click="abrirModal('usuario','actualizar',usuario)" class="btn btn-warning btn-sm">
                                         <i class="icon-pencil" title="Editar datos"></i>
                                         </button> &nbsp;
