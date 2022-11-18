@@ -60,6 +60,7 @@ class ProveedoresController extends Controller
         $Proveedores->telefono=$request->telefono;
         $Proveedores->direccion=$direccion;
         $Proveedores->correo=$correo;
+        $Proveedores->estado=1;
         $Proveedores->save();
     }
 
@@ -73,6 +74,7 @@ class ProveedoresController extends Controller
         $Proveedores->telefono=$request->telefono;
         $Proveedores->direccion=$direccion;
         $Proveedores->correo=$correo;
+        $Proveedores->estado=1;
         $Proveedores->save();
     }
 

@@ -3474,9 +3474,9 @@ __webpack_require__.r(__webpack_exports__);
         'id': this.id,
         'cedula': this.cedula,
         'nombres': this.nombres,
-        'apellidos,': this.apellidos,
-        'direccion,': this.direccion,
-        'correo,': this.correo,
+        'apellidos': this.apellidos,
+        'direccion': this.direccion,
+        'correo': this.correo,
         'telefono': this.telefono
       }).then(function (response) {
         me.cerrarModal();
@@ -3597,7 +3597,7 @@ __webpack_require__.r(__webpack_exports__);
                   this.modal = 1;
                   this.tituloModal = 'Editar clientes';
                   this.tipoAccion = 2;
-                  this.idClientes = data['id'];
+                  this.id = data['id'];
                   this.cedula = data['cedula'];
                   this.nombres = data['nombres'];
                   this.apellidos = data['apellidos'];
@@ -12590,7 +12590,13 @@ __webpack_require__.r(__webpack_exports__);
 
       var me = this;
       axios.post('/proveedores/store', {
-        'usuario': this.proveedores //'estado': this.estado,
+        'usuario': this.proveedores,
+        'nit': this.nit,
+        'razonSocial': this.razonSocial,
+        'contacto': this.contacto,
+        'telefono': this.telefono,
+        'direccion': this.direccion,
+        'correo': this.correo //'estado': this.estado,
         //'dato': this.dato
 
       }).then(function (response) {

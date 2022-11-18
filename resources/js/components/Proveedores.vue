@@ -277,7 +277,13 @@
 
                 let me=this;
                 axios.post('/proveedores/store',{
-                    'usuario': this.proveedores
+                    'usuario': this.proveedores,
+                    'nit': this.nit,
+                    'razonSocial': this.razonSocial,
+                    'contacto': this.contacto,
+                    'telefono': this.telefono,
+                    'direccion': this.direccion,
+                    'correo': this.correo
                     //'estado': this.estado,
                     //'dato': this.dato
                 }).then(function (response) {
