@@ -158,6 +158,20 @@
                                             <span class="help-block">(*) Ingrese el pvp de los productos</span>
                                         </div>
                                     </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3 form-control-label" for="text-input">Impuesto</label>
+                                        <div class="col-md-9">
+                                            <input type="text" v-model="idImpuesto" class="form-control" placeholder="Impuesto de los productos">
+                                            <span class="help-block">(*) Ingrese el impuesto de los productos</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3 form-control-label" for="text-input">Grupo</label>
+                                        <div class="col-md-9">
+                                            <input type="text" v-model="idGrupos" class="form-control" placeholder="grupo de los productos">
+                                            <span class="help-block">(*) Ingrese el grupo de los productos</span>
+                                        </div>
+                                    </div>
                                     <div class="form-group row div-error" v-show="errorUsuario">
                                         <div class="text-center text-error">
                                             <div v-for="error in errorMensaje" :key="error" v-text="error"></div>
@@ -272,7 +286,9 @@
                     'detalle': this.detalle,
                     'idMedida': this.idMedida,
                     'valorCompra': this.valorCompra,
-                    'pvp': this.pvp
+                    'pvp': this.pvp,
+                    'idImpuesto': this.idImpuesto,
+                    'idGrupos': this.idGrupos
                     //'estado': this.estado,
                     //'dato': this.dato
                 }).then(function (response) {

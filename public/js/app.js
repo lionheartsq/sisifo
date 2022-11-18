@@ -11615,6 +11615,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -11707,7 +11721,9 @@ __webpack_require__.r(__webpack_exports__);
         'detalle': this.detalle,
         'idMedida': this.idMedida,
         'valorCompra': this.valorCompra,
-        'pvp': this.pvp //'estado': this.estado,
+        'pvp': this.pvp,
+        'idImpuesto': this.idImpuesto,
+        'idGrupos': this.idGrupos //'estado': this.estado,
         //'dato': this.dato
 
       }).then(function (response) {
@@ -69103,6 +69119,90 @@ var render = function() {
                         _vm._v(" "),
                         _c("span", { staticClass: "help-block" }, [
                           _vm._v("(*) Ingrese el pvp de los productos")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Impuesto")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.idImpuesto,
+                              expression: "idImpuesto"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Impuesto de los productos"
+                          },
+                          domProps: { value: _vm.idImpuesto },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.idImpuesto = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese el impuesto de los productos")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Grupo")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.idGrupos,
+                              expression: "idGrupos"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "grupo de los productos"
+                          },
+                          domProps: { value: _vm.idGrupos },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.idGrupos = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "help-block" }, [
+                          _vm._v("(*) Ingrese el grupo de los productos")
                         ])
                       ])
                     ]),
