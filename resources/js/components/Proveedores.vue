@@ -295,8 +295,12 @@
 
                 let me=this;
                 axios.put('/proveedores/update',{
-                    'Proveedores': this.proveedores,
-                    'id': this.idProveedores
+                    'nit': this.nit,
+                    'razonSocial': this.razonSocial,
+                    'contacto': this.contacto,
+                    'telefono': this.telefono,
+                    'direccion': this.direccion,
+                    'correo': this.correo
                     //'estado': this.estado,
                     //'dato': this.dato
                 }).then(function (response) {
@@ -419,7 +423,12 @@
                             this.tituloModal='Editar proveedores';
                             this.tipoAccion= 2;
                             this.idProveedores=data['id'];
-                            this.Proveedores=data['proveedores'];
+                            this.nit=data['nit'];
+                            this.razonSocial=data['razonSocial'];
+                            this.contacto=data['contacto'];
+                            this.telefono=data['telefono'];
+                            this.direccion=data['direccion'];
+                            this.correo=data['correo'];
                             break;
                         }
                     }

@@ -295,8 +295,11 @@
 
                 let me=this;
                 axios.put('/clientes/update',{
-                    'Clientes': this.clientes,
-                    'id': this.idClientes
+                    'cedula': this.cedula,
+                    'nombres': this.nombres,
+                    'apellidos,': this.apellidos,
+                    'direccion,': this.direccion,
+                    'correo,': this.correo
                     //'estado': this.estado,
                     //'dato': this.dato
                 }).then(function (response) {
@@ -419,7 +422,12 @@
                             this.tituloModal='Editar clientes';
                             this.tipoAccion= 2;
                             this.idClientes=data['id'];
-                            this.Clientes=data['clientes'];
+                            this.cedula=data['cedula'];
+                            this.nombres=data['nombres'];
+                            this.apellidos=data['apellidos'];
+                            this.direccion=data['direccion'];
+                            this.telefono=data['telefono'];
+                            this.correo=data['correo'];
                             break;
                         }
                     }

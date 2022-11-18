@@ -3468,8 +3468,11 @@ __webpack_require__.r(__webpack_exports__);
 
       var me = this;
       axios.put('/clientes/update', {
-        'Clientes': this.clientes,
-        'id': this.idClientes //'estado': this.estado,
+        'cedula': this.cedula,
+        'nombres': this.nombres,
+        'apellidos,': this.apellidos,
+        'direccion,': this.direccion,
+        'correo,': this.correo //'estado': this.estado,
         //'dato': this.dato
 
       }).then(function (response) {
@@ -3592,7 +3595,12 @@ __webpack_require__.r(__webpack_exports__);
                   this.tituloModal = 'Editar clientes';
                   this.tipoAccion = 2;
                   this.idClientes = data['id'];
-                  this.Clientes = data['clientes'];
+                  this.cedula = data['cedula'];
+                  this.nombres = data['nombres'];
+                  this.apellidos = data['apellidos'];
+                  this.direccion = data['direccion'];
+                  this.telefono = data['telefono'];
+                  this.correo = data['correo'];
                   break;
                 }
             }
@@ -12651,8 +12659,12 @@ __webpack_require__.r(__webpack_exports__);
 
       var me = this;
       axios.put('/proveedores/update', {
-        'Proveedores': this.proveedores,
-        'id': this.idProveedores //'estado': this.estado,
+        'nit': this.nit,
+        'razonSocial': this.razonSocial,
+        'contacto': this.contacto,
+        'telefono': this.telefono,
+        'direccion': this.direccion,
+        'correo': this.correo //'estado': this.estado,
         //'dato': this.dato
 
       }).then(function (response) {
@@ -12775,7 +12787,12 @@ __webpack_require__.r(__webpack_exports__);
                   this.tituloModal = 'Editar proveedores';
                   this.tipoAccion = 2;
                   this.idProveedores = data['id'];
-                  this.Proveedores = data['proveedores'];
+                  this.nit = data['nit'];
+                  this.razonSocial = data['razonSocial'];
+                  this.contacto = data['contacto'];
+                  this.telefono = data['telefono'];
+                  this.direccion = data['direccion'];
+                  this.correo = data['correo'];
                   break;
                 }
             }
@@ -14816,7 +14833,6 @@ __webpack_require__.r(__webpack_exports__);
       if (!this.email) this.errorMensaje.push("El email del usuario no puede estar vacio");
       if (!this.nombres) this.errorMensaje.push("El nombre del usuario no puede estar vacio");
       if (!this.apellidos) this.errorMensaje.push("Los apellidos del usuario no puede estar vacio");
-      if (!this.password) this.errorMensaje.push("La password del usuario no puede estar vacio");
       if (!this.idRol) this.errorMensaje.push("El rol del usuario no puede estar vacio");
       if (this.errorMensaje.length) this.errorUsuario = 1;
       return this.errorUsuario;
@@ -14859,7 +14875,6 @@ __webpack_require__.r(__webpack_exports__);
                   this.email = data['email'];
                   this.nombres = data['nombres'];
                   this.apellidos = data['apellidos'];
-                  this.password = data['password'];
                   this.idRol = data['idRol'];
                   break;
                 }
