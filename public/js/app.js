@@ -11628,7 +11628,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -11744,6 +11743,8 @@ __webpack_require__.r(__webpack_exports__);
         'plu': this.plu,
         'detalle': this.detalle,
         'idMedida': this.idMedida,
+        'idImpuesto': this.idImpuesto,
+        'idGrupos': this.idMedida,
         'valorCompra': this.valorCompra,
         'pvp': this.pvp //'estado': this.estado,
         //'dato': this.dato
@@ -11870,6 +11871,8 @@ __webpack_require__.r(__webpack_exports__);
                   this.plu = data['plu'];
                   this.detalle = data['detalle'];
                   this.idMedida = data['idMedida'];
+                  this.idImpuesto = data['idImpuesto'];
+                  this.idGrupos = data['idGrupos'];
                   this.valorCompra = data['valorCompra'];
                   this.pvp = data['pvp'];
                   break;
@@ -68733,10 +68736,6 @@ var render = function() {
                       _vm._v(" "),
                       _c("td", {
                         domProps: { textContent: _vm._s(productos.idEmpresa) }
-                      }),
-                      _vm._v(" "),
-                      _c("td", {
-                        domProps: { textContent: _vm._s(productos.estado) }
                       }),
                       _vm._v(" "),
                       _c("td", [

@@ -79,7 +79,6 @@
                                         <td v-text="productos.idImpuesto"></td>
                                         <td v-text="productos.idGrupos"></td>
                                         <td v-text="productos.idEmpresa"></td>
-                                        <td v-text="productos.estado"></td>
                                         <td>
                                             <div v-if="productos.estado == '1'">
                                             <span class="badge badge-success">Activo</span>
@@ -310,6 +309,8 @@
                     'plu': this.plu,
                     'detalle': this.detalle,
                     'idMedida': this.idMedida,
+                    'idImpuesto': this.idImpuesto,
+                    'idGrupos': this.idMedida,
                     'valorCompra': this.valorCompra,
                     'pvp': this.pvp
                     //'estado': this.estado,
@@ -436,6 +437,8 @@
                             this.plu=data['plu'];
                             this.detalle=data['detalle'];
                             this.idMedida=data['idMedida'];
+                            this.idImpuesto=data['idImpuesto'];
+                            this.idGrupos=data['idGrupos'];
                             this.valorCompra=data['valorCompra'];
                             this.pvp=data['pvp'];
                             break;
