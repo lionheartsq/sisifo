@@ -55,17 +55,12 @@
                                             <i class="icon-pencil" title="Editar datos"></i>
                                             </button> &nbsp;
 
-                                        <template v-if="clientes.estado == 'A'">
+                                        <template v-if="clientes.estado == '1'">
                                             <button type="button" class="btn btn-danger btn-sm" @click="desactivarClientes(clientes.id)">
                                                 <i class="icon-trash" title="Desactivar"></i>
                                             </button>
                                         </template>
-                                        <template v-if="clientes.estado == 'E'">
-                                            <button type="button" class="btn btn-danger btn-sm" @click="desactivarClientes(clientes.id)">
-                                                <i class="icon-trash" title="Desactivar"></i>
-                                            </button>
-                                        </template>
-                                        <template v-if="clientes.estado == 'I'">
+                                        <template v-if="clientes.estado == '2'">
                                             <button type="button" class="btn btn-success btn-sm" @click="activarClientes(clientes.id)">
                                                 <i class="icon-check" title="Reactivar"></i>
                                             </button>
