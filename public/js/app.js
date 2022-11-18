@@ -14580,10 +14580,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -75035,29 +75031,6 @@ var render = function() {
                       _c(
                         "td",
                         [
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-info btn-sm",
-                              attrs: { type: "button" },
-                              on: {
-                                click: function($event) {
-                                  return _vm.abrirModal(
-                                    "clientes",
-                                    "actualizar",
-                                    _vm.clientes
-                                  )
-                                }
-                              }
-                            },
-                            [
-                              _c("i", {
-                                staticClass: "icon-eye",
-                                attrs: { title: "Ver detalles" }
-                              })
-                            ]
-                          ),
-                          _vm._v("  \n\n                                "),
                           _c(
                             "button",
                             {
