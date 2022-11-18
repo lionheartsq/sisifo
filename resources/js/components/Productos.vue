@@ -268,7 +268,6 @@
 
                 let me=this;
                 axios.post('/productos/store',{
-                    'usuario': this.productos,
                     'plu': this.plu,
                     'detalle': this.detalle,
                     'idMedida': this.idMedida,
@@ -292,7 +291,6 @@
                 let me=this;
                 axios.put('/productos/update',{
                     'id': this.idProductos,
-                    'usuario': this.productos,
                     'plu': this.plu,
                     'detalle': this.detalle,
                     'idMedida': this.idMedida,
@@ -419,7 +417,11 @@
                             this.tituloModal='Editar productos';
                             this.tipoAccion= 2;
                             this.idProductos=data['id'];
-                            this.Productos=data['productos'];
+                            this.plu=data['plu'];
+                            this.detalle=data['detalle'];
+                            this.idMedida=data['idMedida'];
+                            this.valorCompra=data['valorCompra'];
+                            this.pvp=data['pvp'];
                             break;
                         }
                     }

@@ -8147,7 +8147,7 @@ __webpack_require__.r(__webpack_exports__);
       var me = this;
       axios.put('/grupos/update', {
         'id': this.idGrupos,
-        'Grupos': this.grupos //'estado': this.estado,
+        'detalleGrupos': this.detalleGrupos //'estado': this.estado,
         //'dato': this.dato
 
       }).then(function (response) {
@@ -8265,7 +8265,7 @@ __webpack_require__.r(__webpack_exports__);
                   this.tituloModal = 'Editar grupos';
                   this.tipoAccion = 2;
                   this.idGrupos = data['id'];
-                  this.Grupos = data['grupos'];
+                  this.detalleGrupos = data['detalleGrupos'];
                   break;
                 }
             }
@@ -11703,7 +11703,6 @@ __webpack_require__.r(__webpack_exports__);
 
       var me = this;
       axios.post('/productos/store', {
-        'usuario': this.productos,
         'plu': this.plu,
         'detalle': this.detalle,
         'idMedida': this.idMedida,
@@ -11726,7 +11725,6 @@ __webpack_require__.r(__webpack_exports__);
       var me = this;
       axios.put('/productos/update', {
         'id': this.idProductos,
-        'usuario': this.productos,
         'plu': this.plu,
         'detalle': this.detalle,
         'idMedida': this.idMedida,
@@ -11853,7 +11851,11 @@ __webpack_require__.r(__webpack_exports__);
                   this.tituloModal = 'Editar productos';
                   this.tipoAccion = 2;
                   this.idProductos = data['id'];
-                  this.Productos = data['productos'];
+                  this.plu = data['plu'];
+                  this.detalle = data['detalle'];
+                  this.idMedida = data['idMedida'];
+                  this.valorCompra = data['valorCompra'];
+                  this.pvp = data['pvp'];
                   break;
                 }
             }

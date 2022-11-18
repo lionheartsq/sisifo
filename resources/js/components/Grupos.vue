@@ -237,7 +237,7 @@
                 let me=this;
                 axios.put('/grupos/update',{
                     'id': this.idGrupos,
-                    'Grupos': this.grupos
+                    'detalleGrupos': this.detalleGrupos
                     //'estado': this.estado,
                     //'dato': this.dato
                 }).then(function (response) {
@@ -355,7 +355,7 @@
                             this.tituloModal='Editar grupos';
                             this.tipoAccion= 2;
                             this.idGrupos=data['id'];
-                            this.Grupos=data['grupos'];
+                            this.detalleGrupos=data['detalleGrupos'];
                             break;
                         }
                     }
