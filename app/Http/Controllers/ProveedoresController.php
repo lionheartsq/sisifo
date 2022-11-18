@@ -58,8 +58,9 @@ class ProveedoresController extends Controller
         $Proveedores->razonSocial=$request->razonSocial;
         $Proveedores->contacto=$request->contacto;
         $Proveedores->telefono=$request->telefono;
-        $Proveedores->direccion=$direccion;
-        $Proveedores->correo=$correo;
+        $Proveedores->direccion=$request->direccion;
+        $Proveedores->idEmpresa=$idEmpresa;
+        $Proveedores->correo=$request->correo;
         $Proveedores->estado=1;
         $Proveedores->save();
     }
@@ -72,8 +73,9 @@ class ProveedoresController extends Controller
         $Proveedores->razonSocial=$request->razonSocial;
         $Proveedores->contacto=$request->contacto;
         $Proveedores->telefono=$request->telefono;
-        $Proveedores->direccion=$direccion;
-        $Proveedores->correo=$correo;
+        $Proveedores->direccion=$request->direccion;
+        $Proveedores->idEmpresa=$idEmpresa;
+        $Proveedores->correo=$request->correo;
         $Proveedores->estado=1;
         $Proveedores->save();
     }

@@ -7181,9 +7181,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       var me = this;
       axios.post('/facturas/store', {
-        'usuario': this.facturas //'estado': this.estado,
-        //'dato': this.dato
-
+        'consecutivo': this.consecutivo,
+        'fecha': this.fecha,
+        'valor': this.valor,
+        'impuesto': this.impuesto,
+        'total': this.total,
+        'vendedor': this.vendedor,
+        'idVendedor': this.idVendedor,
+        'tipoFactura': this.tipoFactura,
+        'idClientes': this.idClientes,
+        'idEmpresa': this.idEmpresa,
+        'estado': this.estado
       }).then(function (response) {
         me.cerrarModal();
         me.listarFacturas(1, '', 'Facturas');
@@ -12076,15 +12084,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -12196,6 +12195,7 @@ __webpack_require__.r(__webpack_exports__);
 
       var me = this;
       axios.put('/proveedores/update', {
+        'id': this.id,
         'nit': this.nit,
         'razonSocial': this.razonSocial,
         'contacto': this.contacto,
@@ -12323,7 +12323,7 @@ __webpack_require__.r(__webpack_exports__);
                   this.modal = 1;
                   this.tituloModal = 'Editar proveedores';
                   this.tipoAccion = 2;
-                  this.idProveedores = data['id'];
+                  this.id = data['id'];
                   this.nit = data['nit'];
                   this.razonSocial = data['razonSocial'];
                   this.contacto = data['contacto'];
@@ -69610,29 +69610,6 @@ var render = function() {
                           _c(
                             "button",
                             {
-                              staticClass: "btn btn-info btn-sm",
-                              attrs: { type: "button" },
-                              on: {
-                                click: function($event) {
-                                  return _vm.abrirModal(
-                                    "proveedores",
-                                    "actualizar",
-                                    proveedores
-                                  )
-                                }
-                              }
-                            },
-                            [
-                              _c("i", {
-                                staticClass: "icon-eye",
-                                attrs: { title: "Ver detalles" }
-                              })
-                            ]
-                          ),
-                          _vm._v("  \n\n                                    "),
-                          _c(
-                            "button",
-                            {
                               staticClass: "btn btn-warning btn-sm",
                               attrs: { type: "button" },
                               on: {
@@ -69653,7 +69630,7 @@ var render = function() {
                             ]
                           ),
                           _vm._v("  \n\n                                "),
-                          proveedores.estado == "A"
+                          proveedores.estado == "1"
                             ? [
                                 _c(
                                   "button",
@@ -69678,32 +69655,7 @@ var render = function() {
                               ]
                             : _vm._e(),
                           _vm._v(" "),
-                          proveedores.estado == "E"
-                            ? [
-                                _c(
-                                  "button",
-                                  {
-                                    staticClass: "btn btn-danger btn-sm",
-                                    attrs: { type: "button" },
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.desactivarProveedores(
-                                          proveedores.id
-                                        )
-                                      }
-                                    }
-                                  },
-                                  [
-                                    _c("i", {
-                                      staticClass: "icon-trash",
-                                      attrs: { title: "Desactivar" }
-                                    })
-                                  ]
-                                )
-                              ]
-                            : _vm._e(),
-                          _vm._v(" "),
-                          proveedores.estado == "I"
+                          proveedores.estado == "2"
                             ? [
                                 _c(
                                   "button",
