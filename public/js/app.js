@@ -8041,21 +8041,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -8144,7 +8129,7 @@ __webpack_require__.r(__webpack_exports__);
 
       var me = this;
       axios.post('/grupos/store', {
-        'usuario': this.grupos //'estado': this.estado,
+        'detalleGrupos': this.detalleGrupos //'estado': this.estado,
         //'dato': this.dato
 
       }).then(function (response) {
@@ -8248,8 +8233,6 @@ __webpack_require__.r(__webpack_exports__);
       this.errorGrupos = 0;
       this.errorMensaje = [];
       if (!this.detalleGrupos) this.errorMensaje.push("El detalle grupo de los grupos no puede estar vacio");
-      if (!this.estado) this.errorMensaje.push("El estado de los grupos no puede estar vacio");
-      if (!this.idEmpresas) this.errorMensaje.push("La empresa de los grupos no puede estar vacio");
       if (this.errorMensaje.length) this.errorGrupos = 1;
       return this.errorGrupos;
     },
@@ -62972,7 +62955,7 @@ var render = function() {
                           ],
                           staticClass: "form-control",
                           attrs: {
-                            type: "number",
+                            type: "text",
                             placeholder: "Detalle Grupos de los grupos"
                           },
                           domProps: { value: _vm.detalleGrupos },
@@ -62992,90 +62975,6 @@ var render = function() {
                       ])
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "form-group row" }, [
-                      _c(
-                        "label",
-                        {
-                          staticClass: "col-md-3 form-control-label",
-                          attrs: { for: "text-input" }
-                        },
-                        [_vm._v("Estado")]
-                      ),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-md-9" }, [
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.estado,
-                              expression: "estado"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          attrs: {
-                            type: "text",
-                            placeholder: "Estado de los grupos"
-                          },
-                          domProps: { value: _vm.estado },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.estado = $event.target.value
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "help-block" }, [
-                          _vm._v("(*) Ingrese el estado de los grupos")
-                        ])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-group row" }, [
-                      _c(
-                        "label",
-                        {
-                          staticClass: "col-md-3 form-control-label",
-                          attrs: { for: "text-input" }
-                        },
-                        [_vm._v("Empresas")]
-                      ),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-md-9" }, [
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.idEmpresas,
-                              expression: "idEmpresas"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          attrs: {
-                            type: "text",
-                            placeholder: "Empresas de los grupos"
-                          },
-                          domProps: { value: _vm.idEmpresas },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.idEmpresas = $event.target.value
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "help-block" }, [
-                          _vm._v("(*) Ingrese las empresas de los grupos")
-                        ])
-                      ])
-                    ]),
-                    _vm._v(" "),
                     _c(
                       "div",
                       {
@@ -63083,8 +62982,8 @@ var render = function() {
                           {
                             name: "show",
                             rawName: "v-show",
-                            value: _vm.errorUsuario,
-                            expression: "errorUsuario"
+                            value: _vm.errorGrupos,
+                            expression: "errorGrupos"
                           }
                         ],
                         staticClass: "form-group row div-error"
