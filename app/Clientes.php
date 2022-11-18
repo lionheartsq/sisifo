@@ -17,6 +17,7 @@ class Clientes extends Model
         'direccion',
         'telefono',
         'correo',
+        'idEmpresa',
         'estado'
     ];
 }

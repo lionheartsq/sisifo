@@ -59,7 +59,9 @@ class ClientesController extends Controller
         $Clientes->apellidos=$request->apellidos;
         $Clientes->direccion=$request->direccion;
         $Clientes->idEmpresa=$idEmpresa;
-        $Clientes->correo=$correo;
+        $Clientes->telefono=$request->telefono;
+        $Clientes->correo=$request->correo;
+        $Clientes->estado=1;
         $Clientes->save();
     }
 
@@ -72,7 +74,9 @@ class ClientesController extends Controller
         $Clientes->apellidos=$request->apellidos;
         $Clientes->direccion=$request->direccion;
         $Clientes->idEmpresa=$idEmpresa;
-        $Clientes->correo=$correo;
+        $Clientes->telefono=$request->telefono;
+        $Clientes->correo=$request->correo;
+        $Clientes->estado=1;
         $Clientes->save();
     }
 

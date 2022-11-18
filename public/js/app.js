@@ -3451,9 +3451,12 @@ __webpack_require__.r(__webpack_exports__);
 
       var me = this;
       axios.post('/clientes/store', {
-        'usuario': this.clientes //'estado': this.estado,
-        //'dato': this.dato
-
+        'cedula': this.cedula,
+        'nombres': this.nombres,
+        'apellidos': this.apellidos,
+        'direccion': this.direccion,
+        'correo': this.correo,
+        'telefono': this.telefono
       }).then(function (response) {
         me.cerrarModal();
         me.listarClientes(1, '', 'Clientes');
@@ -3468,13 +3471,13 @@ __webpack_require__.r(__webpack_exports__);
 
       var me = this;
       axios.put('/clientes/update', {
+        'id': this.id,
         'cedula': this.cedula,
         'nombres': this.nombres,
         'apellidos,': this.apellidos,
         'direccion,': this.direccion,
-        'correo,': this.correo //'estado': this.estado,
-        //'dato': this.dato
-
+        'correo,': this.correo,
+        'telefono': this.telefono
       }).then(function (response) {
         me.cerrarModal();
         me.listarClientes(1, '', 'clientes');
@@ -7062,61 +7065,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Detallefacturas__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/Detallefacturas */ "./resources/js/components/Detallefacturas.vue");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -62206,138 +62154,6 @@ var render = function() {
                                   eliminarMateriaPrimaProducto:
                                     _vm.eliminarMateriaPrimaProducto
                                 }
-                              })
-                            ],
-                            1
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "vs-tab",
-                        {
-                          attrs: { label: "Mano de Obra", icon: "pan_tool" },
-                          on: {
-                            click: function($event) {
-                              _vm.colorx = "#FFA500"
-                            }
-                          }
-                        },
-                        [
-                          _c("div", { staticClass: "card-header" }, [
-                            _c("i", { staticClass: "fa fa-align-justify" }),
-                            _vm._v(
-                              " Producto: " +
-                                _vm._s(this.productoNombre) +
-                                "  \n                                "
-                            ),
-                            _c(
-                              "button",
-                              {
-                                staticClass: "btn btn-secondary",
-                                attrs: { type: "button" },
-                                on: {
-                                  click: function($event) {
-                                    return _vm.abrirModal(
-                                      "gestionManoDeObra",
-                                      "crear"
-                                    )
-                                  }
-                                }
-                              },
-                              [
-                                _c("i", { staticClass: "icon-plus" }),
-                                _vm._v(
-                                  " Nueva mano de obra\n                                "
-                                )
-                              ]
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            { staticClass: "card-body" },
-                            [
-                              _c("manodeobra", {
-                                key: _vm.componentKey,
-                                attrs: { identificador: _vm.identificador },
-                                on: {
-                                  abrirmodal: _vm.abrirModal,
-                                  eliminarmanodeobra:
-                                    _vm.eliminarManoDeObraProducto
-                                }
-                              })
-                            ],
-                            1
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "vs-tab",
-                        {
-                          attrs: { label: "CIF", icon: "account_balance" },
-                          on: {
-                            click: function($event) {
-                              _vm.colorx = "#CB3234"
-                            }
-                          }
-                        },
-                        [
-                          _c("div", { staticClass: "card-header" }, [
-                            _c("i", { staticClass: "fa fa-align-justify" }),
-                            _vm._v(
-                              " Producto: " +
-                                _vm._s(this.productoNombre) +
-                                "  \n                                    "
-                            ),
-                            _c("i", { staticClass: "icon-plus" }),
-                            _vm._v(
-                              " Cif asociados\n                            "
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            { staticClass: "card-body" },
-                            [
-                              _c("cif", {
-                                key: _vm.componentKey,
-                                attrs: { identificador: _vm.identificador }
-                              })
-                            ],
-                            1
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "vs-tab",
-                        {
-                          attrs: { label: "Consolidado", icon: "view_list" },
-                          on: {
-                            click: function($event) {
-                              _vm.colorx = "#20603d"
-                            }
-                          }
-                        },
-                        [
-                          _c("div", { staticClass: "card-header" }, [
-                            _c("i", { staticClass: "fa fa-align-justify" }),
-                            _vm._v(
-                              " Producto: " +
-                                _vm._s(this.productoNombre) +
-                                "  \n                            "
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            { staticClass: "card-body" },
-                            [
-                              _c("hojadecostos", {
-                                key: _vm.componentKey,
-                                attrs: { identificador: _vm.identificador }
                               })
                             ],
                             1

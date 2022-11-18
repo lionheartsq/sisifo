@@ -116,61 +116,6 @@
 
                                 </vs-tab>
 
-                                <vs-tab label="Mano de Obra" icon="pan_tool" @click="colorx = '#FFA500'">
-
-                                    <div class="card-header">
-                                        <i class="fa fa-align-justify"></i> Producto: {{this.productoNombre}} &nbsp;
-                                        <button type="button" @click="abrirModal('gestionManoDeObra','crear')" class="btn btn-secondary">
-                                            <i class="icon-plus"></i>&nbsp;Nueva mano de obra
-                                        </button>
-                                    </div>
-
-                                    <div class="card-body">
-                                        <manodeobra v-bind:identificador="identificador" :key="componentKey" @abrirmodal="abrirModal" @eliminarmanodeobra="eliminarManoDeObraProducto"></manodeobra>
-                                    </div>
-
-                                </vs-tab>
-
-                                <vs-tab label="CIF" icon="account_balance" @click="colorx = '#CB3234'">
-
-                                    <div class="card-header">
-                                        <i class="fa fa-align-justify"></i> Producto: {{this.productoNombre}} &nbsp;
-                                            <i class="icon-plus"></i>&nbsp;Cif asociados
-                                    </div>
-
-                                    <div class="card-body">
-                                        <cif v-bind:identificador="identificador" :key="componentKey"></cif>
-                                    </div>
-
-                                </vs-tab>
-
-                                <!-- //comentariada pestaña maquinaria; valor va incluido en la de cif
-                                <vs-tab label="MAQUINARIA" icon="build" @click="colorx = '#FFC89A'">
-
-                                    <div class="card-header">
-                                        <i class="fa fa-align-justify"></i> Producto: {{this.productoNombre}} &nbsp;
-                                            <i class="icon-plus"></i>&nbsp;Maquinaria
-                                    </div>
-
-                                    <div class="card-body">
-                                        <maquinaria></maquinaria>
-                                    </div>
-
-                                </vs-tab>
-                                -->
-
-                                <vs-tab label="Consolidado" icon="view_list" @click="colorx = '#20603d'">
-
-                                    <div class="card-header">
-                                        <i class="fa fa-align-justify"></i> Producto: {{this.productoNombre}} &nbsp;
-                                    </div>
-
-                                    <div class="card-body">
-                                        <hojadecostos v-bind:identificador="identificador" :key="componentKey"></hojadecostos>
-                                    </div>
-
-                                </vs-tab>
-
                                 <vs-tab label="Detallado" icon="format_list_numbered" @click="colorx = '#9B59B6'">
 
                                     <div class="card-header">

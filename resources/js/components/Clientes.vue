@@ -277,9 +277,12 @@
 
                 let me=this;
                 axios.post('/clientes/store',{
-                    'usuario': this.clientes
-                    //'estado': this.estado,
-                    //'dato': this.dato
+                    'cedula': this.cedula,
+                    'nombres': this.nombres,
+                    'apellidos': this.apellidos,
+                    'direccion': this.direccion,
+                    'correo': this.correo,
+                    'telefono': this.telefono
                 }).then(function (response) {
                 me.cerrarModal();
                 me.listarClientes(1,'','Clientes');
@@ -295,13 +298,13 @@
 
                 let me=this;
                 axios.put('/clientes/update',{
+                    'id': this.id,
                     'cedula': this.cedula,
                     'nombres': this.nombres,
                     'apellidos,': this.apellidos,
                     'direccion,': this.direccion,
-                    'correo,': this.correo
-                    //'estado': this.estado,
-                    //'dato': this.dato
+                    'correo,': this.correo,
+                    'telefono': this.telefono
                 }).then(function (response) {
                 me.cerrarModal();
                 me.listarClientes(1,'','clientes');
