@@ -55,25 +55,16 @@
 
                                     <tr v-for="productos in arrayProductos" :key="productos.id">
                                         <td>
-                                            <button type="button" @click="abrirModal('productos','actualizar',productos)" class="btn btn-info btn-sm">
-                                            <i class="icon-eye" title="Ver detalles"></i>
-                                            </button> &nbsp;
-
                                             <button type="button" @click="abrirModal('productos','actualizar',productos)" class="btn btn-warning btn-sm">
                                             <i class="icon-pencil" title="Editar datos"></i>
                                             </button> &nbsp;
 
-                                        <template v-if="productos.estado == 'A'">
+                                        <template v-if="productos.estado == '1'">
                                             <button type="button" class="btn btn-danger btn-sm" @click="desactivarProductos(productos.id)">
                                                 <i class="icon-trash" title="Desactivar"></i>
                                             </button>
                                         </template>
-                                        <template v-if="productos.estado == 'E'">
-                                            <button type="button" class="btn btn-danger btn-sm" @click="desactivarProductos(productos.id)">
-                                                <i class="icon-trash" title="Desactivar"></i>
-                                            </button>
-                                        </template>
-                                        <template v-if="productos.estado == 'I'">
+                                        <template v-if="productos.estado == '2'">
                                             <button type="button" class="btn btn-success btn-sm" @click="activarProductos(productos.id)">
                                                 <i class="icon-check" title="Reactivar"></i>
                                             </button>
@@ -277,7 +268,12 @@
 
                 let me=this;
                 axios.post('/productos/store',{
-                    'usuario': this.productos
+                    'usuario': this.productos,
+                    'plu': this.plu,
+                    'detalle': this.detalle,
+                    'idMedida': this.idMedida,
+                    'valorCompra': this.valorCompra,
+                    'pvp': this.pvp
                     //'estado': this.estado,
                     //'dato': this.dato
                 }).then(function (response) {
@@ -295,8 +291,13 @@
 
                 let me=this;
                 axios.put('/productos/update',{
-                    'Productos': this.productos,
-                    'id': this.idProductos
+                    'id': this.idProductos,
+                    'usuario': this.productos,
+                    'plu': this.plu,
+                    'detalle': this.detalle,
+                    'idMedida': this.idMedida,
+                    'valorCompra': this.valorCompra,
+                    'pvp': this.pvp
                     //'estado': this.estado,
                     //'dato': this.dato
                 }).then(function (response) {

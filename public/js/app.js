@@ -8056,15 +8056,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -8170,8 +8161,8 @@ __webpack_require__.r(__webpack_exports__);
 
       var me = this;
       axios.put('/grupos/update', {
-        'Grupos': this.grupos,
-        'id': this.idGrupos //'estado': this.estado,
+        'id': this.idGrupos,
+        'Grupos': this.grupos //'estado': this.estado,
         //'dato': this.dato
 
       }).then(function (response) {
@@ -11641,15 +11632,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -11738,7 +11720,12 @@ __webpack_require__.r(__webpack_exports__);
 
       var me = this;
       axios.post('/productos/store', {
-        'usuario': this.productos //'estado': this.estado,
+        'usuario': this.productos,
+        'plu': this.plu,
+        'detalle': this.detalle,
+        'idMedida': this.idMedida,
+        'valorCompra': this.valorCompra,
+        'pvp': this.pvp //'estado': this.estado,
         //'dato': this.dato
 
       }).then(function (response) {
@@ -11755,8 +11742,13 @@ __webpack_require__.r(__webpack_exports__);
 
       var me = this;
       axios.put('/productos/update', {
-        'Productos': this.productos,
-        'id': this.idProductos //'estado': this.estado,
+        'id': this.idProductos,
+        'usuario': this.productos,
+        'plu': this.plu,
+        'detalle': this.detalle,
+        'idMedida': this.idMedida,
+        'valorCompra': this.valorCompra,
+        'pvp': this.pvp //'estado': this.estado,
         //'dato': this.dato
 
       }).then(function (response) {
@@ -62711,29 +62703,6 @@ var render = function() {
                           _c(
                             "button",
                             {
-                              staticClass: "btn btn-info btn-sm",
-                              attrs: { type: "button" },
-                              on: {
-                                click: function($event) {
-                                  return _vm.abrirModal(
-                                    "grupos",
-                                    "actualizar",
-                                    grupos
-                                  )
-                                }
-                              }
-                            },
-                            [
-                              _c("i", {
-                                staticClass: "icon-eye",
-                                attrs: { title: "Ver detalles" }
-                              })
-                            ]
-                          ),
-                          _vm._v("  \n\n                                    "),
-                          _c(
-                            "button",
-                            {
                               staticClass: "btn btn-warning btn-sm",
                               attrs: { type: "button" },
                               on: {
@@ -62754,7 +62723,7 @@ var render = function() {
                             ]
                           ),
                           _vm._v("  \n\n                                "),
-                          grupos.estado == "A"
+                          grupos.estado == "1"
                             ? [
                                 _c(
                                   "button",
@@ -62777,30 +62746,7 @@ var render = function() {
                               ]
                             : _vm._e(),
                           _vm._v(" "),
-                          grupos.estado == "E"
-                            ? [
-                                _c(
-                                  "button",
-                                  {
-                                    staticClass: "btn btn-danger btn-sm",
-                                    attrs: { type: "button" },
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.desactivarGrupos(grupos.id)
-                                      }
-                                    }
-                                  },
-                                  [
-                                    _c("i", {
-                                      staticClass: "icon-trash",
-                                      attrs: { title: "Desactivar" }
-                                    })
-                                  ]
-                                )
-                              ]
-                            : _vm._e(),
-                          _vm._v(" "),
-                          grupos.estado == "I"
+                          grupos.estado == "2"
                             ? [
                                 _c(
                                   "button",
@@ -68767,29 +68713,6 @@ var render = function() {
                           _c(
                             "button",
                             {
-                              staticClass: "btn btn-info btn-sm",
-                              attrs: { type: "button" },
-                              on: {
-                                click: function($event) {
-                                  return _vm.abrirModal(
-                                    "productos",
-                                    "actualizar",
-                                    productos
-                                  )
-                                }
-                              }
-                            },
-                            [
-                              _c("i", {
-                                staticClass: "icon-eye",
-                                attrs: { title: "Ver detalles" }
-                              })
-                            ]
-                          ),
-                          _vm._v("  \n\n                                    "),
-                          _c(
-                            "button",
-                            {
                               staticClass: "btn btn-warning btn-sm",
                               attrs: { type: "button" },
                               on: {
@@ -68810,7 +68733,7 @@ var render = function() {
                             ]
                           ),
                           _vm._v("  \n\n                                "),
-                          productos.estado == "A"
+                          productos.estado == "1"
                             ? [
                                 _c(
                                   "button",
@@ -68835,32 +68758,7 @@ var render = function() {
                               ]
                             : _vm._e(),
                           _vm._v(" "),
-                          productos.estado == "E"
-                            ? [
-                                _c(
-                                  "button",
-                                  {
-                                    staticClass: "btn btn-danger btn-sm",
-                                    attrs: { type: "button" },
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.desactivarProductos(
-                                          productos.id
-                                        )
-                                      }
-                                    }
-                                  },
-                                  [
-                                    _c("i", {
-                                      staticClass: "icon-trash",
-                                      attrs: { title: "Desactivar" }
-                                    })
-                                  ]
-                                )
-                              ]
-                            : _vm._e(),
-                          _vm._v(" "),
-                          productos.estado == "I"
+                          productos.estado == "2"
                             ? [
                                 _c(
                                   "button",

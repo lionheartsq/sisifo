@@ -41,25 +41,16 @@
 
                                     <tr v-for="grupos in arrayGrupos" :key="grupos.id">
                                         <td>
-                                            <button type="button" @click="abrirModal('grupos','actualizar',grupos)" class="btn btn-info btn-sm">
-                                            <i class="icon-eye" title="Ver detalles"></i>
-                                            </button> &nbsp;
-
                                             <button type="button" @click="abrirModal('grupos','actualizar',grupos)" class="btn btn-warning btn-sm">
                                             <i class="icon-pencil" title="Editar datos"></i>
                                             </button> &nbsp;
 
-                                        <template v-if="grupos.estado == 'A'">
+                                        <template v-if="grupos.estado == '1'">
                                             <button type="button" class="btn btn-danger btn-sm" @click="desactivarGrupos(grupos.id)">
                                                 <i class="icon-trash" title="Desactivar"></i>
                                             </button>
                                         </template>
-                                        <template v-if="grupos.estado == 'E'">
-                                            <button type="button" class="btn btn-danger btn-sm" @click="desactivarGrupos(grupos.id)">
-                                                <i class="icon-trash" title="Desactivar"></i>
-                                            </button>
-                                        </template>
-                                        <template v-if="grupos.estado == 'I'">
+                                        <template v-if="grupos.estado == '2'">
                                             <button type="button" class="btn btn-success btn-sm" @click="activarGrupos(grupos.id)">
                                                 <i class="icon-check" title="Reactivar"></i>
                                             </button>
@@ -260,8 +251,8 @@
 
                 let me=this;
                 axios.put('/grupos/update',{
-                    'Grupos': this.grupos,
-                    'id': this.idGrupos
+                    'id': this.idGrupos,
+                    'Grupos': this.grupos
                     //'estado': this.estado,
                     //'dato': this.dato
                 }).then(function (response) {

@@ -55,8 +55,8 @@ class GruposController extends Controller
         $idEmpresa=Auth::user()->idEmpresa;
         $Grupos=new Grupos();
         $Grupos->detalleGrupos=$request->detalleGrupos;
-        $Grupos->estado=$request->estado;
-        $Grupos->idEmpresas=$idEmpresas;
+        $Grupos->idEmpresa=$idEmpresa;
+        $Grupos->estado=1;
         $Grupos->save();
     }
 
@@ -65,8 +65,8 @@ class GruposController extends Controller
         $idEmpresa=Auth::user()->idEmpresa;
         $Grupos=Grupos::findOrFail($request->id);
         $Grupos->detalleGrupos=$request->detalleGrupos;
-        $Grupos->estado=$request->estado;
-        $Grupos->idEmpresas=$idEmpresas;
+        $Grupos->idEmpresa=$idEmpresa;
+        $Grupos->estado=1;
         $Grupos->save();
     }
 

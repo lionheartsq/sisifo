@@ -58,7 +58,9 @@ class ProductosController extends Controller
         $Productos->detalle=$request->detalle;
         $Productos->idMedida=$request->idMedida;
         $Productos->valorCompra=$request->valorCompra;
-        $Productos->pvp=$pvp;
+        $Productos->pvp=$request->pvp;
+        $Productos->idEmpresa=$idEmpresa;
+        $Productos->estado=1;
         $Productos->save();
     }
 
@@ -70,7 +72,9 @@ class ProductosController extends Controller
         $Productos->detalle=$request->detalle;
         $Productos->idMedida=$request->idMedida;
         $Productos->valorCompra=$request->valorCompra;
-        $Productos->pvp=$pvp;
+        $Productos->pvp=$request->pvp;
+        $Productos->idEmpresa=$idEmpresa;
+        $Productos->estado=1;
         $Productos->save();
     }
 
