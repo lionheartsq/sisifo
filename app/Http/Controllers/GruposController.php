@@ -44,7 +44,7 @@ class GruposController extends Controller
     public function listado(){
 
         $grupos = Grupos::where('grupos.estado','=','1')
-        ->orderBy('grupos.id','desc')
+        ->orderBy('grupos.detalleGrupos','asc')
         ->get();
 
         return ['grupos' => $grupos];

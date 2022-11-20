@@ -139,8 +139,10 @@
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Medida</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="idMedida" class="form-control" placeholder="Medida de los productos">
-                                            <span class="help-block">(*) Ingrese la medida de los productos</span>
+                                            <select class="form-control" v-model="idMedida">
+                                                <option value="0" disabled>Seleccione una medida</option>
+                                                <option v-for="relacion in arrayMedidas" :key="relacion.id" :value="relacion.id" v-text="relacion.nombre"></option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -160,15 +162,19 @@
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Impuesto</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="idImpuesto" class="form-control" placeholder="Impuesto de los productos">
-                                            <span class="help-block">(*) Ingrese el impuesto de los productos</span>
+                                            <select class="form-control" v-model="idImpuesto">
+                                                <option value="0" disabled>Seleccione un impuesto</option>
+                                                <option v-for="relacion in arrayImpuestos" :key="relacion.id" :value="relacion.id" v-text="relacion.nombre"></option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Grupo</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="idGrupos" class="form-control" placeholder="grupo de los productos">
-                                            <span class="help-block">(*) Ingrese el grupo de los productos</span>
+                                            <select class="form-control" v-model="idGrupos">
+                                                <option value="0" disabled>Seleccione un grupo</option>
+                                                <option v-for="relacion in arrayGrupos" :key="relacion.id" :value="relacion.id" v-text="relacion.detalleGrupos"></option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="form-group row div-error" v-show="errorUsuario">
@@ -202,6 +208,9 @@
                 productos:'',
                 estado:'',
                 arrayProductos : [],
+                arrayMedidas : [],
+                arrayImpuestos : [],
+                arrayGrupos : [],
                 modal : 0,
                 tituloModal : '',
                 tipoAccion : 0,
@@ -415,6 +424,51 @@
                 this.tituloModal='';
                 this.Productos='';
             },
+            listarGrupos(){
+                let me=this;
+                var url='/grupos/listado';
+                // Make a request for a user with a given ID
+                axios.get(url).then(function (response) {
+                    // handle success
+                var respuesta=response.data;
+                me.arrayGrupos=respuesta.detalleGrupos;
+                    //console.log(response);
+                })
+                .catch(function (error) {
+                    // handle error
+                    console.log(error);
+                })
+            },
+            listarMedidas(){
+                let me=this;
+                var url='/medida/listado';
+                // Make a request for a user with a given ID
+                axios.get(url).then(function (response) {
+                    // handle success
+                var respuesta=response.data;
+                me.arrayMedidas=respuesta.nombre;
+                    //console.log(response);
+                })
+                .catch(function (error) {
+                    // handle error
+                    console.log(error);
+                })
+            },
+            listarImpuestos(){
+                let me=this;
+                var url='/impuesto/listado';
+                // Make a request for a user with a given ID
+                axios.get(url).then(function (response) {
+                    // handle success
+                var respuesta=response.data;
+                me.arrayImpuestos=respuesta.nombre;
+                    //console.log(response);
+                })
+                .catch(function (error) {
+                    // handle error
+                    console.log(error);
+                })
+            },
             abrirModal(modelo, accion, data=[]){
             //tres argumentos, el modelo a modificar o crear, la accion como tal y el arreglo del registro en la tabla
             switch(modelo){
@@ -450,6 +504,9 @@
         },
         mounted() {
             this.listarProductos(1,this.buscar,this.criterio);
+            this.listarMedidas();
+            this.listarImpuestos();
+            this.listarGrupos();
         }
     }
 </script>

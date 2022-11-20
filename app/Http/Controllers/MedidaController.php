@@ -44,7 +44,7 @@ class MedidaController extends Controller
     public function listado(){
 
         $medida = Medida::where('medida.estado','=','1')
-        ->orderBy('medida.id','desc')
+        ->orderBy('medida.nombre','asc')
         ->get();
 
         return ['medida' => $medida];
@@ -56,7 +56,7 @@ class MedidaController extends Controller
         $Medida=new Medida();
         $Medida->nombre=$request->nombre;
         $Medida->estado=$request->estado;
-        $Medida->idEmpresas=$idEmpresas;
+        $Medida->idEmpresas=$idEmpresa;
         $Medida->save();
     }
 
@@ -66,7 +66,7 @@ class MedidaController extends Controller
         $Medida=Medida::findOrFail($request->id);
         $Medida->nombre=$request->nombre;
         $Medida->estado=$request->estado;
-        $Medida->idEmpresas=$idEmpresas;
+        $Medida->idEmpresas=$idEmpresa;
         $Medida->save();
     }
 

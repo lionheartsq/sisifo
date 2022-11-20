@@ -150,12 +150,10 @@
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Rol</label>
                                         <div class="col-md-9">
-                                            <div class="input-group">
-                                                <select class="form-control col-md-3" v-model="idRol">
-                                                <option value="2">Administrador</option>
-                                                <option value="3">Gestor</option>
-                                                </select>
-                                            </div>
+                                            <select class="form-control" v-model="idRol">
+                                                <option value="0" disabled>Seleccione un rol</option>
+                                                <option v-for="relacion in arrayRoles" :key="relacion.id" :value="relacion.id" v-text="relacion.rol"></option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="form-group row div-error" v-show="errorUsuario">
@@ -191,10 +189,9 @@
                 documento:'',
                 email:'',
                 password:'',
-                idEmpresa:1,
-                idRol:2,
                 estado:'',
                 arrayUsuarios : [],
+                arrayRoles : [],
                 modal : 0,
                 tituloModal : '',
                 tipoAccion : 0,
@@ -265,6 +262,21 @@
                 me.pagination.current_page = page;
                 //envia peticion para ver los valores asociados a esa pagina
                 me.listarUsuario(page,buscar,criterio);
+            },
+            listarRoles(){
+                let me=this;
+                var url='/roles/listado';
+                // Make a request for a user with a given ID
+                axios.get(url).then(function (response) {
+                    // handle success
+                var respuesta=response.data;
+                me.arrayRoles=respuesta.roles;
+                    //console.log(response);
+                })
+                .catch(function (error) {
+                    // handle error
+                    console.log(error);
+                })
             },
             crearUsuario(){
                 //valido con el metodo de validacion creado
@@ -440,6 +452,7 @@
         },
         mounted() {
             this.listarUsuario(1,this.buscar,this.criterio);
+            this.listarRoles();
         }
     }
 </script>

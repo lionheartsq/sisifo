@@ -11628,6 +11628,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -11636,6 +11642,9 @@ __webpack_require__.r(__webpack_exports__);
       productos: '',
       estado: '',
       arrayProductos: [],
+      arrayMedidas: [],
+      arrayImpuestos: [],
+      arrayGrupos: [],
       modal: 0,
       tituloModal: '',
       tipoAccion: 0,
@@ -11844,6 +11853,45 @@ __webpack_require__.r(__webpack_exports__);
       this.tituloModal = '';
       this.Productos = '';
     },
+    listarGrupos: function listarGrupos() {
+      var me = this;
+      var url = '/grupos/listado'; // Make a request for a user with a given ID
+
+      axios.get(url).then(function (response) {
+        // handle success
+        var respuesta = response.data;
+        me.arrayGrupos = respuesta.detalleGrupos; //console.log(response);
+      })["catch"](function (error) {
+        // handle error
+        console.log(error);
+      });
+    },
+    listarMedidas: function listarMedidas() {
+      var me = this;
+      var url = '/medida/listado'; // Make a request for a user with a given ID
+
+      axios.get(url).then(function (response) {
+        // handle success
+        var respuesta = response.data;
+        me.arrayMedidas = respuesta.nombre; //console.log(response);
+      })["catch"](function (error) {
+        // handle error
+        console.log(error);
+      });
+    },
+    listarImpuestos: function listarImpuestos() {
+      var me = this;
+      var url = '/impuesto/listado'; // Make a request for a user with a given ID
+
+      axios.get(url).then(function (response) {
+        // handle success
+        var respuesta = response.data;
+        me.arrayImpuestos = respuesta.nombre; //console.log(response);
+      })["catch"](function (error) {
+        // handle error
+        console.log(error);
+      });
+    },
     abrirModal: function abrirModal(modelo, accion) {
       var data = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [];
 
@@ -11884,6 +11932,9 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.listarProductos(1, this.buscar, this.criterio);
+    this.listarMedidas();
+    this.listarImpuestos();
+    this.listarGrupos();
   }
 });
 
@@ -14157,8 +14208,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -14169,10 +14218,9 @@ __webpack_require__.r(__webpack_exports__);
       documento: '',
       email: '',
       password: '',
-      idEmpresa: 1,
-      idRol: 2,
       estado: '',
       arrayUsuarios: [],
+      arrayRoles: [],
       modal: 0,
       tituloModal: '',
       tipoAccion: 0,
@@ -14244,6 +14292,19 @@ __webpack_require__.r(__webpack_exports__);
       me.pagination.current_page = page; //envia peticion para ver los valores asociados a esa pagina
 
       me.listarUsuario(page, buscar, criterio);
+    },
+    listarRoles: function listarRoles() {
+      var me = this;
+      var url = '/roles/listado'; // Make a request for a user with a given ID
+
+      axios.get(url).then(function (response) {
+        // handle success
+        var respuesta = response.data;
+        me.arrayRoles = respuesta.roles; //console.log(response);
+      })["catch"](function (error) {
+        // handle error
+        console.log(error);
+      });
     },
     crearUsuario: function crearUsuario() {
       //valido con el metodo de validacion creado
@@ -14418,6 +14479,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.listarUsuario(1, this.buscar, this.criterio);
+    this.listarRoles();
   }
 });
 
@@ -69007,34 +69069,53 @@ var render = function() {
                       ),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-md-9" }, [
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.idMedida,
-                              expression: "idMedida"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          attrs: {
-                            type: "text",
-                            placeholder: "Medida de los productos"
-                          },
-                          domProps: { value: _vm.idMedida },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.idMedida,
+                                expression: "idMedida"
                               }
-                              _vm.idMedida = $event.target.value
+                            ],
+                            staticClass: "form-control",
+                            on: {
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.idMedida = $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              }
                             }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "help-block" }, [
-                          _vm._v("(*) Ingrese la medida de los productos")
-                        ])
+                          },
+                          [
+                            _c(
+                              "option",
+                              { attrs: { value: "0", disabled: "" } },
+                              [_vm._v("Seleccione una medida")]
+                            ),
+                            _vm._v(" "),
+                            _vm._l(_vm.arrayMedidas, function(relacion) {
+                              return _c("option", {
+                                key: relacion.id,
+                                domProps: {
+                                  value: relacion.id,
+                                  textContent: _vm._s(relacion.nombre)
+                                }
+                              })
+                            })
+                          ],
+                          2
+                        )
                       ])
                     ]),
                     _vm._v(" "),
@@ -69133,34 +69214,53 @@ var render = function() {
                       ),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-md-9" }, [
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.idImpuesto,
-                              expression: "idImpuesto"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          attrs: {
-                            type: "text",
-                            placeholder: "Impuesto de los productos"
-                          },
-                          domProps: { value: _vm.idImpuesto },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.idImpuesto,
+                                expression: "idImpuesto"
                               }
-                              _vm.idImpuesto = $event.target.value
+                            ],
+                            staticClass: "form-control",
+                            on: {
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.idImpuesto = $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              }
                             }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "help-block" }, [
-                          _vm._v("(*) Ingrese el impuesto de los productos")
-                        ])
+                          },
+                          [
+                            _c(
+                              "option",
+                              { attrs: { value: "0", disabled: "" } },
+                              [_vm._v("Seleccione un impuesto")]
+                            ),
+                            _vm._v(" "),
+                            _vm._l(_vm.arrayImpuestos, function(relacion) {
+                              return _c("option", {
+                                key: relacion.id,
+                                domProps: {
+                                  value: relacion.id,
+                                  textContent: _vm._s(relacion.nombre)
+                                }
+                              })
+                            })
+                          ],
+                          2
+                        )
                       ])
                     ]),
                     _vm._v(" "),
@@ -69175,34 +69275,53 @@ var render = function() {
                       ),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-md-9" }, [
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.idGrupos,
-                              expression: "idGrupos"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          attrs: {
-                            type: "text",
-                            placeholder: "grupo de los productos"
-                          },
-                          domProps: { value: _vm.idGrupos },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.idGrupos,
+                                expression: "idGrupos"
                               }
-                              _vm.idGrupos = $event.target.value
+                            ],
+                            staticClass: "form-control",
+                            on: {
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.idGrupos = $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              }
                             }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "help-block" }, [
-                          _vm._v("(*) Ingrese el grupo de los productos")
-                        ])
+                          },
+                          [
+                            _c(
+                              "option",
+                              { attrs: { value: "0", disabled: "" } },
+                              [_vm._v("Seleccione un grupo")]
+                            ),
+                            _vm._v(" "),
+                            _vm._l(_vm.arrayGrupos, function(relacion) {
+                              return _c("option", {
+                                key: relacion.id,
+                                domProps: {
+                                  value: relacion.id,
+                                  textContent: _vm._s(relacion.detalleGrupos)
+                                }
+                              })
+                            })
+                          ],
+                          2
+                        )
                       ])
                     ]),
                     _vm._v(" "),
@@ -73529,47 +73648,53 @@ var render = function() {
                       ),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-md-9" }, [
-                        _c("div", { staticClass: "input-group" }, [
-                          _c(
-                            "select",
-                            {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.idRol,
-                                  expression: "idRol"
-                                }
-                              ],
-                              staticClass: "form-control col-md-3",
-                              on: {
-                                change: function($event) {
-                                  var $$selectedVal = Array.prototype.filter
-                                    .call($event.target.options, function(o) {
-                                      return o.selected
-                                    })
-                                    .map(function(o) {
-                                      var val =
-                                        "_value" in o ? o._value : o.value
-                                      return val
-                                    })
-                                  _vm.idRol = $event.target.multiple
-                                    ? $$selectedVal
-                                    : $$selectedVal[0]
-                                }
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.idRol,
+                                expression: "idRol"
                               }
-                            },
-                            [
-                              _c("option", { attrs: { value: "2" } }, [
-                                _vm._v("Administrador")
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "3" } }, [
-                                _vm._v("Gestor")
-                              ])
-                            ]
-                          )
-                        ])
+                            ],
+                            staticClass: "form-control",
+                            on: {
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.idRol = $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              }
+                            }
+                          },
+                          [
+                            _c(
+                              "option",
+                              { attrs: { value: "0", disabled: "" } },
+                              [_vm._v("Seleccione un rol")]
+                            ),
+                            _vm._v(" "),
+                            _vm._l(_vm.arrayRoles, function(relacion) {
+                              return _c("option", {
+                                key: relacion.id,
+                                domProps: {
+                                  value: relacion.id,
+                                  textContent: _vm._s(relacion.rol)
+                                }
+                              })
+                            })
+                          ],
+                          2
+                        )
                       ])
                     ]),
                     _vm._v(" "),

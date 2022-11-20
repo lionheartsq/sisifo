@@ -49,7 +49,7 @@ class FacturasController extends Controller
 
         return ['facturas' => $facturas];
     }
-   
+
     public function store(Request $request){
         //if(!$request->ajax()) return redirect('/');
         $idEmpresa=Auth::user()->idEmpresa;
@@ -58,11 +58,11 @@ class FacturasController extends Controller
         $Facturas->fecha=$request->fecha;
         $Facturas->valor=$request->valor;
         $Facturas->impuesto=$request->impuesto;
-        $Facturas->total=$total;
-        $Facturas->vendedor=$vendedor;
-        $Facturas->idVendedor=$idVendedor;
-        $Facturas->tipoFactura=$tipoFactura;
-        $Facturas->idClientes=$idClientes;
+        $Facturas->total=$request->total;
+        $Facturas->vendedor=$request->vendedor;
+        $Facturas->idVendedor=$request->idVendedor;
+        $Facturas->tipoFactura=$request->tipoFactura;
+        $Facturas->idClientes=$request->idClientes;
         $Facturas->idEmpresa=$idEmpresa;
         $Facturas->save();
     }
@@ -75,11 +75,11 @@ class FacturasController extends Controller
         $Facturas->fecha=$request->fecha;
         $Facturas->valor=$request->valor;
         $Facturas->impuesto=$request->impuesto;
-        $Facturas->total=$total;
-        $Facturas->vendedor=$vendedor;
-        $Facturas->idVendedor=$idVendedor;
-        $Facturas->tipoFactura=$tipoFactura;
-        $Facturas->idClientes=$idClientes;
+        $Facturas->total=$request->total;
+        $Facturas->vendedor=$request->vendedor;
+        $Facturas->idVendedor=$request->idVendedor;
+        $Facturas->tipoFactura=$request->tipoFactura;
+        $Facturas->idClientes=$request->idClientes;
         $Facturas->idEmpresa=$idEmpresa;
         $Facturas->save();
     }
