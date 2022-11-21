@@ -14,12 +14,26 @@
                                     <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
                                         <div class="row">
                                             <div class="col-md-6">
+
                                                 <div class="form-group row">
-                                                    <label class="col-md-3 form-control-label" for="text-input">Cliente</label>
-                                                    <div class="col-md-9">
-                                                        <input v-focus type="text" v-model="cedula" class="form-control" placeholder="Cédula del cliente">
-                                                    </div>
+                                                    <label class="col-md-3 form-control-label" for="text-input">Cliente <span v-if="selecteduserCustom">{{selecteduserCustom.nombres}}</span></label>
+                                                    <vue-typeahead-bootstrap
+                                                    class="col-md-9"
+                                                    v-model="cedula"
+                                                    :data="clientesFiltro"
+                                                    :showOnFocus="true"
+                                                    :ieCloseFix="false"
+                                                    :serializer="item => item.cedula"
+                                                    @hit="selecteduserCustom = $event"
+                                                    :disabledValues="(selecteduserCustom ? [selecteduserCustom.nombres] : [])"
+                                                    placeholder="Ingrese cédula del cliente"
+                                                    @input="lookupUserCustom"
+                                                    :background-variant-resolver="(user) => ((user.cedula % 2) == 0) ? 'light':'dark'"
+                                                    />
                                                 </div>
+
+                                                <input type="hidden" v-model="idCliente" v-if="selecteduserCustom">{{selecteduserCustom.id}}</input>
+
                                                 <div class="form-group row">
                                                     <label class="col-md-3 form-control-label" for="text-input">Nombres Cliente</label>
                                                     <div class="col-md-9">
@@ -105,7 +119,7 @@
                                         </div>
                                     </form>
                             </div>
-                            <button type="button" class="btn btn-primary" @click="crearManoDeObraProducto()">Guardar</button>
+                            <button type="button" class="btn btn-primary" @click="crearFacturas()">Guardar</button>
                         </div>
                     </div>
 
@@ -157,6 +171,7 @@
 </template>
 
 <script>
+    import {debounce} from 'lodash';
     import moment from 'moment';
     import detallefacturas from '../components/Detallefacturas';
     export default {
@@ -165,6 +180,16 @@
         },
         data(){
             return{
+                selecteduser: null,
+                clientesFiltro: [],
+                selecteduserCustom: null,
+                correo: '',
+                cedula: '',
+                nombres: '',
+                apellidos: '',
+                direccion: '',
+                telefono: '',
+                consecutivo: '',
                 colorx: '#8B0000',
                 listado: 1,
                 idProducto:0,
@@ -186,6 +211,16 @@
         computed:{
         },
         methods : {
+            lookupUserCustom: debounce(function(){
+            // in practice this action should be debounced
+            fetch('/clientes/listadofiltrado/'+this.cedula)
+              .then(response => {
+                return response.json();
+              })
+              .then(data => {
+                this.clientesFiltro = data.clientes;
+              })
+            }, 300),
             onChange(event) {
             //console.log(event.target.value);
             this.flag=event.target.value;
@@ -195,12 +230,15 @@
             },
             crearFacturas(){
                 //valido con el metodo de validacion creado
+                /*                 
                 if(this.validarFacturas()){
                     return;
-                }
+                } 
+                */
 
                 let me=this;
                 axios.post('/facturas/store',{
+                    'cedula': this.cedula,
                     'consecutivo': this.consecutivo,
                     'fecha': this.fecha,
                     'valor': this.valor,
@@ -210,43 +248,11 @@
                     'observaciones': this.observaciones,
                     'idClientes': this.idClientes
                 }).then(function (response) {
-                me.cerrarModal();
                 me.listarFacturas(1,'','Facturas');
                 })
                 .catch(function (error) {
                     console.log(error);
                 });
-            },
-            nuevoValorMateria(event){
-                console.log(event.target.value);
-                this.identificadorMateria=event.target.value;
-                let me=this;
-                var url='/materiaprimaproducto/valorPrecioBase/'+this.identificadorMateria;
-                axios.get(url).then(function (response) {
-                var respuesta=response.data;
-                me.valorPrecioBase=respuesta.valorPrecioBase;
-                me.precioBase=respuesta.valorPrecioBase;
-                me.unidadBase=respuesta.unidadBase;
-                console.log(me.valorPrecioBase);
-                })
-                .catch(function (error) {
-                    // handle error
-                    console.log(error);
-                })
-            },
-            listarVariab(){
-                let me=this;
-                var url='/financiera';
-                // Make a request for a user with a given ID
-                axios.get(url).then(function (response) {
-                var respuesta=response.data;
-                me.liqui=respuesta.liqui;
-                me.paraf=respuesta.paraf;
-                })
-                .catch(function (error) {
-                    // handle error
-                    console.log(error);
-                })
             },
             indexChange: function(args) {
                 let newIndex = args.value
@@ -255,20 +261,6 @@
             forceRerender() {
                 this.componentKey += 1;
                },
-            listarProducto(page,buscar,criterio){
-                let me=this;
-                var url='/producto?page=' + page + '&buscar=' + buscar + '&criterio=' + criterio;
-                axios.get(url).then(function (response) {
-                var respuesta=response.data;
-                me.arrayProducto=respuesta.productos.data;
-                me.pagination=respuesta.pagination;
-                    //console.log(response);
-                })
-                .catch(function (error) {
-                    // handle error
-                    console.log(error);
-                })
-            },
             mostrarDetalle(id,producto,area){
                 this.listado=0;
                 this.identificador=id;
@@ -330,43 +322,6 @@
                     this.selectGestionMateria();
                     break;
                 }
-
-                case "gestionManoDeObra":
-                {
-                    switch (accion) {
-                        case 'crear':{
-                            this.modal=1;
-                            this.tipoModal=2;
-                            this.manodeobraproducto='';
-                            this.idPerfil=data['idPerfil'];
-                            this.idHoja=this.identificador;
-                            this.idArea=this.identificadorArea;
-                            this.tituloModal='Asignar nueva mano de obra';
-                            this.tipoAccion= 1;
-                            this.selectRelacion(this.idArea);
-                            break;
-                        }
-                        case 'actualizar':{
-                            console.log(data);
-                            this.modal=1;
-                            this.tipoModal=2;
-                            this.idManoDeObraProducto=data['id'];
-                            this.idPerfil=data['idPerfil'];
-                            this.idProceso=data['idProceso'];
-                            this.tiempo=data['tiempo'];
-                            this.precio=data['precio'];
-                            this.idHoja=this.identificador;
-                            this.idArea=this.identificadorArea;
-                            this.tituloModal='Editar mano de obra';
-                            this.tipoAccion= 2;
-                            this.selectRelacion(this.idArea);
-                            this.selectRelacionPerfil(this.idProceso);
-                            break;
-                        }
-                    }
-                    break;
-                }
-
             }
 
             },
@@ -439,14 +394,6 @@
                 .catch(function (error) {
                     console.log(error);
                 });
-            },
-            validarMateriaPrimaProducto(){
-                this.errorMateriaPrimaProducto=0;
-                this.errorMensaje=[];
-                if (!this.cantidad) this.errorMensaje.push("La cantidad no puede estar vacia");
-                if (this.errorMensaje.length) this.errorMateriaPrimaProducto=1;
-
-                return this.errorMateriaPrimaProducto;
             },
         },
         mounted() {

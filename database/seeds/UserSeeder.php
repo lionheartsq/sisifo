@@ -42,5 +42,16 @@ class UserSeeder extends Seeder
             'idEmpresa' => '1',
             'idRol' => '2',
         ]);
+
+        DB::table('users')->insert([
+            'documento' => '901538355',
+            'email' => 'hotelrioazul@gmail.com',
+            'nombres' => 'Administrador',
+            'apellidos' => 'Hotel',
+            'password' => bcrypt('12345'),
+            'idEmpresa' => '1',
+            'idRol' => '1',
+        ]);
+
     }
 }
