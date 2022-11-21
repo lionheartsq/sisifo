@@ -19,6 +19,14 @@ window.Vue.use(Vuesax, {
     // options here
   });
 
+Vue.directive('focus', {
+    // Cuando el elemento enlazado se inserta en el DOM...
+    inserted: function (el) {
+      // Enfoca el elemento
+      el.focus()
+    }
+  })
+
 import VueCurrencyFilter from 'vue-currency-filter';
 
 Vue.use(VueCurrencyFilter,[

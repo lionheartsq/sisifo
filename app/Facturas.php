@@ -17,10 +17,11 @@ class Facturas extends Model
         'impuesto',
         'total',
         'vendedor',
-        'idVendedor', 
-        'tipoFactura', 
-        'idClientes', 
-        'idEmpresa', 
+        'observaciones',
+        'idVendedor',
+        'tipoFactura',
+        'idClientes',
+        'idEmpresa',
         'estado'
-    ]; 
-} 
+    ];
+}

@@ -44,7 +44,7 @@ class ImpuestoController extends Controller
     public function listado(){
 
         $impuesto = Impuesto::where('impuesto.estado','=','1')
-        ->orderBy('impuesto.id','desc')
+        ->orderBy('impuesto.nombre','asc')
         ->get();
 
         return ['impuesto' => $impuesto];

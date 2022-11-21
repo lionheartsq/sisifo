@@ -214,6 +214,9 @@
                 modal : 0,
                 tituloModal : '',
                 tipoAccion : 0,
+                idGrupos : 0,
+                idMedida : 0,
+                idImpuesto : 0,
                 errorProductos : 0,
                 errorMensaje : [],
                 pagination : {
@@ -431,7 +434,7 @@
                 axios.get(url).then(function (response) {
                     // handle success
                 var respuesta=response.data;
-                me.arrayGrupos=respuesta.detalleGrupos;
+                me.arrayGrupos=respuesta.grupos;
                     //console.log(response);
                 })
                 .catch(function (error) {
@@ -446,7 +449,7 @@
                 axios.get(url).then(function (response) {
                     // handle success
                 var respuesta=response.data;
-                me.arrayMedidas=respuesta.nombre;
+                me.arrayMedidas=respuesta.medida;
                     //console.log(response);
                 })
                 .catch(function (error) {
@@ -461,7 +464,7 @@
                 axios.get(url).then(function (response) {
                     // handle success
                 var respuesta=response.data;
-                me.arrayImpuestos=respuesta.nombre;
+                me.arrayImpuestos=respuesta.impuesto;
                     //console.log(response);
                 })
                 .catch(function (error) {

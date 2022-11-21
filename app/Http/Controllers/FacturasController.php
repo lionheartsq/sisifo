@@ -53,6 +53,7 @@ class FacturasController extends Controller
     public function store(Request $request){
         //if(!$request->ajax()) return redirect('/');
         $idEmpresa=Auth::user()->idEmpresa;
+        $idVendedor=Auth::user()->id;
         $Facturas=new Facturas();
         $Facturas->consecutivo=$request->consecutivo;
         $Facturas->fecha=$request->fecha;
@@ -60,27 +61,35 @@ class FacturasController extends Controller
         $Facturas->impuesto=$request->impuesto;
         $Facturas->total=$request->total;
         $Facturas->vendedor=$request->vendedor;
-        $Facturas->idVendedor=$request->idVendedor;
-        $Facturas->tipoFactura=$request->tipoFactura;
+        $Facturas->idVendedor=$idVendedor;
+        $Facturas->observaciones=$request->observaciones;
+        $Facturas->tipoFactura=1; //Factura tipo 1 contado, tipo 2 crédito en caso de update
         $Facturas->idClientes=$request->idClientes;
         $Facturas->idEmpresa=$idEmpresa;
+        $Facturas->estado=1;
         $Facturas->save();
     }
 
     public function update(Request $request){
         //if(!$request->ajax()) return redirect('/');
         $idEmpresa=Auth::user()->idEmpresa;
+        $idVendedor=Auth::user()->id;
+        $nombres=Auth::user()->nombres;
+        $apellidos=Auth::user()->apellidos;
+        $vendedor=$nombres." ".$apellidos;
         $Facturas=Facturas::findOrFail($request->id);
         $Facturas->consecutivo=$request->consecutivo;
         $Facturas->fecha=$request->fecha;
         $Facturas->valor=$request->valor;
         $Facturas->impuesto=$request->impuesto;
         $Facturas->total=$request->total;
-        $Facturas->vendedor=$request->vendedor;
-        $Facturas->idVendedor=$request->idVendedor;
+        $Facturas->vendedor=$vendedor;
+        $Facturas->idVendedor=$idVendedor;
+        $Facturas->observaciones=$request->observaciones;
         $Facturas->tipoFactura=$request->tipoFactura;
         $Facturas->idClientes=$request->idClientes;
         $Facturas->idEmpresa=$idEmpresa;
+        $Facturas->estado=1;
         $Facturas->save();
     }
 

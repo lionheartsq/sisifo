@@ -12,27 +12,97 @@
                         <div class="card">
                             <div class="card-body">
                                     <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
-
-                                        <div class="form-group row">
-                                            <label class="col-md-3 form-control-label" for="text-input">Materia Prima</label>
-                                            <div class="col-md-9">
-                                                <select class="form-control" v-model="idMateriaPrima" @change='nuevoValorMateria($event)'>
-                                                    <option value="0" disabled>Seleccione una materia</option>
-                                                    <option v-for="gestionmateria in arrayGestionMaterias" :key="gestionmateria.idGestionMateria" :value="gestionmateria.idGestionMateria" v-text="gestionmateria.gestionMateria"></option>
-                                                </select>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label class="col-md-3 form-control-label" for="text-input">Cliente</label>
+                                                    <div class="col-md-9">
+                                                        <input v-focus type="text" v-model="cedula" class="form-control" placeholder="Cédula del cliente">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-md-3 form-control-label" for="text-input">Nombres Cliente</label>
+                                                    <div class="col-md-9">
+                                                        <input type="text" v-model="nombres" class="form-control" placeholder="Nombres del cliente">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-md-3 form-control-label" for="text-input">Apellidos Cliente</label>
+                                                    <div class="col-md-9">
+                                                        <input type="text" v-model="apellidos" class="form-control" placeholder="Apellidos del cliente">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-md-3 form-control-label" for="text-input">Direccion</label>
+                                                    <div class="col-md-9">
+                                                        <input type="text" v-model="direccion" class="form-control" placeholder="Direccion del cliente">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-md-3 form-control-label" for="text-input">Telefono</label>
+                                                    <div class="col-md-9">
+                                                        <input type="text" v-model="telefono" class="form-control" placeholder="Telefono del cliente">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-md-3 form-control-label" for="text-input">Correo</label>
+                                                    <div class="col-md-9">
+                                                        <input type="text" v-model="correo" class="form-control" placeholder="Correo del cliente">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-md-3 form-control-label" for="text-input">Tipo Factura</label>
+                                                    <div class="col-md-9">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <input type="radio" v-model="tipoFactura" value="1"> Contado
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <input type="radio" v-model="tipoFactura" value="2"> Crédito
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label class="col-md-3 form-control-label" for="text-input">Consecutivo</label>
+                                                    <div class="col-md-9">
+                                                        <input type="text" v-model="consecutivo" class="form-control" placeholder="Consecutivo" readonly>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-md-3 form-control-label" for="text-input">Fecha</label>
+                                                    <div class="col-md-9">
+                                                        <input type="date" v-model="fecha" class="form-control" readonly>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-md-3 form-control-label" for="text-input">Valor antes de iva</label>
+                                                    <div class="col-md-9">
+                                                        <input type="text" v-model="valor" class="form-control" readonly>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-md-3 form-control-label" for="text-input">Iva</label>
+                                                    <div class="col-md-9">
+                                                        <input type="text" v-model="impuesto" class="form-control" readonly>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-md-3 form-control-label" for="text-input">Total</label>
+                                                    <div class="col-md-9">
+                                                        <input type="text" v-model="total" class="form-control" readonly>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-md-3 form-control-label" for="text-input">Obervaciones</label>
+                                                    <div class="col-md-9">
+                                                        <input type="text" v-model="observaciones" class="form-control">
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-
-                                        <div class="form-group row">
-                                            <label class="col-md-3 form-control-label" for="text-input">Cantidad <br>
-                                                <span style="color:red;"><sub><b><i>( Cantidad medida en: {{unidadBase}} )</i></b></sub></span>
-                                            </label>
-                                            <div class="col-md-9">
-                                                <input type="number" step="0.01" v-model="cantidad" class="form-control" placeholder="Cantidad de material">
-                                                <span class="help-block"><b>(*) Ingrese la cantidad de material en: <span style="color:red;">{{unidadBase}}</span></b></span>
-                                            </div>
-                                        </div>
-
                                     </form>
                             </div>
                             <button type="button" class="btn btn-primary" @click="crearManoDeObraProducto()">Guardar</button>
@@ -87,6 +157,7 @@
 </template>
 
 <script>
+    import moment from 'moment';
     import detallefacturas from '../components/Detallefacturas';
     export default {
         components: {
@@ -96,57 +167,19 @@
             return{
                 colorx: '#8B0000',
                 listado: 1,
-                idHojaDeCosto:0,
                 idProducto:0,
+                fecha : '',
                 id:'',
+                observaciones:'Ninguna',
                 producto:'',
-                referencia:'',
-                foto:'',
-                descripcion:'',
                 estado:'',
-                idColeccion:0,
-                coleccion:'',
-                referencia:'',
-                idArea:0,
-                area:'',
                 arrayProducto : [],
-                cantidad:0,
-                precio:0,
-                tipoDeCosto:'Directo',
-                idProceso:0,
-                tiempo:1,
+                total:0,
+                impuesto:0,
                 valor:0,
-                valorPrecioBase:0,
-                preciom:0,
-                liquidacion:3,
-                parafiscales:4,
-                liqui:'',
-                paraf:'',
-                proceso:'',
-                relacion:'',
-                perfilrelacion:'',
-                arrayRelacion:[],
-                idPerfil:0,
-                perfil:'',
-                valorMinuto:0,
-                arrayPerfilRelacion:[],
-                idMateriaPrima:0,
-                gestionmateria:'',
-                precioBase:0,
-                unidadBase:'',
-                arrayGestionMaterias:[],
-                modal : 0,
-                seleccion:0,
-                tipoPago : 0,
+                tipoFactura : 1,
                 flag : 0,
-                tipoAccion : 0,
-                fotoCarga:'',
-                materiaprimaproducto:'',
-                errorMateriaPrimaProducto : 0,
-                errorMensaje : [],
                 identificador: 0,
-                identificadorArea: 0,
-                productoNombre:'',
                 componentKey:0
             }
         },
@@ -156,6 +189,9 @@
             onChange(event) {
             //console.log(event.target.value);
             this.flag=event.target.value;
+            },
+            cargarFechaActual(){
+                this.fecha=moment().format('YYYY-MM-DD');
             },
             crearFacturas(){
                 //valido con el metodo de validacion creado
@@ -171,11 +207,8 @@
                     'impuesto': this.impuesto,
                     'total': this.total,
                     'vendedor': this.vendedor,
-                    'idVendedor': this.idVendedor,
-                    'tipoFactura': this.tipoFactura,
-                    'idClientes': this.idClientes,
-                    'idEmpresa': this.idEmpresa,
-                    'estado': this.estado
+                    'observaciones': this.observaciones,
+                    'idClientes': this.idClientes
                 }).then(function (response) {
                 me.cerrarModal();
                 me.listarFacturas(1,'','Facturas');
@@ -417,7 +450,8 @@
             },
         },
         mounted() {
-            this.listarProducto(1,this.buscar,this.criterio)
+            this.listarProducto(1,this.buscar,this.criterio),
+            this.cargarFechaActual()
         }
     }
 </script>

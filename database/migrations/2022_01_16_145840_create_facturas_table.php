@@ -22,6 +22,7 @@ class CreateFacturasTable extends Migration {
 			$table->integer('impuesto');
 			$table->integer('total');
 			$table->string('vendedor', 250);
+            $table->string('observaciones', 500);
 			$table->foreignId('idVendedor')->constrained('users');
 			$table->foreignId('tipoFactura')->constrained('tipofactura');
 			$table->foreignId('idClientes')->constrained('clientes');
