@@ -16,7 +16,7 @@
                                             <div class="col-md-6">
 
                                                 <div class="form-group row">
-                                                    <label class="col-md-3 form-control-label" for="text-input">Cliente <span v-if="selecteduserCustom">{{selecteduserCustom.nombres}}</span></label>
+                                                    <label class="col-md-3 form-control-label" for="text-input">Cliente <span v-if="selecteduserCustom"></span></label>
                                                     <vue-typeahead-bootstrap
                                                     class="col-md-9"
                                                     v-model="cedula"
@@ -179,8 +179,8 @@
         data(){
             return{
                 selecteduser: null,
-                clientesFiltro: [],
-                selecteduserCustom: null,
+                clientesFiltro: null,
+                selecteduserCustom: [],
                 correo: '',
                 cedula: '',
                 nombres: '',
@@ -218,7 +218,17 @@
               })
               .then(data => {
                 this.clientesFiltro = data.clientes;
-                this.idClientes = clientesFiltro.id;
+                console.log("Salida de clientes");
+                console.log(this.clientesFiltro);
+                this.idClientes = this.clientesFiltro[0].id;
+                this.nombres = this.clientesFiltro[0].nombres;
+                this.apellidos = this.clientesFiltro[0].apellidos;
+                this.direccion = this.clientesFiltro[0].direccion;
+                this.telefono = this.clientesFiltro[0].telefono;
+                this.correo = this.clientesFiltro[0].correo;
+
+                console.log("Salida de clientes id asignado");
+                console.log(this.idClientes);
               })
             }, 300),
             onChange(event) {
@@ -230,10 +240,10 @@
             },
             crearFacturas(){
                 //valido con el metodo de validacion creado
-                /*                 
+                /*
                 if(this.validarFacturas()){
                     return;
-                } 
+                }
                 */
 
                 let me=this;
