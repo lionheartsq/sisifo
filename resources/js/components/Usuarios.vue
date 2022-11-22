@@ -396,15 +396,25 @@
                 }
                 })
             },
+            functionMail(email) {
+                var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return re.test(email);
+            },
             validarUsuario(){
                 this.errorUsuario=0;
                 this.errorMensaje=[];
 
                 if (!this.documento) this.errorMensaje.push("El documento del usuario no puede estar vacio");
-                if (!this.email) this.errorMensaje.push("El email del usuario no puede estar vacio");
+                if (!this.email){
+                    this.errorMensaje.push("El email del usuario no puede estar vacio");
+                }else{
+                    if (this.functionMail(this.email)==false) this.errorMensaje.push("El formato de email no es válido");
+                }
                 if (!this.nombres) this.errorMensaje.push("El nombre del usuario no puede estar vacio");
                 if (!this.apellidos) this.errorMensaje.push("Los apellidos del usuario no puede estar vacio");
                 if (!this.idRol) this.errorMensaje.push("El rol del usuario no puede estar vacio");
+                if (!this.password) this.errorMensaje.push("La password no puede estar vacia");
+
                 if (this.errorMensaje.length) this.errorUsuario=1;
 
                 return this.errorUsuario;
