@@ -260,6 +260,14 @@
                 //envia peticion para ver los valores asociados a esa pagina
                 me.listarClientes(page,buscar,criterio);
             },
+            limpiarmodal(){
+                this.cedula='';
+                this.nombres='';
+                this.apellidos='';
+                this.direccion='';
+                this.correo='';
+                this.telefono='';
+            },
             crearClientes(){
                 //valido con el metodo de validacion creado
                 if(this.validarClientes()){
@@ -275,6 +283,7 @@
                     'correo': this.correo,
                     'telefono': this.telefono
                 }).then(function (response) {
+                me.limpiarmodal();
                 me.cerrarModal();
                 me.listarClientes(1,'','Clientes');
                 })
@@ -286,7 +295,6 @@
                 if(this.validarClientes()){
                     return;
                 }
-
                 let me=this;
                 axios.put('/clientes/update',{
                     'id': this.id,
