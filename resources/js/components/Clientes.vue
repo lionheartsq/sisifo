@@ -158,7 +158,7 @@
                                             <span class="help-block">(*) Ingrese el correo del cliente</span>
                                         </div>
                                     </div>
-                                    <div class="form-group row div-error" v-show="errorUsuario">
+                                    <div class="form-group row div-error" v-show="errorClientes">
                                         <div class="text-center text-error">
                                             <div v-for="error in errorMensaje" :key="error" v-text="error"></div>
                                         </div>
@@ -273,7 +273,6 @@
                 if(this.validarClientes()){
                     return;
                 }
-
                 let me=this;
                 axios.post('/clientes/store',{
                     'cedula': this.cedula,
@@ -386,9 +385,9 @@
                 }
                 })
             },
-            functionMail(correo) {
+            functionMail(mail) {
                 var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-                return re.test(correo);
+                return re.test(mail);
             },
             validarClientes(){
                 this.errorClientes=0;
