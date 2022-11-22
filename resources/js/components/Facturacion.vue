@@ -32,8 +32,6 @@
                                                     />
                                                 </div>
 
-                                                <input type="hidden" v-model="idCliente" v-if="selecteduserCustom">{{selecteduserCustom.id}}</input>
-
                                                 <div class="form-group row">
                                                     <label class="col-md-3 form-control-label" for="text-input">Nombres Cliente</label>
                                                     <div class="col-md-9">
@@ -190,6 +188,7 @@
                 direccion: '',
                 telefono: '',
                 consecutivo: '',
+                idClientes: '',
                 colorx: '#8B0000',
                 listado: 1,
                 idProducto:0,
@@ -219,6 +218,7 @@
               })
               .then(data => {
                 this.clientesFiltro = data.clientes;
+                this.idClientes = clientesFiltro.id;
               })
             }, 300),
             onChange(event) {
