@@ -386,6 +386,10 @@
                 }
                 })
             },
+            functionMail(correo) {
+                var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return re.test(correo);
+            },
             validarClientes(){
                 this.errorClientes=0;
                 this.errorMensaje=[];
@@ -395,7 +399,11 @@
                 if (!this.apellidos) this.errorMensaje.push("Los apellidos del cliente no puede estar vacio");
                 if (!this.direccion) this.errorMensaje.push("La direccion del cliente no puede estar vacio");
                 if (!this.telefono) this.errorMensaje.push("El telefono del cliente no puede estar vacio");
-                if (!this.correo) this.errorMensaje.push("El correo del cliente no puede estar vacio");
+                if (!this.correo){
+                    this.errorMensaje.push("El correo del usuario no puede estar vacio");
+                }else{
+                    if (this.functionMail(this.correo)==false) this.errorMensaje.push("El formato de correo no es válido");
+                };
                 if (this.errorMensaje.length) this.errorClientes=1;
 
                 return this.errorClientes;

@@ -409,7 +409,7 @@
                     this.errorMensaje.push("El email del usuario no puede estar vacio");
                 }else{
                     if (this.functionMail(this.email)==false) this.errorMensaje.push("El formato de email no es válido");
-                }
+                };
                 if (!this.nombres) this.errorMensaje.push("El nombre del usuario no puede estar vacio");
                 if (!this.apellidos) this.errorMensaje.push("Los apellidos del usuario no puede estar vacio");
                 if (!this.idRol) this.errorMensaje.push("El rol del usuario no puede estar vacio");
