@@ -158,7 +158,7 @@
                                             <span class="help-block">(*) Ingrese el correo de los proveedores</span>
                                         </div>
                                     </div>
-                                    <div class="form-group row div-error" v-show="errorUsuario">
+                                    <div class="form-group row div-error" v-show="errorProveedores">
                                         <div class="text-center text-error">
                                             <div v-for="error in errorMensaje" :key="error" v-text="error"></div>
                                         </div>
@@ -383,6 +383,10 @@
                 }
                 })
             },
+            functionMail(mail) {
+                var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return re.test(mail);
+            },
             validarProveedores(){
                 this.errorProveedores=0;
                 this.errorMensaje=[];
@@ -392,7 +396,11 @@
                 if (!this.contacto) this.errorMensaje.push("El contacto de los proveedores no puede estar vacio");
                 if (!this.telefono) this.errorMensaje.push("El telefono de los proveedores no puede estar vacio");
                 if (!this.direccion) this.errorMensaje.push("La direccion de los proveedores no puede estar vacio");
-                if (!this.correo) this.errorMensaje.push("El correo de los proveedores no puede estar vacio");
+                if (!this.correo){
+                    this.errorMensaje.push("El correo de los proveedores no puede estar vacio");
+                }else{
+                    if (this.functionMail(this.correo)==false) this.errorMensaje.push("El formato de correo no es válido");
+                };
                 if (this.errorMensaje.length) this.errorProveedores=1;
 
                 return this.errorProveedores;
