@@ -42,12 +42,12 @@
                                         <th>Opciones</th>
                                         <th>Plu</th>
                                         <th>Detalle</th>
-                                        <th>idMedida</th>
-                                        <th>ValorCompra</th>
+                                        <th>Medida</th>
+                                        <th>Valor Compra</th>
                                         <th>Pvp</th>
-                                        <th>idImpuesto</th>
-                                        <th>idGrupos</th>
-                                        <th>idEmpresa</th>
+                                        <th>Impuesto</th>
+                                        <th>Grupo</th>
+                                        <th>Empresa</th>
                                         <th>Estado</th>
                                     </tr>
                                 </thead>
@@ -177,7 +177,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="form-group row div-error" v-show="errorUsuario">
+                                    <div class="form-group row div-error" v-show="errorProductos">
                                         <div class="text-center text-error">
                                             <div v-for="error in errorMensaje" :key="error" v-text="error"></div>
                                         </div>
