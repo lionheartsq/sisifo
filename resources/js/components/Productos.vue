@@ -47,7 +47,6 @@
                                         <th>Pvp</th>
                                         <th>Impuesto</th>
                                         <th>Grupo</th>
-                                        <th>Empresa</th>
                                         <th>Estado</th>
                                     </tr>
                                 </thead>
@@ -78,7 +77,6 @@
                                         <td v-text="productos.pvp"></td>
                                         <td v-text="productos.idImpuesto"></td>
                                         <td v-text="productos.idGrupos"></td>
-                                        <td v-text="productos.idEmpresa"></td>
                                         <td>
                                             <div v-if="productos.estado == '1'">
                                             <span class="badge badge-success">Activo</span>

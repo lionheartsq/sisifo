@@ -17,7 +17,12 @@ class ProductosController extends Controller
         $criterio= $request->criterio;
 
         if ($buscar=='') {
+            # Modelo::join('tablaqueseune',basicamente un on)
             $productos = Productos::where('productos.estado','=','1')
+            ->join('medida','productos.idMedida','=','medida.id')
+            ->join('impuesto','productos.idImpuesto','=','impuesto.id')
+            ->join('grupos','productos.idGrupos','=','grupos.id')
+            ->select('productos.id','productos.plu','productos.detalle','medida.nombre as idMedida','productos.valorCompra','productos.pvp','impuesto.nombre as idImpuesto','grupos.detalleGrupos as idGrupos','productos.estado')
             ->orderBy('productos.id','desc')
             ->paginate(5);
         }
