@@ -150,12 +150,10 @@
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Rol</label>
                                         <div class="col-md-9">
-                                            <div class="input-group">
-                                                <select class="form-control col-md-3" v-model="idRol">
-                                                <option value="2">Administrador</option>
-                                                <option value="3">Gestor</option>
-                                                </select>
-                                            </div>
+                                            <select class="form-control" v-model="idRol">
+                                                <option value="0" disabled>Seleccione un rol</option>
+                                                <option v-for="relacion in arrayRoles" :key="relacion.id" :value="relacion.id" v-text="relacion.rol"></option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="form-group row div-error" v-show="errorUsuario">
@@ -191,10 +189,9 @@
                 documento:'',
                 email:'',
                 password:'',
-                idEmpresa:1,
-                idRol:2,
                 estado:'',
                 arrayUsuarios : [],
+                arrayRoles : [],
                 modal : 0,
                 tituloModal : '',
                 tipoAccion : 0,
@@ -265,6 +262,21 @@
                 me.pagination.current_page = page;
                 //envia peticion para ver los valores asociados a esa pagina
                 me.listarUsuario(page,buscar,criterio);
+            },
+            listarRoles(){
+                let me=this;
+                var url='/roles/listado';
+                // Make a request for a user with a given ID
+                axios.get(url).then(function (response) {
+                    // handle success
+                var respuesta=response.data;
+                me.arrayRoles=respuesta.roles;
+                    //console.log(response);
+                })
+                .catch(function (error) {
+                    // handle error
+                    console.log(error);
+                })
             },
             crearUsuario(){
                 //valido con el metodo de validacion creado
@@ -384,16 +396,25 @@
                 }
                 })
             },
+            functionMail(email) {
+                var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return re.test(email);
+            },
             validarUsuario(){
                 this.errorUsuario=0;
                 this.errorMensaje=[];
-                
+
                 if (!this.documento) this.errorMensaje.push("El documento del usuario no puede estar vacio");
-                if (!this.email) this.errorMensaje.push("El email del usuario no puede estar vacio");
+                if (!this.email){
+                    this.errorMensaje.push("El email del usuario no puede estar vacio");
+                }else{
+                    if (this.functionMail(this.email)==false) this.errorMensaje.push("El formato de email no es válido");
+                };
                 if (!this.nombres) this.errorMensaje.push("El nombre del usuario no puede estar vacio");
                 if (!this.apellidos) this.errorMensaje.push("Los apellidos del usuario no puede estar vacio");
-                if (!this.password) this.errorMensaje.push("La password del usuario no puede estar vacio");
                 if (!this.idRol) this.errorMensaje.push("El rol del usuario no puede estar vacio");
+                if (!this.password) this.errorMensaje.push("La password no puede estar vacia");
+
                 if (this.errorMensaje.length) this.errorUsuario=1;
 
                 return this.errorUsuario;
@@ -431,7 +452,6 @@
                             this.email=data['email'];
                             this.nombres=data['nombres'];
                             this.apellidos=data['apellidos'];
-                            this.password=data['password'];
                             this.idRol=data['idRol'];
                             break;
                         }
@@ -442,6 +462,7 @@
         },
         mounted() {
             this.listarUsuario(1,this.buscar,this.criterio);
+            this.listarRoles();
         }
     }
 </script>

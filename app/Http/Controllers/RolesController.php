@@ -44,7 +44,7 @@ class RolesController extends Controller
     public function listado(){
 
         $roles = Roles::where('roles.estado','=','1')
-        ->orderBy('roles.id','desc')
+        ->orderBy('roles.rol','asc')
         ->get();
 
         return ['roles' => $roles];

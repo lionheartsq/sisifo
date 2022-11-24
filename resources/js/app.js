@@ -19,6 +19,22 @@ window.Vue.use(Vuesax, {
     // options here
   });
 
+Vue.directive('focus', {
+    // Cuando el elemento enlazado se inserta en el DOM...
+    inserted: function (el) {
+      // Enfoca el elemento
+      el.focus()
+    }
+  });
+
+  import VueTypeaheadBootstrap from 'vue-typeahead-bootstrap';
+
+  // Required dependency of bootstrap css/scss files
+  import 'bootstrap/scss/bootstrap.scss';
+
+  // Global registration
+  Vue.component('vue-typeahead-bootstrap', VueTypeaheadBootstrap);
+
 import VueCurrencyFilter from 'vue-currency-filter';
 
 Vue.use(VueCurrencyFilter,[

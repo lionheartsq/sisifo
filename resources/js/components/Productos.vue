@@ -42,12 +42,11 @@
                                         <th>Opciones</th>
                                         <th>Plu</th>
                                         <th>Detalle</th>
-                                        <th>idMedida</th>
-                                        <th>ValorCompra</th>
+                                        <th>Medida</th>
+                                        <th>Valor Compra</th>
                                         <th>Pvp</th>
-                                        <th>idImpuesto</th>
-                                        <th>idGrupos</th>
-                                        <th>idEmpresa</th>
+                                        <th>Impuesto</th>
+                                        <th>Grupo</th>
                                         <th>Estado</th>
                                     </tr>
                                 </thead>
@@ -55,25 +54,16 @@
 
                                     <tr v-for="productos in arrayProductos" :key="productos.id">
                                         <td>
-                                            <button type="button" @click="abrirModal('productos','actualizar',productos)" class="btn btn-info btn-sm">
-                                            <i class="icon-eye" title="Ver detalles"></i>
-                                            </button> &nbsp;
-
                                             <button type="button" @click="abrirModal('productos','actualizar',productos)" class="btn btn-warning btn-sm">
                                             <i class="icon-pencil" title="Editar datos"></i>
                                             </button> &nbsp;
 
-                                        <template v-if="productos.estado == 'A'">
+                                        <template v-if="productos.estado == '1'">
                                             <button type="button" class="btn btn-danger btn-sm" @click="desactivarProductos(productos.id)">
                                                 <i class="icon-trash" title="Desactivar"></i>
                                             </button>
                                         </template>
-                                        <template v-if="productos.estado == 'E'">
-                                            <button type="button" class="btn btn-danger btn-sm" @click="desactivarProductos(productos.id)">
-                                                <i class="icon-trash" title="Desactivar"></i>
-                                            </button>
-                                        </template>
-                                        <template v-if="productos.estado == 'I'">
+                                        <template v-if="productos.estado == '2'">
                                             <button type="button" class="btn btn-success btn-sm" @click="activarProductos(productos.id)">
                                                 <i class="icon-check" title="Reactivar"></i>
                                             </button>
@@ -87,8 +77,6 @@
                                         <td v-text="productos.pvp"></td>
                                         <td v-text="productos.idImpuesto"></td>
                                         <td v-text="productos.idGrupos"></td>
-                                        <td v-text="productos.idEmpresa"></td>
-                                        <td v-text="productos.estado"></td>
                                         <td>
                                             <div v-if="productos.estado == '1'">
                                             <span class="badge badge-success">Activo</span>
@@ -149,8 +137,10 @@
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Medida</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="idMedida" class="form-control" placeholder="Medida de los productos">
-                                            <span class="help-block">(*) Ingrese la medida de los productos</span>
+                                            <select class="form-control" v-model="idMedida">
+                                                <option value="0" disabled>Seleccione una medida</option>
+                                                <option v-for="relacion in arrayMedidas" :key="relacion.id" :value="relacion.id" v-text="relacion.nombre"></option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -167,7 +157,25 @@
                                             <span class="help-block">(*) Ingrese el pvp de los productos</span>
                                         </div>
                                     </div>
-                                    <div class="form-group row div-error" v-show="errorUsuario">
+                                    <div class="form-group row">
+                                        <label class="col-md-3 form-control-label" for="text-input">Impuesto</label>
+                                        <div class="col-md-9">
+                                            <select class="form-control" v-model="idImpuesto">
+                                                <option value="0" disabled>Seleccione un impuesto</option>
+                                                <option v-for="relacion in arrayImpuestos" :key="relacion.id" :value="relacion.id" v-text="relacion.nombre"></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3 form-control-label" for="text-input">Grupo</label>
+                                        <div class="col-md-9">
+                                            <select class="form-control" v-model="idGrupos">
+                                                <option value="0" disabled>Seleccione un grupo</option>
+                                                <option v-for="relacion in arrayGrupos" :key="relacion.id" :value="relacion.id" v-text="relacion.detalleGrupos"></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row div-error" v-show="errorProductos">
                                         <div class="text-center text-error">
                                             <div v-for="error in errorMensaje" :key="error" v-text="error"></div>
                                         </div>
@@ -198,9 +206,15 @@
                 productos:'',
                 estado:'',
                 arrayProductos : [],
+                arrayMedidas : [],
+                arrayImpuestos : [],
+                arrayGrupos : [],
                 modal : 0,
                 tituloModal : '',
                 tipoAccion : 0,
+                idGrupos : 0,
+                idMedida : 0,
+                idImpuesto : 0,
                 errorProductos : 0,
                 errorMensaje : [],
                 pagination : {
@@ -277,7 +291,13 @@
 
                 let me=this;
                 axios.post('/productos/store',{
-                    'usuario': this.productos
+                    'plu': this.plu,
+                    'detalle': this.detalle,
+                    'idMedida': this.idMedida,
+                    'valorCompra': this.valorCompra,
+                    'pvp': this.pvp,
+                    'idImpuesto': this.idImpuesto,
+                    'idGrupos': this.idGrupos
                     //'estado': this.estado,
                     //'dato': this.dato
                 }).then(function (response) {
@@ -295,8 +315,14 @@
 
                 let me=this;
                 axios.put('/productos/update',{
-                    'Productos': this.productos,
-                    'id': this.idProductos
+                    'id': this.idProductos,
+                    'plu': this.plu,
+                    'detalle': this.detalle,
+                    'idMedida': this.idMedida,
+                    'idImpuesto': this.idImpuesto,
+                    'idGrupos': this.idMedida,
+                    'valorCompra': this.valorCompra,
+                    'pvp': this.pvp
                     //'estado': this.estado,
                     //'dato': this.dato
                 }).then(function (response) {
@@ -399,6 +425,51 @@
                 this.tituloModal='';
                 this.Productos='';
             },
+            listarGrupos(){
+                let me=this;
+                var url='/grupos/listado';
+                // Make a request for a user with a given ID
+                axios.get(url).then(function (response) {
+                    // handle success
+                var respuesta=response.data;
+                me.arrayGrupos=respuesta.grupos;
+                    //console.log(response);
+                })
+                .catch(function (error) {
+                    // handle error
+                    console.log(error);
+                })
+            },
+            listarMedidas(){
+                let me=this;
+                var url='/medida/listado';
+                // Make a request for a user with a given ID
+                axios.get(url).then(function (response) {
+                    // handle success
+                var respuesta=response.data;
+                me.arrayMedidas=respuesta.medida;
+                    //console.log(response);
+                })
+                .catch(function (error) {
+                    // handle error
+                    console.log(error);
+                })
+            },
+            listarImpuestos(){
+                let me=this;
+                var url='/impuesto/listado';
+                // Make a request for a user with a given ID
+                axios.get(url).then(function (response) {
+                    // handle success
+                var respuesta=response.data;
+                me.arrayImpuestos=respuesta.impuesto;
+                    //console.log(response);
+                })
+                .catch(function (error) {
+                    // handle error
+                    console.log(error);
+                })
+            },
             abrirModal(modelo, accion, data=[]){
             //tres argumentos, el modelo a modificar o crear, la accion como tal y el arreglo del registro en la tabla
             switch(modelo){
@@ -418,7 +489,13 @@
                             this.tituloModal='Editar productos';
                             this.tipoAccion= 2;
                             this.idProductos=data['id'];
-                            this.Productos=data['productos'];
+                            this.plu=data['plu'];
+                            this.detalle=data['detalle'];
+                            this.idMedida=data['idMedida'];
+                            this.idImpuesto=data['idImpuesto'];
+                            this.idGrupos=data['idGrupos'];
+                            this.valorCompra=data['valorCompra'];
+                            this.pvp=data['pvp'];
                             break;
                         }
                     }
@@ -428,6 +505,9 @@
         },
         mounted() {
             this.listarProductos(1,this.buscar,this.criterio);
+            this.listarMedidas();
+            this.listarImpuestos();
+            this.listarGrupos();
         }
     }
 </script>

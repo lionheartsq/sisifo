@@ -49,6 +49,7 @@ Route::group(['middleware' => ['Superadministrador']], function () {
     Route::put("/clientes/deactivate", "ClientesController@deactivate");
     Route::put("/clientes/activate", "ClientesController@activate");
     Route::get("/clientes/listado", "ClientesController@listado");
+    Route::get("/clientes/listadofiltrado/{cedula}", "ClientesController@listadoFiltrado");
 
     Route::get("/proveedores", "ProveedoresController@index");
     Route::post("/proveedores/store", "ProveedoresController@store");
@@ -225,7 +226,7 @@ Route::group(['middleware' => ['Superadministrador']], function () {
     Route::put("/empleados/activate", "EmpleadosController@activate");
     Route::get("/empleados/listado", "EmpleadosController@listado");
     Route::get("/empleados/selectEmpleados", "EmpleadosController@selectEmpleados");
-    
+
     Route::get("/control", "ControlController@index");
     Route::post("/control/store", "ControlController@store");
     Route::put("/control/update", "ControlController@update");
@@ -237,7 +238,7 @@ Route::group(['middleware' => ['Superadministrador']], function () {
 
     Route::get("/historico", "HistoricoController@index");
     Route::get("/historico/listarfecha", "HistoricoController@listarfecha");
-    Route::post("/historico/store", "HistoricoController@store");  
+    Route::post("/historico/store", "HistoricoController@store");
     Route::post("/historico/store2", "HistoricoController@store2");
     Route::put("/historico/update", "HistoricoController@update");
     Route::put("/historico/deactivate", "HistoricoController@deactivate");

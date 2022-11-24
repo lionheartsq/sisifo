@@ -51,25 +51,16 @@
 
                                     <tr v-for="proveedores in arrayProveedores" :key="proveedores.id">
                                         <td>
-                                            <button type="button" @click="abrirModal('proveedores','actualizar',proveedores)" class="btn btn-info btn-sm">
-                                            <i class="icon-eye" title="Ver detalles"></i>
-                                            </button> &nbsp;
-
                                             <button type="button" @click="abrirModal('proveedores','actualizar',proveedores)" class="btn btn-warning btn-sm">
                                             <i class="icon-pencil" title="Editar datos"></i>
                                             </button> &nbsp;
 
-                                        <template v-if="proveedores.estado == 'A'">
+                                        <template v-if="proveedores.estado == '1'">
                                             <button type="button" class="btn btn-danger btn-sm" @click="desactivarProveedores(proveedores.id)">
                                                 <i class="icon-trash" title="Desactivar"></i>
                                             </button>
                                         </template>
-                                        <template v-if="proveedores.estado == 'E'">
-                                            <button type="button" class="btn btn-danger btn-sm" @click="desactivarProveedores(proveedores.id)">
-                                                <i class="icon-trash" title="Desactivar"></i>
-                                            </button>
-                                        </template>
-                                        <template v-if="proveedores.estado == 'I'">
+                                        <template v-if="proveedores.estado == '2'">
                                             <button type="button" class="btn btn-success btn-sm" @click="activarProveedores(proveedores.id)">
                                                 <i class="icon-check" title="Reactivar"></i>
                                             </button>
@@ -167,7 +158,7 @@
                                             <span class="help-block">(*) Ingrese el correo de los proveedores</span>
                                         </div>
                                     </div>
-                                    <div class="form-group row div-error" v-show="errorUsuario">
+                                    <div class="form-group row div-error" v-show="errorProveedores">
                                         <div class="text-center text-error">
                                             <div v-for="error in errorMensaje" :key="error" v-text="error"></div>
                                         </div>
@@ -277,7 +268,13 @@
 
                 let me=this;
                 axios.post('/proveedores/store',{
-                    'usuario': this.proveedores
+                    'usuario': this.proveedores,
+                    'nit': this.nit,
+                    'razonSocial': this.razonSocial,
+                    'contacto': this.contacto,
+                    'telefono': this.telefono,
+                    'direccion': this.direccion,
+                    'correo': this.correo
                     //'estado': this.estado,
                     //'dato': this.dato
                 }).then(function (response) {
@@ -295,8 +292,13 @@
 
                 let me=this;
                 axios.put('/proveedores/update',{
-                    'Proveedores': this.proveedores,
-                    'id': this.idProveedores
+                    'id': this.id,
+                    'nit': this.nit,
+                    'razonSocial': this.razonSocial,
+                    'contacto': this.contacto,
+                    'telefono': this.telefono,
+                    'direccion': this.direccion,
+                    'correo': this.correo
                     //'estado': this.estado,
                     //'dato': this.dato
                 }).then(function (response) {
@@ -381,6 +383,10 @@
                 }
                 })
             },
+            functionMail(mail) {
+                var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return re.test(mail);
+            },
             validarProveedores(){
                 this.errorProveedores=0;
                 this.errorMensaje=[];
@@ -390,7 +396,11 @@
                 if (!this.contacto) this.errorMensaje.push("El contacto de los proveedores no puede estar vacio");
                 if (!this.telefono) this.errorMensaje.push("El telefono de los proveedores no puede estar vacio");
                 if (!this.direccion) this.errorMensaje.push("La direccion de los proveedores no puede estar vacio");
-                if (!this.correo) this.errorMensaje.push("El correo de los proveedores no puede estar vacio");
+                if (!this.correo){
+                    this.errorMensaje.push("El correo de los proveedores no puede estar vacio");
+                }else{
+                    if (this.functionMail(this.correo)==false) this.errorMensaje.push("El formato de correo no es válido");
+                };
                 if (this.errorMensaje.length) this.errorProveedores=1;
 
                 return this.errorProveedores;
@@ -418,8 +428,13 @@
                             this.modal=1;
                             this.tituloModal='Editar proveedores';
                             this.tipoAccion= 2;
-                            this.idProveedores=data['id'];
-                            this.Proveedores=data['proveedores'];
+                            this.id=data['id'];
+                            this.nit=data['nit'];
+                            this.razonSocial=data['razonSocial'];
+                            this.contacto=data['contacto'];
+                            this.telefono=data['telefono'];
+                            this.direccion=data['direccion'];
+                            this.correo=data['correo'];
                             break;
                         }
                     }

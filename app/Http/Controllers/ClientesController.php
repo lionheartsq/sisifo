@@ -42,8 +42,16 @@ class ClientesController extends Controller
     }
 
     public function listado(){
-
         $clientes = Clientes::where('clientes.estado','=','1')
+        ->orderBy('clientes.id','desc')
+        ->get();
+
+        return ['clientes' => $clientes];
+    }
+
+    public function listadoFiltrado(Request $request){
+        $clientes = Clientes::where('clientes.estado','=','1')
+        ->where('clientes.cedula','=',$request->cedula)
         ->orderBy('clientes.id','desc')
         ->get();
 
@@ -59,7 +67,9 @@ class ClientesController extends Controller
         $Clientes->apellidos=$request->apellidos;
         $Clientes->direccion=$request->direccion;
         $Clientes->idEmpresa=$idEmpresa;
-        $Clientes->correo=$correo;
+        $Clientes->telefono=$request->telefono;
+        $Clientes->correo=$request->correo;
+        $Clientes->estado=1;
         $Clientes->save();
     }
 
@@ -72,7 +82,9 @@ class ClientesController extends Controller
         $Clientes->apellidos=$request->apellidos;
         $Clientes->direccion=$request->direccion;
         $Clientes->idEmpresa=$idEmpresa;
-        $Clientes->correo=$correo;
+        $Clientes->telefono=$request->telefono;
+        $Clientes->correo=$request->correo;
+        $Clientes->estado=1;
         $Clientes->save();
     }
 

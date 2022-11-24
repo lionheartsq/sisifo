@@ -51,25 +51,16 @@
 
                                     <tr v-for="clientes in arrayClientes" :key="clientes.id">
                                         <td>
-                                            <button type="button" @click="abrirModal('clientes','actualizar',clientes)" class="btn btn-info btn-sm">
-                                            <i class="icon-eye" title="Ver detalles"></i>
-                                            </button> &nbsp;
-
                                             <button type="button" @click="abrirModal('clientes','actualizar',clientes)" class="btn btn-warning btn-sm">
                                             <i class="icon-pencil" title="Editar datos"></i>
                                             </button> &nbsp;
 
-                                        <template v-if="clientes.estado == 'A'">
+                                        <template v-if="clientes.estado == '1'">
                                             <button type="button" class="btn btn-danger btn-sm" @click="desactivarClientes(clientes.id)">
                                                 <i class="icon-trash" title="Desactivar"></i>
                                             </button>
                                         </template>
-                                        <template v-if="clientes.estado == 'E'">
-                                            <button type="button" class="btn btn-danger btn-sm" @click="desactivarClientes(clientes.id)">
-                                                <i class="icon-trash" title="Desactivar"></i>
-                                            </button>
-                                        </template>
-                                        <template v-if="clientes.estado == 'I'">
+                                        <template v-if="clientes.estado == '2'">
                                             <button type="button" class="btn btn-success btn-sm" @click="activarClientes(clientes.id)">
                                                 <i class="icon-check" title="Reactivar"></i>
                                             </button>
@@ -167,7 +158,7 @@
                                             <span class="help-block">(*) Ingrese el correo del cliente</span>
                                         </div>
                                     </div>
-                                    <div class="form-group row div-error" v-show="errorUsuario">
+                                    <div class="form-group row div-error" v-show="errorClientes">
                                         <div class="text-center text-error">
                                             <div v-for="error in errorMensaje" :key="error" v-text="error"></div>
                                         </div>
@@ -269,18 +260,29 @@
                 //envia peticion para ver los valores asociados a esa pagina
                 me.listarClientes(page,buscar,criterio);
             },
+            limpiarmodal(){
+                this.cedula='';
+                this.nombres='';
+                this.apellidos='';
+                this.direccion='';
+                this.correo='';
+                this.telefono='';
+            },
             crearClientes(){
                 //valido con el metodo de validacion creado
                 if(this.validarClientes()){
                     return;
                 }
-
                 let me=this;
                 axios.post('/clientes/store',{
-                    'usuario': this.clientes
-                    //'estado': this.estado,
-                    //'dato': this.dato
+                    'cedula': this.cedula,
+                    'nombres': this.nombres,
+                    'apellidos': this.apellidos,
+                    'direccion': this.direccion,
+                    'correo': this.correo,
+                    'telefono': this.telefono
                 }).then(function (response) {
+                me.limpiarmodal();
                 me.cerrarModal();
                 me.listarClientes(1,'','Clientes');
                 })
@@ -292,13 +294,15 @@
                 if(this.validarClientes()){
                     return;
                 }
-
                 let me=this;
                 axios.put('/clientes/update',{
-                    'Clientes': this.clientes,
-                    'id': this.idClientes
-                    //'estado': this.estado,
-                    //'dato': this.dato
+                    'id': this.id,
+                    'cedula': this.cedula,
+                    'nombres': this.nombres,
+                    'apellidos': this.apellidos,
+                    'direccion': this.direccion,
+                    'correo': this.correo,
+                    'telefono': this.telefono
                 }).then(function (response) {
                 me.cerrarModal();
                 me.listarClientes(1,'','clientes');
@@ -381,6 +385,10 @@
                 }
                 })
             },
+            functionMail(mail) {
+                var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return re.test(mail);
+            },
             validarClientes(){
                 this.errorClientes=0;
                 this.errorMensaje=[];
@@ -390,7 +398,11 @@
                 if (!this.apellidos) this.errorMensaje.push("Los apellidos del cliente no puede estar vacio");
                 if (!this.direccion) this.errorMensaje.push("La direccion del cliente no puede estar vacio");
                 if (!this.telefono) this.errorMensaje.push("El telefono del cliente no puede estar vacio");
-                if (!this.correo) this.errorMensaje.push("El correo del cliente no puede estar vacio");
+                if (!this.correo){
+                    this.errorMensaje.push("El correo del usuario no puede estar vacio");
+                }else{
+                    if (this.functionMail(this.correo)==false) this.errorMensaje.push("El formato de correo no es válido");
+                };
                 if (this.errorMensaje.length) this.errorClientes=1;
 
                 return this.errorClientes;
@@ -418,8 +430,13 @@
                             this.modal=1;
                             this.tituloModal='Editar clientes';
                             this.tipoAccion= 2;
-                            this.idClientes=data['id'];
-                            this.Clientes=data['clientes'];
+                            this.id=data['id'];
+                            this.cedula=data['cedula'];
+                            this.nombres=data['nombres'];
+                            this.apellidos=data['apellidos'];
+                            this.direccion=data['direccion'];
+                            this.telefono=data['telefono'];
+                            this.correo=data['correo'];
                             break;
                         }
                     }
