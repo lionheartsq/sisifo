@@ -50,17 +50,40 @@ class FacturasController extends Controller
         return ['facturas' => $facturas];
     }
 
+    public function ultimo(){
+        $ultimo = Facturas::select('id')->orderBy('id', 'desc')->get();
+        $cantidad = Facturas::count();
+        $maximosalida=0;
+        $maximo=0;
+
+        if($cantidad==0){
+            $maximosalida=1;
+        }else{
+            foreach($ultimo as $last){
+                $maximo = $last->id;
+                $maximosalida=$maximo+1;
+            }
+        }
+
+        return [
+                'consecutivoEsperado' => $maximosalida
+                ];
+    }
+
     public function store(Request $request){
         //if(!$request->ajax()) return redirect('/');
         $idEmpresa=Auth::user()->idEmpresa;
         $idVendedor=Auth::user()->id;
+        $nombresVendedor=Auth::user()->nombres;
+        $apellidosVendedor=Auth::user()->apellidos;
+        $vendedor=$nombresVendedor." ".$apellidosVendedor;
         $Facturas=new Facturas();
         $Facturas->consecutivo=$request->consecutivo;
         $Facturas->fecha=$request->fecha;
         $Facturas->valor=$request->valor;
         $Facturas->impuesto=$request->impuesto;
         $Facturas->total=$request->total;
-        $Facturas->vendedor=$request->vendedor;
+        $Facturas->vendedor=$vendedor;
         $Facturas->idVendedor=$idVendedor;
         $Facturas->observaciones=$request->observaciones;
         $Facturas->tipoFactura=1; //Factura tipo 1 contado, tipo 2 crédito en caso de update
