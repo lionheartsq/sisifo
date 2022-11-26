@@ -134,6 +134,7 @@ Route::group(['middleware' => ['Superadministrador']], function () {
     Route::put("/facturas/deactivate", "FacturasController@deactivate");
     Route::put("/facturas/activate", "FacturasController@activate");
     Route::get("/facturas/listado", "FacturasController@listado");
+    Route::get("/facturas/ultimo", "FacturasController@ultimo");
 
     Route::get("/grupos", "GruposController@index");
     Route::post("/grupos/store", "GruposController@store");

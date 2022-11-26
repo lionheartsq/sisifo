@@ -254,7 +254,6 @@
                     'valor': this.valor,
                     'impuesto': this.impuesto,
                     'total': this.total,
-                    'vendedor': this.vendedor,
                     'observaciones': this.observaciones,
                     'idClientes': this.idClientes
                 }).then(function (response) {
@@ -405,10 +404,23 @@
                     console.log(error);
                 });
             },
+            listarConsecutivo(){
+                let me=this;
+                var url='/facturas/ultimo';
+                axios.get(url).then(function (response) {
+                var respuesta=response.data;
+                me.consecutivo=respuesta.consecutivoEsperado;
+                console.log('consecutivo: '+me.consecutivo);
+                })
+                .catch(function (error) {
+                    // handle error
+                    console.log(error);
+                })
+            },
         },
         mounted() {
-            this.listarProducto(1,this.buscar,this.criterio),
-            this.cargarFechaActual()
+            this.cargarFechaActual(),
+            this.listarConsecutivo()
         }
     }
 </script>
