@@ -19,14 +19,21 @@ class CiudadesController extends Controller
         if ($buscar=='') {
             $ciudades = Ciudades::join('departamentos','departamentos.id','=','ciudades.idDepartamentos')
             ->select('ciudades.id','ciudades.detalle','ciudades.idDepartamentos','ciudades.estado','departamentos.detalle as detalleDepartamento')
-            ->orderBy('ciudades.id','desc')
+            ->orderBy('ciudades.estado','asc')
+            ->orderBy('ciudades.idDepartamentos','asc')
+            ->orderBy('ciudades.detalle','asc')
             ->paginate(10);
         }
         else {
+            if($criterio != 'detalle' && $criterio != 'estado' && $criterio != 'detalleDepartamentos'){$criterio='detalle';}
+            $buscar=($criterio != 'estado')?$buscar:(($buscar == 'activo')?'1':(($buscar == 'desactivado')?'2':$buscar));
+            $criterio=(($criterio != 'detalleDepartamentos')?"ciudades.".$criterio:"departamentos.detalle");
             $ciudades = Ciudades::join('departamentos','departamentos.id','=','ciudades.idDepartamentos')
             ->select('ciudades.id','ciudades.detalle','ciudades.idDepartamentos','ciudades.estado','departamentos.detalle as detalleDepartamento')
             ->where($criterio, 'like', '%'. $buscar . '%')
-            ->orderBy('ciudades.id','desc')
+            ->orderBy('ciudades.estado','asc')
+            ->orderBy('ciudades.idDepartamentos','asc')
+            ->orderBy('ciudades.detalle','asc')
             ->paginate(5);
         }
 
@@ -83,6 +90,4 @@ class CiudadesController extends Controller
         $Ciudades->estado='1';
         $Ciudades->save();
     }
-
-
 }

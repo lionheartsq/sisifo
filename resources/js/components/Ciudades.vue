@@ -21,7 +21,7 @@
                             <div class="input-group">
                                 <select class="form-control col-md-3" v-model="criterio">
                                     <option value="detalle">Ciudad</option>
-                                    <option value="departamento">Departamento</option>
+                                    <option value="detalleDepartamentos">Departamento</option>
                                     <option value="estado">Estado</option>
                                 </select>
                                 <input type="text" v-model="buscar" @keyup.capture="listarCiudades(1, buscar, criterio)"
