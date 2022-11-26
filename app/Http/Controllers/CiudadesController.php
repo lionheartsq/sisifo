@@ -34,7 +34,7 @@ class CiudadesController extends Controller
             ->orderBy('ciudades.estado','asc')
             ->orderBy('ciudades.idDepartamentos','asc')
             ->orderBy('ciudades.detalle','asc')
-            ->paginate(5);
+            ->paginate(10);
         }
 
         return [
