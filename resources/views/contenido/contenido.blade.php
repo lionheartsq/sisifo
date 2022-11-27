@@ -49,4 +49,13 @@
 <template v-if="menu==15">
     <grupos></grupos>
 </template>
+<template v-if="menu==16">
+    <salas></salas>
+</template>
+<template v-if="menu==17">
+    <reservasala></reservasala>
+</template>
+<template v-if="menu==18">
+    <reportereserva></reportereserva>
+</template>
 @endsection
