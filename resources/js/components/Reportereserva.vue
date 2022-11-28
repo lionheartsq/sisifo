@@ -3,29 +3,31 @@
             <!-- Breadcrumb -->
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">Home</li>
-                <li class="breadcrumb-item active">Control</li>
+                <li class="breadcrumb-item active">Reporte de reservas</li>
             </ol>
             <div class="container-fluid">
                 <!-- Ejemplo de tabla Listado -->
 
                 <div class="card">
                     <div class="card-header">
-                        <i class="fa fa-align-justify"></i> Control Ingreso y salida de empleados. &nbsp;
-                        <!-- <button type="button" @click="abrirModal('control','crear')" class="btn btn-secondary">
+                        <i class="fa fa-align-justify"></i> Reporte de reservas &nbsp;
+                        <button type="button" @click="abrirModal('reserva','crear')" class="btn btn-secondary">
                             <i class="icon-plus"></i>&nbsp;Nuevo
-                        </button> -->
+                        </button>
                     </div>
                     <div class="card-body">
                         <div class="form-group row">
                             <div class="col-md-9">
                                 <div class="input-group">
                                     <select class="form-control col-md-3" v-model="criterio">
-                                    <option value="documento">Documento</option>
-                                    <option value="nombres">Nombres</option>
-                                    <option value="apellidos">Apellidos</option>
+                                    <option value="idSala">Sala</option>
+                                    <option value="reservaNombre">A nombre de</option>
+                                    <option value="fecha">Fecha</option>
+                                    <option value="observaciones">observaciones</option>
+                                    <option value="estado">estado</option>
                                     </select>
-                                    <input type="text" v-model="buscar" @keyup.enter="listarcontrol(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
-                                    <button type="submit" @click="listarcontrol(1,buscar,criterio)" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
+                                    <input type="text" v-model="buscar" @keyup.enter="listarReserva(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
+                                    <button type="submit" @click="listarReserva(1,buscar,criterio)" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
                                 </div>
                             </div>
                         </div>
@@ -34,46 +36,49 @@
                             <thead>
                                 <tr>
                                     <th>Opciones</th>
-                                    <th>Documento</th>
-                                    <th>Nombres</th>
-                                    <th>Apellidos</th>
-                                    <th>Ingreso</th>
-                                    <th>Salida</th>
-                                    <th>Estado</th>
+                                    <th>Sala</th>
+                                    <th>A nombre de</th>
+                                    <th>Fecha</th>
+                                    <th>observaciones</th>
+                                    <th>estado</th>
                                 </tr>
                             </thead>
                             <tbody>
 
-                                <tr v-for="control in arraycontrol" :key="control.id">
+                                <tr v-for="reserva in arrayReserva" :key="reserva.id">
                                     <td>
-                                    <!-- <button type="button" @click="abrirModal('control','actualizar',control)" class="btn btn-warning btn-sm">
-                                    <i class="icon-pencil"></i>
-                                    </button> &nbsp; -->
+                                        <!-- <button type="button" @click="abrirModal('reserva','actualizar',reserva)" class="btn btn-info btn-sm">
+                                        <i class="icon-eye" title="Ver detalles"></i>
+                                        </button> &nbsp; -->
 
-                                    <template v-if="control.estado">
-                                        <button id= "boton" type="button" class="btn btn-danger btn-sm" @click="desactivarcontrol(control.id),desactivarcontrol1(control.id)">
-                                            <i class="icon-trash">Salida</i>
+                                        <button type="button" @click="abrirModal('reserva','actualizar',reserva)" class="btn btn-warning btn-sm">
+                                        <i class="icon-pencil" title="Editar datos"></i>
+                                        </button> &nbsp;
+
+                                    <template v-if="reserva.estado == '1'">
+                                        <button type="button" class="btn btn-danger btn-sm" @click="desactivarReserva(reserva.id)">
+                                            <i class="icon-trash" title="Desactivar"></i>
                                         </button>
                                     </template>
-                                    <template v-else>
-                                        <button type="button" class="btn btn-success btn-sm" @click="activarcontrol(control.id),activarcontrol1(control.id)">
-                                            <i class="icon-check">Ingreso</i>
+                                    
+                                    <template v-if="reserva.estado == '2'">
+                                        <button type="button" class="btn btn-success btn-sm" @click="activarReserva(reserva.id)">
+                                            <i class="icon-check" title="Reactivar"></i>
                                         </button>
                                     </template>
 
                                     </td>
-                                    <td v-text="control.documento"></td>
-                                    <td v-text="control.nombres"></td>
-                                    <td v-text="control.apellidos"></td>
-                                    <td id="ingreso" v-text="control.ingreso"></td>
-                                    <td id="salida" v-text="control.salida"></td>
+                                    <td v-text="reserva.idSala"></td>
+                                    <td v-text="reserva.reservaNombre"></td>
+                                    <td v-text="reserva.fecha"></td>
+                                    <td v-text="reserva.observaciones"></td>
                                     
                                     <td>
-                                        <div id="estado" v-if="control.estado">
-                                        <span class="badge badge-success">Ingreso</span>
+                                        <div v-if="reserva.estado == '1'">
+                                        <span class="badge badge-success">Activo</span>
                                         </div>
-                                        <div v-else>
-                                        <span class="badge badge-danger">Salida</span>
+                                        <div v-if="reserva.estado == '2'">
+                                        <span class="badge badge-danger">Desactivado</span>
                                         </div>
                                     </td>
                                 </tr>
@@ -108,60 +113,40 @@
                             <span aria-hidden="true">×</span>
                             </button>
                         </div>
+
                         <div class="modal-body">
                             <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
                                 <div class="form-group row">
-                                    <label class="col-md-3 form-control-label" for="text-input">Documento</label>
+                                        <label class="col-md-3 form-control-label" for="text-input">Sala</label>
+                                        <div class="col-md-9">
+                                            <select class="form-control" v-model="idSala">
+                                                <option value="0" disabled>Seleccione una sala</option>
+                                                <option v-for="relacion in arraySalas" :key="relacion.id" :value="relacion.id" v-text="relacion.nombre"></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                <div class="form-group row">
+                                    <label class="col-md-3 form-control-label" for="text-input">A nombre de</label>
                                     <div class="col-md-9">
-                                        <input type="number" v-model="documento" class="form-control" placeholder="Documento del control">
-                                        <span class="help-block">(*) Ingrese el documento del control</span>
+                                        <input type="text" v-model="reservaNombre" class="form-control" placeholder="Nombre de quien reserva">
+                                        <span class="help-block">(*) Ingrese el nombre de quien reserva</span>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-md-3 form-control-label" for="text-input">Nombres</label>
+                                    <label class="col-md-3 form-control-label" for="text-input">Fecha</label>
                                     <div class="col-md-9">
-                                        <input type="text" v-model="nombres" class="form-control" placeholder="Nombres del control">
-                                        <span class="help-block">(*) Ingrese los nombres del control</span>
+                                        <input type="date" v-model="fecha" class="form-control" placeholder="Fecha de las reserva">
+                                        <span class="help-block">(*) Ingrese la fecha de las reserva</span>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-md-3 form-control-label" for="text-input">Apellidos</label>
+                                    <label class="col-md-3 form-control-label" for="text-input"> Observaciones </label>
                                     <div class="col-md-9">
-                                        <input type="text" v-model="apellidos" class="form-control" placeholder="Apellidos del control">
-                                        <span class="help-block">(*) Ingrese los apellidos del control</span>
+                                        <input type="text" v-model="observaciones" class="form-control" placeholder="Observaciones acerca de la reserva">
+                                        <span class="help-block">(*) Observaciones de la reserva</span>
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <label class="col-md-3 form-control-label" for="text-input">E-mail</label>
-                                    <div class="col-md-9">
-                                        <input type="email" v-model="email" class="form-control" placeholder="E-mail del control">
-                                        <span class="help-block">(*) Ingrese el e-mail del control</span>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-md-3 form-control-label" for="text-input">Direccion</label>
-                                    <div class="col-md-9">
-                                        <input type="text" v-model="direccion" class="form-control" placeholder="direccion del empleado">
-                                        <span class="help-block">(*) Ingrese los direccion del control</span>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-md-3 form-control-label" for="text-input">Cargo</label>
-                                    <div class="col-md-9">
-                                        <input type="text" v-model="cargo" class="form-control" placeholder="cargo del control">
-                                        <span class="help-block">(*) Ingrese los cargo del control</span>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-md-3 form-control-label" for="text-input">Telefono</label>
-                                    <div class="col-md-9">
-                                        <input type="text" v-model="telefono" class="form-control" placeholder="telefono del control">
-                                        <span class="help-block">(*) Ingrese los telefono del control</span>
-                                    </div>
-                                </div>
-                                
-                                
-                                <div class="form-group row div-error" v-show="errorcontrol">
+                                <div class="form-group row div-error" v-show="errorReserva">
                                     <div class="text-center text-error">
                                         <div v-for="error in errorMensaje" :key="error" v-text="error"></div>
                                     </div>
@@ -171,8 +156,8 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" @click="cerrarModal()">Cerrar</button>
-                            <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="crearcontrol(),crearhistorico1()">Guardar</button>
-                            <button type="button" v-if="tipoAccion==2" class="btn btn-warning" @click="editarcontrol(),crearhistorico2()">Editar</button>
+                            <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="crearReserva()">Guardar</button>
+                            <button type="button" v-if="tipoAccion==2" class="btn btn-warning" @click="editarReserva()">Editar</button>
                         </div>
                     </div>
                     <!-- /.modal-content -->
@@ -187,23 +172,20 @@
 export default {
     data(){
         return{
-            telefono:'',
+            observaciones:'',
+            fecha:'',
+            reservaNombre:'',
+            idReserva:0,
             id:'',
-            nombres:'',
-            apellidos:'',
-            documento:'',
-            email:'',
-            direccion:'',
-            cargo:'',
-            idEmpresa:1,
-            idRol:2,
+            idSala: 0,
+            reserva:'',
             estado:'',
-            arraycontrol : [],
-            arrayhistorico : [],
+            arrayReserva : [],
+            arraySalas : [],
             modal : 0,
             tituloModal : '',
             tipoAccion : 0,
-            errorcontrol : 0,
+            errorReserva : 0,
             errorMensaje : [],
             pagination : {
                 'total' : 0,
@@ -214,7 +196,7 @@ export default {
                 'to' : 0,
             },
             offset : 3,
-            criterio : 'control',
+            criterio : 'reserva',
             buscar : ''
         }
     },
@@ -248,15 +230,29 @@ export default {
         }
     },
     methods : {
-
-        listarhistorico(page,buscar,criterio){
+        listarSalas(){
+                let me=this;
+                var url='/salas/listado';
+                // Make a request for a user with a given ID
+                axios.get(url).then(function (response) {
+                    // handle success
+                var respuesta=response.data;
+                me.arraySalas=respuesta.salas;
+                    //console.log(response);
+                })
+                .catch(function (error) {
+                    // handle error
+                    console.log(error);
+                })
+            },
+        listarReserva(page,buscar,criterio){
             let me=this;
-            var url='/historico?page=' + page + '&buscar=' + buscar + '&criterio=' + criterio;
+            var url='/reserva?page=' + page + '&buscar=' + buscar + '&criterio=' + criterio;
             // Make a request for a user with a given ID
             axios.get(url).then(function (response) {
                 // handle success
             var respuesta=response.data;
-            me.arrayhistorico=respuesta.historico.data;
+            me.arrayReserva=respuesta.reserva.data;
             me.pagination=respuesta.pagination;
                 //console.log(response);
             })
@@ -265,324 +261,171 @@ export default {
                 console.log(error);
             })
         },
-        listarcontrol(page,buscar,criterio){
-            let me=this;
-            var url='/control?page=' + page + '&buscar=' + buscar + '&criterio=' + criterio;
-            // Make a request for a user with a given ID
-            axios.get(url).then(function (response) {
-                // handle success
-            var respuesta=response.data;
-            me.arraycontrol=respuesta.control.data;
-            me.pagination=respuesta.pagination;
-                //console.log(response);
-            })
-            .catch(function (error) {
-                // handle error
-                console.log(error);
-            })
-        },
-
         cambiarPagina(page,buscar,criterio){
             let me = this;
             //Actualiza la pagina actual
             me.pagination.current_page = page;
             //envia peticion para ver los valores asociados a esa pagina
-            me.listarcontrol(page,buscar,criterio);
+            me.listarReserva(page,buscar,criterio);
         },
-
-        crearhistorico1(){
-
-            let me=this;
-            axios.post('/historico/store',{
-                'idEmpleado': this.idEmpleado,
-                'ingreso': this.ingreso,
-                'salida': this.salida,
-                'estado': this.estado,
-              
-            }).then(function (response) {
-            me.cerrarModal();
-            me.listarhistorico(1,'','idEmpleado');
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-        },
-
-        crearhistorico2(){
-           
-            let me=this;
-            axios.post('/historico/store',{
-                'idEmpleado': this.idEmpleado,
-                'ingreso': this.ingreso,
-                'salida': this.salida,
-                'estado': this.estado,
-              
-            }).then(function (response) {
-            me.cerrarModal();
-            me.listarhistorico(1,'','idEmpleado');
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-        },
-
-        crearcontrol(){
+        crearReserva(){
             //valido con el metodo de validacion creado
-            if(this.validarcontrol()){
+            if(this.validarReserva()){
                 return;
             }
 
             let me=this;
-            axios.post('/control/store',{
-                'nombres': this.nombres,
-                'apellidos': this.apellidos,
-                'documento': this.documento,
-                'email': this.email,
-                'direccion': this.direccion,
-                'cargo': this.cargo,
-                'telefono': this.telefono
+            axios.post('/reserva/store',{
+                'idSala': this.idSala,
+                'reservaNombre': this.reservaNombre,
+                'fecha': this.fecha,
+                'observaciones': this.observaciones,
+
             }).then(function (response) {
             me.cerrarModal();
-            me.listarcontrol(1,'','nombres');
+            me.listarReserva(1,'','Reserva');
             })
             .catch(function (error) {
                 console.log(error);
             });
         },
-
-        editarcontrol(){
-            if(this.validarcontrol()){
+        editarReserva(){
+            if(this.validarReserva()){
                 return;
             }
 
             let me=this;
-            axios.put('/control/update',{
-                'id': this.id,
-                'documento': this.documento,
-                'nombres': this.nombres,
-                'apellidos': this.apellidos,
-                'documento': this.documento,
-                'email': this.email,
-                'direccion': this.direccion,
-                'cargo': this.cargo,
-                'telefono': this.telefono
+            axios.put('/reserva/update',{
+                'id': this.idReserva,
+                'idSala': this.idSala,
+                'reservaNombre': this.reservaNombre,
+                'fecha': this.fecha,
+                'observaciones': this.observaciones
 
+                //'estado': this.estado,
+                //'dato': this.dato
             }).then(function (response) {
             me.cerrarModal();
-            me.listarcontrol(1,'','nombres');
+            me.listarReserva(1,'','reserva');
             })
             .catch(function (error) {
                 console.log(error);
             });
         },
-        desactivarcontrol1(id){
-                const swalWithBootstrapButtons = Swal.mixin({
-                customClass: {
-                    confirmButton: 'btn btn-success',
-                    cancelButton: 'btn btn-danger'
-                },
-                buttonsStyling: false
-                })
-
-                swalWithBootstrapButtons.fire({
-                title: 'Quiere registrar la salida?',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonText: '<i class="fa fa-check fa-2x"></i> Si!',
-                cancelButtonText:  '<i class="fa fa-times fa-2x"></i> No',
-                reverseButtons: true
-                }).then((result) => {
-                if (result.value) {
-                    let me=this;
-                    axios.put('control/deactivate',{
-                        'id': id
-                    }).then(function (response) {
-                    me.listarcontrol(1,'','control');
-                    swalWithBootstrapButtons.fire(
-                    'Salida realizada!'
-                    )
-                    me.desactivarcontrol(id);
-                    }).catch(function (error) {
-                        console.log(error);
-                    });
-                } else if (
-                    /* Read more about handling dismissals below */
-                    result.dismiss === Swal.DismissReason.cancel
-                ) {
-                    me.listarcontrol();
-                }
-                })
+        desactivarReserva(id){
+            const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: 'btn btn-success',
+                cancelButton: 'btn btn-danger'
             },
+            buttonsStyling: false
+            })
 
-            desactivarcontrol(id){
-                const swalWithBootstrapButtons = Swal.mixin({
-                customClass: {
-                    confirmButton: 'btn btn-success',
-                    cancelButton: 'btn btn-danger'
-                },
-                buttonsStyling: false
-                })
-
-                swalWithBootstrapButtons.fire({
-                title: 'Quiere confirmar registro de la salida?',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonText: '<i class="fa fa-check fa-2x"></i> Si!',
-                cancelButtonText:  '<i class="fa fa-times fa-2x"></i> No',
-                reverseButtons: true
-                }).then((result) => {
-                if (result.value) {
-                    let me=this;
-                    axios.post('historico/store2',{
-                        'idEmpleado': id
-                    }).then(function (response) {
-                    me.listarhistorico(1,'','historico');
-                    swalWithBootstrapButtons.fire(
-                    'Salida realizada!'
-                    )
-                    }).catch(function (error) {
-                        console.log(error);
-                    });
-                } else if (
-                    /* Read more about handling dismissals below */
-                    result.dismiss === Swal.DismissReason.cancel
-                ) {
-                    me.listarhistorico();
-                }
-                })
+            swalWithBootstrapButtons.fire({
+            title: 'Está seguro?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Desactivar!',
+            cancelButtonText: 'Cancelar',
+            reverseButtons: true
+            }).then((result) => {
+            if (result.value) {
+                let me=this;
+                axios.put('/reserva/deactivate',{
+                    'id': id
+                }).then(function (response) {
+                me.listarReserva(1,'','reserva');
+                swalWithBootstrapButtons.fire(
+                'Reserva desactivada!'
+                )
+                }).catch(function (error) {
+                    console.log(error);
+                });
+            } else if (
+                /* Read more about handling dismissals below */
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                me.listarReserva();
+            }
+            })
+        },
+        activarReserva(id){
+            const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: 'btn btn-success',
+                cancelButton: 'btn btn-danger'
             },
-            activarcontrol(id){
-                const swalWithBootstrapButtons = Swal.mixin({
-                customClass: {
-                    confirmButton: 'btn btn-success',
-                    cancelButton: 'btn btn-danger'
-                },
-                buttonsStyling: false
-                })
+            buttonsStyling: false
+            })
 
-                swalWithBootstrapButtons.fire({
-                title: 'Quiere confirmar registro del ingreso?',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonText: '<i class="fa fa-check fa-2x"></i> Si!',
-                cancelButtonText:  '<i class="fa fa-times fa-2x"></i> No',
-                reverseButtons: true
-                }).then((result) => {
-                if (result.value) {
-                    let me=this;
-                    axios.post('historico/store',{
-                        'idEmpleado': id
-                    }).then(function (response) {
-                    me.listarhistorico(1,'','historico');
-                    
-                                            
-                  swalWithBootstrapButtons.fire(
-                    'Ingreso realizado!'
-                    )
-                    
-                    }).catch(function (error) {
-                        console.log(error);
-                    });
-                } else if (
-                    /* Read more about handling dismissals below */
-                    result.dismiss === Swal.DismissReason.cancel
-                ) {
-                    me.listarhistorico();
-                }
-                })
-            },
-            activarcontrol1(id){
-                const swalWithBootstrapButtons = Swal.mixin({
-                customClass: {
-                    confirmButton: 'btn btn-success',
-                    cancelButton: 'btn btn-danger'
-                },
-                buttonsStyling: false
-                })
-
-                swalWithBootstrapButtons.fire({
-                title: 'Quiere registra el ingreso?',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonText: '<i class="fa fa-check fa-2x"></i> Si!',
-                cancelButtonText:  '<i class="fa fa-times fa-2x"></i> No',
-                reverseButtons: true
-                }).then((result) => {
-                if (result.value) {
-                    let me=this;
-                    axios.put('control/activate',{
-                        'id': id
-                    }).then(function (response) {
-                    me.listarcontrol(1,'','control');
-                    
-                                            
-                  swalWithBootstrapButtons.fire(
-                    'Ingreso realizado!'
-                    )
-                    me.activarcontrol(id);
-                    }).catch(function (error) {
-                        console.log(error);
-                    });
-                } else if (
-                    /* Read more about handling dismissals below */
-                    result.dismiss === Swal.DismissReason.cancel
-                ) {
-                    me.listarcontrol();
-                }
-                })
-            },
-        validarcontrol(){
-            this.errorcontrol=0;
+            swalWithBootstrapButtons.fire({
+            title: 'Quiere activar esta reserva?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Activar!',
+            cancelButtonText: 'Cancelar',
+            reverseButtons: true
+            }).then((result) => {
+            if (result.value) {
+                let me=this;
+                axios.put('/reserva/activate',{
+                    'id': id
+                }).then(function (response) {
+                me.listarreserva(1,'','reserva');
+                swalWithBootstrapButtons.fire(
+                'Reserva activada!'
+                )
+                }).catch(function (error) {
+                    console.log(error);
+                });
+            } else if (
+                /* Read more about handling dismissals below */
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                me.listarReserva();
+            }
+            })
+        },
+        validarReserva(){
+            this.errorReserva=0;
             this.errorMensaje=[];
-            
-            if (!this.documento) this.errorMensaje.push("El documento del control no puede estar vacio");
-            if (!this.email) this.errorMensaje.push("El email del control no puede estar vacio");
-            if (!this.nombres) this.errorMensaje.push("El nombre del control no puede estar vacio");
-            if (!this.apellidos) this.errorMensaje.push("Los apellidos del control no puede estar vacio");
-            if (!this.direccion) this.errorMensaje.push("El direccion del empleado no puede estar vacio");
-            if (!this.cargo) this.errorMensaje.push("el cargo del empleado no puede estar vacio");
-            if (!this.telefono) this.errorMensaje.push("El telefono del empleado no puede estar vacio");
-            if (this.errorMensaje.length) this.errorcontrol=1;
 
-            return this.errorcontrol;
+            if (!this.idSala) this.errorMensaje.push("El nombre de la sala no puede estar vacio");
+            if (!this.reservaNombre) this.errorMensaje.push("El nombre de quien reserva no puede estar vacio");
+            if (!this.fecha) this.errorMensaje.push("La fecha de la reserva no puede estar vacia");
+            if (!this.observaciones) this.errorMensaje.push("Las observaciones de la reserva no pueden estar vacias");
+            if (this.errorMensaje.length) this.errorReserva=1;
+
+            return this.errorReserva;
         },
         cerrarModal(){
             this.modal=0;
             this.tituloModal='';
-            this.control='';
+            this.Reserva='';
         },
         abrirModal(modelo, accion, data=[]){
         //tres argumentos, el modelo a modificar o crear, la accion como tal y el arreglo del registro en la tabla
         switch(modelo){
-            case "control":
+            case "reserva":
             {
                 switch (accion) {
                     case 'crear':{
                         this.modal=1;
-                        this.documento='';
-                        this.email='';
-                        this.nombres='';
-                        this.apellidos='';
-                        this.direccion='';
-                        this.cargo='';
-                        this.telefono='';
-                        this.tituloModal='Crear nuevo control';
+                        this.Reserva='';
+                        this.tituloModal='Crear nueva reserva';
                         this.tipoAccion= 1;
                         break;
                     }
                     case 'actualizar':{
                         //console.log(data);
                         this.modal=1;
-                        this.tituloModal='Editar control';
+                        this.tituloModal='Editar reserva';
                         this.tipoAccion= 2;
-                        this.id=data['id'];
-                        this.documento=data['documento'];
-                        this.email=data['email'];
-                        this.nombres=data['nombres'];
-                        this.apellidos=data['apellidos'];
-                        this.direccion=data['direccion'];
-                        this.telefono=data['telefono'];
-                        this.cargo=data['cargo'];
+                        this.idReserva=data['id'];
+                        this.idSala=data['idSala'];
+                        this.reservaNombre=data['reservaNombre'];
+                        this.fecha=data['fecha'];
+                        this.observaciones=data['observaciones'];
                         break;
                     }
                 }
@@ -591,8 +434,8 @@ export default {
         }
     },
     mounted() {
-        this.listarcontrol(1,this.buscar,this.criterio);
-        this.listarhistorico(1,this.buscar,this.criterio);
+        this.listarReserva(1,this.buscar,this.criterio);
+        this.listarSalas();
     }
 }
 </script>
@@ -615,5 +458,4 @@ export default {
     color: red !important;
     font-weight: bold;
 }
-
 </style>
