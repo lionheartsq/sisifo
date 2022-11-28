@@ -171,6 +171,7 @@
 <script>
     import {debounce} from 'lodash';
     import moment from 'moment';
+import Swal from 'sweetalert2';
     import detallefacturas from '../components/Detallefacturas';
     export default {
         components: {
@@ -179,7 +180,7 @@
         data(){
             return{
                 selecteduser: null,
-                clientesFiltro: null,
+                clientesFiltro: [],
                 selecteduserCustom: [],
                 correo: '',
                 cedula: '',
@@ -188,21 +189,20 @@
                 direccion: '',
                 telefono: '',
                 consecutivo: '',
-                idClientes: '',
+                idClientes: 0,
                 colorx: '#8B0000',
                 listado: 1,
                 idProducto:0,
                 fecha : '',
                 id:'',
                 observaciones:'Ninguna',
-                producto:'',
-                estado:'',
-                arrayProducto : [],
                 total:0,
                 impuesto:0,
                 valor:0,
                 tipoFactura : 1,
                 flag : 0,
+                errorFacturas:0,
+                errorMensaje:[],
                 identificador: 0,
                 componentKey:0
             }
@@ -218,14 +218,25 @@
               })
               .then(data => {
                 this.clientesFiltro = data.clientes;
+
+                if(this.clientesFiltro[0].id === undefined || (typeof this.clientesFiltro[0].id === 'undefined') || this.clientesFiltro[0].id === null){
+                console.log("Salida indefinida de clientes");
+                }else{
                 console.log("Salida de clientes");
-                console.log(this.clientesFiltro);
-                this.idClientes = this.clientesFiltro[0].id;
-                this.nombres = this.clientesFiltro[0].nombres;
-                this.apellidos = this.clientesFiltro[0].apellidos;
-                this.direccion = this.clientesFiltro[0].direccion;
-                this.telefono = this.clientesFiltro[0].telefono;
-                this.correo = this.clientesFiltro[0].correo;
+                console.log(this.clientesFiltro[0].id);
+
+                }
+
+                if(this.clientesFiltro[0].id > 0){
+                    this.idClientes = this.clientesFiltro[0].id;
+                    this.nombres = this.clientesFiltro[0].nombres;
+                    this.apellidos = this.clientesFiltro[0].apellidos;
+                    this.direccion = this.clientesFiltro[0].direccion;
+                    this.telefono = this.clientesFiltro[0].telefono;
+                    this.correo = this.clientesFiltro[0].correo;
+                }else{
+                    this.idClientes = 0;
+                }
 
                 console.log("Salida de clientes id asignado");
                 console.log(this.idClientes);
@@ -245,7 +256,6 @@
                     return;
                 }
                 */
-
                 let me=this;
                 axios.post('/facturas/store',{
                     'cedula': this.cedula,
@@ -257,11 +267,29 @@
                     'observaciones': this.observaciones,
                     'idClientes': this.idClientes
                 }).then(function (response) {
+                Swal.fire(
+                    'Factura creada!'
+                    )
                 me.listarFacturas(1,'','Facturas');
                 })
                 .catch(function (error) {
                     console.log(error);
                 });
+            },
+            validarFacturas(){
+                this.errorFacturas=0;
+                this.errorMensaje=[];
+
+                if (!this.cedula) this.errorMensaje.push("La cédula del cliente no puede estar vacia");
+                if (!this.cedula) this.errorMensaje.push("La cédula del cliente no puede estar vacia");
+                if (!this.cedula) this.errorMensaje.push("La cédula del cliente no puede estar vacia");
+                if (!this.cedula) this.errorMensaje.push("La cédula del cliente no puede estar vacia");
+                if (!this.cedula) this.errorMensaje.push("La cédula del cliente no puede estar vacia");
+                if (!this.cedula) this.errorMensaje.push("La cédula del cliente no puede estar vacia");
+                if (!this.cedula) this.errorMensaje.push("La cédula del cliente no puede estar vacia");
+                if (this.errorMensaje.length) this.errorFacturas=1;
+
+                return this.errorFacturas;
             },
             indexChange: function(args) {
                 let newIndex = args.value

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Facturas;
+use App\Clientes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -51,7 +52,7 @@ class FacturasController extends Controller
     }
 
     public function ultimo(){
-        $ultimo = Facturas::select('id')->orderBy('id', 'desc')->get();
+        $ultimo = Facturas::select('id')->orderBy('id', 'desc')->take(1)->get();
         $cantidad = Facturas::count();
         $maximosalida=0;
         $maximo=0;
@@ -66,6 +67,8 @@ class FacturasController extends Controller
         }
 
         return [
+                'ultimo' => $ultimo,
+                'cantidad' => $cantidad,
                 'consecutivoEsperado' => $maximosalida
                 ];
     }
@@ -77,6 +80,35 @@ class FacturasController extends Controller
         $nombresVendedor=Auth::user()->nombres;
         $apellidosVendedor=Auth::user()->apellidos;
         $vendedor=$nombresVendedor." ".$apellidosVendedor;
+        $idClientes=$request->idClientes;
+        if($idClientes == 0){
+            $Clientes=new Clientes();
+            $Clientes->cedula=$request->cedula;
+            $Clientes->nombres=$request->nombres;
+            $Clientes->apellidos=$request->apellidos;
+            $Clientes->direccion=$request->direccion;
+            $Clientes->idEmpresa=$idEmpresa;
+            $Clientes->telefono=$request->telefono;
+            $Clientes->correo=$request->correo;
+            $Clientes->estado=1;
+            $Clientes->save();
+            # ==================================
+            # Aquí tenemos el id recién guardado :)
+            # ==================================
+            $idClientes = $Clientes->id;
+        }else{
+            $idClientes=$request->idClientes;
+            $Clientes=Clientes::findOrFail($request->idClientes);
+            $Clientes->cedula=$request->cedula;
+            $Clientes->nombres=$request->nombres;
+            $Clientes->apellidos=$request->apellidos;
+            $Clientes->direccion=$request->direccion;
+            $Clientes->idEmpresa=$idEmpresa;
+            $Clientes->telefono=$request->telefono;
+            $Clientes->correo=$request->correo;
+            $Clientes->estado=1;
+            $Clientes->save();
+        }
         $Facturas=new Facturas();
         $Facturas->consecutivo=$request->consecutivo;
         $Facturas->fecha=$request->fecha;
@@ -87,7 +119,7 @@ class FacturasController extends Controller
         $Facturas->idVendedor=$idVendedor;
         $Facturas->observaciones=$request->observaciones;
         $Facturas->tipoFactura=1; //Factura tipo 1 contado, tipo 2 crédito en caso de update
-        $Facturas->idClientes=$request->idClientes;
+        $Facturas->idClientes=$idClientes;
         $Facturas->idEmpresa=$idEmpresa;
         $Facturas->estado=1;
         $Facturas->save();
