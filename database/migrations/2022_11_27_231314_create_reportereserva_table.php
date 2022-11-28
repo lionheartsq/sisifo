@@ -15,11 +15,12 @@ class CreateReportereservaTable extends Migration
     {
         Schema::create('reportereserva', function (Blueprint $table) {
             $table->id();
-			$table->foreignId('idSala')->constrained('reserva');
-            $table->string('descripcionSala', 250);
-            $table->string('reservaNombre', 250);
-            $table->timestamp('fecha')->useCurrent();
-            $table->string('observaciones', 250);
+			$table->foreignId('idSala')->constrained('salas');
+            $table->foreignId('idDescripcionSala')->constrained('salas');
+            $table->foreignId('idReservaNombre')->constrained('reserva');
+            $table->foreignId('idFecha')->constrained('reserva');
+            $table->string('idObservaciones')->constrained('reserva');
+            $table->boolean('estado')->default(1);
         });
     }
 

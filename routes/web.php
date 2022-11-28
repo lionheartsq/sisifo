@@ -267,6 +267,14 @@ Route::group(['middleware' => ['Superadministrador']], function () {
     Route::get("/reserva/listado", "ReservaController@listado");
     Route::get("/reserva/selectReserva", "ReservaController@selectSalas");
 
+    Route::get("/reportereserva", "ReportereservaController@index");
+    Route::post("/reportereserva/store", "ReportereservaController@store");
+    Route::put("/reportereserva/update", "ReportereservaController@update");
+    Route::put("/reportereserva/deactivate", "ReportereservaController@deactivate");
+    Route::put("/reportereserva/activate", "ReportereservaController@activate");
+    Route::get("/reportereserva/listado", "ReportereservaController@listado");
+    Route::get("/reportereserva/selectreportereserva", "ReportereservaController@selectSalas");
+
     });
 
 

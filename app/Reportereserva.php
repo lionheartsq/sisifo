@@ -11,5 +11,5 @@ class Reportereserva extends Model
 	protected $primaryKey = 'id';
 	public $timestamps = false;
 
-    protected $fillable = ['idSala','descripcionSala','reservaNombre','fecha','observaciones'];
+    protected $fillable = ['idSala','idDescripcionSala','idReservaNombre','idFecha','idObservaciones','estado'];
 }

@@ -21,13 +21,11 @@
                                 <div class="input-group">
                                     <select class="form-control col-md-3" v-model="criterio">
                                     <option value="idSala">Sala</option>
-                                    <option value="reservaNombre">A nombre de</option>
-                                    <option value="fecha">Fecha</option>
-                                    <option value="observaciones">observaciones</option>
-                                    <option value="estado">estado</option>
+                                    <option value="reservaNombre">Reservado por</option>
+                                    <option value="descripcionSala">Descripcion</option>
                                     </select>
-                                    <input type="text" v-model="buscar" @keyup.enter="listarReserva(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
-                                    <button type="submit" @click="listarReserva(1,buscar,criterio)" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
+                                    <input type="text" v-model="buscar" @keyup.enter="listarRreserva(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
+                                    <button type="submit" @click="listarRreserva(1,buscar,criterio)" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
                                 </div>
                             </div>
                         </div>
@@ -35,49 +33,49 @@
                         <table class="table table-bordered table-striped table-sm">
                             <thead>
                                 <tr>
-                                    <th>Opciones</th>
-                                    <th>Sala</th>
-                                    <th>A nombre de</th>
                                     <th>Fecha</th>
+                                    <th>Sala</th>
+                                    <th>Descripcion</th>
+                                    <th>Reservado por</th>
                                     <th>observaciones</th>
-                                    <th>estado</th>
                                 </tr>
                             </thead>
                             <tbody>
 
-                                <tr v-for="reserva in arrayReserva" :key="reserva.id">
+                                <tr v-for="reportereserva in arrayReporte" :key="reportereserva.id">
                                     <td>
                                         <!-- <button type="button" @click="abrirModal('reserva','actualizar',reserva)" class="btn btn-info btn-sm">
                                         <i class="icon-eye" title="Ver detalles"></i>
                                         </button> &nbsp; -->
 
-                                        <button type="button" @click="abrirModal('reserva','actualizar',reserva)" class="btn btn-warning btn-sm">
+                                        <!-- <button type="button" @click="abrirModal('reserva','actualizar',reportereserva)" class="btn btn-warning btn-sm">
                                         <i class="icon-pencil" title="Editar datos"></i>
-                                        </button> &nbsp;
+                                        </button> &nbsp; -->
 
-                                    <template v-if="reserva.estado == '1'">
-                                        <button type="button" class="btn btn-danger btn-sm" @click="desactivarReserva(reserva.id)">
+                                     <template v-if="reportereserva.estado == '1'">
+                                        <button type="button" class="btn btn-danger btn-sm" @click="desactivarRreserva(reportereserva.id)">
                                             <i class="icon-trash" title="Desactivar"></i>
                                         </button>
                                     </template>
                                     
-                                    <template v-if="reserva.estado == '2'">
-                                        <button type="button" class="btn btn-success btn-sm" @click="activarReserva(reserva.id)">
+                                    <template v-if="reportereserva.estado == '2'">
+                                        <button type="button" class="btn btn-success btn-sm" @click="activarRreserva(reportereserva.id)">
                                             <i class="icon-check" title="Reactivar"></i>
                                         </button>
-                                    </template>
+                                    </template> 
 
                                     </td>
-                                    <td v-text="reserva.idSala"></td>
-                                    <td v-text="reserva.reservaNombre"></td>
-                                    <td v-text="reserva.fecha"></td>
-                                    <td v-text="reserva.observaciones"></td>
+                                    <td v-text="reportereserva.idFecha"></td>
+                                    <td v-text="reportereserva.idSala"></td>
+                                    <td v-text="reportereserva.idDescripcionSala"></td>
+                                    <td v-text="reportereserva.idReservaNombre"></td>
+                                    <td v-text="reportereserva.idObservaciones"></td>
                                     
                                     <td>
-                                        <div v-if="reserva.estado == '1'">
+                                        <div v-if="reportereserva.estado == '1'">
                                         <span class="badge badge-success">Activo</span>
                                         </div>
-                                        <div v-if="reserva.estado == '2'">
+                                        <div v-if="reportereserva.estado == '2'">
                                         <span class="badge badge-danger">Desactivado</span>
                                         </div>
                                     </td>
@@ -104,7 +102,7 @@
                 <!-- Fin ejemplo de tabla Listado -->
             </div>
             <!--Inicio del modal agregar/actualizar-->
-            <div class="modal fade" tabindex="-1" :class="{'mostrar':modal}" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
+            <!-- <div class="modal fade" tabindex="-1" :class="{'mostrar':modal}" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
                 <div class="modal-dialog modal-primary modal-lg" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -154,16 +152,16 @@
 
                             </form>
                         </div>
-                        <div class="modal-footer">
+                        <div class="modal-footer">  
                             <button type="button" class="btn btn-secondary" @click="cerrarModal()">Cerrar</button>
                             <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="crearReserva()">Guardar</button>
                             <button type="button" v-if="tipoAccion==2" class="btn btn-warning" @click="editarReserva()">Editar</button>
                         </div>
                     </div>
-                    <!-- /.modal-content -->
-                </div>
+                 /.modal-content --> 
+                <!-- </div> -->
                 <!-- /.modal-dialog -->
-            </div>
+            <!-- </div> -->
             <!--Fin del modal-->
     </main>
 </template>
@@ -172,15 +170,15 @@
 export default {
     data(){
         return{
-            observaciones:'',
-            fecha:'',
-            reservaNombre:'',
-            idReserva:0,
+            idObservaciones:'',
+            idFecha:'',
+            idReservaNombre:'',
+            idDescripcionSala:'',
             id:'',
-            idSala: 0,
-            reserva:'',
+            idSala: '',
+            reportereserva:'',
             estado:'',
-            arrayReserva : [],
+            arrayReporte : [],
             arraySalas : [],
             modal : 0,
             tituloModal : '',
@@ -245,14 +243,14 @@ export default {
                     console.log(error);
                 })
             },
-        listarReserva(page,buscar,criterio){
+        listarRreserva(page,buscar,criterio){
             let me=this;
-            var url='/reserva?page=' + page + '&buscar=' + buscar + '&criterio=' + criterio;
+            var url='/reportereserva?page=' + page + '&buscar=' + buscar + '&criterio=' + criterio;
             // Make a request for a user with a given ID
             axios.get(url).then(function (response) {
                 // handle success
             var respuesta=response.data;
-            me.arrayReserva=respuesta.reserva.data;
+            me.arrayReporte=respuesta.reportereserva.data;
             me.pagination=respuesta.pagination;
                 //console.log(response);
             })
@@ -266,7 +264,7 @@ export default {
             //Actualiza la pagina actual
             me.pagination.current_page = page;
             //envia peticion para ver los valores asociados a esa pagina
-            me.listarReserva(page,buscar,criterio);
+            me.listarRreserva(page,buscar,criterio);
         },
         crearReserva(){
             //valido con el metodo de validacion creado
@@ -283,7 +281,7 @@ export default {
 
             }).then(function (response) {
             me.cerrarModal();
-            me.listarReserva(1,'','Reserva');
+            me.listarRreserva(1,'','Reserva');
             })
             .catch(function (error) {
                 console.log(error);
@@ -306,13 +304,13 @@ export default {
                 //'dato': this.dato
             }).then(function (response) {
             me.cerrarModal();
-            me.listarReserva(1,'','reserva');
+            me.listarRreserva(1,'','reserva');
             })
             .catch(function (error) {
                 console.log(error);
             });
         },
-        desactivarReserva(id){
+        desactivarRreserva(id){
             const swalWithBootstrapButtons = Swal.mixin({
             customClass: {
                 confirmButton: 'btn btn-success',
@@ -334,7 +332,7 @@ export default {
                 axios.put('/reserva/deactivate',{
                     'id': id
                 }).then(function (response) {
-                me.listarReserva(1,'','reserva');
+                me.listarRreserva(1,'','reserva');
                 swalWithBootstrapButtons.fire(
                 'Reserva desactivada!'
                 )
@@ -345,11 +343,11 @@ export default {
                 /* Read more about handling dismissals below */
                 result.dismiss === Swal.DismissReason.cancel
             ) {
-                me.listarReserva();
+                me.listarRreserva();
             }
             })
         },
-        activarReserva(id){
+        activarRreserva(id){
             const swalWithBootstrapButtons = Swal.mixin({
             customClass: {
                 confirmButton: 'btn btn-success',
@@ -371,7 +369,7 @@ export default {
                 axios.put('/reserva/activate',{
                     'id': id
                 }).then(function (response) {
-                me.listarreserva(1,'','reserva');
+                me.listarrreserva(1,'','reserva');
                 swalWithBootstrapButtons.fire(
                 'Reserva activada!'
                 )
@@ -382,7 +380,7 @@ export default {
                 /* Read more about handling dismissals below */
                 result.dismiss === Swal.DismissReason.cancel
             ) {
-                me.listarReserva();
+                me.listarRreserva();
             }
             })
         },
@@ -434,7 +432,7 @@ export default {
         }
     },
     mounted() {
-        this.listarReserva(1,this.buscar,this.criterio);
+        this.listarRreserva(1,this.buscar,this.criterio);
         this.listarSalas();
     }
 }
