@@ -12,8 +12,18 @@
                     <div class="card-header">
                         <i class="fa fa-align-justify"></i> Reporte de reservas &nbsp;
                         <button type="button" @click="abrirModal('reserva','crear')" class="btn btn-secondary">
-                            <i class="icon-plus"></i>&nbsp;Nuevo
+                            <i class="icon-plus"></i>&nbsp;Imprimir
                         </button>
+                        <!-- datepicker -->
+                        <div class="input-group date" data-provide="datepicker">
+                        <input type="date" >
+                        <input type="date" >
+                        <button type="submit" @click="abrirModal('reserva','crear')" class="btn btn-secondary">
+                            <i class="icon-plus"></i>&nbsp;Filtrar
+                        </button>
+                        </div>
+
+                        <!-- datepicker -->
                     </div>
                     <div class="card-body">
                         <div class="form-group row">
