@@ -265,7 +265,12 @@ import Swal from 'sweetalert2';
                     'impuesto': this.impuesto,
                     'total': this.total,
                     'observaciones': this.observaciones,
-                    'idClientes': this.idClientes
+                    'idClientes': this.idClientes,
+                    'nombres': this.nombres,
+                    'apellidos': this.apellidos,
+                    'direccion': this.direccion,
+                    'telefono': this.telefono,
+                    'correo': this.correo
                 }).then(function (response) {
                 Swal.fire(
                     'Factura creada!'
