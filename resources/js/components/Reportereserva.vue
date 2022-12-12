@@ -15,13 +15,21 @@
                             <i class="icon-plus"></i>&nbsp;Imprimir
                         </button>
                         <!-- datepicker -->
-                        <div class="input-group date" data-provide="datepicker">
-                        <input type="date" >
-                        <input type="date" >
-                        <button type="submit" @click="abrirModal('reserva','crear')" class="btn btn-secondary">
-                            <i class="icon-plus"></i>&nbsp;Filtrar
-                        </button>
+                        <form id="tab">
+                        <div class="form-group">
+                        <!-- <div class="input-group date" data-provide="datepicker"> -->
+                        <label>Fecha inicio</label>
+                        <input required type="datetime-local" name="fecha1" id="fecha1" class="form-control">
                         </div>
+                        <div class="form-group">
+                        <label>Fecha Fin</label>
+                        <input required type="datetime-local" name="fecha2" id="fecha2" class="form-control">
+                        </div>
+                        <button type="submit" @click="filtro(1,fecha1,fecha2)">
+                            <i class="fa fa-save"></i>&nbsp;Filtrar
+                        </button>
+                        <!-- </div> -->
+                        </form>
 
                         <!-- datepicker -->
                     </div>
@@ -77,7 +85,7 @@
                                     </td>
                                     <td v-text="reportereserva.idFecha"></td>
                                     <td v-text="reportereserva.idSala"></td>
-                                    <td v-text="reportereserva.idDescripcionSala"></td>
+                                    <td v-text="reportereserva.idDescripcion"></td>
                                     <td v-text="reportereserva.idReservaNombre"></td>
                                     <td v-text="reportereserva.idObservaciones"></td>
                                     
@@ -190,6 +198,7 @@ export default {
             estado:'',
             arrayReporte : [],
             arraySalas : [],
+            arrayReporteFiltro: [],
             modal : 0,
             tituloModal : '',
             tipoAccion : 0,
@@ -205,7 +214,9 @@ export default {
             },
             offset : 3,
             criterio : 'reserva',
-            buscar : ''
+            buscar : '',
+            fecha1:'',
+            fecha2:''
         }
     },
     computed:{
@@ -253,6 +264,16 @@ export default {
                     console.log(error);
                 })
             },
+            // onsubmitform() {
+            // var fecha1 = new Date($('input[name="fecha1"]').val()); // or Date.parse(...)
+            // var fecha2 = new Date($('input[name="fecha2"]').val()); // or Date.now()
+            // if (fecha1.getTime() > fecha2.getTime()) {
+            //     alert("La fecha fin no puede ser menor a la fecha inicio");
+            // return false;
+            // console.log("test");
+            // }
+            // me.listarRreserva();
+            // },
         listarRreserva(page,buscar,criterio){
             let me=this;
             var url='/reportereserva?page=' + page + '&buscar=' + buscar + '&criterio=' + criterio;
@@ -261,6 +282,22 @@ export default {
                 // handle success
             var respuesta=response.data;
             me.arrayReporte=respuesta.reportereserva.data;
+            me.pagination=respuesta.pagination;
+                //console.log(response);
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            })
+        },
+        Filtro(page,fecha1,fecha2){
+            let me=this;
+            var url='/reportereserva/filtrar';
+            // Make a request for a user with a given ID
+            axios.get(url).then(function (response) {
+                // handle success
+            var respuesta=response.data;
+            me.arrayReporteFiltro=respuesta.reportereserva.data;
             me.pagination=respuesta.pagination;
                 //console.log(response);
             })

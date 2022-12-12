@@ -266,6 +266,8 @@ Route::group(['middleware' => ['Superadministrador']], function () {
     Route::put("/reserva/activate", "ReservaController@activate");
     Route::get("/reserva/listado", "ReservaController@listado");
     Route::get("/reserva/selectReserva", "ReservaController@selectSalas");
+    Route::get("/reserva/filtroFecha", "ReservaController@filtroFecha");
+    Route::get("/reserva/hora", "ReservaController@hora");
 
     Route::get("/reportereserva", "ReportereservaController@index");
     Route::post("/reportereserva/store", "ReportereservaController@store");
@@ -274,6 +276,8 @@ Route::group(['middleware' => ['Superadministrador']], function () {
     Route::put("/reportereserva/activate", "ReportereservaController@activate");
     Route::get("/reportereserva/listado", "ReportereservaController@listado");
     Route::get("/reportereserva/selectreportereserva", "ReportereservaController@selectSalas");
+    /// recien agregada
+    Route::get("/reportereserva/filtrar", "ReportereservaController@filtrar");
 
     });
 

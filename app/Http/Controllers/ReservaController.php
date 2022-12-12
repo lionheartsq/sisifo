@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Reserva;
+use App\Reportereserva;
+use App\Horas;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -63,6 +65,7 @@ class ReservaController extends Controller
         $Reserva->observaciones=$request->observaciones;
         $Reserva->estado=1;
         $Reserva->save();
+
     }
 
     public function update(Request $request){
@@ -90,4 +93,31 @@ class ReservaController extends Controller
         $Reserva->estado='1';
         $Reserva->save();
     }
-}
+
+    public function filtroFecha(Request $request)
+    {
+        //if(!$request->ajax()) return redirect('/');
+        $fechainicio= $request->fechainicio;
+        $fechafin= $request->fechafin;
+
+        // if ($fechainicio<$fechafin) {
+            $reserva = Reserva::whereBetween('reserva.fecha',[$fechainicio,$fechafin])
+            ->where('reserva.estado','=','1')
+            ->join('salas','reserva.idSala','=','salas.id')
+            ->select('reserva.id','salas.nombre as idSala','reserva.reservaNombre',
+                    'reserva.fecha','reserva.observaciones','reserva.estado')
+            ->orderBy('reserva.id','desc')
+            ->get();
+        
+            return [
+                
+                    'reserva' => $reserva,
+            ];
+    
+            }
+
+            public function hora(){
+                $horas = Horas::orderBy('id','asc')->get();
+                return ['horas' => $horas];
+            }
+    }

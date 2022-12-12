@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Salas;
+use App\Reportereserva;
 
 
 class SalasController extends Controller
@@ -60,6 +61,7 @@ class SalasController extends Controller
         $salas->descripcion=$request->descripcion;
         $salas->estado='1';
         $salas->save();
+
     }
 
     public function update(Request $request){

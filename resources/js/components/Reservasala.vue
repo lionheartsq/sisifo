@@ -14,6 +14,11 @@
                         <button type="button" @click="abrirModal('reserva','crear')" class="btn btn-secondary">
                             <i class="icon-plus"></i>&nbsp;Nuevo
                         </button>
+                        <input type="datetime-local" v-model="fechainicio" class="btn btn-secondary" placeholder="Fecha inicial" >
+                        <input type="datetime-local" v-model="fechafin" class="btn btn-secondary" placeholder="Fecha final" >
+                        <button type="button" @click="filtrar(1, fechainicio, fechafin)" class="btn btn-secondary">
+                            <i class="icon-plus"></i>&nbsp;Filtrar
+                        </button>
                     </div>
                     <div class="card-body">
                         <div class="form-group row">
@@ -135,8 +140,29 @@
                                 <div class="form-group row">
                                     <label class="col-md-3 form-control-label" for="text-input">Fecha</label>
                                     <div class="col-md-9">
-                                        <input type="date" v-model="fecha" class="form-control" placeholder="Fecha de las reserva">
-                                        <span class="help-block">(*) Ingrese la fecha de las reserva</span>
+                                        <input type="datetime-local" v-model="fecha" class="form-control" placeholder="Fecha de las reserva"
+                                        name="fechaReserva" id="fechaReserva" @click="diade()">
+                                        <span class="help-block">(*) Ingrese la fecha de la reserva</span>
+                                    </div>
+                                </div>
+                                <tr>
+                                        <td>
+                                            Arl Empresa
+                                        </td>
+                                        <td>
+                                        <select class="form-control" v-model="hora">
+                                        <option value="0" disabled>Seleccione la hora</option>
+                                        <option v-for="arl in arrayHora" :key="arl.id" :value="arl.id" v-text="arl.hora">
+                                        </option>
+                                       </select>
+                                        </td>
+                                    </tr>
+                                <div class="form-group row">
+                                    <label class="col-md-3 form-control-label" for="text-input">Fecha</label>
+                                    <div class="col-md-9">
+                                        <input type="time" v-model="hora" class="form-control" placeholder="Hora de la reserva"
+                                        name="fechaReserva" id="fechaReserva" @click="diade()">
+                                        <span class="help-block">(*) Ingrese la Hora</span>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -171,7 +197,10 @@
 <script>
 export default {
     data(){
+        
         return{
+            fechainicio:'',
+            fechafin:'',
             observaciones:'',
             fecha:'',
             reservaNombre:'',
@@ -182,6 +211,7 @@ export default {
             estado:'',
             arrayReserva : [],
             arraySalas : [],
+            arrayHora:[],
             modal : 0,
             tituloModal : '',
             tipoAccion : 0,
@@ -230,6 +260,42 @@ export default {
         }
     },
     methods : {
+
+        diade(){
+            let fechaReserva = document.getElementById('fechaReserva');
+            fechaReserva.min = (new Date()).toISOString().substring(0, 19);
+        },
+        listarHora(){
+                let me=this;
+                var url='/reserva/hora';
+                // Make a request for a user with a given ID
+                axios.get(url).then(function (response) {
+                    // handle success
+                var respuesta=response.data;
+                me.arrayHora=respuesta.hora;
+                    //console.log(response);
+                })
+                .catch(function (error) {
+                    // handle error
+                    console.log(error);
+                })
+            },
+        filtrar(page,fechainicio,fechafin){
+                let me=this;
+                var url='/reserva?page=' + page + '&reserva.fecha>' + fechainicio + '&reserva.fecha<' + fechafin;
+                // Make a request for a user with a given ID
+                axios.get(url).then(function (response) {
+                    // handle success
+                    var respuesta=response.data;
+                    me.arrayReserva=respuesta.reserva.data;
+                    me.pagination=respuesta.pagination;
+                    //console.log(response);
+                })
+                .catch(function (error) {
+                    // handle error
+                    console.log(error);
+                })
+            },
         listarSalas(){
                 let me=this;
                 var url='/salas/listado';
@@ -436,6 +502,7 @@ export default {
     mounted() {
         this.listarReserva(1,this.buscar,this.criterio);
         this.listarSalas();
+        this.listarHora();
     }
 }
 </script>

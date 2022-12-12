@@ -17,7 +17,7 @@ class CreateReservaTable extends Migration
             $table->id();
 			$table->foreignId('idSala')->constrained('salas');
             $table->string('reservaNombre', 250);
-            $table->timestamp('fecha')->useCurrent();
+            $table->dateTime('fecha')->useCurrent();
             $table->string('observaciones', 250);
             $table->boolean('estado')->default(1);
         });
