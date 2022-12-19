@@ -219,6 +219,9 @@ import Swal from 'sweetalert2';
               .then(data => {
                 this.clientesFiltro = data.clientes;
 
+                console.log('Tipo clientesFiltro'+ typeof(this.clientesFiltro));
+                console.log('Cont clientesFiltro'+ this.clientesFiltro);
+
                 if(this.clientesFiltro[0].id === undefined || (typeof this.clientesFiltro[0].id === 'undefined') || this.clientesFiltro[0].id === null){
                 console.log("Salida indefinida de clientes");
                 }else{
