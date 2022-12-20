@@ -17,7 +17,7 @@ class HorasSeeder extends Seeder
         $data = json_decode(file_get_contents(__DIR__ . '/json/horas.json'));
         foreach ($data as $item){
             Horas::create(array(
-                'hora' => $item->hora,
+                'hora' => $item->hora
             ));
             }
         // DB::table('horas')->insert([

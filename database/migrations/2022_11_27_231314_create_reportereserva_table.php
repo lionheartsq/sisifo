@@ -19,7 +19,7 @@ class CreateReportereservaTable extends Migration
             $table->foreignId('idDescripcionSala')->constrained('salas');
             $table->foreignId('idReservaNombre')->constrained('reserva');
             $table->foreignId('idFecha')->constrained('reserva');
-            $table->string('idObservaciones')->constrained('reserva');
+            $table->foreignId('idObservaciones')->constrained('reserva');
             $table->boolean('estado')->default(1);
         });
     }

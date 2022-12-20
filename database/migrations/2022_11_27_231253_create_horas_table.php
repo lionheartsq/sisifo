@@ -16,6 +16,7 @@ class CreateHorasTable extends Migration
         Schema::create('horas', function (Blueprint $table) {
             $table->id();
             $table->string('hora', 255);
+
         });
     }
 

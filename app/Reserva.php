@@ -11,5 +11,5 @@ class Reserva extends Model
 	protected $primaryKey = 'id';
 	public $timestamps = false;
 
-    protected $fillable = ['idSala','reservaNombre','fecha','observaciones','estado'];
+    protected $fillable = ['idSala','reservaNombre','fecha','idHora','observaciones','estado'];
 }

@@ -17,21 +17,34 @@ class ReservaController extends Controller
         //if(!$request->ajax()) return redirect('/');
         $buscar= $request->buscar;
         $criterio= $request->criterio;
+        // aqui ingreso
+        $fechainicio= $request->fechainicio;
+        $fechafin= $request->fechafin;
 
         if ($buscar=='') {
             $reserva = Reserva::where('reserva.estado','=','1')
             ->join('salas','reserva.idSala','=','salas.id')
+            ->join('horas','reserva.idHora','=','horas.id')
             ->select('reserva.id','salas.nombre as idSala','reserva.reservaNombre',
-                    'reserva.fecha','reserva.observaciones','reserva.estado')
+                    'reserva.fecha','horas.hora as idHora','reserva.observaciones','reserva.estado')
             ->orderBy('reserva.id','desc')
             ->paginate(5);
         }
-        else {
+        else if($buscar=='') {
+            $reserva = Reserva::whereBetween('reserva.fecha',[$fechainicio,$fechafin])
+            ->where('reserva.estado','=','1')
+            ->join('salas','reserva.idSala','=','salas.id')
+            ->select('reserva.id','salas.nombre as idSala','reserva.reservaNombre',
+            'reserva.fecha','horas.hora as idHora','reserva.observaciones','reserva.estado')
+            ->orderBy('reserva.id','desc')
+            ->paginate(5);   
+        }
+        else{
             $reserva = Reserva::where('reserva.estado','=','1')
             ->where($criterio, 'like', '%'. $buscar . '%')
             ->orderBy('reserva.id','desc')
             ->paginate(5);
-        }
+            }
 
         return [
             'pagination' => [
@@ -55,15 +68,32 @@ class ReservaController extends Controller
         return ['reserva' => $reserva];
     }
 
+    public function hora(){
+        $hora = Horas::select('horas.id',DB::raw('(horas.hora) as hora'))
+        ->orderBy('id','asc')
+        ->get();
+
+        return 
+        ['hora' => $hora];
+    }
+
     public function store(Request $request){
         //if(!$request->ajax()) return redirect('/');
+
         $idEmpresa=Auth::user()->idEmpresa;
+
+        // $Hora=new Horas();
+        // $Hora->hora=$request->hora;
+        
+
         $Reserva=new Reserva();
         $Reserva->idSala=$request->idSala;
         $Reserva->reservaNombre=$request->reservaNombre;
         $Reserva->fecha=$request->fecha;
+        $Reserva->idHora=$request->idHora;
         $Reserva->observaciones=$request->observaciones;
         $Reserva->estado=1;
+
         $Reserva->save();
 
     }
@@ -75,6 +105,7 @@ class ReservaController extends Controller
         $Reserva->idSala=$request->idSala;
         $Reserva->reservaNombre=$request->reservaNombre;
         $Reserva->fecha=$request->fecha;
+        $Reserva->idHora=$request->idHora;
         $Reserva->observaciones=$request->observaciones;
         $Reserva->estado=1;
         $Reserva->save();
@@ -116,8 +147,5 @@ class ReservaController extends Controller
     
             }
 
-            public function hora(){
-                $horas = Horas::orderBy('id','asc')->get();
-                return ['horas' => $horas];
-            }
-    }
+            
+        }

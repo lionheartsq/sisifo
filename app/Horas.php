@@ -10,6 +10,7 @@ class Horas extends Model
     protected $table = 'horas';
     protected $primaryKey = 'id';
     public $timestamps = false;
+    
     protected $fillable = ['hora'];
     
 }

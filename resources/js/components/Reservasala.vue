@@ -14,8 +14,10 @@
                         <button type="button" @click="abrirModal('reserva','crear')" class="btn btn-secondary">
                             <i class="icon-plus"></i>&nbsp;Nuevo
                         </button>
-                        <input type="datetime-local" v-model="fechainicio" class="btn btn-secondary" placeholder="Fecha inicial" >
-                        <input type="datetime-local" v-model="fechafin" class="btn btn-secondary" placeholder="Fecha final" >
+                        <span class="help-block">Desde</span>
+                        <input type="date" v-model="fechainicio" id="fechaInicio" name="fechaInicio" class="btn btn-secondary" placeholder="Fecha inicial" >
+                        <span class="help-block">Hasta</span>
+                        <input type="date" v-model="fechafin" id="fechaFin" name="fechaFin" class="btn btn-secondary" placeholder="Fecha final" @click="filtrofecha()">
                         <button type="button" @click="filtrar(1, fechainicio, fechafin)" class="btn btn-secondary">
                             <i class="icon-plus"></i>&nbsp;Filtrar
                         </button>
@@ -44,6 +46,7 @@
                                     <th>Sala</th>
                                     <th>A nombre de</th>
                                     <th>Fecha</th>
+                                    <th>Hora</th>
                                     <th>observaciones</th>
                                     <th>estado</th>
                                 </tr>
@@ -76,6 +79,7 @@
                                     <td v-text="reserva.idSala"></td>
                                     <td v-text="reserva.reservaNombre"></td>
                                     <td v-text="reserva.fecha"></td>
+                                    <td v-text="reserva.idHora"></td>
                                     <td v-text="reserva.observaciones"></td>
                                     
                                     <td>
@@ -140,31 +144,24 @@
                                 <div class="form-group row">
                                     <label class="col-md-3 form-control-label" for="text-input">Fecha</label>
                                     <div class="col-md-9">
-                                        <input type="datetime-local" v-model="fecha" class="form-control" placeholder="Fecha de las reserva"
+                                        <input type="date" v-model="fecha" class="form-control" placeholder="Fecha de las reserva"
                                         name="fechaReserva" id="fechaReserva" @click="diade()">
                                         <span class="help-block">(*) Ingrese la fecha de la reserva</span>
                                     </div>
                                 </div>
-                                <tr>
-                                        <td>
-                                            Arl Empresa
-                                        </td>
-                                        <td>
-                                        <select class="form-control" v-model="hora">
+                                <div class="form-group row">
+                                    <label class="col-md-3 form-control-label" for="text-input">Horas</label>    
+                                        <div class="col-md-9">
+                                        <select class="form-control" v-model="idHora">
                                         <option value="0" disabled>Seleccione la hora</option>
-                                        <option v-for="arl in arrayHora" :key="arl.id" :value="arl.id" v-text="arl.hora">
+                                        <option v-for="hora in arrayHora" :key="hora.id" :value="hora.id" v-text="hora.hora">
                                         </option>
                                        </select>
-                                        </td>
-                                    </tr>
-                                <div class="form-group row">
-                                    <label class="col-md-3 form-control-label" for="text-input">Fecha</label>
-                                    <div class="col-md-9">
-                                        <input type="time" v-model="hora" class="form-control" placeholder="Hora de la reserva"
-                                        name="fechaReserva" id="fechaReserva" @click="diade()">
-                                        <span class="help-block">(*) Ingrese la Hora</span>
+                                       <span class="help-block">(*) Ingrese la Hora de la reserva</span>
                                     </div>
                                 </div>
+                                    
+                              
                                 <div class="form-group row">
                                     <label class="col-md-3 form-control-label" for="text-input"> Observaciones </label>
                                     <div class="col-md-9">
@@ -206,6 +203,8 @@ export default {
             reservaNombre:'',
             idReserva:0,
             id:'',
+            hora:'',
+            idHora:0,
             idSala: 0,
             reserva:'',
             estado:'',
@@ -260,10 +259,13 @@ export default {
         }
     },
     methods : {
-
+        
+        filtrofecha(){
+            fechaInicio.min=new Date().toISOString().split("T")[0];
+            fechaFin.min = this.fechainicio;
+        },
         diade(){
-            let fechaReserva = document.getElementById('fechaReserva');
-            fechaReserva.min = (new Date()).toISOString().substring(0, 19);
+            fechaReserva.min = new Date().toISOString().split("T")[0];
         },
         listarHora(){
                 let me=this;
@@ -345,6 +347,7 @@ export default {
                 'idSala': this.idSala,
                 'reservaNombre': this.reservaNombre,
                 'fecha': this.fecha,
+                'idHora':this.idHora,
                 'observaciones': this.observaciones,
 
             }).then(function (response) {
@@ -366,6 +369,7 @@ export default {
                 'idSala': this.idSala,
                 'reservaNombre': this.reservaNombre,
                 'fecha': this.fecha,
+                'idHora':this.idHora,
                 'observaciones': this.observaciones
 
                 //'estado': this.estado,
@@ -459,6 +463,7 @@ export default {
             if (!this.idSala) this.errorMensaje.push("El nombre de la sala no puede estar vacio");
             if (!this.reservaNombre) this.errorMensaje.push("El nombre de quien reserva no puede estar vacio");
             if (!this.fecha) this.errorMensaje.push("La fecha de la reserva no puede estar vacia");
+            if (!this.idHora) this.errorMensaje.push("La hora de la reserva no puede estar vacia");
             if (!this.observaciones) this.errorMensaje.push("Las observaciones de la reserva no pueden estar vacias");
             if (this.errorMensaje.length) this.errorReserva=1;
 
