@@ -20,10 +20,10 @@
                                 <div class="col-md-9">
                                     <div class="input-group">
                                         <select class="form-control col-md-3" v-model="criterio">
-                                        <option value="detalle">Detalle</option>
+                                        <option value="detalle">Departamento</option>
                                         <option value="estado">Estado</option>
                                         </select>
-                                        <input type="text" v-model="buscar" @keyup.enter="listarDepartamentos(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
+                                        <input type="text" v-model="buscar" @keyup.capture="listarDepartamentos(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
                                         <button type="submit" @click="listarDepartamentos(1,buscar,criterio)" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
                                     </div>
                                 </div>
@@ -41,25 +41,16 @@
 
                                     <tr v-for="departamentos in arrayDepartamentos" :key="departamentos.id">
                                         <td>
-                                            <button type="button" @click="abrirModal('departamentos','actualizar',departamentos)" class="btn btn-info btn-sm">
-                                            <i class="icon-eye" title="Ver detalles"></i>
-                                            </button> &nbsp;
-
                                             <button type="button" @click="abrirModal('departamentos','actualizar',departamentos)" class="btn btn-warning btn-sm">
                                             <i class="icon-pencil" title="Editar datos"></i>
                                             </button> &nbsp;
 
-                                        <template v-if="departamentos.estado == 'A'">
+                                        <template v-if="departamentos.estado == '1'">
                                             <button type="button" class="btn btn-danger btn-sm" @click="desactivarDepartamentos(departamentos.id)">
                                                 <i class="icon-trash" title="Desactivar"></i>
                                             </button>
                                         </template>
-                                        <template v-if="departamentos.estado == 'E'">
-                                            <button type="button" class="btn btn-danger btn-sm" @click="desactivarDepartamentos(departamentos.id)">
-                                                <i class="icon-trash" title="Desactivar"></i>
-                                            </button>
-                                        </template>
-                                        <template v-if="departamentos.estado == 'I'">
+                                        <template v-if="departamentos.estado == '2'">
                                             <button type="button" class="btn btn-success btn-sm" @click="activarDepartamentos(departamentos.id)">
                                                 <i class="icon-check" title="Reactivar"></i>
                                             </button>
@@ -67,7 +58,7 @@
 
                                         </td>
                                         <td v-text="departamentos.detalle"></td>
-                                        <td v-text="departamentos.estado"></td>
+                                        <td v-text="departamentos.estado" hidden></td>
                                         <td>
                                             <div v-if="departamentos.estado == '1'">
                                             <span class="badge badge-success">Activo</span>
@@ -112,13 +103,13 @@
                             <div class="modal-body">
                                 <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="text-input">Detalle</label>
+                                        <label class="col-md-3 form-control-label" for="text-input">Departamento</label>
                                         <div class="col-md-9">
-                                            <input type="number" v-model="detalle" class="form-control" placeholder="Detalle del departamento">
-                                            <span class="help-block">(*) Ingrese el detalle del departamento</span>
+                                            <input type="text" v-model="detalle" class="form-control" placeholder="Detalle del departamento">
+                                            <span class="help-block">(*) Ingrese el nombre del departamento</span>
                                         </div>
                                     </div>
-                                    <div class="form-group row div-error" v-show="errorUsuario">
+                                    <div class="form-group row div-error" v-show="errorDepartamentos">
                                         <div class="text-center text-error">
                                             <div v-for="error in errorMensaje" :key="error" v-text="error"></div>
                                         </div>
@@ -146,7 +137,7 @@
             return{
                 idDepartamentos:0,
                 id:'',
-                departamentos:'',
+                detalle:'',
                 estado:'',
                 arrayDepartamentos : [],
                 modal : 0,
@@ -228,9 +219,8 @@
 
                 let me=this;
                 axios.post('/departamentos/store',{
-                    'usuario': this.departamentos
-                    //'estado': this.estado,
-                    //'dato': this.dato
+                    'detalle': this.detalle,
+                    'estado': 1
                 }).then(function (response) {
                 me.cerrarModal();
                 me.listarDepartamentos(1,'','Departamentos');
@@ -246,10 +236,8 @@
 
                 let me=this;
                 axios.put('/departamentos/update',{
-                    'Departamentos': this.departamentos,
+                    'detalle': this.detalle,
                     'id': this.idDepartamentos
-                    //'estado': this.estado,
-                    //'dato': this.dato
                 }).then(function (response) {
                 me.cerrarModal();
                 me.listarDepartamentos(1,'','departamentos');
@@ -287,6 +275,8 @@
                     }).catch(function (error) {
                         console.log(error);
                     });
+                    this.buscar='';
+                    this.criterio='';
                 } else if (
                     /* Read more about handling dismissals below */
                     result.dismiss === Swal.DismissReason.cancel
@@ -324,6 +314,8 @@
                     }).catch(function (error) {
                         console.log(error);
                     });
+                    this.buscar='';
+                    this.criterio='';
                 } else if (
                     /* Read more about handling dismissals below */
                     result.dismiss === Swal.DismissReason.cancel
@@ -344,7 +336,9 @@
             cerrarModal(){
                 this.modal=0;
                 this.tituloModal='';
-                this.Departamentos='';
+                this.detalle='';
+                this.buscar='';
+                this.criterio='';
             },
             abrirModal(modelo, accion, data=[]){
             //tres argumentos, el modelo a modificar o crear, la accion como tal y el arreglo del registro en la tabla
@@ -354,7 +348,7 @@
                     switch (accion) {
                         case 'crear':{
                             this.modal=1;
-                            this.Departamentos='';
+                            this.detalle='';
                             this.tituloModal='Crear nuevo departamentos';
                             this.tipoAccion= 1;
                             break;
@@ -365,7 +359,7 @@
                             this.tituloModal='Editar departamentos';
                             this.tipoAccion= 2;
                             this.idDepartamentos=data['id'];
-                            this.Departamentos=data['departamentos'];
+                            this.detalle=data['detalle'];
                             break;
                         }
                     }

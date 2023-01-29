@@ -17,15 +17,24 @@ class CiudadesController extends Controller
         $criterio= $request->criterio;
 
         if ($buscar=='') {
-            $ciudades = Ciudades::where('ciudades.estado','=','1')
-            ->orderBy('ciudades.id','desc')
-            ->paginate(5);
+            $ciudades = Ciudades::join('departamentos','departamentos.id','=','ciudades.idDepartamentos')
+            ->select('ciudades.id','ciudades.detalle','ciudades.idDepartamentos','ciudades.estado','departamentos.detalle as detalleDepartamento')
+            ->orderBy('ciudades.estado','asc')
+            ->orderBy('ciudades.idDepartamentos','asc')
+            ->orderBy('ciudades.detalle','asc')
+            ->paginate(10);
         }
         else {
-            $ciudades = Ciudades::where('ciudades.estado','=','1')
+            if($criterio != 'detalle' && $criterio != 'estado' && $criterio != 'detalleDepartamentos'){$criterio='detalle';}
+            $buscar=($criterio != 'estado')?$buscar:(($buscar == 'activo')?'1':(($buscar == 'desactivado')?'2':$buscar));
+            $criterio=(($criterio != 'detalleDepartamentos')?"ciudades.".$criterio:"departamentos.detalle");
+            $ciudades = Ciudades::join('departamentos','departamentos.id','=','ciudades.idDepartamentos')
+            ->select('ciudades.id','ciudades.detalle','ciudades.idDepartamentos','ciudades.estado','departamentos.detalle as detalleDepartamento')
             ->where($criterio, 'like', '%'. $buscar . '%')
-            ->orderBy('ciudades.id','desc')
-            ->paginate(5);
+            ->orderBy('ciudades.estado','asc')
+            ->orderBy('ciudades.idDepartamentos','asc')
+            ->orderBy('ciudades.detalle','asc')
+            ->paginate(10);
         }
 
         return [
@@ -55,7 +64,7 @@ class CiudadesController extends Controller
         $idEmpresa=Auth::user()->idEmpresa;
         $Ciudades=new Ciudades();
         $Ciudades->detalle=$request->detalle;
-        $Ciudades->idDepartamentos=$idDepartamentos;
+        $Ciudades->idDepartamentos=$request->idDepartamentos;
         $Ciudades->save();
     }
 
@@ -64,7 +73,7 @@ class CiudadesController extends Controller
         $idEmpresa=Auth::user()->idEmpresa;
         $Ciudades=Ciudades::findOrFail($request->id);
         $Ciudades->detalle=$request->detalle;
-        $Ciudades->idDepartamentos=$idDepartamentos;
+        $Ciudades->idDepartamentos=$request->idDepartamentos;
         $Ciudades->save();
     }
 
@@ -81,6 +90,4 @@ class CiudadesController extends Controller
         $Ciudades->estado='1';
         $Ciudades->save();
     }
-
-
 }
