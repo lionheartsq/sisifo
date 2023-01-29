@@ -79,6 +79,20 @@
                     </li>
                 </ul>
             </li>
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-wrench"></i> <b>Reservas</b></a>
+                <ul class="nav-dropdown-items">
+                    <li @click="menu=16" class="nav-item">
+                        <a class="nav-link" href="#"><i class="icon-book-open"></i> Lista de Salas</a>
+                    </li>
+                    <li @click="menu=17" class="nav-item">
+                        <a class="nav-link" href="#"><i class="icon-book-open"></i> Reservar sala</a>
+                    </li>
+                    <li @click="menu=18" class="nav-item">
+                        <a class="nav-link" href="#"><i class="icon-book-open"></i> Reporte de reservas</a>
+                    </li>
+                </ul>
+            </li>
         </ul>
     </nav>
     <button class="sidebar-minimizer brand-minimizer" type="button"></button>
