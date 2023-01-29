@@ -17,14 +17,16 @@ class DepartamentosController extends Controller
         $criterio= $request->criterio;
 
         if ($buscar=='') {
-            $departamentos = Departamentos::where('departamentos.estado','=','1')
-            ->orderBy('departamentos.id','desc')
+            $departamentos = Departamentos::orderBy('departamentos.estado','asc')
+            ->orderBy('departamentos.detalle','asc')
             ->paginate(5);
         }
         else {
-            $departamentos = Departamentos::where('departamentos.estado','=','1')
-            ->where($criterio, 'like', '%'. $buscar . '%')
-            ->orderBy('departamentos.id','desc')
+            if($criterio != 'detalle' && $criterio != 'estado'){$criterio='detalle';}
+            $buscar=($criterio != 'estado')?$buscar:(($buscar == 'activo')?'1':(($buscar == 'desactivado')?'2':$buscar));
+            $departamentos = Departamentos::where($criterio, 'like', '%'. $buscar . '%')
+            ->orderBy('departamentos.estado','asc')
+            ->orderBy('departamentos.detalle','asc')
             ->paginate(5);
         }
 
@@ -44,7 +46,7 @@ class DepartamentosController extends Controller
     public function listado(){
 
         $departamentos = Departamentos::where('departamentos.estado','=','1')
-        ->orderBy('departamentos.id','desc')
+        ->orderBy('departamentos.detalle','asc')
         ->get();
 
         return ['departamentos' => $departamentos];
