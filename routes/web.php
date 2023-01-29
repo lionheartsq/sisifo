@@ -251,6 +251,34 @@ Route::group(['middleware' => ['Superadministrador']], function () {
     Route::get("/historico/mostrarIngresos", "HistoricoController@mostrarIngresos");
     Route::get("/historico/mostrartSalidas", "HistoricoController@mostrarSalidas");
 
+    Route::get("/salas", "SalasController@index");
+    Route::post("/salas/store", "SalasController@store");
+    Route::put("/salas/update", "SalasController@update");
+    Route::put("/salas/deactivate", "SalasController@deactivate");
+    Route::put("/salas/activate", "SalasController@activate");
+    Route::get("/salas/listado", "SalasController@listado");
+    Route::get("/salas/selectsalas", "SalasController@selectSalas");
+
+    Route::get("/reserva", "ReservaController@index");
+    Route::post("/reserva/store", "ReservaController@store");
+    Route::put("/reserva/update", "ReservaController@update");
+    Route::put("/reserva/deactivate", "ReservaController@deactivate");
+    Route::put("/reserva/activate", "ReservaController@activate");
+    Route::get("/reserva/listado", "ReservaController@listado");
+    Route::get("/reserva/selectReserva", "ReservaController@selectSalas");
+    Route::get("/reserva/filtroFecha", "ReservaController@filtroFecha");
+    Route::get("/reserva/hora", "ReservaController@hora");
+
+    Route::get("/reportereserva", "ReportereservaController@index");
+    Route::post("/reportereserva/store", "ReportereservaController@store");
+    Route::put("/reportereserva/update", "ReportereservaController@update");
+    Route::put("/reportereserva/deactivate", "ReportereservaController@deactivate");
+    Route::put("/reportereserva/activate", "ReportereservaController@activate");
+    Route::get("/reportereserva/listado", "ReportereservaController@listado");
+    Route::get("/reportereserva/selectreportereserva", "ReportereservaController@selectSalas");
+    /// recien agregada
+    Route::get("/reportereserva/filtrar", "ReportereservaController@filtrar");
+
     });
 
 

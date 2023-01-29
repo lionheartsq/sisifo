@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
         $this->call(GruposSeeder::class);
         $this->call(ImpuestoSeeder::class);
         $this->call(MedidaSeeder::class);
+        $this->call(HorasSeeder::class);
         //-------------------------------------------------------------------//
     }
 }

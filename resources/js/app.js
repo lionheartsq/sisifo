@@ -19,6 +19,14 @@ window.Vue.use(Vuesax, {
     // options here
   });
 
+// main.js
+import VueSweetalert2 from 'vue-sweetalert2';
+
+// If you don't need the styles, do not connect
+import 'sweetalert2/dist/sweetalert2.min.css';
+
+Vue.use(VueSweetalert2);
+
 Vue.directive('focus', {
     // Cuando el elemento enlazado se inserta en el DOM...
     inserted: function (el) {
@@ -113,6 +121,10 @@ Vue.component('usuarios', require('./components/Usuarios.vue').default);
 Vue.component('empleados', require('./components/Empleados.vue').default);
 Vue.component('control', require('./components/Control.vue').default);
 Vue.component('historico', require('./components/Historico.vue').default);
+
+Vue.component('salas', require('./components/Salas.vue').default);
+Vue.component('reservasala', require('./components/Reservasala.vue').default);
+Vue.component('reportereserva', require('./components/Reportereserva.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
