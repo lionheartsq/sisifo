@@ -5,15 +5,48 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Model;
 
 class User extends Authenticatable
 {
     use Notifiable;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    //protected $fillable = ['name', 'email', 'password','estado'];
+
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    //protected $hidden = ['password', 'remember_token'];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    //protected $casts = ['email_verified_at' => 'datetime'];
+
     protected $table = 'users';
-	protected $primaryKey = 'id';
-	public $timestamps = false;
 
-    protected $fillable = ['documento','email','nombres','apellidos','password','idEmpresa','idRoles','estado'];
+    protected $fillable = ['name','email','password','estado'];
 
+    public $timestamps = false;
+
+    public function roles() {
+        return $this->belongsToMany('App\Tb_rol','tb_usuario_tiene_rol', 'idUser', 'idRol');
+    }
+
+    public function empresas() {
+        return $this->belongsToMany('App\Tb_configuracion_basica','tb_usuario_tiene_rol', 'idUser', 'idEmpresa');
+    }
+
+    public function vistas() {
+        return $this->hasOne('App\Tb_vista_personalizada', 'idUser', 'id');
+    }
 }
