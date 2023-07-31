@@ -1,6 +1,6 @@
 <?php
 
-use App\Tb_rol;
+use App\Roles;
 use Illuminate\Database\Seeder;
 
 class Tb_rolSeeder extends Seeder
@@ -14,7 +14,7 @@ class Tb_rolSeeder extends Seeder
     {
         $data = json_decode(file_get_contents(__DIR__ . '/json/tb_roles.json'));
         foreach ($data as $item){
-            Tb_rol::create(array(
+            Roles::create(array(
                 'id' => $item->IdRol,
                 'rol' => $item->Rol,
             ));
