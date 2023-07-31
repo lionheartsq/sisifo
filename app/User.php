@@ -34,17 +34,9 @@ class User extends Authenticatable
 
     protected $table = 'users';
 
-    protected $fillable = ['name','email','password','estado'];
+    protected $fillable = ['documento','email','nombres','apellidos','password','idEmpresa','idRol','estado'];
 
     public $timestamps = false;
-
-    public function roles() {
-        return $this->belongsToMany('App\Tb_rol','tb_usuario_tiene_rol', 'idUser', 'idRol');
-    }
-
-    public function empresas() {
-        return $this->belongsToMany('App\Tb_configuracion_basica','tb_usuario_tiene_rol', 'idUser', 'idEmpresa');
-    }
 
     public function vistas() {
         return $this->hasOne('App\Tb_vista_personalizada', 'idUser', 'id');
