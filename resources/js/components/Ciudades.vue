@@ -21,7 +21,7 @@
                                     <div class="input-group">
                                         <select class="form-control col-md-3" v-model="criterio">
                                         <option value="detalle">Detalle</option>
-                                        <option value="idDepartamentos">idDepartamentos</option>
+                                        <option value="idDepartamento">Departamento</option>
                                         <option value="estado">Estado</option>
                                         </select>
                                         <input type="text" v-model="buscar" @keyup.enter="listarCiudades(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
@@ -35,7 +35,7 @@
                                     <tr>
                                         <th>Opciones</th>
                                         <th>Detalle</th>
-                                        <th>idDepartamentos</th>
+                                        <th>Departamento</th>
                                         <th>Estado</th>
                                     </tr>
                                 </thead>
@@ -69,8 +69,7 @@
 
                                         </td>
                                         <td v-text="ciudades.detalle"></td>
-                                        <td v-text="ciudades.idDepartamentos"></td>
-                                        <td v-text="ciudades.estado"></td>
+                                        <td v-text="ciudades.idDepartamento"></td>
                                         <td>
                                             <div v-if="ciudades.estado == '1'">
                                             <span class="badge badge-success">Activo</span>
@@ -124,7 +123,7 @@
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Departamento</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="idDepartamentos" class="form-control" placeholder="Departamento de la ciudad">
+                                            <input type="text" v-model="idDepartamento" class="form-control" placeholder="Departamento de la ciudad">
                                             <span class="help-block">(*) Ingrese el departamento de la ciudad</span>
                                         </div>
                                     </div>
@@ -347,7 +346,7 @@
                 this.errorMensaje=[];
 
                 if (!this.detalle) this.errorMensaje.push("El detalle de la ciudad no puede estar vacio");
-                if (!this.idDepartamentos) this.errorMensaje.push("El departamento de la ciudad no puede estar vacio");
+                if (!this.idDepartamento) this.errorMensaje.push("El departamento de la ciudad no puede estar vacio");
                 if (this.errorMensaje.length) this.errorCiudades=1;
 
                 return this.errorCiudades;

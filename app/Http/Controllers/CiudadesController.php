@@ -17,13 +17,17 @@ class CiudadesController extends Controller
         $criterio= $request->criterio;
 
         if ($buscar=='') {
-            $ciudades = Ciudades::where('ciudades.estado','=','1')
+            $ciudades = Ciudades::join("departamentos","ciudades.idDepartamentos","=","departamentos.id")
+            ->where('ciudades.estado','=','1')
+            ->select('ciudades.id','ciudades.detalle','ciudades.estado','departamentos.detalle as idDepartamento')
             ->orderBy('ciudades.id','desc')
             ->paginate(5);
         }
         else {
-            $ciudades = Ciudades::where('ciudades.estado','=','1')
+            $ciudades = Ciudades::join("roles","users.idRol","=","roles.id")
+            ->where('ciudades.estado','=','1')
             ->where($criterio, 'like', '%'. $buscar . '%')
+            ->select('ciudades.id','ciudades.detalle','ciudades.estado','departamentos.detalle as idDepartamento')
             ->orderBy('ciudades.id','desc')
             ->paginate(5);
         }
