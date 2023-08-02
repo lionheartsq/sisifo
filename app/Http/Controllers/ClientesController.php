@@ -17,13 +17,11 @@ class ClientesController extends Controller
         $criterio= $request->criterio;
 
         if ($buscar=='') {
-            $clientes = Clientes::where('clientes.estado','=','1')
-            ->orderBy('clientes.id','desc')
+            $clientes = Clientes::orderBy('clientes.id','desc')
             ->paginate(5);
         }
         else {
-            $clientes = Clientes::where('clientes.estado','=','1')
-            ->where($criterio, 'like', '%'. $buscar . '%')
+            $clientes = Clientes::where($criterio, 'like', '%'. $buscar . '%')
             ->orderBy('clientes.id','desc')
             ->paginate(5);
         }

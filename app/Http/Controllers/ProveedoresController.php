@@ -17,13 +17,11 @@ class ProveedoresController extends Controller
         $criterio= $request->criterio;
 
         if ($buscar=='') {
-            $proveedores = Proveedores::where('proveedores.estado','=','1')
-            ->orderBy('proveedores.id','desc')
+            $proveedores = Proveedores::orderBy('proveedores.id','desc')
             ->paginate(5);
         }
         else {
-            $proveedores = Proveedores::where('proveedores.estado','=','1')
-            ->where($criterio, 'like', '%'. $buscar . '%')
+            $proveedores = Proveedores::where($criterio, 'like', '%'. $buscar . '%')
             ->orderBy('proveedores.id','desc')
             ->paginate(5);
         }
