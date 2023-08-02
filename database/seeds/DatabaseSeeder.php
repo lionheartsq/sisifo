@@ -13,7 +13,24 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+//-------------------------------------------------------------------//
+        //primero vacia la tabla y luego la llena ojo
+        $this->truncateTables([
+            'departamentos'
+        ]);
 
+        //funcion principal que llama cada seeder
+        $this->call(DepartamentosSeeder::class);
+//-------------------------------------------------------------------//
+//-------------------------------------------------------------------//
+        //primero vacia la tabla y luego la llena ojo
+        $this->truncateTables([
+            'ciudades'
+        ]);
+
+        //funcion principal que llama cada seeder
+        $this->call(CiudadesSeeder::class);
+//-------------------------------------------------------------------//
 //-------------------------------------------------------------------//
         //primero vacia la tabla y luego la llena ojo
         $this->truncateTables([
