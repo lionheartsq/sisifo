@@ -34,7 +34,7 @@
                                 <thead>
                                     <tr>
                                         <th>Opciones</th>
-                                        <th>Detalle</th>
+                                        <th>Ciudad</th>
                                         <th>Departamento</th>
                                         <th>Estado</th>
                                     </tr>
@@ -69,7 +69,7 @@
 
                                         </td>
                                         <td v-text="ciudades.detalle"></td>
-                                        <td v-text="ciudades.estado"></td>
+                                        <td v-text="ciudades.idDepartamento"></td>
                                         <td>
                                             <div v-if="ciudades.estado == '1'">
                                             <span class="badge badge-success">Activo</span>

@@ -33,7 +33,7 @@
                                 <thead>
                                     <tr>
                                         <th>Opciones</th>
-                                        <th>Detalle</th>
+                                        <th>Departamento</th>
                                         <th>Estado</th>
                                     </tr>
                                 </thead>
