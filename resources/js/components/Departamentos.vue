@@ -67,7 +67,6 @@
 
                                         </td>
                                         <td v-text="departamentos.detalle"></td>
-                                        <td v-text="departamentos.estado"></td>
                                         <td>
                                             <div v-if="departamentos.estado == '1'">
                                             <span class="badge badge-success">Activo</span>
