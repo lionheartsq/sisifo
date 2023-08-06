@@ -16,6 +16,15 @@ class DatabaseSeeder extends Seeder
 //-------------------------------------------------------------------//
         //primero vacia la tabla y luego la llena ojo
         $this->truncateTables([
+            'tipofactura'
+        ]);
+
+        //funcion principal que llama cada seeder
+        $this->call(TipofacturaSeeder::class);
+//-------------------------------------------------------------------//        
+//-------------------------------------------------------------------//
+        //primero vacia la tabla y luego la llena ojo
+        $this->truncateTables([
             'departamentos'
         ]);
 
