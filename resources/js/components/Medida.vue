@@ -41,33 +41,23 @@
 
                                     <tr v-for="medida in arrayMedida" :key="medida.id">
                                         <td>
-                                            <button type="button" @click="abrirModal('medida','actualizar',medida)" class="btn btn-info btn-sm">
-                                            <i class="icon-eye" title="Ver detalles"></i>
-                                            </button> &nbsp;
-
                                             <button type="button" @click="abrirModal('medida','actualizar',medida)" class="btn btn-warning btn-sm">
                                             <i class="icon-pencil" title="Editar datos"></i>
                                             </button> &nbsp;
 
-                                        <template v-if="medida.estado == 'A'">
-                                            <button type="button" class="btn btn-danger btn-sm" @click="desactivarMedida(medida.id)">
-                                                <i class="icon-trash" title="Desactivar"></i>
-                                            </button>
-                                        </template>
-                                        <template v-if="medida.estado == 'E'">
-                                            <button type="button" class="btn btn-danger btn-sm" @click="desactivarMedida(medida.id)">
-                                                <i class="icon-trash" title="Desactivar"></i>
-                                            </button>
-                                        </template>
-                                        <template v-if="medida.estado == 'I'">
-                                            <button type="button" class="btn btn-success btn-sm" @click="activarMedida(medida.id)">
-                                                <i class="icon-check" title="Reactivar"></i>
-                                            </button>
-                                        </template>
-
+                                            <template v-if="medida.estado == '1'">
+                                                <button type="button" class="btn btn-danger btn-sm" @click="desactivarMedida(medida.id)">
+                                                    <i class="icon-trash" title="Desactivar"></i>
+                                                </button>
+                                            </template>
+                                            <template v-if="medida.estado == '2'">
+                                                <button type="button" class="btn btn-success btn-sm" @click="activarMedida(medida.id)">
+                                                    <i class="icon-check" title="Reactivar"></i>
+                                                </button>
+                                            </template>
                                         </td>
+
                                         <td v-text="medida.nombre"></td>
-                                        <td v-text="medida.estado"></td>
                                         <td>
                                             <div v-if="medida.estado == '1'">
                                             <span class="badge badge-success">Activo</span>
@@ -114,22 +104,8 @@
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
                                         <div class="col-md-9">
-                                            <input type="number" v-model="nombre" class="form-control" placeholder="Nombre de la medida">
+                                            <input type="text" v-model="nombre" class="form-control" placeholder="Nombre de la medida">
                                             <span class="help-block">(*) Ingrese el nombre de la medida</span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="text-input">Estado</label>
-                                        <div class="col-md-9">
-                                            <input type="text" v-model="estado" class="form-control" placeholder="Estado de la medida">
-                                            <span class="help-block">(*) Ingrese el estado de la medida</span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="text-input">Empresa</label>
-                                        <div class="col-md-9">
-                                            <input type="text" v-model="idEmpresa" class="form-control" placeholder="Empresa de la medida">
-                                            <span class="help-block">(*) Ingrese la empresa de la medida</span>
                                         </div>
                                     </div>
                                     <div class="form-group row div-error" v-show="errorUsuario">
@@ -160,7 +136,7 @@
             return{
                 idMedida:0,
                 id:'',
-                medida:'',
+                nombre:'',
                 estado:'',
                 arrayMedida : [],
                 modal : 0,
@@ -242,7 +218,7 @@
 
                 let me=this;
                 axios.post('/medida/store',{
-                    'usuario': this.medida
+                    'nombre': this.nombre
                     //'estado': this.estado,
                     //'dato': this.dato
                 }).then(function (response) {
@@ -260,8 +236,8 @@
 
                 let me=this;
                 axios.put('/medida/update',{
-                    'Medida': this.medida,
-                    'id': this.idMedida
+                    'id': this.idMedida,
+                    'nombre': this.nombre
                     //'estado': this.estado,
                     //'dato': this.dato
                 }).then(function (response) {
@@ -331,7 +307,7 @@
                     axios.put('/medida/activate',{
                         'id': id
                     }).then(function (response) {
-                    me.listarmedida(1,'','medida');
+                    me.listarMedida(1,'','medida');
                     swalWithBootstrapButtons.fire(
                     'Medida activado!'
                     )
@@ -351,8 +327,6 @@
                 this.errorMensaje=[];
 
                 if (!this.nombre) this.errorMensaje.push("El nombre de la medida no puede estar vacio");
-                if (!this.estado) this.errorMensaje.push("El estado de la medida no puede estar vacio");
-                if (!this.idEmpresas) this.errorMensaje.push("La empresa de la medida no puede estar vacio");
                 if (this.errorMensaje.length) this.errorMedida=1;
 
                 return this.errorMedida;

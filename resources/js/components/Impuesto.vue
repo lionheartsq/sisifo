@@ -43,25 +43,15 @@
 
                                     <tr v-for="impuesto in arrayImpuesto" :key="impuesto.id">
                                         <td>
-                                            <button type="button" @click="abrirModal('impuesto','actualizar',impuesto)" class="btn btn-info btn-sm">
-                                            <i class="icon-eye" title="Ver detalles"></i>
-                                            </button> &nbsp;
-
                                             <button type="button" @click="abrirModal('impuesto','actualizar',impuesto)" class="btn btn-warning btn-sm">
                                             <i class="icon-pencil" title="Editar datos"></i>
                                             </button> &nbsp;
-
-                                        <template v-if="impuesto.estado == 'A'">
+                                        <template v-if="impuesto.estado == '1'">
                                             <button type="button" class="btn btn-danger btn-sm" @click="desactivarImpuesto(impuesto.id)">
                                                 <i class="icon-trash" title="Desactivar"></i>
                                             </button>
                                         </template>
-                                        <template v-if="impuesto.estado == 'E'">
-                                            <button type="button" class="btn btn-danger btn-sm" @click="desactivarImpuesto(impuesto.id)">
-                                                <i class="icon-trash" title="Desactivar"></i>
-                                            </button>
-                                        </template>
-                                        <template v-if="impuesto.estado == 'I'">
+                                        <template v-if="impuesto.estado == '2'">
                                             <button type="button" class="btn btn-success btn-sm" @click="activarImpuesto(impuesto.id)">
                                                 <i class="icon-check" title="Reactivar"></i>
                                             </button>
@@ -70,7 +60,6 @@
                                         </td>
                                         <td v-text="impuesto.nombre"></td>
                                         <td v-text="impuesto.valor"></td>
-                                        <td v-text="impuesto.estado"></td>
                                         <td>
                                             <div v-if="impuesto.estado == '1'">
                                             <span class="badge badge-success">Activo</span>
@@ -117,22 +106,15 @@
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
                                         <div class="col-md-9">
-                                            <input type="number" v-model="nombre" class="form-control" placeholder="Nombre del impuesto">
+                                            <input type="text" v-model="nombre" class="form-control" placeholder="Nombre del impuesto">
                                             <span class="help-block">(*) Ingrese el nombre del impuesto</span>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Valor</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="valor" class="form-control" placeholder="Valors del impuesto">
+                                            <input type="text" v-model="valor" class="form-control" placeholder="Valor del impuesto">
                                             <span class="help-block">(*) Ingrese el valor del impuesto</span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="text-input">Estado</label>
-                                        <div class="col-md-9">
-                                            <input type="text" v-model="estado" class="form-control" placeholder="Estado del impuesto">
-                                            <span class="help-block">(*) Ingrese el estado del impuesto</span>
                                         </div>
                                     </div>
                                     <div class="form-group row div-error" v-show="errorUsuario">
@@ -163,7 +145,8 @@
             return{
                 idImpuesto:0,
                 id:'',
-                impuesto:'',
+                nombre:'',
+                valor:0,
                 estado:'',
                 arrayImpuesto : [],
                 modal : 0,
@@ -245,7 +228,8 @@
 
                 let me=this;
                 axios.post('/impuesto/store',{
-                    'usuario': this.impuesto
+                    'nombre': this.nombre,
+                    'valor': this.valor
                     //'estado': this.estado,
                     //'dato': this.dato
                 }).then(function (response) {
@@ -263,8 +247,9 @@
 
                 let me=this;
                 axios.put('/impuesto/update',{
-                    'Impuesto': this.impuesto,
-                    'id': this.idImpuesto
+                    'id': this.idImpuesto,
+                    'nombre': this.nombre,
+                    'valor': this.valor
                     //'estado': this.estado,
                     //'dato': this.dato
                 }).then(function (response) {
@@ -334,7 +319,7 @@
                     axios.put('/impuesto/activate',{
                         'id': id
                     }).then(function (response) {
-                    me.listarimpuesto(1,'','impuesto');
+                    me.listarImpuesto(1,'','impuesto');
                     swalWithBootstrapButtons.fire(
                     'Impuesto activado!'
                     )
@@ -355,7 +340,6 @@
 
                 if (!this.nombre) this.errorMensaje.push("El nombre del impuesto no puede estar vacio");
                 if (!this.valor) this.errorMensaje.push("El valor del impuesto no puede estar vacio");
-                if (!this.estado) this.errorMensaje.push("El estado del impuesto no puede estar vacio");
                 if (this.errorMensaje.length) this.errorImpuesto=1;
 
                 return this.errorImpuesto;
@@ -373,7 +357,8 @@
                     switch (accion) {
                         case 'crear':{
                             this.modal=1;
-                            this.Impuesto='';
+                            this.nombre='';
+                            this.valor=0;
                             this.tituloModal='Crear nuevo impuesto';
                             this.tipoAccion= 1;
                             break;
@@ -384,7 +369,8 @@
                             this.tituloModal='Editar impuesto';
                             this.tipoAccion= 2;
                             this.idImpuesto=data['id'];
-                            this.Impuesto=data['impuesto'];
+                            this.nombre=data['nombre'];
+                            this.valor=data['valor'];
                             break;
                         }
                     }
