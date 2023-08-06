@@ -52,7 +52,7 @@ class FacturasController extends Controller
     }
 
     public function ultimo(){
-        $ultimo = Facturas::select('id')->orderBy('id', 'desc')->take(1)->get();
+        $ultimo = Facturas::select('id','consecutivo')->orderBy('id', 'desc')->take(1)->get();
         $cantidad = Facturas::count();
         $maximosalida=0;
         $maximo=0;
@@ -61,7 +61,7 @@ class FacturasController extends Controller
             $maximosalida=1;
         }else{
             foreach($ultimo as $last){
-                $maximo = $last->id;
+                $maximo = $last->consecutivo;
                 $maximosalida=$maximo+1;
             }
         }
@@ -69,6 +69,7 @@ class FacturasController extends Controller
         return [
                 'ultimo' => $ultimo,
                 'cantidad' => $cantidad,
+                'maximo' => $maximo,
                 'consecutivoEsperado' => $maximosalida
                 ];
     }
@@ -80,8 +81,16 @@ class FacturasController extends Controller
         $nombresVendedor=Auth::user()->nombres;
         $apellidosVendedor=Auth::user()->apellidos;
         $vendedor=$nombresVendedor." ".$apellidosVendedor;
-        $idClientes=$request->idClientes;
-        if($idClientes == 0){
+        $cedula=$request->cedula;
+
+        $count_cliente=clientes::where('cedula','=',$cedula)->count();
+        $id_clientes=clientes::where('cedula','=',$cedula)->select('id')->get();
+
+        foreach($id_clientes as $vuelta){
+            $idBusca = $vuelta->id;
+            }
+
+        if($count_cliente == 0){
             $Clientes=new Clientes();
             $Clientes->cedula=$request->cedula;
             $Clientes->nombres=$request->nombres;
@@ -97,8 +106,8 @@ class FacturasController extends Controller
             # ==================================
             $idClientes = $Clientes->id;
         }else{
-            $idClientes=$request->idClientes;
-            $Clientes=Clientes::findOrFail($request->idClientes);
+            $idClientes=$idBusca;
+            $Clientes=Clientes::findOrFail($idClientes);
             $Clientes->cedula=$request->cedula;
             $Clientes->nombres=$request->nombres;
             $Clientes->apellidos=$request->apellidos;
