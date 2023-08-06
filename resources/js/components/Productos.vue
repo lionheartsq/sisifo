@@ -392,7 +392,7 @@
                     axios.put('/productos/activate',{
                         'id': id
                     }).then(function (response) {
-                    me.listarproductos(1,'','productos');
+                    me.listarProductos(1,'','productos');
                     swalWithBootstrapButtons.fire(
                     'Productos activado!'
                     )

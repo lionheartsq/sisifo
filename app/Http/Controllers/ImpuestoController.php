@@ -17,13 +17,11 @@ class ImpuestoController extends Controller
         $criterio= $request->criterio;
 
         if ($buscar=='') {
-            $impuesto = Impuesto::where('impuesto.estado','=','1')
-            ->orderBy('impuesto.id','desc')
+            $impuesto = Impuesto::orderBy('impuesto.id','desc')
             ->paginate(5);
         }
         else {
             $impuesto = Impuesto::where('impuesto.estado','=','1')
-            ->where($criterio, 'like', '%'. $buscar . '%')
             ->orderBy('impuesto.id','desc')
             ->paginate(5);
         }
@@ -56,7 +54,7 @@ class ImpuestoController extends Controller
         $Impuesto=new Impuesto();
         $Impuesto->nombre=$request->nombre;
         $Impuesto->valor=$request->valor;
-        $Impuesto->estado=$request->estado;
+        $Impuesto->estado=1;
         $Impuesto->save();
     }
 
@@ -66,7 +64,7 @@ class ImpuestoController extends Controller
         $Impuesto=Impuesto::findOrFail($request->id);
         $Impuesto->nombre=$request->nombre;
         $Impuesto->valor=$request->valor;
-        $Impuesto->estado=$request->estado;
+        $Impuesto->estado=1;
         $Impuesto->save();
     }
 

@@ -49,4 +49,10 @@
 <template v-if="menu==15">
     <grupos></grupos>
 </template>
+<template v-if="menu==16">
+    <impuesto></impuesto>
+</template>
+<template v-if="menu==17">
+    <medida></medida>
+</template>
 @endsection
