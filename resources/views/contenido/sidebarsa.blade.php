@@ -24,6 +24,12 @@
                     <li @click="menu=7" class="nav-item">
                         <a class="nav-link" href="#"><i class="icon-book-open"></i> Proveedores</a>
                     </li>
+                    <li @click="menu=16" class="nav-item">
+                        <a class="nav-link" href="#"><i class="icon-book-open"></i> Impuestos</a>
+                    </li>
+                    <li @click="menu=17" class="nav-item">
+                        <a class="nav-link" href="#"><i class="icon-book-open"></i> Medidas</a>
+                    </li>
                 </ul>
             </li>
             <li class="nav-item nav-dropdown">

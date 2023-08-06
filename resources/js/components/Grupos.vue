@@ -307,7 +307,7 @@
                     axios.put('/grupos/activate',{
                         'id': id
                     }).then(function (response) {
-                    me.listargrupos(1,'','grupos');
+                    me.listarGrupos(1,'','grupos');
                     swalWithBootstrapButtons.fire(
                     'Grupos activado!'
                     )

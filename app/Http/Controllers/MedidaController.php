@@ -17,13 +17,11 @@ class MedidaController extends Controller
         $criterio= $request->criterio;
 
         if ($buscar=='') {
-            $medida = Medida::where('medida.estado','=','1')
-            ->orderBy('medida.id','desc')
+            $medida = Medida::orderBy('medida.id','desc')
             ->paginate(5);
         }
         else {
-            $medida = Medida::where('medida.estado','=','1')
-            ->where($criterio, 'like', '%'. $buscar . '%')
+            $medida = Medida::where($criterio, 'like', '%'. $buscar . '%')
             ->orderBy('medida.id','desc')
             ->paginate(5);
         }
@@ -55,8 +53,8 @@ class MedidaController extends Controller
         $idEmpresa=Auth::user()->idEmpresa;
         $Medida=new Medida();
         $Medida->nombre=$request->nombre;
-        $Medida->estado=$request->estado;
-        $Medida->idEmpresas=$idEmpresa;
+        $Medida->estado=1;
+        $Medida->idEmpresa=$idEmpresa;
         $Medida->save();
     }
 
@@ -65,8 +63,8 @@ class MedidaController extends Controller
         $idEmpresa=Auth::user()->idEmpresa;
         $Medida=Medida::findOrFail($request->id);
         $Medida->nombre=$request->nombre;
-        $Medida->estado=$request->estado;
-        $Medida->idEmpresas=$idEmpresa;
+        $Medida->estado=1;
+        $Medida->idEmpresa=$idEmpresa;
         $Medida->save();
     }
 

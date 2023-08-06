@@ -41,25 +41,16 @@
 
                                     <tr v-for="departamentos in arrayDepartamentos" :key="departamentos.id">
                                         <td>
-                                            <button type="button" @click="abrirModal('departamentos','actualizar',departamentos)" class="btn btn-info btn-sm">
-                                            <i class="icon-eye" title="Ver detalles"></i>
-                                            </button> &nbsp;
-
                                             <button type="button" @click="abrirModal('departamentos','actualizar',departamentos)" class="btn btn-warning btn-sm">
                                             <i class="icon-pencil" title="Editar datos"></i>
                                             </button> &nbsp;
 
-                                        <template v-if="departamentos.estado == 'A'">
+                                        <template v-if="departamentos.estado == '1'">
                                             <button type="button" class="btn btn-danger btn-sm" @click="desactivarDepartamentos(departamentos.id)">
                                                 <i class="icon-trash" title="Desactivar"></i>
                                             </button>
                                         </template>
-                                        <template v-if="departamentos.estado == 'E'">
-                                            <button type="button" class="btn btn-danger btn-sm" @click="desactivarDepartamentos(departamentos.id)">
-                                                <i class="icon-trash" title="Desactivar"></i>
-                                            </button>
-                                        </template>
-                                        <template v-if="departamentos.estado == 'I'">
+                                        <template v-if="departamentos.estado == '2'">
                                             <button type="button" class="btn btn-success btn-sm" @click="activarDepartamentos(departamentos.id)">
                                                 <i class="icon-check" title="Reactivar"></i>
                                             </button>

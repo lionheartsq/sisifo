@@ -43,25 +43,16 @@
 
                                     <tr v-for="ciudades in arrayCiudades" :key="ciudades.id">
                                         <td>
-                                            <button type="button" @click="abrirModal('ciudades','actualizar',ciudades)" class="btn btn-info btn-sm">
-                                            <i class="icon-eye" title="Ver detalles"></i>
-                                            </button> &nbsp;
-
                                             <button type="button" @click="abrirModal('ciudades','actualizar',ciudades)" class="btn btn-warning btn-sm">
                                             <i class="icon-pencil" title="Editar datos"></i>
                                             </button> &nbsp;
 
-                                        <template v-if="ciudades.estado == 'A'">
+                                        <template v-if="ciudades.estado == '1'">
                                             <button type="button" class="btn btn-danger btn-sm" @click="desactivarCiudades(ciudades.id)">
                                                 <i class="icon-trash" title="Desactivar"></i>
                                             </button>
                                         </template>
-                                        <template v-if="ciudades.estado == 'E'">
-                                            <button type="button" class="btn btn-danger btn-sm" @click="desactivarCiudades(ciudades.id)">
-                                                <i class="icon-trash" title="Desactivar"></i>
-                                            </button>
-                                        </template>
-                                        <template v-if="ciudades.estado == 'I'">
+                                        <template v-if="ciudades.estado == '2'">
                                             <button type="button" class="btn btn-success btn-sm" @click="activarCiudades(ciudades.id)">
                                                 <i class="icon-check" title="Reactivar"></i>
                                             </button>

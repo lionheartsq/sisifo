@@ -17,13 +17,11 @@ class GruposController extends Controller
         $criterio= $request->criterio;
 
         if ($buscar=='') {
-            $grupos = Grupos::where('grupos.estado','=','1')
-            ->orderBy('grupos.id','desc')
+            $grupos = Grupos::orderBy('grupos.id','desc')
             ->paginate(5);
         }
         else {
             $grupos = Grupos::where('grupos.estado','=','1')
-            ->where($criterio, 'like', '%'. $buscar . '%')
             ->orderBy('grupos.id','desc')
             ->paginate(5);
         }
