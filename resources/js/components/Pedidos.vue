@@ -59,25 +59,17 @@
 
                                     <tr v-for="pedidos in arrayPedidos" :key="pedidos.id">
                                         <td>
-                                            <button type="button" @click="abrirModal('pedidos','actualizar',pedidos)" class="btn btn-info btn-sm">
-                                            <i class="icon-eye" title="Ver detalles"></i>
-                                            </button> &nbsp;
 
                                             <button type="button" @click="abrirModal('pedidos','actualizar',pedidos)" class="btn btn-warning btn-sm">
                                             <i class="icon-pencil" title="Editar datos"></i>
                                             </button> &nbsp;
 
-                                        <template v-if="pedidos.estado == 'A'">
+                                        <template v-if="pedidos.estado == '1'">
                                             <button type="button" class="btn btn-danger btn-sm" @click="desactivarPedidos(pedidos.id)">
                                                 <i class="icon-trash" title="Desactivar"></i>
                                             </button>
                                         </template>
-                                        <template v-if="pedidos.estado == 'E'">
-                                            <button type="button" class="btn btn-danger btn-sm" @click="desactivarPedidos(pedidos.id)">
-                                                <i class="icon-trash" title="Desactivar"></i>
-                                            </button>
-                                        </template>
-                                        <template v-if="pedidos.estado == 'I'">
+                                        <template v-if="pedidos.estado == '2'">
                                             <button type="button" class="btn btn-success btn-sm" @click="activarPedidos(pedidos.id)">
                                                 <i class="icon-check" title="Reactivar"></i>
                                             </button>
@@ -148,7 +140,7 @@
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Fecha</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="fecha" class="form-control" placeholder="Fechas de los pedidos">
+                                            <input type="date" v-model="fecha" class="form-control" placeholder="Fechas de los pedidos">
                                             <span class="help-block">(*) Ingrese la fecha de los pedidos</span>
                                         </div>
                                     </div>

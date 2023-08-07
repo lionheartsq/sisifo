@@ -59,25 +59,17 @@
 
                                     <tr v-for="facturas in arrayFacturas" :key="facturas.id">
                                         <td>
-                                            <button type="button" @click="abrirModal('facturas','actualizar',facturas)" class="btn btn-info btn-sm">
-                                            <i class="icon-eye" title="Ver detalles"></i>
-                                            </button> &nbsp;
 
                                             <button type="button" @click="abrirModal('facturas','actualizar',facturas)" class="btn btn-warning btn-sm">
                                             <i class="icon-pencil" title="Editar datos"></i>
                                             </button> &nbsp;
 
-                                        <template v-if="facturas.estado == 'A'">
+                                        <template v-if="facturas.estado == '1'">
                                             <button type="button" class="btn btn-danger btn-sm" @click="desactivarFacturas(facturas.id)">
                                                 <i class="icon-trash" title="Desactivar"></i>
                                             </button>
                                         </template>
-                                        <template v-if="facturas.estado == 'E'">
-                                            <button type="button" class="btn btn-danger btn-sm" @click="desactivarFacturas(facturas.id)">
-                                                <i class="icon-trash" title="Desactivar"></i>
-                                            </button>
-                                        </template>
-                                        <template v-if="facturas.estado == 'I'">
+                                        <template v-if="facturas.estado == '2'">
                                             <button type="button" class="btn btn-success btn-sm" @click="activarFacturas(facturas.id)">
                                                 <i class="icon-check" title="Reactivar"></i>
                                             </button>
@@ -148,7 +140,7 @@
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Fecha</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="fecha" class="form-control" placeholder="Fecha de las facturas">
+                                            <input type="date" v-model="fecha" class="form-control" placeholder="Fecha de las facturas">
                                             <span class="help-block">(*) Ingrese la fecha de las facturas</span>
                                         </div>
                                     </div>

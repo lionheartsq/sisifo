@@ -18,13 +18,11 @@ class FacturasController extends Controller
         $criterio= $request->criterio;
 
         if ($buscar=='') {
-            $facturas = Facturas::where('facturas.estado','=','1')
-            ->orderBy('facturas.id','desc')
+            $facturas = Facturas::orderBy('facturas.id','desc')
             ->paginate(5);
         }
         else {
             $facturas = Facturas::where('facturas.estado','=','1')
-            ->where($criterio, 'like', '%'. $buscar . '%')
             ->orderBy('facturas.id','desc')
             ->paginate(5);
         }

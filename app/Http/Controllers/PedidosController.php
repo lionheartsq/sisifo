@@ -17,13 +17,11 @@ class PedidosController extends Controller
         $criterio= $request->criterio;
 
         if ($buscar=='') {
-            $pedidos = Pedidos::where('pedidos.estado','=','1')
-            ->orderBy('pedidos.id','desc')
+            $pedidos = Pedidos::orderBy('pedidos.id','desc')
             ->paginate(5);
         }
         else {
             $pedidos = Pedidos::where('pedidos.estado','=','1')
-            ->where($criterio, 'like', '%'. $buscar . '%')
             ->orderBy('pedidos.id','desc')
             ->paginate(5);
         }
