@@ -115,7 +115,7 @@
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Fecha Abono</label>
                                         <div class="col-md-9">
-                                            <input type="number" v-model="fechaAbono" class="form-control" placeholder="Fecha Abono de los cobros">
+                                            <input type="date" v-model="fechaAbono" class="form-control" placeholder="Fecha Abono de los cobros">
                                             <span class="help-block">(*) Ingrese la Fecha Abono de los cobros</span>
                                         </div>
                                     </div>

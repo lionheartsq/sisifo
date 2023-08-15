@@ -17,13 +17,11 @@ class TipofacturaController extends Controller
         $criterio= $request->criterio;
 
         if ($buscar=='') {
-            $tipofactura = Tipofactura::where('tipofactura.estado','=','1')
-            ->orderBy('tipofactura.id','desc')
+            $tipofactura = Tipofactura::orderBy('tipofactura.id','desc')
             ->paginate(5);
         }
         else {
-            $tipofactura = Tipofactura::where('tipofactura.estado','=','1')
-            ->where($criterio, 'like', '%'. $buscar . '%')
+            $tipofactura = Tipofactura::where($criterio, 'like', '%'. $buscar . '%')
             ->orderBy('tipofactura.id','desc')
             ->paginate(5);
         }
