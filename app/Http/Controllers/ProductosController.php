@@ -19,13 +19,19 @@ class ProductosController extends Controller
         if ($buscar=='') {
             # Modelo::join('tablaqueseune',basicamente un on)
             $productos = Productos::join('impuesto','productos.idImpuesto','=','impuesto.id')
+            ->join('medida','productos.idMedida','=','medida.id')
+            ->join('grupos','productos.idGrupos','=','grupos.id')
             ->select('productos.id','productos.plu','productos.detalle','productos.idMedida','productos.valorCompra','productos.pvp','productos.idImpuesto',
-            'productos.idGrupos','productos.idEmpresa','productos.estado','impuesto.nombre as nombreImpuesto')
+            'productos.idGrupos','productos.idEmpresa','productos.estado','impuesto.nombre as nombreImpuesto','medida.nombre as nombreMedida','grupos.detalleGrupos as nombreGrupos')
             ->orderBy('productos.id','desc')
             ->paginate(5);
         }
         else {
             $productos = Productos::join('impuesto','productos.idImpuesto','=','impuesto.id')
+            ->join('medida','productos.idMedida','=','medida.id')
+            ->join('grupos','productos.idGrupos','=','grupos.id')
+            ->select('productos.id','productos.plu','productos.detalle','productos.idMedida','productos.valorCompra','productos.pvp','productos.idImpuesto',
+            'productos.idGrupos','productos.idEmpresa','productos.estado','impuesto.nombre as nombreImpuesto','medida.nombre as nombreMedida','grupos.detalleGrupos as nombreGrupos')
             ->where('productos.estado','=','1')
             ->orderBy('productos.id','desc')
             ->paginate(5);
@@ -47,6 +53,10 @@ class ProductosController extends Controller
     public function listado(){
 
         $productos = Productos::join('impuesto','productos.idImpuesto','=','impuesto.id')
+        ->join('medida','productos.idMedida','=','medida.id')
+        ->join('grupos','productos.idGrupos','=','grupos.id')
+        ->select('productos.id','productos.plu','productos.detalle','productos.idMedida','productos.valorCompra','productos.pvp','productos.idImpuesto',
+        'productos.idGrupos','productos.idEmpresa','productos.estado','impuesto.nombre as nombreImpuesto','medida.nombre as nombreMedida','grupos.detalleGrupos as nombreGrupos')
         ->where('productos.estado','=','1')
         ->orderBy('productos.id','desc')
         ->get();

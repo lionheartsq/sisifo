@@ -22,12 +22,6 @@
                                         <select class="form-control col-md-3" v-model="criterio">
                                         <option value="plu">Plu</option>
                                         <option value="detalle">Detalle</option>
-                                        <option value="idMedida">idMedida</option>
-                                        <option value="valorCompra">ValorCompra</option>
-                                        <option value="pvp">Pvp</option>
-                                        <option value="idImpuesto">idImpuesto</option>
-                                        <option value="idGrupos">idGrupos</option>
-                                        <option value="idEmpresa">idEmpresa</option>
                                         <option value="estado">Estado</option>
                                         </select>
                                         <input type="text" v-model="buscar" @keyup.enter="listarProductos(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
@@ -72,11 +66,11 @@
                                         </td>
                                         <td v-text="productos.plu"></td>
                                         <td v-text="productos.detalle"></td>
-                                        <td v-text="productos.idMedida"></td>
+                                        <td v-text="productos.nombreMedida"></td>
                                         <td v-text="productos.valorCompra"></td>
                                         <td v-text="productos.pvp"></td>
-                                        <td v-text="productos.idImpuesto"></td>
-                                        <td v-text="productos.idGrupos"></td>
+                                        <td v-text="productos.nombreImpuesto"></td>
+                                        <td v-text="productos.nombreGrupos"></td>
                                         <td>
                                             <div v-if="productos.estado == '1'">
                                             <span class="badge badge-success">Activo</span>
