@@ -40,7 +40,7 @@
                                         <th>Concepto</th>
                                         <th>Detalle</th>
                                         <th>Tipologia</th>
-                                        <th>idEmpresa</th>
+                                        <th>Empresa</th>
                                     </tr>
                                 </thead>
                                 <tbody>

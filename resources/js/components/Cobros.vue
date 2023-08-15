@@ -39,33 +39,25 @@
                                         <th>Fecha Abono</th>
                                         <th>Valor Cobro</th>
                                         <th>Abono</th>
-                                        <th>idFacturas</th>
-                                        <th>idEmpresa</th>
+                                        <th>Facturas</th>
+                                        <th>Empresa</th>
                                     </tr>
                                 </thead>
                                 <tbody>
 
                                     <tr v-for="cobros in arrayCobros" :key="cobros.id">
                                         <td>
-                                            <button type="button" @click="abrirModal('cobros','actualizar',cobros)" class="btn btn-info btn-sm">
-                                            <i class="icon-eye" title="Ver detalles"></i>
-                                            </button> &nbsp;
-
                                             <button type="button" @click="abrirModal('cobros','actualizar',cobros)" class="btn btn-warning btn-sm">
                                             <i class="icon-pencil" title="Editar datos"></i>
                                             </button> &nbsp;
 
-                                        <template v-if="cobros.estado == 'A'">
+                                        <template v-if="cobros.estado == '1'">
                                             <button type="button" class="btn btn-danger btn-sm" @click="desactivarCobros(cobros.id)">
                                                 <i class="icon-trash" title="Desactivar"></i>
                                             </button>
                                         </template>
-                                        <template v-if="cobros.estado == 'E'">
-                                            <button type="button" class="btn btn-danger btn-sm" @click="desactivarCobros(cobros.id)">
-                                                <i class="icon-trash" title="Desactivar"></i>
-                                            </button>
-                                        </template>
-                                        <template v-if="cobros.estado == 'I'">
+
+                                        <template v-if="cobros.estado == '2'">
                                             <button type="button" class="btn btn-success btn-sm" @click="activarCobros(cobros.id)">
                                                 <i class="icon-check" title="Reactivar"></i>
                                             </button>

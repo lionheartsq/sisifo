@@ -48,10 +48,9 @@
                                         <th>Impuesto</th>
                                         <th>Total</th>
                                         <th>Vendedor</th>
-                                        <th>idVendedor</th>
                                         <th>Tipo Factura</th>
-                                        <th>idClientes</th>
-                                        <th>idEmpresa</th>
+                                        <th>Clientes</th>
+                                        <th>Empresa</th>
                                         <th>Estado</th>
                                     </tr>
                                 </thead>
@@ -69,6 +68,7 @@
                                                 <i class="icon-trash" title="Desactivar"></i>
                                             </button>
                                         </template>
+
                                         <template v-if="facturas.estado == '2'">
                                             <button type="button" class="btn btn-success btn-sm" @click="activarFacturas(facturas.id)">
                                                 <i class="icon-check" title="Reactivar"></i>

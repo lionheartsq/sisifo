@@ -48,10 +48,9 @@
                                         <th>Impuesto</th>
                                         <th>Total</th>
                                         <th>Vendedor</th>
-                                        <th>idVendedor</th>
-                                        <th>idTipoFactura</th>
-                                        <th>idProveedores</th>
-                                        <th>idEmpresa</th>
+                                        <th>Tipo Factura</th>
+                                        <th>Proveedor</th>
+                                        <th>Empresa</th>
                                         <th>Estado</th>
                                     </tr>
                                 </thead>
@@ -69,6 +68,7 @@
                                                 <i class="icon-trash" title="Desactivar"></i>
                                             </button>
                                         </template>
+
                                         <template v-if="pedidos.estado == '2'">
                                             <button type="button" class="btn btn-success btn-sm" @click="activarPedidos(pedidos.id)">
                                                 <i class="icon-check" title="Reactivar"></i>
