@@ -16,11 +16,10 @@ class Pedidos extends Model
         'valor',
         'impuesto',
         'total',
-        'vendedor',
-        'idVendedor', 
-        'idtipoFactura', 
-        'idProveedores', 
-        'idEmpresa', 
+        'idVendedor',
+        'idtipoFactura',
+        'idProveedores',
+        'idEmpresa',
         'estado'
-    ]; 
+    ];
 }
