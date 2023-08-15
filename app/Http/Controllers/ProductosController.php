@@ -18,11 +18,15 @@ class ProductosController extends Controller
 
         if ($buscar=='') {
             # Modelo::join('tablaqueseune',basicamente un on)
-            $productos = Productos::orderBy('productos.id','desc')
+            $productos = Productos::join('impuesto','productos.idImpuesto','=','impuesto.id')
+            ->select('productos.id','productos.plu','productos.detalle','productos.idMedida','productos.valorCompra','productos.pvp','productos.idImpuesto',
+            'productos.idGrupos','productos.idEmpresa','productos.estado','impuesto.nombre as nombreImpuesto')
+            ->orderBy('productos.id','desc')
             ->paginate(5);
         }
         else {
-            $productos = Productos::where('productos.estado','=','1')
+            $productos = Productos::join('impuesto','productos.idImpuesto','=','impuesto.id')
+            ->where('productos.estado','=','1')
             ->orderBy('productos.id','desc')
             ->paginate(5);
         }
@@ -42,7 +46,8 @@ class ProductosController extends Controller
 
     public function listado(){
 
-        $productos = Productos::where('productos.estado','=','1')
+        $productos = Productos::join('impuesto','productos.idImpuesto','=','impuesto.id')
+        ->where('productos.estado','=','1')
         ->orderBy('productos.id','desc')
         ->get();
 
