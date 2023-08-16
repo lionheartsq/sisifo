@@ -23,10 +23,8 @@
                                         <option value="cedula">Cedula</option>
                                         <option value="nombres">Nombres</option>
                                         <option value="apellidos">Apellidos</option>
-                                        <option value="direccion">Direccion</option>
                                         <option value="telefono">Telefono</option>
                                         <option value="correo">Correo</option>
-                                        <option value="estado">Estado</option>
                                         </select>
                                         <input type="text" v-model="buscar" @keyup.enter="listarClientes(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
                                         <button type="submit" @click="listarClientes(1,buscar,criterio)" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
@@ -116,6 +114,9 @@
 
                             <div class="modal-body">
                                 <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+
+                                    <div class="form-group row">
+                                        <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Cedula</label>
                                         <div class="col-md-9">
@@ -123,34 +124,9 @@
                                             <span class="help-block">(*) Ingrese la cedula del cliente</span>
                                         </div>
                                     </div>
-                                    <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
-                                        <div class="col-md-9">
-                                            <input type="text" v-model="nombres" class="form-control" placeholder="Nombres del cliente">
-                                            <span class="help-block">(*) Ingrese los nombres del cliente</span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="text-input">Apellidos</label>
-                                        <div class="col-md-9">
-                                            <input type="text" v-model="apellidos" class="form-control" placeholder="Apellidos del cliente">
-                                            <span class="help-block">(*) Ingrese los apellidos del cliente</span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="text-input">Direccion</label>
-                                        <div class="col-md-9">
-                                            <input type="text" v-model="direccion" class="form-control" placeholder="Direccion del cliente">
-                                            <span class="help-block">(*) Ingrese la direccion del cliente</span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="text-input">Telefono</label>
-                                        <div class="col-md-9">
-                                            <input type="text" v-model="telefono" class="form-control" placeholder="Telefono del cliente">
-                                            <span class="help-block">(*) Ingrese el telefono del cliente</span>
-                                        </div>
-                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Correo</label>
                                         <div class="col-md-9">
@@ -158,6 +134,53 @@
                                             <span class="help-block">(*) Ingrese el correo del cliente</span>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
+                                        <div class="col-md-9">
+                                            <input type="text" v-model="nombres" class="form-control" placeholder="Nombres del cliente">
+                                            <span class="help-block">(*) Ingrese los nombres del cliente</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                    <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-md-3 form-control-label" for="text-input">Apellidos</label>
+                                        <div class="col-md-9">
+                                            <input type="text" v-model="apellidos" class="form-control" placeholder="Apellidos del cliente">
+                                            <span class="help-block">(*) Ingrese los apellidos del cliente</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-md-3 form-control-label" for="text-input">Direccion</label>
+                                        <div class="col-md-9">
+                                            <input type="text" v-model="direccion" class="form-control" placeholder="Direccion del cliente">
+                                            <span class="help-block">(*) Ingrese la direccion del cliente</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                    <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-md-3 form-control-label" for="text-input">Telefono</label>
+                                        <div class="col-md-9">
+                                            <input type="text" v-model="telefono" class="form-control" placeholder="Telefono del cliente">
+                                            <span class="help-block">(*) Ingrese el telefono del cliente</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                                     <div class="form-group row div-error" v-show="errorClientes">
                                         <div class="text-center text-error">
                                             <div v-for="error in errorMensaje" :key="error" v-text="error"></div>
@@ -393,16 +416,27 @@
                 this.errorClientes=0;
                 this.errorMensaje=[];
 
-                if (!this.cedula) this.errorMensaje.push("La cedula del cliente no puede estar vacio");
-                if (!this.nombres) this.errorMensaje.push("Los nombres del cliente no puede estar vacio");
-                if (!this.apellidos) this.errorMensaje.push("Los apellidos del cliente no puede estar vacio");
-                if (!this.direccion) this.errorMensaje.push("La direccion del cliente no puede estar vacio");
-                if (!this.telefono) this.errorMensaje.push("El telefono del cliente no puede estar vacio");
+                this.cadenaMensaje='';
+
+            if (!this.cedula) this.cadenaMensaje=this.cadenaMensaje+"-La cedula del cliente no puede estar vacio ";
+            //this.errorMensaje.push("La cedula del cliente no puede estar vacio"));
+            if (!this.nombres) this.cadenaMensaje=this.cadenaMensaje+"-Los nombres del cliente no puede estar vacio ";
+            //this.errorMensaje.push("Los nombres del cliente no puede estar vacio");
+            if (!this.apellidos) this.cadenaMensaje=this.cadenaMensaje+"-Los apellidos del cliente no puede estar vacio ";
+            //this.errorMensaje.push("Los apellidos del cliente no puede estar vacio");
+            if (!this.direccion) this.cadenaMensaje=this.cadenaMensaje+"-La direccion del cliente no puede estar vacio ";
+            //this.errorMensaje.push("La direccion del cliente no puede estar vacio");
+            if (!this.telefono) this.cadenaMensaje=this.cadenaMensaje+"-El telefono del cliente no puede estar vacio ";
+            //this.errorMensaje.push("El telefono del cliente no puede estar vacio");
+
                 if (!this.correo){
-                    this.errorMensaje.push("El correo del usuario no puede estar vacio");
+                    this.errorMensaje.push("-El correo del usuario no puede estar vacio ");
                 }else{
-                    if (this.functionMail(this.correo)==false) this.errorMensaje.push("El formato de correo no es válido");
+                    if (this.functionMail(this.correo)==false) this.errorMensaje.push("-El formato de correo no es válido ");
                 };
+
+                this.errorMensaje.push(this.cadenaMensaje);
+
                 if (this.errorMensaje.length) this.errorClientes=1;
 
                 return this.errorClientes;

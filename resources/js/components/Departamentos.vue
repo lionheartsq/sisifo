@@ -20,8 +20,7 @@
                                 <div class="col-md-9">
                                     <div class="input-group">
                                         <select class="form-control col-md-3" v-model="criterio">
-                                        <option value="detalle">Detalle</option>
-                                        <option value="estado">Estado</option>
+                                        <option value="detalle">Departamentos</option>
                                         </select>
                                         <input type="text" v-model="buscar" @keyup.enter="listarDepartamentos(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
                                         <button type="submit" @click="listarDepartamentos(1,buscar,criterio)" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>

@@ -22,11 +22,7 @@
                                         <select class="form-control col-md-3" v-model="criterio">
                                         <option value="nit">Nit</option>
                                         <option value="razonSocial">RazonSocial</option>
-                                        <option value="contacto">Contacto</option>
                                         <option value="telefono">Telefono</option>
-                                        <option value="direccion">Direccion</option>
-                                        <option value="correo">Correo</option>
-                                        <option value="estado">Estado</option>
                                         </select>
                                         <input type="text" v-model="buscar" @keyup.enter="listarProveedores(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
                                         <button type="submit" @click="listarProveedores(1,buscar,criterio)" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
@@ -116,6 +112,9 @@
 
                             <div class="modal-body">
                                 <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+
+                                    <div class="form-group row">
+                                        <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">nit</label>
                                         <div class="col-md-9">
@@ -123,6 +122,9 @@
                                             <span class="help-block">(*) Ingrese el nit de los proveedores</span>
                                         </div>
                                     </div>
+                                </div>
+
+                                <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Razon Social</label>
                                         <div class="col-md-9">
@@ -130,6 +132,11 @@
                                             <span class="help-block">(*) Ingrese la razonSocial de los proveedores</span>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Contacto</label>
                                         <div class="col-md-9">
@@ -137,6 +144,9 @@
                                             <span class="help-block">(*) Ingrese el contacto de los proveedores</span>
                                         </div>
                                     </div>
+                                </div>
+
+                                    <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Telefono</label>
                                         <div class="col-md-9">
@@ -144,6 +154,11 @@
                                             <span class="help-block">(*) Ingrese el telefono de los proveedores</span>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Direccion</label>
                                         <div class="col-md-9">
@@ -151,6 +166,9 @@
                                             <span class="help-block">(*) Ingrese la direccion de los proveedores</span>
                                         </div>
                                     </div>
+                                </div>
+
+                                    <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Correo</label>
                                         <div class="col-md-9">
@@ -158,6 +176,9 @@
                                             <span class="help-block">(*) Ingrese el correo de los proveedores</span>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+
                                     <div class="form-group row div-error" v-show="errorProveedores">
                                         <div class="text-center text-error">
                                             <div v-for="error in errorMensaje" :key="error" v-text="error"></div>
@@ -166,6 +187,7 @@
 
                                 </form>
                             </div>
+
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" @click="cerrarModal()">Cerrar</button>
                                 <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="crearProveedores()">Guardar</button>
@@ -391,16 +413,27 @@
                 this.errorProveedores=0;
                 this.errorMensaje=[];
 
-                if (!this.nit) this.errorMensaje.push("El nit de los proveedores no puede estar vacio");
-                if (!this.razonSocial) this.errorMensaje.push("La razonSocial de los proveedores no puede estar vacio");
-                if (!this.contacto) this.errorMensaje.push("El contacto de los proveedores no puede estar vacio");
-                if (!this.telefono) this.errorMensaje.push("El telefono de los proveedores no puede estar vacio");
-                if (!this.direccion) this.errorMensaje.push("La direccion de los proveedores no puede estar vacio");
+                this.cadenaMensaje='';
+
+            if (!this.nit) this.cadenaMensaje=this.cadenaMensaje+"-El nit de los proveedores no puede estar vacio ";
+            //this.errorMensaje.push("El nit de los proveedores no puede estar vacio"));
+            if (!this.razonSocial) this.cadenaMensaje=this.cadenaMensaje+"-La razonSocial de los proveedores no puede estar vacio ";
+            //this.errorMensaje.push("La razonSocial de los proveedores no puede estar vacio");
+            if (!this.contacto) this.cadenaMensaje=this.cadenaMensaje+"-El contacto de los proveedores no puede estar vacio ";
+            //this.errorMensaje.push("El contacto de los proveedores no puede estar vacio");
+            if (!this.telefono) this.cadenaMensaje=this.cadenaMensaje+"-El telefono de los proveedores no puede estar vacio ";
+            //this.errorMensaje.push("El telefono de los proveedores no puede estar vacio");
+            if (!this.direccion) this.cadenaMensaje=this.cadenaMensaje+"-La direccion de los proveedores no puede estar vacio ";
+            //this.errorMensaje.push("La direccion de los proveedores no puede estar vacio");
+
                 if (!this.correo){
-                    this.errorMensaje.push("El correo de los proveedores no puede estar vacio");
+                    this.errorMensaje.push("-El correo de los proveedores no puede estar vacio ");
                 }else{
-                    if (this.functionMail(this.correo)==false) this.errorMensaje.push("El formato de correo no es válido");
+                    if (this.functionMail(this.correo)==false) this.errorMensaje.push("-El formato de correo no es válido ");
                 };
+
+                this.errorMensaje.push(this.cadenaMensaje);
+
                 if (this.errorMensaje.length) this.errorProveedores=1;
 
                 return this.errorProveedores;
