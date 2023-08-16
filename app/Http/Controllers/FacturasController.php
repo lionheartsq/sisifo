@@ -125,7 +125,7 @@ class FacturasController extends Controller
         $Facturas->vendedor=$vendedor;
         $Facturas->idVendedor=$idVendedor;
         $Facturas->observaciones=$request->observaciones;
-        $Facturas->tipoFactura=1; //Factura tipo 1 contado, tipo 2 crédito en caso de update
+        $Facturas->tipofactura=1; //Factura tipo 1 contado, tipo 2 crédito en caso de update
         $Facturas->idClientes=$idClientes;
         $Facturas->idEmpresa=$idEmpresa;
         $Facturas->estado=1;
@@ -148,7 +148,7 @@ class FacturasController extends Controller
         $Facturas->vendedor=$vendedor;
         $Facturas->idVendedor=$idVendedor;
         $Facturas->observaciones=$request->observaciones;
-        $Facturas->tipoFactura=$request->tipoFactura;
+        $Facturas->tipofactura=$request->tipofactura;
         $Facturas->idClientes=$request->idClientes;
         $Facturas->idEmpresa=$idEmpresa;
         $Facturas->estado=1;

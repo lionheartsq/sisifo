@@ -48,10 +48,9 @@
                                         <th>Impuesto</th>
                                         <th>Total</th>
                                         <th>Vendedor</th>
-                                        <th>idVendedor</th>
-                                        <th>idTipoFactura</th>
-                                        <th>idProveedores</th>
-                                        <th>idEmpresa</th>
+                                        <th>Tipo Factura</th>
+                                        <th>Proveedor</th>
+                                        <th>Empresa</th>
                                         <th>Estado</th>
                                     </tr>
                                 </thead>
@@ -69,6 +68,7 @@
                                                 <i class="icon-trash" title="Desactivar"></i>
                                             </button>
                                         </template>
+
                                         <template v-if="pedidos.estado == '2'">
                                             <button type="button" class="btn btn-success btn-sm" @click="activarPedidos(pedidos.id)">
                                                 <i class="icon-check" title="Reactivar"></i>
@@ -154,8 +154,10 @@
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Impuesto</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="impuesto" class="form-control" placeholder="Impuesto de los pedidos">
-                                            <span class="help-block">(*) Ingrese el impuesto de los pedidos</span>
+                                            <select class="form-control" v-model="idImpuesto">
+                                                <option value="0" disabled>Seleccione un impuesto</option>
+                                                <option v-for="relacion in arrayImpuestos" :key="relacion.id" :value="relacion.id" v-text="relacion.nombre"></option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -168,8 +170,10 @@
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Vendedor</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="vendedor" class="form-control" placeholder="Vendedor de los pedidos">
-                                            <span class="help-block">(*) Ingrese el vendedor de los pedidos</span>
+                                            <select class="form-control" v-model="idEmpleados">
+                                                <option value="0" disabled>Seleccione un empleados</option>
+                                                <option v-for="relacion in arrayEmpleados" :key="relacion.id" :value="relacion.id" v-text="relacion.nombre"></option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="form-group row div-error" v-show="errorUsuario">
@@ -203,9 +207,13 @@
                 pedidos:'',
                 estado:'',
                 arrayPedidos : [],
+                arrayImpuestos : [],
+                arrayEmpleados : [],
                 modal : 0,
                 tituloModal : '',
                 tipoAccion : 0,
+                idImpuestos : 0,
+                idEmpleados : 0,
                 errorPedidos : 0,
                 errorMensaje : [],
                 pagination : {
@@ -371,7 +379,7 @@
                     axios.put('/pedidos/activate',{
                         'id': id
                     }).then(function (response) {
-                    me.listarpedidos(1,'','pedidos');
+                    me.listarPedidos(1,'','pedidos');
                     swalWithBootstrapButtons.fire(
                     'Pedidos activado!'
                     )
@@ -405,6 +413,36 @@
                 this.tituloModal='';
                 this.Pedidos='';
             },
+            listarImpuestos(){
+                let me=this;
+                var url='/impuesto/listado';
+                // Make a request for a user with a given ID
+                axios.get(url).then(function (response) {
+                    // handle success
+                var respuesta=response.data;
+                me.arrayImpuestos=respuesta.impuesto;
+                    //console.log(response);
+                })
+                .catch(function (error) {
+                    // handle error
+                    console.log(error);
+                })
+            },
+            listarEmpleados(){
+                let me=this;
+                var url='/empleados/listado';
+                // Make a request for a user with a given ID
+                axios.get(url).then(function (response) {
+                    // handle success
+                var respuesta=response.data;
+                me.arrayEmpleadoss=respuesta.empleados;
+                    //console.log(response);
+                })
+                .catch(function (error) {
+                    // handle error
+                    console.log(error);
+                })
+            },
             abrirModal(modelo, accion, data=[]){
             //tres argumentos, el modelo a modificar o crear, la accion como tal y el arreglo del registro en la tabla
             switch(modelo){
@@ -434,6 +472,8 @@
         },
         mounted() {
             this.listarPedidos(1,this.buscar,this.criterio);
+            this.listarImpuestos();
+            this.listarEmpleados();
         }
     }
 </script>

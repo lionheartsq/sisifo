@@ -39,33 +39,25 @@
                                         <th>Fecha Abono</th>
                                         <th>Valor Pago</th>
                                         <th>Abono</th>
-                                        <th>idPedidos</th>
-                                        <th>idEmpresa</th>
+                                        <th>Pedidos</th>
+                                        <th>Empresa</th>
                                     </tr>
                                 </thead>
                                 <tbody>
 
                                     <tr v-for="pagos in arrayPagos" :key="pagos.id">
                                         <td>
-                                            <button type="button" @click="abrirModal('pagos','actualizar',pagos)" class="btn btn-info btn-sm">
-                                            <i class="icon-eye" title="Ver detalles"></i>
-                                            </button> &nbsp;
-
                                             <button type="button" @click="abrirModal('pagos','actualizar',pagos)" class="btn btn-warning btn-sm">
                                             <i class="icon-pencil" title="Editar datos"></i>
                                             </button> &nbsp;
 
-                                        <template v-if="pagos.estado == 'A'">
+                                        <template v-if="pagos.estado == '1'">
                                             <button type="button" class="btn btn-danger btn-sm" @click="desactivarPagos(pagos.id)">
                                                 <i class="icon-trash" title="Desactivar"></i>
                                             </button>
                                         </template>
-                                        <template v-if="pagos.estado == 'E'">
-                                            <button type="button" class="btn btn-danger btn-sm" @click="desactivarPagos(pagos.id)">
-                                                <i class="icon-trash" title="Desactivar"></i>
-                                            </button>
-                                        </template>
-                                        <template v-if="pagos.estado == 'I'">
+
+                                        <template v-if="pagos.estado == '2'">
                                             <button type="button" class="btn btn-success btn-sm" @click="activarPagos(pagos.id)">
                                                 <i class="icon-check" title="Reactivar"></i>
                                             </button>
@@ -123,7 +115,7 @@
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Fecha Abono</label>
                                         <div class="col-md-9">
-                                            <input type="number" v-model="fechaAbono" class="form-control" placeholder="Fecha Abono de los pagos">
+                                            <input type="date" v-model="fechaAbono" class="form-control" placeholder="Fecha Abono de los pagos">
                                             <span class="help-block">(*) Ingrese la fecha abono de los pagos</span>
                                         </div>
                                     </div>
