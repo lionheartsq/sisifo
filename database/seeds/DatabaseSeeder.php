@@ -16,6 +16,15 @@ class DatabaseSeeder extends Seeder
 //-------------------------------------------------------------------//
         //primero vacia la tabla y luego la llena ojo
         $this->truncateTables([
+            'empresa'
+        ]);
+
+        //funcion principal que llama cada seeder
+        $this->call(EmpresaSeeder::class);
+
+//-------------------------------------------------------------------//
+        //primero vacia la tabla y luego la llena ojo
+        $this->truncateTables([
             'medida'
         ]);
 
@@ -39,7 +48,7 @@ class DatabaseSeeder extends Seeder
 
         //funcion principal que llama cada seeder
         $this->call(TipofacturaSeeder::class);
-//-------------------------------------------------------------------//        
+//-------------------------------------------------------------------//
 //-------------------------------------------------------------------//
         //primero vacia la tabla y luego la llena ojo
         $this->truncateTables([
@@ -185,14 +194,7 @@ class DatabaseSeeder extends Seeder
 
         //funcion principal que llama cada seeder
         $this->call(Tb_rolSeeder::class);
-//-------------------------------------------------------------------//
-        //primero vacia la tabla y luego la llena ojo
-        $this->truncateTables([
-            'empresa'
-        ]);
 
-        //funcion principal que llama cada seeder
-        $this->call(EmpresaSeeder::class);
 //-------------------------------------------------------------------//
         //primero vacia la tabla y luego la llena ojo
         $this->truncateTables([

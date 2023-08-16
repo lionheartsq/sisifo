@@ -24,6 +24,12 @@
                     <li @click="menu=7" class="nav-item">
                         <a class="nav-link" href="#"><i class="icon-book-open"></i> Proveedores</a>
                     </li>
+                    <li @click="menu=18" class="nav-item">
+                        <a class="nav-link" href="#"><i class="icon-book-open"></i> Empleados</a>
+                    </li>
+                    <li @click="menu=19" class="nav-item">
+                        <a class="nav-link" href="#"><i class="icon-book-open"></i> Tipo Factura</a>
+                    </li>
                     <li @click="menu=16" class="nav-item">
                         <a class="nav-link" href="#"><i class="icon-book-open"></i> Impuestos</a>
                     </li>

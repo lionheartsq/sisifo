@@ -27,7 +27,7 @@
                                         <option value="total">Total</option>
                                         <option value="vendedor">Vendedor</option>
                                         <option value="idVendedor">idVendedor</option>
-                                        <option value="tipoFactura">tipoFactura</option>
+                                        <option value="Tipofactura">Tipofactura</option>
                                         <option value="idClientes">idClientes</option>
                                         <option value="idEmpresa">idEmpresa</option>
                                         <option value="estado">Estado</option>
@@ -48,10 +48,9 @@
                                         <th>Impuesto</th>
                                         <th>Total</th>
                                         <th>Vendedor</th>
-                                        <th>idVendedor</th>
                                         <th>Tipo Factura</th>
-                                        <th>idClientes</th>
-                                        <th>idEmpresa</th>
+                                        <th>Clientes</th>
+                                        <th>Empresa</th>
                                         <th>Estado</th>
                                     </tr>
                                 </thead>
@@ -69,6 +68,7 @@
                                                 <i class="icon-trash" title="Desactivar"></i>
                                             </button>
                                         </template>
+
                                         <template v-if="facturas.estado == '2'">
                                             <button type="button" class="btn btn-success btn-sm" @click="activarFacturas(facturas.id)">
                                                 <i class="icon-check" title="Reactivar"></i>
@@ -83,7 +83,7 @@
                                         <td v-text="facturas.total"></td>
                                         <td v-text="facturas.vendedor"></td>
                                         <td v-text="facturas.idVendedor"></td>
-                                        <td v-text="facturas.tipoFactura"></td>
+                                        <td v-text="facturas.tipofactura"></td>
                                         <td v-text="facturas.idClientes"></td>
                                         <td v-text="facturas.idEmpresa"></td>
                                         <td v-text="facturas.estado"></td>
@@ -154,8 +154,10 @@
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Impuesto</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="impuesto" class="form-control" placeholder="Impuesto de las facturas">
-                                            <span class="help-block">(*) Ingrese el impuesto de las facturas</span>
+                                            <select class="form-control" v-model="idImpuesto">
+                                                <option value="0" disabled>Seleccione un impuesto</option>
+                                                <option v-for="relacion in arrayImpuestos" :key="relacion.id" :value="relacion.id" v-text="relacion.nombre"></option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -168,15 +170,19 @@
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Vendedor</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="vendedor" class="form-control" placeholder="Vendedor de las facturas">
-                                            <span class="help-block">(*) Ingrese el vendedor de las facturas</span>
+                                            <select class="form-control" v-model="idEmpleados">
+                                                <option value="0" disabled>Seleccione un vendedor</option>
+                                                <option v-for="relacion in arrayEmpleados" :key="relacion.id" :value="relacion.id" v-text="relacion.nombre"></option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Tipo Factura</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="tipoFactura" class="form-control" placeholder="Tipo Factura de las facturas">
-                                            <span class="help-block">(*) Ingrese el Tipo Factura de las facturas</span>
+                                            <select class="form-control" v-model="idTipofactura">
+                                                <option value="0" disabled>Seleccione un Tipo Factura</option>
+                                                <option v-for="relacion in arrayTipofactura" :key="relacion.id" :value="relacion.id" v-text="relacion.nombre"></option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="form-group row div-error" v-show="errorUsuario">
@@ -210,9 +216,15 @@
                 facturas:'',
                 estado:'',
                 arrayFacturas : [],
+                arrayImpuestos : [],
+                arrayEmpleados : [],
+                arrayTipofactura : [],
                 modal : 0,
                 tituloModal : '',
                 tipoAccion : 0,
+                idImpuestos : 0,
+                idEmpleados : 0,
+                idTipofactura : 0,
                 errorFacturas : 0,
                 errorMensaje : [],
                 pagination : {
@@ -289,7 +301,10 @@
 
                 let me=this;
                 axios.post('/facturas/store',{
-                    'usuario': this.facturas
+                    'Facturas': this.facturas,
+                    'idImpuesto': this.idImpuesto,
+                    'idEmpleados': this.idEmpleados,
+                    'idTipofactura': this.idTipofactura
                     //'estado': this.estado,
                     //'dato': this.dato
                 }).then(function (response) {
@@ -308,7 +323,10 @@
                 let me=this;
                 axios.put('/facturas/update',{
                     'Facturas': this.facturas,
-                    'id': this.idFacturas
+                    'id': this.idFacturas,
+                    'idImpuesto': this.idImpuesto,
+                    'idEmpleados': this.idEmpleados,
+                    'idTipofactura': this.idTipofactura
                     //'estado': this.estado,
                     //'dato': this.dato
                 }).then(function (response) {
@@ -378,7 +396,7 @@
                     axios.put('/facturas/activate',{
                         'id': id
                     }).then(function (response) {
-                    me.listarfacturas(1,'','facturas');
+                    me.listarFacturas(1,'','facturas');
                     swalWithBootstrapButtons.fire(
                     'Facturas activado!'
                     )
@@ -411,6 +429,51 @@
                 this.tituloModal='';
                 this.Facturas='';
             },
+            listarImpuestos(){
+                let me=this;
+                var url='/impuesto/listado';
+                // Make a request for a user with a given ID
+                axios.get(url).then(function (response) {
+                    // handle success
+                var respuesta=response.data;
+                me.arrayImpuestos=respuesta.impuesto;
+                    //console.log(response);
+                })
+                .catch(function (error) {
+                    // handle error
+                    console.log(error);
+                })
+            },
+            listarEmpleados(){
+                let me=this;
+                var url='/empleados/listado';
+                // Make a request for a user with a given ID
+                axios.get(url).then(function (response) {
+                    // handle success
+                var respuesta=response.data;
+                me.arrayEmpleadoss=respuesta.empleados;
+                    //console.log(response);
+                })
+                .catch(function (error) {
+                    // handle error
+                    console.log(error);
+                })
+            },
+            listarTipofactura(){
+                let me=this;
+                var url='/tipofactura/listado';
+                // Make a request for a user with a given ID
+                axios.get(url).then(function (response) {
+                    // handle success
+                var respuesta=response.data;
+                me.arrayTipofactura=respuesta.tipofactura;
+                    //console.log(response);
+                })
+                .catch(function (error) {
+                    // handle error
+                    console.log(error);
+                })
+            },
             abrirModal(modelo, accion, data=[]){
             //tres argumentos, el modelo a modificar o crear, la accion como tal y el arreglo del registro en la tabla
             switch(modelo){
@@ -430,6 +493,9 @@
                             this.tituloModal='Editar facturas';
                             this.tipoAccion= 2;
                             this.idFacturas=data['id'];
+                            this.idImpuesto=data['idImpuesto'];
+                            this.idEmpleados=data['idEmpleados'];
+                            this.idTipofactura=data['idTipofactura'];
                             this.Facturas=data['facturas'];
                             break;
                         }
@@ -440,6 +506,9 @@
         },
         mounted() {
             this.listarFacturas(1,this.buscar,this.criterio);
+            this.listarImpuestos();
+            this.listarEmpleados();
+            this.listarTipofactura();
         }
     }
 </script>

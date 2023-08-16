@@ -19,13 +19,11 @@ class EmpleadosController extends Controller
         $criterio= $request->criterio;
 
         if ($buscar=='') {
-            $empleados = Empleados::where('empleados.estado','=','1')
-            ->orderBy('empleados.id','desc')
+            $empleados = Empleados::orderBy('empleados.id','desc')
             ->paginate(5);
         }
         else {
-            $empleados = Empleados::where('empleados.estado','=','1')
-            ->where($criterio, 'like', '%'. $buscar . '%')
+            $empleados = Empleados::where($criterio, 'like', '%'. $buscar . '%')
             ->orderBy('empleados.id','desc')
             ->paginate(5);
         }
@@ -87,8 +85,8 @@ class EmpleadosController extends Controller
 
     public function deactivate(Request $request){
         //if(!$request->ajax()) return redirect('/');
-        $empleados=empleados::findOrFail($request->id);
-        $empleados->estado='0';
+        $empleados=Empleados::findOrFail($request->id);
+        $empleados->estado='2';
         $empleados->save();
     }
 

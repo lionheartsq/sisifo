@@ -55,4 +55,10 @@
 <template v-if="menu==17">
     <medida></medida>
 </template>
+<template v-if="menu==18">
+    <empleados></empleados>
+</template>
+<template v-if="menu==19">
+    <tipofactura></tipofactura>
+</template>
 @endsection
