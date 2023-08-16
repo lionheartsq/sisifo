@@ -314,7 +314,7 @@
                     'detalle': this.detalle,
                     'idMedida': this.idMedida,
                     'idImpuesto': this.idImpuesto,
-                    'idGrupos': this.idMedida,
+                    'idGrupos': this.idGrupos,
                     'valorCompra': this.valorCompra,
                     'pvp': this.pvp
                     //'estado': this.estado,
@@ -410,6 +410,8 @@
                 if (!this.idMedida) this.errorMensaje.push("La medida de los productos no puede estar vacio");
                 if (!this.valorCompra) this.errorMensaje.push("El valor compra de los productos no puede estar vacio");
                 if (!this.pvp) this.errorMensaje.push("El pvp de los productos no puede estar vacio");
+                if (!this.idImpuesto) this.errorMensaje.push("El impuesto de los productos no puede estar vacio");
+                if (!this.idGrupos) this.errorMensaje.push("El grupo de los productos no puede estar vacio");
                 if (this.errorMensaje.length) this.errorProductos=1;
 
                 return this.errorProductos;

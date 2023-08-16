@@ -219,7 +219,7 @@
 
                 let me=this;
                 axios.post('/tipofactura/store',{
-                    'usuario': this.tipofactura
+                    'detalle': this.detalle
                     //'estado': this.estado,
                     //'dato': this.dato
                 }).then(function (response) {
@@ -237,7 +237,7 @@
 
                 let me=this;
                 axios.put('/tipofactura/update',{
-                    'Tipofactura': this.tipofactura,
+                    'detalle': this.detalle,
                     'id': this.idTipofactura
                     //'estado': this.estado,
                     //'dato': this.dato
@@ -356,7 +356,7 @@
                             this.tituloModal='Editar tipofactura';
                             this.tipoAccion= 2;
                             this.idTipofactura=data['id'];
-                            this.Tipofactura=data['tipofactura'];
+                            this.detalle=data['detalle'];
                             break;
                         }
                     }
