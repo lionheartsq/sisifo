@@ -41,25 +41,17 @@
 
                                     <tr v-for="tipofactura in arrayTipofactura" :key="tipofactura.id">
                                         <td>
-                                            <button type="button" @click="abrirModal('tipofactura','actualizar',tipofactura)" class="btn btn-info btn-sm">
-                                            <i class="icon-eye" title="Ver detalles"></i>
-                                            </button> &nbsp;
-
                                             <button type="button" @click="abrirModal('tipofactura','actualizar',tipofactura)" class="btn btn-warning btn-sm">
                                             <i class="icon-pencil" title="Editar datos"></i>
                                             </button> &nbsp;
 
-                                        <template v-if="tipofactura.estado == 'A'">
+                                        <template v-if="tipofactura.estado == '1'">
                                             <button type="button" class="btn btn-danger btn-sm" @click="desactivarTipofactura(tipofactura.id)">
                                                 <i class="icon-trash" title="Desactivar"></i>
                                             </button>
                                         </template>
-                                        <template v-if="tipofactura.estado == 'E'">
-                                            <button type="button" class="btn btn-danger btn-sm" @click="desactivarTipofactura(tipofactura.id)">
-                                                <i class="icon-trash" title="Desactivar"></i>
-                                            </button>
-                                        </template>
-                                        <template v-if="tipofactura.estado == 'I'">
+
+                                        <template v-if="tipofactura.estado == '2'">
                                             <button type="button" class="btn btn-success btn-sm" @click="activarTipofactura(tipofactura.id)">
                                                 <i class="icon-check" title="Reactivar"></i>
                                             </button>
@@ -67,7 +59,6 @@
 
                                         </td>
                                         <td v-text="tipofactura.detalle"></td>
-                                        <td v-text="tipofactura.estado"></td>
                                         <td>
                                             <div v-if="tipofactura.estado == '1'">
                                             <span class="badge badge-success">Activo</span>
@@ -114,7 +105,7 @@
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Detalle</label>
                                         <div class="col-md-9">
-                                            <input type="number" v-model="detalle" class="form-control" placeholder="Detalle del Tipo Factura">
+                                            <input type="text" v-model="detalle" class="form-control" placeholder="Detalle del Tipo Factura">
                                             <span class="help-block">(*) Ingrese el detalle del Tipo Factura</span>
                                         </div>
                                     </div>
@@ -317,7 +308,7 @@
                     axios.put('/tipofactura/activate',{
                         'id': id
                     }).then(function (response) {
-                    me.listartipofactura(1,'','tipofactura');
+                    me.listarTipofactura(1,'','tipofactura');
                     swalWithBootstrapButtons.fire(
                     'Tipofactura activado!'
                     )

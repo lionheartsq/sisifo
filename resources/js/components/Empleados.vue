@@ -58,6 +58,7 @@
                                             <i class="icon-trash" title="Desactivar"></i>
                                         </button>
                                     </template>
+
                                     <template v-if="empleados.estado == '2'">
                                         <button type="button" class="btn btn-success btn-sm" @click="activarempleados(empleados.id)">
                                             <i class="icon-check" title="Reactivar"></i>
@@ -72,7 +73,7 @@
                                     <td v-text="empleados.direccion"></td>
                                     <td v-text="empleados.cargo"></td>
                                     <td v-text="empleados.telefono"></td>
-                                    
+
                                     <td>
                                         <div v-if="empleados.estado == '1'">
                                         <span class="badge badge-success">Activo</span>
@@ -151,7 +152,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    
+
                                     <label class="col-md-3 form-control-label" for="text-input">Cargo</label>
                                     <div class="col-md-9">
                                         <select class="form-control" v-model="cargo" placeholder="cargo del empleado">
@@ -172,8 +173,8 @@
                                         <span class="help-block">(*) Ingrese el telefono del empleado</span>
                                     </div>
                                 </div>
-                                
-                                
+
+
                                 <div class="form-group row div-error" v-show="errorempleados">
                                     <div class="text-center text-error">
                                         <div v-for="error in errorMensaje" :key="error" v-text="error"></div>
@@ -387,12 +388,12 @@ export default {
             }).then((result) => {
             if (result.value) {
                 let me=this;
-                axios.put('/empleado/activate',{
+                axios.put('/empleados/activate',{
                     'id': id
                 }).then(function (response) {
                 me.listarempleados(1,'','empleados');
                 swalWithBootstrapButtons.fire(
-                'empleados activado!'
+                'Empleados activado!'
                 )
                 }).catch(function (error) {
                     console.log(error);
@@ -408,7 +409,7 @@ export default {
         validarempleados(){
             this.errorempleados=0;
             this.errorMensaje=[];
-            
+
             if (!this.documento) this.errorMensaje.push("El documento del empleado no puede estar vacio");
             if (!this.email) this.errorMensaje.push("El email del empleado no puede estar vacio");
             if (!this.nombres) this.errorMensaje.push("El nombre del empleado no puede estar vacio");

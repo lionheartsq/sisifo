@@ -40,7 +40,7 @@
                                         <th>Concepto</th>
                                         <th>Detalle</th>
                                         <th>Tipologia</th>
-                                        <th>idEmpresa</th>
+                                        <th>Empresa</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -118,7 +118,7 @@
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Fecha</label>
                                         <div class="col-md-9">
-                                            <input type="number" v-model="fecha" class="form-control" placeholder="Fecha del asiento">
+                                            <input type="date" v-model="fecha" class="form-control" placeholder="Fecha del asiento">
                                             <span class="help-block">(*) Ingrese la fecha del asiento</span>
                                         </div>
                                     </div>

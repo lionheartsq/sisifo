@@ -368,7 +368,7 @@
                     axios.put('/proveedores/activate',{
                         'id': id
                     }).then(function (response) {
-                    me.listarproveedores(1,'','proveedores');
+                    me.listarProveedores(1,'','proveedores');
                     swalWithBootstrapButtons.fire(
                     'Proveedores activado!'
                     )
