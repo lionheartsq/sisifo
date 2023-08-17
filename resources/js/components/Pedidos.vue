@@ -25,7 +25,7 @@
                                         <option value="valor">Valor</option>
                                         <option value="impuesto">Impuesto</option>
                                         <option value="total">Total</option>
-                                        <option value="vendedor">Vendedor</option>
+                                        <option value="idempleados">Vendedor</option>
                                         <option value="idVendedor">idVendedor</option>
                                         <option value="idTipoFactura">idTipoFactura</option>
                                         <option value="idProveedores">idProveedores</option>
@@ -81,7 +81,7 @@
                                         <td v-text="pedidos.valor"></td>
                                         <td v-text="pedidos.impuesto"></td>
                                         <td v-text="pedidos.total"></td>
-                                        <td v-text="pedidos.vendedor"></td>
+                                        <td v-text="pedidos.idempleados"></td>
                                         <td v-text="pedidos.idVendedor"></td>
                                         <td v-text="pedidos.idTipoFactura"></td>
                                         <td v-text="pedidos.idProveedores"></td>
@@ -130,6 +130,9 @@
 
                             <div class="modal-body">
                                 <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+
+                                    <div class="form-group row">
+                                        <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Consecutivo</label>
                                         <div class="col-md-9">
@@ -137,6 +140,9 @@
                                             <span class="help-block">(*) Ingrese el consecutivo de los pedidos</span>
                                         </div>
                                     </div>
+                                </div>
+
+                                <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Fecha</label>
                                         <div class="col-md-9">
@@ -144,6 +150,11 @@
                                             <span class="help-block">(*) Ingrese la fecha de los pedidos</span>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Valor</label>
                                         <div class="col-md-9">
@@ -151,6 +162,9 @@
                                             <span class="help-block">(*) Ingrese el valor de los pedidos</span>
                                         </div>
                                     </div>
+                                </div>
+
+                                <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Impuesto</label>
                                         <div class="col-md-9">
@@ -160,6 +174,11 @@
                                             </select>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Total</label>
                                         <div class="col-md-9">
@@ -167,15 +186,48 @@
                                             <span class="help-block">(*) Ingrese el total de los pedidos</span>
                                         </div>
                                     </div>
+                                </div>
+
+                                <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Vendedor</label>
                                         <div class="col-md-9">
-                                            <select class="form-control" v-model="idEmpleados">
+                                            <select class="form-control" v-model="idempleados">
                                                 <option value="0" disabled>Seleccione un empleados</option>
                                                 <option v-for="relacion in arrayEmpleados" :key="relacion.id" :value="relacion.id" v-text="relacion.nombre"></option>
                                             </select>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-md-3 form-control-label" for="text-input">Tipo Factura</label>
+                                        <div class="col-md-9">
+                                            <select class="form-control" v-model="idTipofactura">
+                                                <option value="0" disabled>Seleccione un tipo factura</option>
+                                                <option v-for="relacion in arrayTipofactura" :key="relacion.id" :value="relacion.id" v-text="relacion.nombre"></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-md-3 form-control-label" for="text-input">Proveedor</label>
+                                        <div class="col-md-9">
+                                            <select class="form-control" v-model="idProveedores">
+                                                <option value="0" disabled>Seleccione un proveedor</option>
+                                                <option v-for="relacion in arrayProveedor" :key="relacion.id" :value="relacion.id" v-text="relacion.nombre"></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
                                     <div class="form-group row div-error" v-show="errorUsuario">
                                         <div class="text-center text-error">
                                             <div v-for="error in errorMensaje" :key="error" v-text="error"></div>
@@ -209,11 +261,15 @@
                 arrayPedidos : [],
                 arrayImpuestos : [],
                 arrayEmpleados : [],
+                arrayTipofactura : [],
+                arrayProveedores : [],
                 modal : 0,
                 tituloModal : '',
                 tipoAccion : 0,
                 idImpuestos : 0,
                 idEmpleados : 0,
+                idTipofactura : 0,
+                idProveedores : 0,
                 errorPedidos : 0,
                 errorMensaje : [],
                 pagination : {
@@ -282,6 +338,16 @@
                 //envia peticion para ver los valores asociados a esa pagina
                 me.listarPedidos(page,buscar,criterio);
             },
+            limpiarmodal(){
+                this.consecutivo='';
+                this.fecha='';
+                this.valor='';
+                this.idImpuesto='';
+                this.total='';
+                this.idempleados='';
+                this.idTipofactura='';
+                this.idProveedores='';
+            },
             crearPedidos(){
                 //valido con el metodo de validacion creado
                 if(this.validarPedidos()){
@@ -290,7 +356,15 @@
 
                 let me=this;
                 axios.post('/pedidos/store',{
-                    'usuario': this.pedidos
+                    'Pedidos': this.pedidos,
+                    'consecutivo': this.consecutivo,
+                    'fecha': this.fecha,
+                    'valor': this.valor,
+                    'idImpuesto': this.idImpuesto,
+                    'total': this.total,
+                    'idempleados': this.idempleados,
+                    'idTipofactura': this.idTipofactura,
+                    'idProveedores': this.idProveedores
                     //'estado': this.estado,
                     //'dato': this.dato
                 }).then(function (response) {
@@ -309,7 +383,15 @@
                 let me=this;
                 axios.put('/pedidos/update',{
                     'Pedidos': this.pedidos,
-                    'id': this.idPedidos
+                    'consecutivo': this.consecutivo,
+                    'fecha': this.fecha,
+                    'valor': this.valor,
+                    'idImpuesto': this.idImpuesto,
+                    'total': this.total,
+                    'idempleados': this.idempleados,
+                    'id': this.idPedidos,
+                    'idTipofactura': this.idTipofactura,
+                    'idProveedores': this.idProveedores
                     //'estado': this.estado,
                     //'dato': this.dato
                 }).then(function (response) {
@@ -398,12 +480,27 @@
                 this.errorPedidos=0;
                 this.errorMensaje=[];
 
-                if (!this.consecutivo) this.errorMensaje.push("El consecutivo de los pedidos no puede estar vacio");
-                if (!this.fecha) this.errorMensaje.push("La fecha de los pedidos no puede estar vacio");
-                if (!this.valor) this.errorMensaje.push("El valor de los pedidos no puede estar vacio");
-                if (!this.impuesto) this.errorMensaje.push("El impuesto de los pedidos no puede estar vacio");
-                if (!this.total) this.errorMensaje.push("El total de los pedidos no puede estar vacio");
-                if (!this.vendedor) this.errorMensaje.push("El vendedor de los pedidos no puede estar vacio");
+                this.cadenaMensaje='';
+
+            if (!this.consecutivo) this.cadenaMensaje=this.cadenaMensaje+"-El consecutivo de los pedidos no puede estar vacio ";
+            //this.errorMensaje.push("El consecutivo de los pedidos no puede estar vacio"));
+            if (!this.fecha) this.cadenaMensaje=this.cadenaMensaje+"-La fecha de los pedidos no puede estar vacio ";
+            //this.errorMensaje.push("La fecha de los pedidos no puede estar vacio");
+            if (!this.valor) this.cadenaMensaje=this.cadenaMensaje+"-El valor de los pedidos no puede estar vacio ";
+            //this.errorMensaje.push("El valor de los pedidos no puede estar vacio");
+            if (!this.impuesto) this.cadenaMensaje=this.cadenaMensaje+"-El impuesto de los pedidos no puede estar vacio ";
+            //this.errorMensaje.push("El impuesto de los pedidos no puede estar vacio");
+            if (!this.total) this.cadenaMensaje=this.cadenaMensaje+"-El total de los pedidos no puede estar vacio ";
+            //this.errorMensaje.push("El total de los pedidos no puede estar vacio");
+            if (!this.idempleados) this.cadenaMensaje=this.cadenaMensaje+"-El vendedor de los pedidos no puede estar vacio ";
+            //this.errorMensaje.push(""El vendedor de los pedidos no puede estar vacio");
+            if (!this.idTipofactura) this.cadenaMensaje=this.cadenaMensaje+"-El Tipo Factura de los pedidos no puede estar vacio ";
+            //this.errorMensaje.push(""El tipo factura de los pedidos no puede estar vacio");
+            if (!this.idProveedores) this.cadenaMensaje=this.cadenaMensaje+"-El Proveedor de los pedidos no puede estar vacio ";
+            //this.errorMensaje.push(""El proveedor de los pedidos no puede estar vacio");
+
+                this.errorMensaje.push(this.cadenaMensaje);
+
                 if (this.errorMensaje.length) this.errorPedidos=1;
 
                 return this.errorPedidos;
@@ -428,14 +525,14 @@
                     console.log(error);
                 })
             },
-            listarEmpleados(){
+            listaridEmpleados(){
                 let me=this;
                 var url='/empleados/listado';
                 // Make a request for a user with a given ID
                 axios.get(url).then(function (response) {
                     // handle success
                 var respuesta=response.data;
-                me.arrayEmpleadoss=respuesta.empleados;
+                me.arrayEmpleadoss=respuesta.idempleados;
                     //console.log(response);
                 })
                 .catch(function (error) {
@@ -462,7 +559,15 @@
                             this.tituloModal='Editar pedidos';
                             this.tipoAccion= 2;
                             this.idPedidos=data['id'];
+                            this.consecutivo=data['consecutivo'];
+                            this.fecha=data['fecha'];
+                            this.valor=data['valor'];
+                            this.idImpuesto=data['idImpuesto'];
+                            this.total=data['total'];
+                            this.idempleados=data['idempleados'];
                             this.Pedidos=data['pedidos'];
+                            this.idTipofactura=data['idTipofactura'];
+                            this.idProveedores=data['idProveedores'];
                             break;
                         }
                     }
