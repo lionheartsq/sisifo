@@ -113,12 +113,12 @@
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Valor</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="valor" class="form-control" placeholder="Valor del impuesto">
+                                            <input type="number" v-model="valor" class="form-control" placeholder="Valor del impuesto">
                                             <span class="help-block">(*) Ingrese el valor del impuesto</span>
                                         </div>
                                     </div>
 
-                                    <div class="form-group row div-error" v-show="errorUsuario">
+                                    <div class="form-group row div-error" v-show="errorImpuesto">
                                         <div class="text-center text-error">
                                             <div v-for="error in errorMensaje" :key="error" v-text="error"></div>
                                         </div>
@@ -359,7 +359,7 @@
                     switch (accion) {
                         case 'crear':{
                             this.modal=1;
-                            this.nombre='';
+                            this.Impuesto='';
                             this.valor=0;
                             this.tituloModal='Crear nuevo impuesto';
                             this.tipoAccion= 1;
@@ -373,6 +373,7 @@
                             this.idImpuesto=data['id'];
                             this.nombre=data['nombre'];
                             this.valor=data['valor'];
+                            this.Impuesto=data['impuesto'];
                             break;
                         }
                     }
