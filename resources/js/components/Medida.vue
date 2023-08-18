@@ -325,7 +325,7 @@
                 this.errorMedida=0;
                 this.errorMensaje=[];
 
-                if (!this.nombre) this.errorMensaje.push("El nombre de la medida no puede estar vacio");
+                if (!this.nombre) this.errorMensaje.push("-El nombre de la medida no puede estar vacio ");
                 if (this.errorMensaje.length) this.errorMedida=1;
 
                 return this.errorMedida;

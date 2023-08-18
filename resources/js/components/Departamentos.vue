@@ -325,7 +325,7 @@
                 this.errorDepartamentos=0;
                 this.errorMensaje=[];
 
-                if (!this.detalle) this.errorMensaje.push("El detalle de los departamentos no puede estar vacio");
+                if (!this.detalle) this.errorMensaje.push("-El detalle de los departamentos no puede estar vacio ");
                 if (this.errorMensaje.length) this.errorDepartamentos=1;
 
                 return this.errorDepartamentos;

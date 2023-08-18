@@ -131,8 +131,8 @@
                             <div class="modal-body">
                                 <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
 
-                                    <div class="form-group row">
-                                        <div class="col-md-6">
+                            <div class="ow">
+                                 <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Consecutivo</label>
                                         <div class="col-md-9">
@@ -153,7 +153,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
+                            <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Valor</label>
@@ -177,7 +177,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
+                            <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Total</label>
@@ -201,7 +201,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
+                            <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Tipo Factura</label>
@@ -480,26 +480,14 @@
                 this.errorPedidos=0;
                 this.errorMensaje=[];
 
-                this.cadenaMensaje='';
-
-            if (!this.consecutivo) this.cadenaMensaje=this.cadenaMensaje+"-El consecutivo de los pedidos no puede estar vacio ";
-            //this.errorMensaje.push("El consecutivo de los pedidos no puede estar vacio"));
-            if (!this.fecha) this.cadenaMensaje=this.cadenaMensaje+"-La fecha de los pedidos no puede estar vacio ";
-            //this.errorMensaje.push("La fecha de los pedidos no puede estar vacio");
-            if (!this.valor) this.cadenaMensaje=this.cadenaMensaje+"-El valor de los pedidos no puede estar vacio ";
-            //this.errorMensaje.push("El valor de los pedidos no puede estar vacio");
-            if (!this.impuesto) this.cadenaMensaje=this.cadenaMensaje+"-El impuesto de los pedidos no puede estar vacio ";
-            //this.errorMensaje.push("El impuesto de los pedidos no puede estar vacio");
-            if (!this.total) this.cadenaMensaje=this.cadenaMensaje+"-El total de los pedidos no puede estar vacio ";
-            //this.errorMensaje.push("El total de los pedidos no puede estar vacio");
-            if (!this.idempleados) this.cadenaMensaje=this.cadenaMensaje+"-El vendedor de los pedidos no puede estar vacio ";
-            //this.errorMensaje.push(""El vendedor de los pedidos no puede estar vacio");
-            if (!this.idTipofactura) this.cadenaMensaje=this.cadenaMensaje+"-El Tipo Factura de los pedidos no puede estar vacio ";
-            //this.errorMensaje.push(""El tipo factura de los pedidos no puede estar vacio");
-            if (!this.idProveedores) this.cadenaMensaje=this.cadenaMensaje+"-El Proveedor de los pedidos no puede estar vacio ";
-            //this.errorMensaje.push(""El proveedor de los pedidos no puede estar vacio");
-
-                this.errorMensaje.push(this.cadenaMensaje);
+            if (!this.consecutivo) this.errorMensaje.push("-El consecutivo de los pedidos no puede estar vacio ");
+            if (!this.fecha) this.errorMensaje.push("-La fecha de los pedidos no puede estar vacio ");
+            if (!this.valor) this.errorMensaje.push("-El valor de los pedidos no puede estar vacio ");
+            if (!this.impuesto) this.errorMensaje.push("-El impuesto de los pedidos no puede estar vacio ");
+            if (!this.total) this.errorMensaje.push("-El total de los pedidos no puede estar vacio ");
+            if (!this.idempleados) this.errorMensaje.push("-El vendedor de los pedidos no puede estar vacio ");
+            if (!this.idTipofactura) this.errorMensaje.push("-El tipo factura de los pedidos no puede estar vacio ");
+            if (!this.idProveedores) this.errorMensaje.push("-El proveedor de los pedidos no puede estar vacio ");
 
                 if (this.errorMensaje.length) this.errorPedidos=1;
 

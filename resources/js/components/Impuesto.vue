@@ -227,6 +227,7 @@
 
                 let me=this;
                 axios.post('/impuesto/store',{
+                    'id': this.idImpuesto,
                     'nombre': this.nombre,
                     'valor': this.valor
                     //'estado': this.estado,
@@ -337,8 +338,8 @@
                 this.errorImpuesto=0;
                 this.errorMensaje=[];
 
-                if (!this.nombre) this.errorMensaje.push("El nombre del impuesto no puede estar vacio");
-                if (!this.valor) this.errorMensaje.push("El valor del impuesto no puede estar vacio");
+                if (!this.nombre) this.errorMensaje.push("-El nombre del impuesto no puede estar vacio ");
+                if (!this.valor) this.errorMensaje.push("-El valor del impuesto no puede estar vacio ");
                 if (this.errorMensaje.length) this.errorImpuesto=1;
 
                 return this.errorImpuesto;

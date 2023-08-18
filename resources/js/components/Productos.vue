@@ -113,6 +113,9 @@
 
                             <div class="modal-body">
                                 <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+
+                        <div class="row">
+                                 <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">plu</label>
                                         <div class="col-md-9">
@@ -120,22 +123,31 @@
                                             <span class="help-block">(*) Ingrese el plu de los productos</span>
                                         </div>
                                     </div>
+                                </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-md-3 form-control-label" for="text-input">Medida</label>
+                                    <div class="col-md-9">
+                                        <select class="form-control" v-model="idMedida">
+                                            <option value="0" disabled>Seleccione una medida</option>
+                                            <option v-for="relacion in arrayMedidas" :key="relacion.id" :value="relacion.id" v-text="relacion.nombre"></option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="text-input">Detalle</label>
-                                        <div class="col-md-9">
+                                        <label class="col-md-2 form-control-label" for="text-input">Detalle</label>
+                                        <div class="col-md-10">
                                             <input type="text" v-model="detalle" class="form-control" placeholder="Detalles de los productos">
                                             <span class="help-block">(*) Ingrese el detalle de los productos</span>
                                         </div>
                                     </div>
-                                    <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="text-input">Medida</label>
-                                        <div class="col-md-9">
-                                            <select class="form-control" v-model="idMedida">
-                                                <option value="0" disabled>Seleccione una medida</option>
-                                                <option v-for="relacion in arrayMedidas" :key="relacion.id" :value="relacion.id" v-text="relacion.nombre"></option>
-                                            </select>
-                                        </div>
-                                    </div>
+
+                             <div class="row">
+                                <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Valor Compra</label>
                                         <div class="col-md-9">
@@ -143,6 +155,9 @@
                                             <span class="help-block">(*) Ingrese el valor compra de los productos</span>
                                         </div>
                                     </div>
+                                </div>
+
+                                <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">pvp</label>
                                         <div class="col-md-9">
@@ -150,6 +165,11 @@
                                             <span class="help-block">(*) Ingrese el pvp de los productos</span>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Impuesto</label>
                                         <div class="col-md-9">
@@ -159,6 +179,9 @@
                                             </select>
                                         </div>
                                     </div>
+                                </div>
+
+                                <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Grupo</label>
                                         <div class="col-md-9">
@@ -168,6 +191,8 @@
                                             </select>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
                                     <div class="form-group row div-error" v-show="errorProductos">
                                         <div class="text-center text-error">
                                             <div v-for="error in errorMensaje" :key="error" v-text="error"></div>
@@ -404,13 +429,13 @@
                 this.errorProductos=0;
                 this.errorMensaje=[];
 
-                if (!this.plu) this.errorMensaje.push("El plu de los productos no puede estar vacio");
-                if (!this.detalle) this.errorMensaje.push("El detalle de los productos no puede estar vacio");
-                if (!this.idMedida) this.errorMensaje.push("La medida de los productos no puede estar vacio");
-                if (!this.valorCompra) this.errorMensaje.push("El valor compra de los productos no puede estar vacio");
-                if (!this.pvp) this.errorMensaje.push("El pvp de los productos no puede estar vacio");
-                if (!this.idImpuesto) this.errorMensaje.push("El impuesto de los productos no puede estar vacio");
-                if (!this.idGrupos) this.errorMensaje.push("El grupo de los productos no puede estar vacio");
+                if (!this.plu) this.errorMensaje.push("-El plu de los productos no puede estar vacio ");
+                if (!this.detalle) this.errorMensaje.push("-El detalle de los productos no puede estar vacio ");
+                if (!this.idMedida) this.errorMensaje.push("-La medida de los productos no puede estar vacio ");
+                if (!this.valorCompra) this.errorMensaje.push("-El valor compra de los productos no puede estar vacio ");
+                if (!this.pvp) this.errorMensaje.push("-El pvp de los productos no puede estar vacio ");
+                if (!this.idImpuesto) this.errorMensaje.push("-El impuesto de los productos no puede estar vacio ");
+                if (!this.idGrupos) this.errorMensaje.push("-El grupo de los productos no puede estar vacio ");
                 if (this.errorMensaje.length) this.errorProductos=1;
 
                 return this.errorProductos;

@@ -113,8 +113,8 @@
                             <div class="modal-body">
                                 <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
 
-                                    <div class="form-group row">
-                                        <div class="col-md-6">
+                             <div class="row">
+                                 <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">nit</label>
                                         <div class="col-md-9">
@@ -135,7 +135,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
+                            <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Contacto</label>
@@ -146,7 +146,7 @@
                                     </div>
                                 </div>
 
-                                    <div class="col-md-6">
+                                <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Telefono</label>
                                         <div class="col-md-9">
@@ -157,7 +157,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
+                            <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Direccion</label>
@@ -168,7 +168,7 @@
                                     </div>
                                 </div>
 
-                                    <div class="col-md-6">
+                                <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Correo</label>
                                         <div class="col-md-9">
@@ -314,7 +314,7 @@
 
                 let me=this;
                 axios.put('/proveedores/update',{
-                    'id': this.id,
+                    'id': this.idProveedores,
                     'nit': this.nit,
                     'razonSocial': this.razonSocial,
                     'contacto': this.contacto,
@@ -413,26 +413,16 @@
                 this.errorProveedores=0;
                 this.errorMensaje=[];
 
-                this.cadenaMensaje='';
-
-            if (!this.nit) this.cadenaMensaje=this.cadenaMensaje+"-El nit de los proveedores no puede estar vacio ";
-            //this.errorMensaje.push("El nit de los proveedores no puede estar vacio"));
-            if (!this.razonSocial) this.cadenaMensaje=this.cadenaMensaje+"-La razonSocial de los proveedores no puede estar vacio ";
-            //this.errorMensaje.push("La razonSocial de los proveedores no puede estar vacio");
-            if (!this.contacto) this.cadenaMensaje=this.cadenaMensaje+"-El contacto de los proveedores no puede estar vacio ";
-            //this.errorMensaje.push("El contacto de los proveedores no puede estar vacio");
-            if (!this.telefono) this.cadenaMensaje=this.cadenaMensaje+"-El telefono de los proveedores no puede estar vacio ";
-            //this.errorMensaje.push("El telefono de los proveedores no puede estar vacio");
-            if (!this.direccion) this.cadenaMensaje=this.cadenaMensaje+"-La direccion de los proveedores no puede estar vacio ";
-            //this.errorMensaje.push("La direccion de los proveedores no puede estar vacio");
-
-                if (!this.correo){
-                    this.errorMensaje.push("-El correo de los proveedores no puede estar vacio ");
+            if (!this.nit) this.errorMensaje.push("-El nit de los proveedores no puede estar vacio ");
+            if (!this.razonSocial) this.errorMensaje.push("-La razonSocial de los proveedores no puede estar vacio ");
+            if (!this.contacto) this.errorMensaje.push("-El contacto de los proveedores no puede estar vacio ");
+            if (!this.telefono) this.errorMensaje.push("-El telefono de los proveedores no puede estar vacio ");
+            if (!this.direccion) this.errorMensaje.push("-La direccion de los proveedores no puede estar vacio ")
+            if (!this.correo){
+                    this.errorMensaje.push("-El correo del usuario no puede estar vacio ");
                 }else{
                     if (this.functionMail(this.correo)==false) this.errorMensaje.push("-El formato de correo no es válido ");
                 };
-
-                this.errorMensaje.push(this.cadenaMensaje);
 
                 if (this.errorMensaje.length) this.errorProveedores=1;
 
@@ -461,7 +451,7 @@
                             this.modal=1;
                             this.tituloModal='Editar proveedores';
                             this.tipoAccion= 2;
-                            this.id=data['id'];
+                            this.idProveedores=data['id'];
                             this.nit=data['nit'];
                             this.razonSocial=data['razonSocial'];
                             this.contacto=data['contacto'];

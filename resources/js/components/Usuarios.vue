@@ -113,8 +113,8 @@
                             <div class="modal-body">
                                 <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
 
-                                    <div class="form-group row">
-                                        <div class="col-md-6">
+                         <div class="row">
+                                 <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Documento</label>
                                         <div class="col-md-9">
@@ -124,8 +124,8 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-6">
-                                    <div class="form-group row">
+                            <div class="col-md-6">
+                                 <div class="form-group row">
                                     <label class="col-md-3 form-control-label" for="text-input">Rol</label>
                                     <div class="col-md-9">
                                         <select class="form-control" v-model="idRol">
@@ -137,8 +137,8 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <div class="col-md-6">
+                         <div class="row">
+                                <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Nombres</label>
                                         <div class="col-md-9">
@@ -159,7 +159,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
+                            <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">E-mail</label>
@@ -170,7 +170,7 @@
                                     </div>
                                 </div>
 
-                                    <div class="col-md-6">
+                                <div class="col-md-6">
                                     <div class="form-group row" v-if="tipoAccion==1">
                                         <label class="col-md-3 form-control-label" for="text-input">Password</label>
                                         <div class="col-md-9">
@@ -179,7 +179,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                </div>
+                             </div>
 
                                     <div class="form-group row div-error" v-show="errorUsuario">
                                         <div class="text-center text-error">
@@ -429,26 +429,16 @@
                 this.errorUsuario=0;
                 this.errorMensaje=[];
 
-                this.cadenaMensaje='';
-
-            if (!this.documento) this.cadenaMensaje=this.cadenaMensaje+"-El documento del usuario no puede estar vacio ";
-            //this.errorMensaje.push("El documento del usuario no puede estar vacio"));
-            if (!this.nombres) this.cadenaMensaje=this.cadenaMensaje+"-El nombre del usuario no puede estar vacio ";
-            //this.errorMensaje.push("El nombre del usuario no puede estar vacio");
-            if (!this.apellidos) this.cadenaMensaje=this.cadenaMensaje+"-Los apellidos del usuario no puede estar vacio ";
-            //this.errorMensaje.push("Los apellidos del usuario no puede estar vacio");
-            if (!this.idRol) this.cadenaMensaje=this.cadenaMensaje+"-El rol del usuario no puede estar vacio ";
-            //this.errorMensaje.push("El rol del usuario no puede estar vacio");
-            if (!this.password) this.cadenaMensaje=this.cadenaMensaje+"-La password no puede estar vacia ";
-            //this.errorMensaje.push("La password no puede estar vacia");
-
-                if (!this.email){
+            if (!this.documento) this.errorMensaje.push("-El documento del usuario no puede estar vacio ");
+            if (!this.nombres) this.errorMensaje.push("-El nombre del usuario no puede estar vacio ");
+            if (!this.apellidos) this.errorMensaje.push("-Los apellidos del usuario no puede estar vacio ");
+            if (!this.idRol) this.errorMensaje.push("-El rol del usuario no puede estar vacio ");
+            if (!this.password) this.errorMensaje.push("-La password no puede estar vacia ");
+            if (!this.email){
                     this.errorMensaje.push("-El email del usuario no puede estar vacio ");
                 }else{
                     if (this.functionMail(this.email)==false) this.errorMensaje.push("-El formato de email no es válido ");
                 };
-
-                this.errorMensaje.push(this.cadenaMensaje);
 
                 if (this.errorMensaje.length) this.errorUsuario=1;
 

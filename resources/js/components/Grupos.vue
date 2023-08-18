@@ -325,7 +325,7 @@
                 this.errorGrupos=0;
                 this.errorMensaje=[];
 
-                if (!this.detalleGrupos) this.errorMensaje.push("El detalle grupo de los grupos no puede estar vacio");
+                if (!this.detalleGrupos) this.errorMensaje.push("-El detalle grupo de los grupos no puede estar vacio ");
                 if (this.errorMensaje.length) this.errorGrupos=1;
 
                 return this.errorGrupos;

@@ -115,8 +115,8 @@
                             <div class="modal-body">
                                 <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
 
-                                    <div class="form-group row">
-                                        <div class="col-md-6">
+                            <div class="row">
+                                 <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Cedula</label>
                                         <div class="col-md-9">
@@ -137,7 +137,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
+                            <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
@@ -148,7 +148,7 @@
                                     </div>
                                 </div>
 
-                                    <div class="col-md-6">
+                                <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Apellidos</label>
                                         <div class="col-md-9">
@@ -157,10 +157,10 @@
                                         </div>
                                     </div>
                                 </div>
-                                </div>
+                            </div>
 
-                                <div class="form-group row">
-                                    <div class="col-md-6">
+                            <div class="row">
+                                 <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Direccion</label>
                                         <div class="col-md-9">
@@ -170,7 +170,7 @@
                                     </div>
                                 </div>
 
-                                    <div class="col-md-6">
+                                <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Telefono</label>
                                         <div class="col-md-9">
@@ -416,26 +416,16 @@
                 this.errorClientes=0;
                 this.errorMensaje=[];
 
-                this.cadenaMensaje='';
-
-            if (!this.cedula) this.cadenaMensaje=this.cadenaMensaje+"-La cedula del cliente no puede estar vacio ";
-            //this.errorMensaje.push("La cedula del cliente no puede estar vacio"));
-            if (!this.nombres) this.cadenaMensaje=this.cadenaMensaje+"-Los nombres del cliente no puede estar vacio ";
-            //this.errorMensaje.push("Los nombres del cliente no puede estar vacio");
-            if (!this.apellidos) this.cadenaMensaje=this.cadenaMensaje+"-Los apellidos del cliente no puede estar vacio ";
-            //this.errorMensaje.push("Los apellidos del cliente no puede estar vacio");
-            if (!this.direccion) this.cadenaMensaje=this.cadenaMensaje+"-La direccion del cliente no puede estar vacio ";
-            //this.errorMensaje.push("La direccion del cliente no puede estar vacio");
-            if (!this.telefono) this.cadenaMensaje=this.cadenaMensaje+"-El telefono del cliente no puede estar vacio ";
-            //this.errorMensaje.push("El telefono del cliente no puede estar vacio");
-
-                if (!this.correo){
+            if (!this.cedula) this.errorMensaje.push("-La cedula del cliente no puede estar vacio ");
+            if (!this.nombres) this.errorMensaje.push("-Los nombres del cliente no puede estar vacio ");
+            if (!this.apellidos) this.errorMensaje.push("-Los apellidos del cliente no puede estar vacio ");
+            if (!this.direccion) this.errorMensaje.push("-La direccion del cliente no puede estar vacio ");
+            if (!this.telefono) this.errorMensaje.push("-El telefono del cliente no puede estar vacio ");
+            if (!this.correo){
                     this.errorMensaje.push("-El correo del usuario no puede estar vacio ");
                 }else{
                     if (this.functionMail(this.correo)==false) this.errorMensaje.push("-El formato de correo no es válido ");
                 };
-
-                this.errorMensaje.push(this.cadenaMensaje);
 
                 if (this.errorMensaje.length) this.errorClientes=1;
 

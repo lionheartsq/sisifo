@@ -335,8 +335,8 @@
                 this.errorCiudades=0;
                 this.errorMensaje=[];
 
-                if (!this.detalle) this.errorMensaje.push("El detalle de la ciudad no puede estar vacio");
-                if (!this.idDepartamento) this.errorMensaje.push("El departamento de la ciudad no puede estar vacio");
+                if (!this.detalle) this.errorMensaje.push("-El detalle de la ciudad no puede estar vacio ");
+                if (!this.idDepartamento) this.errorMensaje.push("-El departamento de la ciudad no puede estar vacio ");
                 if (this.errorMensaje.length) this.errorCiudades=1;
 
                 return this.errorCiudades;

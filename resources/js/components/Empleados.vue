@@ -117,9 +117,9 @@
                         <div class="modal-body">
                             <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
 
+                        <div class="row">
+                            <div class="col-md-6">
                                 <div class="form-group row">
-                                    <div class="col-md-6">
-                                        <div class="form-group row">
                                     <label class="col-md-3 form-control-label" for="text-input">Documento</label>
                                     <div class="col-md-9">
                                         <input type="number" v-model="documento" class="form-control" placeholder="Documento del empleado">
@@ -131,7 +131,7 @@
                             <div class="col-md-6">
                                 <div class="form-group row">
                                     <label class="col-md-3 form-control-label" for="text-input">Cargo</label>
-                                    <div class="col-md-9">
+                                        <div class="col-md-9">
                                         <select class="form-control" v-model="cargo" placeholder="cargo del empleado">
                                                     <option  value="Operario">Operario</option>
                                                     <option value="Contadora">Contadora</option>
@@ -146,7 +146,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group row">
                                     <label class="col-md-3 form-control-label" for="text-input">Nombres</label>
@@ -157,7 +157,7 @@
                                 </div>
                             </div>
 
-                                <div class="col-md-6">
+                            <div class="col-md-6">
                                 <div class="form-group row">
                                     <label class="col-md-3 form-control-label" for="text-input">Apellidos</label>
                                     <div class="col-md-9">
@@ -168,7 +168,7 @@
                             </div>
                         </div>
 
-                                <div class="form-group row">
+                                <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group row">
                                             <label class="col-md-3 form-control-label" for="text-input">E-mail</label>
@@ -434,24 +434,19 @@ export default {
             this.errorempleados=0;
             this.errorMensaje=[];
 
-            this.cadenaMensaje='';
 
-            if (!this.documento) this.cadenaMensaje=this.cadenaMensaje+"-El documento no puede estar vacio ";
-            //this.errorMensaje.push("El documento no puede estar vacio");
-            if (!this.email) this.cadenaMensaje=this.cadenaMensaje+"-El email no puede estar vacio ";
-            //this.errorMensaje.push("El email no puede estar vacio");
-            if (!this.nombres) this.cadenaMensaje=this.cadenaMensaje+"-El nombre no puede estar vacio ";
-            //this.errorMensaje.push("El nombre no puede estar vacio");
-            if (!this.apellidos) this.cadenaMensaje=this.cadenaMensaje+"-Los apellidos no pueden estar vacios ";
-            //this.errorMensaje.push("Los apellidos no pueden estar vacio");
-            if (!this.direccion) this.cadenaMensaje=this.cadenaMensaje+"-La dirección no puede estar vacia ";
-            //this.errorMensaje.push("La direccion no puede estar vacia");
-            if (!this.cargo) this.cadenaMensaje=this.cadenaMensaje+"-El cargo no puede estar vacio ";
-            //this.errorMensaje.push("El cargo no puede estar vacio");
-            if (!this.telefono) this.cadenaMensaje=this.cadenaMensaje+"-El teléfono no puede estar vacio ";
-            //this.errorMensaje.push("El telefono no puede estar vacio");
-
-            this.errorMensaje.push(this.cadenaMensaje);
+            if (!this.documento) this.errorMensaje.push("-El documento no puede estar vacio ");
+            if (!this.email) this.errorMensaje.push("-El email no puede estar vacio ");
+            if (!this.nombres) this.errorMensaje.push("-El nombre no puede estar vacio ");
+            if (!this.apellidos) this.errorMensaje.push("-Los apellidos no pueden estar vacio ");
+            if (!this.direccion) this.errorMensaje.push("-La direccion no puede estar vacia ");
+            if (!this.cargo) this.errorMensaje.push("-El cargo no puede estar vacio ");
+            if (!this.telefono) this.errorMensaje.push("-El telefono no puede estar vacio ");
+            if (!this.email){
+                    this.errorMensaje.push("-El email del usuario no puede estar vacio ");
+                }else{
+                    if (this.functionMail(this.email)==false) this.errorMensaje.push("-El formato de email no es válido ");
+                };
 
             if (this.errorMensaje.length) this.errorempleados=1;
 

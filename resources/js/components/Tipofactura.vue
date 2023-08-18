@@ -326,7 +326,7 @@
                 this.errorTipofactura=0;
                 this.errorMensaje=[];
 
-                if (!this.detalle) this.errorMensaje.push("El detalle del tipo factura no puede estar vacio");
+                if (!this.detalle) this.errorMensaje.push("-El detalle del tipo factura no puede estar vacio ");
                 if (this.errorMensaje.length) this.errorTipofactura=1;
 
                 return this.errorTipofactura;
