@@ -168,7 +168,7 @@
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Impuesto</label>
                                         <div class="col-md-9">
-                                            <select class="form-control" v-model="idImpuesto">
+                                            <select class="form-control" v-model="idImpuesto" >
                                                 <option value="0" disabled>Seleccione un impuesto</option>
                                                 <option v-for="relacion in arrayImpuestos" :key="relacion.id" :value="relacion.id" v-text="relacion.nombre"></option>
                                             </select>
@@ -513,6 +513,21 @@
                     console.log(error);
                 })
             },
+            listarTipofactura(){
+                let me=this;
+                var url='/tipofactura/listado';
+                // Make a request for a user with a given ID
+                axios.get(url).then(function (response) {
+                    // handle success
+                var respuesta=response.data;
+                me.arrayTipofactura=respuesta.idtipofactura;
+                    //console.log(response);
+                })
+                .catch(function (error) {
+                    // handle error
+                    console.log(error);
+                })
+            },
             listaridEmpleados(){
                 let me=this;
                 var url='/empleados/listado';
@@ -566,6 +581,7 @@
         mounted() {
             this.listarPedidos(1,this.buscar,this.criterio);
             this.listarImpuestos();
+            this.listarTipofactura();
             this.listarEmpleados();
         }
     }

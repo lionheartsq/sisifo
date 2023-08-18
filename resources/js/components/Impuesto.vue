@@ -102,6 +102,7 @@
 
                             <div class="modal-body">
                                 <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
                                         <div class="col-md-9">
@@ -116,6 +117,7 @@
                                             <span class="help-block">(*) Ingrese el valor del impuesto</span>
                                         </div>
                                     </div>
+
                                     <div class="form-group row div-error" v-show="errorUsuario">
                                         <div class="text-center text-error">
                                             <div v-for="error in errorMensaje" :key="error" v-text="error"></div>
@@ -227,7 +229,6 @@
 
                 let me=this;
                 axios.post('/impuesto/store',{
-                    'id': this.idImpuesto,
                     'nombre': this.nombre,
                     'valor': this.valor
                     //'estado': this.estado,
@@ -340,6 +341,7 @@
 
                 if (!this.nombre) this.errorMensaje.push("-El nombre del impuesto no puede estar vacio ");
                 if (!this.valor) this.errorMensaje.push("-El valor del impuesto no puede estar vacio ");
+
                 if (this.errorMensaje.length) this.errorImpuesto=1;
 
                 return this.errorImpuesto;
