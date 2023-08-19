@@ -112,27 +112,39 @@
 
                             <div class="modal-body">
                                 <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="text-input">Fecha Abono</label>
-                                        <div class="col-md-9">
+                                        <label class="col-md-2 form-control-label" for="text-input">Fecha Abono</label>
+                                        <div class="col-md-10">
                                             <input type="date" v-model="fechaAbono" class="form-control" placeholder="Fecha Abono de los pagos">
                                             <span class="help-block">(*) Ingrese la fecha abono de los pagos</span>
                                         </div>
                                     </div>
+
+                             <div class="row">
+                                    <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Valor Pago</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="valorPago" class="form-control" placeholder="Valor Pagos de los pagos">
+                                            <input type="number" v-model="valorPago" class="form-control" placeholder="Valor Pagos de los pagos">
                                             <span class="help-block">(*) Ingrese el valor pago de los pagos</span>
                                         </div>
                                     </div>
+                                </div>
+
+                                    <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Abono</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="abono" class="form-control" placeholder="Abono de los pagos">
+                                            <input type="number" v-model="abono" class="form-control" placeholder="Abono de los pagos">
                                             <span class="help-block">(*) Ingrese el abono de los pagos</span>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Pedidos</label>
                                         <div class="col-md-9">
@@ -140,6 +152,9 @@
                                             <span class="help-block">(*) Ingrese los pedidos de los pagos</span>
                                         </div>
                                     </div>
+                                </div>
+
+                                    <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Empresa</label>
                                         <div class="col-md-9">
@@ -147,7 +162,10 @@
                                             <span class="help-block">(*) Ingrese la empresa  de los pagos</span>
                                         </div>
                                     </div>
-                                    <div class="form-group row div-error" v-show="errorUsuario">
+                                </div>
+                            </div>
+
+                                    <div class="form-group row div-error" v-show="errorPagos">
                                         <div class="text-center text-error">
                                             <div v-for="error in errorMensaje" :key="error" v-text="error"></div>
                                         </div>
@@ -365,11 +383,12 @@
                 this.errorPagos=0;
                 this.errorMensaje=[];
 
-                if (!this.fechaAbono) this.errorMensaje.push("La fecha abono de los pagos no puede estar vacio");
-                if (!this.valorPago) this.errorMensaje.push("El valor pago de los pagos no puede estar vacio");
-                if (!this.abono) this.errorMensaje.push("El abono de los pagos no puede estar vacio");
-                if (!this.idPedidos) this.errorMensaje.push("Los pedidos de los pagos no puede estar vacio");
-                if (!this.idEmpresa) this.errorMensaje.push("La empresa de los pagos no puede estar vacio");
+                if (!this.fechaAbono) this.errorMensaje.push("-La fecha abono de los pagos no puede estar vacio ");
+                if (!this.valorPago) this.errorMensaje.push("-El valor pago de los pagos no puede estar vacio ");
+                if (!this.abono) this.errorMensaje.push("-El abono de los pagos no puede estar vacio ");
+                if (!this.idPedidos) this.errorMensaje.push("-Los pedidos de los pagos no puede estar vacio ");
+                if (!this.idEmpresa) this.errorMensaje.push("-La empresa de los pagos no puede estar vacio ");
+
                 if (this.errorMensaje.length) this.errorPagos=1;
 
                 return this.errorPagos;

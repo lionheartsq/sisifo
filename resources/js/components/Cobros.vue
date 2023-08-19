@@ -112,27 +112,39 @@
 
                             <div class="modal-body">
                                 <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="text-input">Fecha Abono</label>
-                                        <div class="col-md-9">
+                                        <label class="col-md-2 form-control-label" for="text-input">Fecha Abono</label>
+                                        <div class="col-md-10">
                                             <input type="date" v-model="fechaAbono" class="form-control" placeholder="Fecha Abono de los cobros">
                                             <span class="help-block">(*) Ingrese la Fecha Abono de los cobros</span>
                                         </div>
                                     </div>
+
+                            <div class="row">
+                                        <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Valor Cobro</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="valorCobro" class="form-control" placeholder="Valor Cobro de los cobros">
+                                            <input type="number" v-model="valorCobro" class="form-control" placeholder="Valor Cobro de los cobros">
                                             <span class="help-block">(*) Ingrese el Valor Cobro de los cobros</span>
                                         </div>
                                     </div>
+                                </div>
+
+                                <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Abono</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="abono" class="form-control" placeholder="Abono de los cobros">
+                                            <input type="number" v-model="abono" class="form-control" placeholder="Abono de los cobros">
                                             <span class="help-block">(*) Ingrese el Abono de los cobros</span>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Facturas</label>
                                         <div class="col-md-9">
@@ -140,6 +152,9 @@
                                             <span class="help-block">(*) Ingrese las Facturas de los cobros</span>
                                         </div>
                                     </div>
+                                </div>
+
+                                <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Empresa</label>
                                         <div class="col-md-9">
@@ -147,7 +162,10 @@
                                             <span class="help-block">(*) Ingrese las Empresa de los cobros</span>
                                         </div>
                                     </div>
-                                    <div class="form-group row div-error" v-show="errorUsuario">
+                                </div>
+                            </div>
+
+                                    <div class="form-group row div-error" v-show="errorCobros">
                                         <div class="text-center text-error">
                                             <div v-for="error in errorMensaje" :key="error" v-text="error"></div>
                                         </div>
@@ -257,7 +275,12 @@
 
                 let me=this;
                 axios.post('/cobros/store',{
-                    'usuario': this.cobros
+                    'cobros': this.cobros,
+                    'fechaAbono': this.fechaAbono,
+                    'valorCobro': this.valorCobro,
+                    'abono': this.abono,
+                    'idFacturas': this.idFacturas,
+                    'idEmpresa': this.idEmpresa
                     //'estado': this.estado,
                     //'dato': this.dato
                 }).then(function (response) {
@@ -275,7 +298,7 @@
 
                 let me=this;
                 axios.put('/cobros/update',{
-                    'Cobros': this.cobros,
+                    'cobros': this.cobros,
                     'id': this.idCobros
                     //'estado': this.estado,
                     //'dato': this.dato
@@ -365,11 +388,12 @@
                 this.errorCobros=0;
                 this.errorMensaje=[];
 
-                if (!this.fechaAbono) this.errorMensaje.push("La Fecha Abono de los cobros no puede estar vacio");
-                if (!this.valorCobro) this.errorMensaje.push("El Valor Cobro de los cobros no puede estar vacio");
-                if (!this.abono) this.errorMensaje.push("El Abono de los cobros no puede estar vacio");
-                if (!this.idFacturas) this.errorMensaje.push("Las Facturas de los cobros no puede estar vacio");
-                if (!this.idEmpresa) this.errorMensaje.push("La Empresa de los cobros no puede estar vacio");
+                if (!this.fechaAbono) this.errorMensaje.push("-La Fecha Abono de los cobros no puede estar vacio ");
+                if (!this.valorCobro) this.errorMensaje.push("-El Valor Cobro de los cobros no puede estar vacio ");
+                if (!this.abono) this.errorMensaje.push("-El Abono de los cobros no puede estar vacio ");
+                if (!this.idFacturas) this.errorMensaje.push("-Las Facturas de los cobros no puede estar vacio ");
+                if (!this.idEmpresa) this.errorMensaje.push("-La Empresa de los cobros no puede estar vacio ");
+
                 if (this.errorMensaje.length) this.errorCobros=1;
 
                 return this.errorCobros;
