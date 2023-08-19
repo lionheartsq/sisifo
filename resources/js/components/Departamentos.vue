@@ -20,8 +20,7 @@
                                 <div class="col-md-9">
                                     <div class="input-group">
                                         <select class="form-control col-md-3" v-model="criterio">
-                                        <option value="detalle">Detalle</option>
-                                        <option value="estado">Estado</option>
+                                        <option value="detalle">Departamentos</option>
                                         </select>
                                         <input type="text" v-model="buscar" @keyup.enter="listarDepartamentos(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
                                         <button type="submit" @click="listarDepartamentos(1,buscar,criterio)" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
@@ -108,7 +107,7 @@
                                             <span class="help-block">(*) Ingrese el detalle del departamento</span>
                                         </div>
                                     </div>
-                                    <div class="form-group row div-error" v-show="errorUsuario">
+                                    <div class="form-group row div-error" v-show="errorDepartamentos">
                                         <div class="text-center text-error">
                                             <div v-for="error in errorMensaje" :key="error" v-text="error"></div>
                                         </div>
@@ -326,7 +325,7 @@
                 this.errorDepartamentos=0;
                 this.errorMensaje=[];
 
-                if (!this.detalle) this.errorMensaje.push("El detalle de los departamentos no puede estar vacio");
+                if (!this.detalle) this.errorMensaje.push("-El detalle de los departamentos no puede estar vacio ");
                 if (this.errorMensaje.length) this.errorDepartamentos=1;
 
                 return this.errorDepartamentos;

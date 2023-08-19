@@ -20,8 +20,7 @@
                                 <div class="col-md-9">
                                     <div class="input-group">
                                         <select class="form-control col-md-3" v-model="criterio">
-                                        <option value="detalle">Detalle</option>
-                                        <option value="estado">Estado</option>
+                                        <option value="detalle">Tipo Factura</option>
                                         </select>
                                         <input type="text" v-model="buscar" @keyup.enter="listarTipofactura(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
                                         <button type="submit" @click="listarTipofactura(1,buscar,criterio)" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
@@ -109,7 +108,8 @@
                                             <span class="help-block">(*) Ingrese el detalle del Tipo Factura</span>
                                         </div>
                                     </div>
-                                    <div class="form-group row div-error" v-show="errorUsuario">
+
+                                    <div class="form-group row div-error" v-show="errorTipofactura">
                                         <div class="text-center text-error">
                                             <div v-for="error in errorMensaje" :key="error" v-text="error"></div>
                                         </div>
@@ -219,7 +219,7 @@
 
                 let me=this;
                 axios.post('/tipofactura/store',{
-                    'usuario': this.tipofactura
+                    'detalle': this.detalle
                     //'estado': this.estado,
                     //'dato': this.dato
                 }).then(function (response) {
@@ -237,7 +237,7 @@
 
                 let me=this;
                 axios.put('/tipofactura/update',{
-                    'Tipofactura': this.tipofactura,
+                    'detalle': this.detalle,
                     'id': this.idTipofactura
                     //'estado': this.estado,
                     //'dato': this.dato
@@ -327,7 +327,7 @@
                 this.errorTipofactura=0;
                 this.errorMensaje=[];
 
-                if (!this.detalle) this.errorMensaje.push("El detalle del tipo factura no puede estar vacio");
+                if (!this.detalle) this.errorMensaje.push("-El detalle del tipo factura no puede estar vacio ");
                 if (this.errorMensaje.length) this.errorTipofactura=1;
 
                 return this.errorTipofactura;
@@ -356,7 +356,7 @@
                             this.tituloModal='Editar tipofactura';
                             this.tipoAccion= 2;
                             this.idTipofactura=data['id'];
-                            this.Tipofactura=data['tipofactura'];
+                            this.detalle=data['detalle'];
                             break;
                         }
                     }

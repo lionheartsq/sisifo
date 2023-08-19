@@ -35,7 +35,7 @@
     <departamentos></departamentos>
 </template>
 <template v-if="menu==11">
-    <facturas></facturas>
+    <tipofactura></tipofactura>
 </template>
 <template v-if="menu==12">
     <pagos></pagos>
@@ -57,8 +57,5 @@
 </template>
 <template v-if="menu==18">
     <empleados></empleados>
-</template>
-<template v-if="menu==19">
-    <tipofactura></tipofactura>
 </template>
 @endsection

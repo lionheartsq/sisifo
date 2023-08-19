@@ -27,7 +27,7 @@
                     <li @click="menu=18" class="nav-item">
                         <a class="nav-link" href="#"><i class="icon-book-open"></i> Empleados</a>
                     </li>
-                    <li @click="menu=19" class="nav-item">
+                    <li @click="menu=11" class="nav-item">
                         <a class="nav-link" href="#"><i class="icon-book-open"></i> Tipo Factura</a>
                     </li>
                     <li @click="menu=16" class="nav-item">
@@ -57,9 +57,6 @@
                     </li>
                     <li @click="menu=14" class="nav-item">
                         <a class="nav-link" href="#"><i class="icon-book-open"></i> Productos</a>
-                    </li>
-                    <li @click="menu=11" class="nav-item">
-                        <a class="nav-link" href="#"><i class="icon-book-open"></i> Facturas</a>
                     </li>
                     <li @click="menu=13" class="nav-item">
                         <a class="nav-link" href="#"><i class="icon-book-open"></i> Pedidos</a>

@@ -20,8 +20,7 @@
                                 <div class="col-md-9">
                                     <div class="input-group">
                                         <select class="form-control col-md-3" v-model="criterio">
-                                        <option value="detalleGrupos">detalleGrupos</option>
-                                        <option value="estado">Estado</option>
+                                        <option value="detalleGrupos">Grupos</option>
                                         </select>
                                         <input type="text" v-model="buscar" @keyup.enter="listarGrupos(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
                                         <button type="submit" @click="listarGrupos(1,buscar,criterio)" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
@@ -326,7 +325,7 @@
                 this.errorGrupos=0;
                 this.errorMensaje=[];
 
-                if (!this.detalleGrupos) this.errorMensaje.push("El detalle grupo de los grupos no puede estar vacio");
+                if (!this.detalleGrupos) this.errorMensaje.push("-El detalle grupo de los grupos no puede estar vacio ");
                 if (this.errorMensaje.length) this.errorGrupos=1;
 
                 return this.errorGrupos;
