@@ -126,7 +126,7 @@
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Valor Cobro</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="valorCobro" class="form-control" placeholder="Valor Cobro de los cobros">
+                                            <input type="number" v-model="valorCobro" class="form-control" placeholder="Valor Cobro de los cobros">
                                             <span class="help-block">(*) Ingrese el Valor Cobro de los cobros</span>
                                         </div>
                                     </div>
@@ -136,7 +136,7 @@
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Abono</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="abono" class="form-control" placeholder="Abono de los cobros">
+                                            <input type="number" v-model="abono" class="form-control" placeholder="Abono de los cobros">
                                             <span class="help-block">(*) Ingrese el Abono de los cobros</span>
                                         </div>
                                     </div>

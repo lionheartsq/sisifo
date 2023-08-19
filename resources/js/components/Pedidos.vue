@@ -153,7 +153,7 @@
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Valor</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="valor" class="form-control" placeholder="Valor de los pedidos">
+                                            <input type="number" v-model="valor" class="form-control" placeholder="Valor de los pedidos">
                                             <span class="help-block">(*) Ingrese el valor de los pedidos</span>
                                         </div>
                                     </div>
@@ -177,7 +177,7 @@
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Total</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="total" class="form-control" placeholder="Total de los pedidos">
+                                            <input type="number" v-model="total" class="form-control" placeholder="Total de los pedidos">
                                             <span class="help-block">(*) Ingrese el total de los pedidos</span>
                                         </div>
                                     </div>
@@ -538,7 +538,7 @@
                     console.log(error);
                 })
             },
-            listaridEmpleados(){
+            listarempleados(){
                 let me=this;
                 var url='/empleados/listado';
                 // Make a request for a user with a given ID
@@ -592,7 +592,7 @@
             this.listarPedidos(1,this.buscar,this.criterio);
             this.listarImpuestos();
             this.listarTipofactura();
-            this.listarEmpleados();
+            this.listarempleados();
             this.listarProveedores();
         }
     }

@@ -150,7 +150,7 @@
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Telefono</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="telefono" class="form-control" placeholder="Telefono de los proveedores">
+                                            <input type="number" v-model="telefono" class="form-control" placeholder="Telefono de los proveedores">
                                             <span class="help-block">(*) Ingrese el telefono de los proveedores</span>
                                         </div>
                                     </div>
@@ -290,7 +290,7 @@
 
                 let me=this;
                 axios.post('/proveedores/store',{
-                    'usuario': this.proveedores,
+                    'proveedores': this.proveedores,
                     'nit': this.nit,
                     'razonSocial': this.razonSocial,
                     'contacto': this.contacto,
@@ -315,6 +315,7 @@
                 let me=this;
                 axios.put('/proveedores/update',{
                     'id': this.idProveedores,
+                    'proveedores': this.proveedores,
                     'nit': this.nit,
                     'razonSocial': this.razonSocial,
                     'contacto': this.contacto,
@@ -419,7 +420,7 @@
             if (!this.telefono) this.errorMensaje.push("-El telefono de los proveedores no puede estar vacio ");
             if (!this.direccion) this.errorMensaje.push("-La direccion de los proveedores no puede estar vacio ")
             if (!this.correo){
-                    this.errorMensaje.push("-El correo del usuario no puede estar vacio ");
+                    this.errorMensaje.push("-El correo del provedores no puede estar vacio ");
                 }else{
                     if (this.functionMail(this.correo)==false) this.errorMensaje.push("-El formato de correo no es válido ");
                 };

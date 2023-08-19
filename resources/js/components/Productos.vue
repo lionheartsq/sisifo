@@ -151,7 +151,7 @@
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Valor Compra</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="valorCompra" class="form-control" placeholder="Valor Compra de los productos">
+                                            <input type="number" v-model="valorCompra" class="form-control" placeholder="Valor Compra de los productos">
                                             <span class="help-block">(*) Ingrese el valor compra de los productos</span>
                                         </div>
                                     </div>
@@ -161,7 +161,7 @@
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">pvp</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="pvp" class="form-control" placeholder="pvp de los productos">
+                                            <input type="number" v-model="pvp" class="form-control" placeholder="pvp de los productos">
                                             <span class="help-block">(*) Ingrese el pvp de los productos</span>
                                         </div>
                                     </div>

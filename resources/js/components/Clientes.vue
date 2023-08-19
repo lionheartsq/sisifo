@@ -174,7 +174,7 @@
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Telefono</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="telefono" class="form-control" placeholder="Telefono del cliente">
+                                            <input type="number" v-model="telefono" class="form-control" placeholder="Telefono del cliente">
                                             <span class="help-block">(*) Ingrese el telefono del cliente</span>
                                         </div>
                                     </div>
