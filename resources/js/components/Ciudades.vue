@@ -20,9 +20,8 @@
                                 <div class="col-md-9">
                                     <div class="input-group">
                                         <select class="form-control col-md-3" v-model="criterio">
-                                        <option value="detalle">Detalle</option>
+                                        <option value="detalle">Ciudades</option>
                                         <option value="idDepartamento">Departamento</option>
-                                        <option value="estado">Estado</option>
                                         </select>
                                         <input type="text" v-model="buscar" @keyup.enter="listarCiudades(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
                                         <button type="submit" @click="listarCiudades(1,buscar,criterio)" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
@@ -118,7 +117,7 @@
                                             <span class="help-block">(*) Ingrese el departamento de la ciudad</span>
                                         </div>
                                     </div>
-                                    <div class="form-group row div-error" v-show="errorUsuario">
+                                    <div class="form-group row div-error" v-show="errorCiudades">
                                         <div class="text-center text-error">
                                             <div v-for="error in errorMensaje" :key="error" v-text="error"></div>
                                         </div>
@@ -336,8 +335,8 @@
                 this.errorCiudades=0;
                 this.errorMensaje=[];
 
-                if (!this.detalle) this.errorMensaje.push("El detalle de la ciudad no puede estar vacio");
-                if (!this.idDepartamento) this.errorMensaje.push("El departamento de la ciudad no puede estar vacio");
+                if (!this.detalle) this.errorMensaje.push("-El detalle de la ciudad no puede estar vacio ");
+                if (!this.idDepartamento) this.errorMensaje.push("-El departamento de la ciudad no puede estar vacio ");
                 if (this.errorMensaje.length) this.errorCiudades=1;
 
                 return this.errorCiudades;

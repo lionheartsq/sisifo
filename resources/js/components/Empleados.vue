@@ -116,6 +116,9 @@
                         </div>
                         <div class="modal-body">
                             <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+
+                        <div class="row">
+                            <div class="col-md-6">
                                 <div class="form-group row">
                                     <label class="col-md-3 form-control-label" for="text-input">Documento</label>
                                     <div class="col-md-9">
@@ -123,38 +126,12 @@
                                         <span class="help-block">(*) Ingrese el documento del empleado</span>
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <label class="col-md-3 form-control-label" for="text-input">Nombres</label>
-                                    <div class="col-md-9">
-                                        <input type="text" v-model="nombres" class="form-control" placeholder="Nombres del empleado">
-                                        <span class="help-block">(*) Ingrese los nombres del empleado</span>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-md-3 form-control-label" for="text-input">Apellidos</label>
-                                    <div class="col-md-9">
-                                        <input type="text" v-model="apellidos" class="form-control" placeholder="Apellidos del empleado">
-                                        <span class="help-block">(*) Ingrese los apellidos del empleado</span>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-md-3 form-control-label" for="text-input">E-mail</label>
-                                    <div class="col-md-9">
-                                        <input type="email" v-model="email" class="form-control" placeholder="E-mail del empleado">
-                                        <span class="help-block">(*) Ingrese el e-mail del empleado</span>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-md-3 form-control-label" for="text-input">Direccion</label>
-                                    <div class="col-md-9">
-                                        <input type="text" v-model="direccion" class="form-control" placeholder="direccion del empleado">
-                                        <span class="help-block">(*) Ingrese la direccion del empleado</span>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
+                            </div>
 
+                            <div class="col-md-6">
+                                <div class="form-group row">
                                     <label class="col-md-3 form-control-label" for="text-input">Cargo</label>
-                                    <div class="col-md-9">
+                                        <div class="col-md-9">
                                         <select class="form-control" v-model="cargo" placeholder="cargo del empleado">
                                                     <option  value="Operario">Operario</option>
                                                     <option value="Contadora">Contadora</option>
@@ -166,14 +143,60 @@
                                         <span class="help-block">(*) Ingrese el cargo del empleado</span>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
                                 <div class="form-group row">
-                                    <label class="col-md-3 form-control-label" for="text-input">Telefono</label>
+                                    <label class="col-md-3 form-control-label" for="text-input">Nombres</label>
                                     <div class="col-md-9">
-                                        <input type="text" v-model="telefono" class="form-control" placeholder="telefono del empleado">
-                                        <span class="help-block">(*) Ingrese el telefono del empleado</span>
+                                        <input type="text" v-model="nombres" class="form-control" placeholder="Nombres del empleado">
+                                        <span class="help-block">(*) Ingrese los nombres del empleado</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-md-3 form-control-label" for="text-input">Apellidos</label>
+                                    <div class="col-md-9">
+                                        <input type="text" v-model="apellidos" class="form-control" placeholder="Apellidos del empleado">
+                                        <span class="help-block">(*) Ingrese los apellidos del empleado</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="col-md-3 form-control-label" for="text-input">E-mail</label>
+                                            <div class="col-md-9">
+                                                <input type="email" v-model="email" class="form-control" placeholder="E-mail del empleado">
+                                                <span class="help-block">(*) Ingrese el e-mail del empleado</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="col-md-3 form-control-label" for="text-input">Telefono</label>
+                                            <div class="col-md-9">
+                                                <input type="number" v-model="telefono" class="form-control" placeholder="telefono del empleado">
+                                                <span class="help-block">(*) Ingrese el telefono del empleado</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
+                                <div class="form-group row">
+                                    <label class="col-md-2 form-control-label" for="text-input">Direccion</label>
+                                    <div class="col-md-10">
+                                        <input type="text" v-model="direccion" class="form-control" placeholder="direccion del empleado">
+                                        <span class="help-block">(*) Ingrese la direccion del empleado</span>
+                                    </div>
+                                </div>
 
                                 <div class="form-group row div-error" v-show="errorempleados">
                                     <div class="text-center text-error">
@@ -218,6 +241,7 @@ export default {
             tipoAccion : 0,
             errorempleados : 0,
             errorMensaje : [],
+            cadenaMensaje:'',
             pagination : {
                 'total' : 0,
                 'current_page' : 0,
@@ -410,13 +434,20 @@ export default {
             this.errorempleados=0;
             this.errorMensaje=[];
 
-            if (!this.documento) this.errorMensaje.push("El documento del empleado no puede estar vacio");
-            if (!this.email) this.errorMensaje.push("El email del empleado no puede estar vacio");
-            if (!this.nombres) this.errorMensaje.push("El nombre del empleado no puede estar vacio");
-            if (!this.apellidos) this.errorMensaje.push("Los apellidos del empleado no pueden estar vacio");
-            if (!this.direccion) this.errorMensaje.push("El direccion del empleado no puede estar vacia");
-            if (!this.cargo) this.errorMensaje.push("el cargo del empleado no puede estar vacio");
-            if (!this.telefono) this.errorMensaje.push("El telefono del empleado no puede estar vacio");
+
+            if (!this.documento) this.errorMensaje.push("-El documento no puede estar vacio ");
+            if (!this.email) this.errorMensaje.push("-El email no puede estar vacio ");
+            if (!this.nombres) this.errorMensaje.push("-El nombre no puede estar vacio ");
+            if (!this.apellidos) this.errorMensaje.push("-Los apellidos no pueden estar vacio ");
+            if (!this.direccion) this.errorMensaje.push("-La direccion no puede estar vacia ");
+            if (!this.cargo) this.errorMensaje.push("-El cargo no puede estar vacio ");
+            if (!this.telefono) this.errorMensaje.push("-El telefono no puede estar vacio ");
+            if (!this.email){
+                    this.errorMensaje.push("-El email del usuario no puede estar vacio ");
+                }else{
+                    if (this.functionMail(this.email)==false) this.errorMensaje.push("-El formato de email no es válido ");
+                };
+
             if (this.errorMensaje.length) this.errorempleados=1;
 
             return this.errorempleados;

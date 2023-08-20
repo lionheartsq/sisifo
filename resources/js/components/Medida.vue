@@ -20,8 +20,7 @@
                                 <div class="col-md-9">
                                     <div class="input-group">
                                         <select class="form-control col-md-3" v-model="criterio">
-                                        <option value="nombre">Nombre</option>
-                                        <option value="estado">Estado</option>
+                                        <option value="nombre">Medidas</option>
                                         </select>
                                         <input type="text" v-model="buscar" @keyup.enter="listarMedida(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
                                         <button type="submit" @click="listarMedida(1,buscar,criterio)" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
@@ -108,7 +107,7 @@
                                             <span class="help-block">(*) Ingrese el nombre de la medida</span>
                                         </div>
                                     </div>
-                                    <div class="form-group row div-error" v-show="errorUsuario">
+                                    <div class="form-group row div-error" v-show="errorMedida">
                                         <div class="text-center text-error">
                                             <div v-for="error in errorMensaje" :key="error" v-text="error"></div>
                                         </div>
@@ -326,7 +325,7 @@
                 this.errorMedida=0;
                 this.errorMensaje=[];
 
-                if (!this.nombre) this.errorMensaje.push("El nombre de la medida no puede estar vacio");
+                if (!this.nombre) this.errorMensaje.push("-El nombre de la medida no puede estar vacio ");
                 if (this.errorMensaje.length) this.errorMedida=1;
 
                 return this.errorMedida;
@@ -355,6 +354,7 @@
                             this.tituloModal='Editar medida';
                             this.tipoAccion= 2;
                             this.idMedida=data['id'];
+                            this.nombre=data['nombre'];
                             this.Medida=data['medida'];
                             break;
                         }

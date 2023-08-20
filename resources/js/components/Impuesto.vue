@@ -20,9 +20,8 @@
                                 <div class="col-md-9">
                                     <div class="input-group">
                                         <select class="form-control col-md-3" v-model="criterio">
-                                        <option value="nombre">Nombre</option>
+                                        <option value="nombre">Impuesto</option>
                                         <option value="valor">Valor</option>
-                                        <option value="estado">Estado</option>
                                         </select>
                                         <input type="text" v-model="buscar" @keyup.enter="listarImpuesto(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
                                         <button type="submit" @click="listarImpuesto(1,buscar,criterio)" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
@@ -103,6 +102,7 @@
 
                             <div class="modal-body">
                                 <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
                                         <div class="col-md-9">
@@ -113,11 +113,12 @@
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Valor</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="valor" class="form-control" placeholder="Valor del impuesto">
+                                            <input type="number" v-model="valor" class="form-control" placeholder="Valor del impuesto">
                                             <span class="help-block">(*) Ingrese el valor del impuesto</span>
                                         </div>
                                     </div>
-                                    <div class="form-group row div-error" v-show="errorUsuario">
+
+                                    <div class="form-group row div-error" v-show="errorImpuesto">
                                         <div class="text-center text-error">
                                             <div v-for="error in errorMensaje" :key="error" v-text="error"></div>
                                         </div>
@@ -338,8 +339,9 @@
                 this.errorImpuesto=0;
                 this.errorMensaje=[];
 
-                if (!this.nombre) this.errorMensaje.push("El nombre del impuesto no puede estar vacio");
-                if (!this.valor) this.errorMensaje.push("El valor del impuesto no puede estar vacio");
+                if (!this.nombre) this.errorMensaje.push("-El nombre del impuesto no puede estar vacio ");
+                if (!this.valor) this.errorMensaje.push("-El valor del impuesto no puede estar vacio ");
+
                 if (this.errorMensaje.length) this.errorImpuesto=1;
 
                 return this.errorImpuesto;
@@ -357,7 +359,7 @@
                     switch (accion) {
                         case 'crear':{
                             this.modal=1;
-                            this.nombre='';
+                            this.Impuesto='';
                             this.valor=0;
                             this.tituloModal='Crear nuevo impuesto';
                             this.tipoAccion= 1;
@@ -371,6 +373,7 @@
                             this.idImpuesto=data['id'];
                             this.nombre=data['nombre'];
                             this.valor=data['valor'];
+                            this.Impuesto=data['impuesto'];
                             break;
                         }
                     }
