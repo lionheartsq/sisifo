@@ -21,8 +21,8 @@
                                     <div class="input-group">
                                         <select class="form-control col-md-3" v-model="criterio">
                                         <option value="nit">Nit</option>
-                                        <option value="razonSocial">RazonSocial</option>
-                                        <option value="telefono">Telefono</option>
+                                        <option value="razonSocial" >Razón Social</option>
+                                        <option value="telefono">Teléfono</option>
                                         </select>
                                         <input type="text" v-model="buscar" @keyup.enter="listarProveedores(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
                                         <button type="submit" @click="listarProveedores(1,buscar,criterio)" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
@@ -35,10 +35,10 @@
                                     <tr>
                                         <th>Opciones</th>
                                         <th>Nit</th>
-                                        <th>Razon Social</th>
+                                        <th>Razón Social</th>
                                         <th>Contacto</th>
-                                        <th>Telefono</th>
-                                        <th>Direccion</th>
+                                        <th>Teléfono</th>
+                                        <th>Dirección</th>
                                         <th>Correo</th>
                                         <th>Estado</th>
                                     </tr>
@@ -116,20 +116,20 @@
                              <div class="row">
                                  <div class="col-md-6">
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="text-input">nit</label>
+                                        <label class="col-md-3 form-control-label" for="text-input">Nit</label>
                                         <div class="col-md-9">
-                                            <input type="number" v-model="nit" class="form-control" placeholder="nit de los proveedores">
-                                            <span class="help-block">(*) Ingrese el nit de los proveedores</span>
+                                            <input type="number" v-model="nit" class="form-control" placeholder="Nit del proveedor">
+                                            <span class="help-block">(*) Ingrese el Nit del proveedor</span>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="text-input">Razon Social</label>
+                                        <label class="col-md-3 form-control-label" for="text-input">Razón Social</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="razonSocial" class="form-control" placeholder="Razon Social de los proveedores">
-                                            <span class="help-block">(*) Ingrese la razonSocial de los proveedores</span>
+                                            <input type="text" v-model="razonSocial" class="form-control" placeholder="Razón Social del proveedor">
+                                            <span class="help-block">(*) Ingrese la razón Social del proveedor</span>
                                         </div>
                                     </div>
                                 </div>
@@ -140,18 +140,18 @@
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Contacto</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="contacto" class="form-control" placeholder="Contacto de los proveedores">
-                                            <span class="help-block">(*) Ingrese el contacto de los proveedores</span>
+                                            <input type="text" v-model="contacto" class="form-control" placeholder="Contacto del proveedor">
+                                            <span class="help-block">(*) Ingrese el contacto del proveedor</span>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="text-input">Telefono</label>
+                                        <label class="col-md-3 form-control-label" for="text-input">Teléfono</label>
                                         <div class="col-md-9">
-                                            <input type="number" v-model="telefono" class="form-control" placeholder="Telefono de los proveedores">
-                                            <span class="help-block">(*) Ingrese el telefono de los proveedores</span>
+                                            <input type="number" v-model="telefono" class="form-control" placeholder="Teléfono del proveedor">
+                                            <span class="help-block">(*) Ingrese el teléfono del proveedor</span>
                                         </div>
                                     </div>
                                 </div>
@@ -160,10 +160,10 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="text-input">Direccion</label>
+                                        <label class="col-md-3 form-control-label" for="text-input">Dirección</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="direccion" class="form-control" placeholder="Direccion de los proveedores">
-                                            <span class="help-block">(*) Ingrese la direccion de los proveedores</span>
+                                            <input type="text" v-model="direccion" class="form-control" placeholder="Dirección del proveedor">
+                                            <span class="help-block">(*) Ingrese la dirección del proveedor</span>
                                         </div>
                                     </div>
                                 </div>
@@ -172,8 +172,8 @@
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Correo</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="correo" class="form-control" placeholder="Correo de los proveedores">
-                                            <span class="help-block">(*) Ingrese el correo de los proveedores</span>
+                                            <input type="text" v-model="correo" class="form-control" placeholder="Correo del proveedor">
+                                            <span class="help-block">(*) Ingrese el correo del proveedor</span>
                                         </div>
                                     </div>
                                 </div>
@@ -414,11 +414,11 @@
                 this.errorProveedores=0;
                 this.errorMensaje=[];
 
-            if (!this.nit) this.errorMensaje.push("-El nit de los proveedores no puede estar vacio ");
-            if (!this.razonSocial) this.errorMensaje.push("-La razonSocial de los proveedores no puede estar vacio ");
-            if (!this.contacto) this.errorMensaje.push("-El contacto de los proveedores no puede estar vacio ");
-            if (!this.telefono) this.errorMensaje.push("-El telefono de los proveedores no puede estar vacio ");
-            if (!this.direccion) this.errorMensaje.push("-La direccion de los proveedores no puede estar vacio ")
+            if (!this.nit) this.errorMensaje.push("-El Nit del proveedor no puede estar vacio ");
+            if (!this.razonSocial) this.errorMensaje.push("-La razón Social del proveedor no puede estar vacio ");
+            if (!this.contacto) this.errorMensaje.push("-El contacto del proveedor no puede estar vacio ");
+            if (!this.telefono) this.errorMensaje.push("-El teléfono del proveedor no puede estar vacio ");
+            if (!this.direccion) this.errorMensaje.push("-La dirección del proveedor no puede estar vacio ")
             if (!this.correo){
                     this.errorMensaje.push("-El correo del provedores no puede estar vacio ");
                 }else{
