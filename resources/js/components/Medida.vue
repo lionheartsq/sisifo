@@ -103,8 +103,8 @@
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="nombre" class="form-control" placeholder="Nombre de la medida">
-                                            <span class="help-block">(*) Ingrese el nombre de la medida</span>
+                                            <input type="text" v-model="nombre" class="form-control" placeholder="Unidad de medida">
+                                            <span class="help-block">(*) Ingrese el nombre de la unidad de medida</span>
                                         </div>
                                     </div>
                                     <div class="form-group row div-error" v-show="errorMedida">
@@ -344,7 +344,7 @@
                         case 'crear':{
                             this.modal=1;
                             this.Medida='';
-                            this.tituloModal='Crear nuevo medida';
+                            this.tituloModal='Crear nueva medida';
                             this.tipoAccion= 1;
                             break;
                         }

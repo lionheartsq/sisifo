@@ -107,7 +107,7 @@
                                         <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
                                         <div class="col-md-9">
                                             <input type="text" v-model="nombre" class="form-control" placeholder="Nombre del impuesto">
-                                            <span class="help-block">(*) Ingrese el nombre del impuesto</span>
+                                            <span class="help-block">(*) Ingrese la representación porcentual del impuesto</span>
                                         </div>
                                     </div>
                                     <div class="form-group row">

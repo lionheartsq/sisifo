@@ -35,10 +35,10 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            Telefono Empresa
+                                            Teléfono Empresa
                                         </td>
                                         <td>
-                                            <input type="number" v-model="telefonos" step="0.01" class="form-control" placeholder="Telefono Empresa">
+                                            <input type="number" v-model="telefonos" step="0.01" class="form-control" placeholder="Teléfono Empresa">
                                         </td>
                                     </tr>
                                     <tr>
