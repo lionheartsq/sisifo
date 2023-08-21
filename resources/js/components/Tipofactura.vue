@@ -104,8 +104,8 @@
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Detalle</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="detalle" class="form-control" placeholder="Detalle del Tipo Factura">
-                                            <span class="help-block">(*) Ingrese el detalle del Tipo Factura</span>
+                                            <input type="text" v-model="detalle" class="form-control" placeholder="Tipo Factura">
+                                            <span class="help-block">(*) Ingrese el Tipo Factura</span>
                                         </div>
                                     </div>
 
@@ -327,7 +327,7 @@
                 this.errorTipofactura=0;
                 this.errorMensaje=[];
 
-                if (!this.detalle) this.errorMensaje.push("-El detalle del tipo factura no puede estar vacio ");
+                if (!this.detalle) this.errorMensaje.push("-Tipo factura no puede estar vacio ");
                 if (this.errorMensaje.length) this.errorTipofactura=1;
 
                 return this.errorTipofactura;
@@ -346,7 +346,7 @@
                         case 'crear':{
                             this.modal=1;
                             this.Tipofactura='';
-                            this.tituloModal='Crear nuevo tipofactura';
+                            this.tituloModal='Crear nuevo tipo de factura';
                             this.tipoAccion= 1;
                             break;
                         }

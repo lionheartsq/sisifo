@@ -46,25 +46,17 @@
 
                                     <tr v-for="tipologia in arrayTipologia" :key="tipologia.id">
                                         <td>
-                                            <button type="button" @click="abrirModal('tipologia','actualizar',tipologia)" class="btn btn-info btn-sm">
-                                            <i class="icon-eye" title="Ver detalles"></i>
-                                            </button> &nbsp;
-
                                             <button type="button" @click="abrirModal('tipologia','actualizar',tipologia)" class="btn btn-warning btn-sm">
                                             <i class="icon-pencil" title="Editar datos"></i>
                                             </button> &nbsp;
 
-                                        <template v-if="tipologia.estado == 'A'">
+                                        <template v-if="tipologia.estado == '1'">
                                             <button type="button" class="btn btn-danger btn-sm" @click="desactivarTipologia(tipologia.id)">
                                                 <i class="icon-trash" title="Desactivar"></i>
                                             </button>
                                         </template>
-                                        <template v-if="tipologia.estado == 'E'">
-                                            <button type="button" class="btn btn-danger btn-sm" @click="desactivarTipologia(tipologia.id)">
-                                                <i class="icon-trash" title="Desactivar"></i>
-                                            </button>
-                                        </template>
-                                        <template v-if="tipologia.estado == 'I'">
+
+                                        <template v-if="tipologia.estado == '2'">
                                             <button type="button" class="btn btn-success btn-sm" @click="activarTipologia(tipologia.id)">
                                                 <i class="icon-check" title="Reactivar"></i>
                                             </button>
@@ -244,7 +236,7 @@
 
                 let me=this;
                 axios.post('/tipologia/store',{
-                    'usuario': this.tipologia
+                    'Tipologia': this.tipologia
                     //'estado': this.estado,
                     //'dato': this.dato
                 }).then(function (response) {

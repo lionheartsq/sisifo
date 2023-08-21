@@ -181,20 +181,20 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group row">
-                                            <label class="col-md-3 form-control-label" for="text-input">Telefono</label>
+                                            <label class="col-md-3 form-control-label" for="text-input">Teléfono</label>
                                             <div class="col-md-9">
-                                                <input type="number" v-model="telefono" class="form-control" placeholder="telefono del empleado">
-                                                <span class="help-block">(*) Ingrese el telefono del empleado</span>
+                                                <input type="number" v-model="telefono" class="form-control" placeholder="teléfono del empleado">
+                                                <span class="help-block">(*) Ingrese el teléfono del empleado</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label class="col-md-2 form-control-label" for="text-input">Direccion</label>
+                                    <label class="col-md-2 form-control-label" for="text-input">Dirección</label>
                                     <div class="col-md-10">
-                                        <input type="text" v-model="direccion" class="form-control" placeholder="direccion del empleado">
-                                        <span class="help-block">(*) Ingrese la direccion del empleado</span>
+                                        <input type="text" v-model="direccion" class="form-control" placeholder="dirección del empleado">
+                                        <span class="help-block">(*) Ingrese la dirección del empleado</span>
                                     </div>
                                 </div>
 
@@ -380,7 +380,7 @@ export default {
                 }).then(function (response) {
                 me.listarempleados(1,'','nombres');
                 swalWithBootstrapButtons.fire(
-                'empleados desactivado!'
+                'Empleados desactivado!'
                 )
                 }).catch(function (error) {
                     console.log(error);
@@ -434,7 +434,6 @@ export default {
             this.errorempleados=0;
             this.errorMensaje=[];
 
-
             if (!this.documento) this.errorMensaje.push("-El documento no puede estar vacio ");
             if (!this.email) this.errorMensaje.push("-El email no puede estar vacio ");
             if (!this.nombres) this.errorMensaje.push("-El nombre no puede estar vacio ");
@@ -442,11 +441,6 @@ export default {
             if (!this.direccion) this.errorMensaje.push("-La direccion no puede estar vacia ");
             if (!this.cargo) this.errorMensaje.push("-El cargo no puede estar vacio ");
             if (!this.telefono) this.errorMensaje.push("-El telefono no puede estar vacio ");
-            if (!this.email){
-                    this.errorMensaje.push("-El email del usuario no puede estar vacio ");
-                }else{
-                    if (this.functionMail(this.email)==false) this.errorMensaje.push("-El formato de email no es válido ");
-                };
 
             if (this.errorMensaje.length) this.errorempleados=1;
 
