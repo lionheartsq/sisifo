@@ -181,20 +181,20 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group row">
-                                            <label class="col-md-3 form-control-label" for="text-input">Telefono</label>
+                                            <label class="col-md-3 form-control-label" for="text-input">Teléfono</label>
                                             <div class="col-md-9">
-                                                <input type="number" v-model="telefono" class="form-control" placeholder="telefono del empleado">
-                                                <span class="help-block">(*) Ingrese el telefono del empleado</span>
+                                                <input type="number" v-model="telefono" class="form-control" placeholder="teléfono del empleado">
+                                                <span class="help-block">(*) Ingrese el teléfono del empleado</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label class="col-md-2 form-control-label" for="text-input">Direccion</label>
+                                    <label class="col-md-2 form-control-label" for="text-input">Dirección</label>
                                     <div class="col-md-10">
-                                        <input type="text" v-model="direccion" class="form-control" placeholder="direccion del empleado">
-                                        <span class="help-block">(*) Ingrese la direccion del empleado</span>
+                                        <input type="text" v-model="direccion" class="form-control" placeholder="dirección del empleado">
+                                        <span class="help-block">(*) Ingrese la dirección del empleado</span>
                                     </div>
                                 </div>
 

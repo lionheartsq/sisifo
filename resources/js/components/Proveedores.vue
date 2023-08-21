@@ -443,7 +443,7 @@
                         case 'crear':{
                             this.modal=1;
                             this.Proveedores='';
-                            this.tituloModal='Crear nuevo proveedores';
+                            this.tituloModal='Crear nuevo proveedor';
                             this.tipoAccion= 1;
                             break;
                         }

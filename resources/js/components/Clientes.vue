@@ -23,7 +23,7 @@
                                         <option value="cedula">Cedula</option>
                                         <option value="nombres">Nombres</option>
                                         <option value="apellidos">Apellidos</option>
-                                        <option value="telefono">Telefono</option>
+                                        <option value="telefono">Teléfono</option>
                                         <option value="correo">Correo</option>
                                         </select>
                                         <input type="text" v-model="buscar" @keyup.enter="listarClientes(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
@@ -162,20 +162,20 @@
                             <div class="row">
                                  <div class="col-md-6">
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="text-input">Direccion</label>
+                                        <label class="col-md-3 form-control-label" for="text-input">Dirección</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="direccion" class="form-control" placeholder="Direccion del cliente">
-                                            <span class="help-block">(*) Ingrese la direccion del cliente</span>
+                                            <input type="text" v-model="direccion" class="form-control" placeholder="Dirección del cliente">
+                                            <span class="help-block">(*) Ingrese la dirección del cliente</span>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="text-input">Telefono</label>
+                                        <label class="col-md-3 form-control-label" for="text-input">Teléfono</label>
                                         <div class="col-md-9">
-                                            <input type="number" v-model="telefono" class="form-control" placeholder="Telefono del cliente">
-                                            <span class="help-block">(*) Ingrese el telefono del cliente</span>
+                                            <input type="number" v-model="telefono" class="form-control" placeholder="Teléfono del cliente">
+                                            <span class="help-block">(*) Ingrese el teléfono del cliente</span>
                                         </div>
                                     </div>
                                 </div>
@@ -445,7 +445,7 @@
                         case 'crear':{
                             this.modal=1;
                             this.Clientes='';
-                            this.tituloModal='Crear nuevo clientes';
+                            this.tituloModal='Crear nuevo cliente';
                             this.tipoAccion= 1;
                             break;
                         }
