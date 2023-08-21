@@ -22,13 +22,9 @@
                                         <select class="form-control col-md-3" v-model="criterio">
                                         <option value="consecutivo">Consecutivo</option>
                                         <option value="fecha">Fecha</option>
-                                        <option value="valor">Valor</option>
-                                        <option value="impuesto">Impuesto</option>
-                                        <option value="total">Total</option>
-                                        <option value="idEmpleados">Vendedor</option>
-                                        <option value="idTipoFactura">idTipoFactura</option>
-                                        <option value="idProveedores">idProveedores</option>
-                                        <option value="estado">Estado</option>
+                                        <option value="empleados.nombres">Nombres Vendedor</option>
+                                        <option value="empleados.apellidos">Apellidos Vendedor</option>
+                                        <option value="razonSocial">Proveedor</option>
                                         </select>
                                         <input type="text" v-model="buscar" @keyup.enter="listarPedidos(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
                                         <button type="submit" @click="listarPedidos(1,buscar,criterio)" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
@@ -75,13 +71,12 @@
                                         </td>
                                         <td v-text="pedidos.consecutivo"></td>
                                         <td v-text="pedidos.fecha"></td>
-                                        <td v-text="pedidos.valor"></td>
-                                        <td v-text="pedidos.impuesto"></td>
-                                        <td v-text="pedidos.total"></td>
-                                        <td v-text="pedidos.idEmpleados"></td>
-                                        <td v-text="pedidos.idTipoFactura"></td>
-                                        <td v-text="pedidos.idProveedores"></td>
-                                        <td v-text="pedidos.estado"></td>
+                                        <td>{{pedidos.valor | currency}}</td>
+                                        <td>{{pedidos.impuesto | currency}}</td>
+                                        <td>{{pedidos.total | currency}}</td>
+                                        <td>{{pedidos.nombresVendedor}} {{pedidos.apellidosVendedor}}</td>
+                                        <td v-text="pedidos.tipoFactura"></td>
+                                        <td v-text="pedidos.razonSocial"></td>
                                         <td>
                                             <div v-if="pedidos.estado == '1'">
                                             <span class="badge badge-success">Activo</span>
@@ -163,10 +158,8 @@
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Impuesto</label>
                                         <div class="col-md-9">
-                                            <select class="form-control" v-model="idImpuesto" >
-                                                <option value="0" disabled>Seleccione un impuesto</option>
-                                                <option v-for="relacion in arrayImpuestos" :key="relacion.id" :value="relacion.id" v-text="relacion.nombre"></option>
-                                            </select>
+                                            <input type="number" v-model="impuesto" class="form-control" placeholder="Valor del impuesto">
+                                            <span class="help-block">(*) Ingrese el valor del impuesto</span>
                                         </div>
                                     </div>
                                 </div>
@@ -189,7 +182,7 @@
                                         <div class="col-md-9">
                                             <select class="form-control" v-model="idEmpleados">
                                                 <option value="0" disabled>Seleccione un empleados</option>
-                                                <option v-for="relacion in arrayEmpleados" :key="relacion.id" :value="relacion.id" v-text="relacion.nombres"></option>
+                                                <option v-for="relacion in arrayEmpleados" :key="relacion.id" :value="relacion.id" v-text="relacion.nombres+' '+relacion.apellidos+' - '+relacion.documento"></option>
                                             </select>
                                         </div>
                                     </div>
@@ -253,15 +246,19 @@
                 id:'',
                 pedidos:'',
                 estado:'',
+                consecutivo:'',
+                fecha:'',
+                valor:0,
+                total:0,
                 arrayPedidos : [],
-                arrayImpuestos : [],
+                arrayImpuesto : [],
                 arrayEmpleados : [],
                 arrayTipofactura : [],
                 arrayProveedores : [],
                 modal : 0,
                 tituloModal : '',
                 tipoAccion : 0,
-                idImpuestos : 0,
+                impuesto : 0,
                 idEmpleados : 0,
                 idTipofactura : 0,
                 idProveedores : 0,
@@ -337,7 +334,7 @@
                 this.consecutivo='';
                 this.fecha='';
                 this.valor='';
-                this.idImpuesto='';
+                this.impuesto='';
                 this.total='';
                 this.idEmpleados='';
                 this.idTipofactura='';
@@ -351,11 +348,10 @@
 
                 let me=this;
                 axios.post('/pedidos/store',{
-                    'pedidos': this.pedidos,
                     'consecutivo': this.consecutivo,
                     'fecha': this.fecha,
                     'valor': this.valor,
-                    'idImpuesto': this.idImpuesto,
+                    'impuesto': this.impuesto,
                     'total': this.total,
                     'idEmpleados': this.idEmpleados,
                     'idTipofactura': this.idTipofactura,
@@ -381,7 +377,7 @@
                     'consecutivo': this.consecutivo,
                     'fecha': this.fecha,
                     'valor': this.valor,
-                    'idImpuesto': this.idImpuesto,
+                    'impuesto': this.impuesto,
                     'total': this.total,
                     'idEmpleados': this.idEmpleados,
                     'id': this.idPedidos,
@@ -493,14 +489,14 @@
                 this.tituloModal='';
                 this.Pedidos='';
             },
-            listarImpuestos(){
+            listarImpuesto(){
                 let me=this;
                 var url='/impuesto/listado';
                 // Make a request for a user with a given ID
                 axios.get(url).then(function (response) {
                     // handle success
                 var respuesta=response.data;
-                me.arrayImpuestos=respuesta.impuesto;
+                me.arrayImpuesto=respuesta.impuesto;
                     //console.log(response);
                 })
                 .catch(function (error) {
@@ -530,7 +526,7 @@
                 axios.get(url).then(function (response) {
                     // handle success
                 var respuesta=response.data;
-                me.arrayProveedores=respuesta.razonSocial;
+                me.arrayProveedores=respuesta.proveedores;
                     //console.log(response);
                 })
                 .catch(function (error) {
@@ -545,7 +541,7 @@
                 axios.get(url).then(function (response) {
                     // handle success
                 var respuesta=response.data;
-                me.arrayEmpleadoss=respuesta.nombres;
+                me.arrayEmpleados=respuesta.empleados;
                     //console.log(response);
                 })
                 .catch(function (error) {
@@ -575,7 +571,7 @@
                             this.consecutivo=data['consecutivo'];
                             this.fecha=data['fecha'];
                             this.valor=data['valor'];
-                            this.idImpuesto=data['idImpuesto'];
+                            this.impuesto=data['impuesto'];
                             this.total=data['total'];
                             this.idEmpleados=data['idEmpleados'];
                             this.Pedidos=data['pedidos'];
@@ -590,7 +586,7 @@
         },
         mounted() {
             this.listarPedidos(1,this.buscar,this.criterio);
-            this.listarImpuestos();
+            this.listarImpuesto();
             this.listarTipofactura();
             this.listarempleados();
             this.listarProveedores();
