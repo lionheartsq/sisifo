@@ -380,7 +380,7 @@ export default {
                 }).then(function (response) {
                 me.listarempleados(1,'','nombres');
                 swalWithBootstrapButtons.fire(
-                'empleados desactivado!'
+                'Empleados desactivado!'
                 )
                 }).catch(function (error) {
                     console.log(error);
@@ -434,7 +434,6 @@ export default {
             this.errorempleados=0;
             this.errorMensaje=[];
 
-
             if (!this.documento) this.errorMensaje.push("-El documento no puede estar vacio ");
             if (!this.email) this.errorMensaje.push("-El email no puede estar vacio ");
             if (!this.nombres) this.errorMensaje.push("-El nombre no puede estar vacio ");
@@ -442,11 +441,6 @@ export default {
             if (!this.direccion) this.errorMensaje.push("-La direccion no puede estar vacia ");
             if (!this.cargo) this.errorMensaje.push("-El cargo no puede estar vacio ");
             if (!this.telefono) this.errorMensaje.push("-El telefono no puede estar vacio ");
-            if (!this.email){
-                    this.errorMensaje.push("-El email del usuario no puede estar vacio ");
-                }else{
-                    if (this.functionMail(this.email)==false) this.errorMensaje.push("-El formato de email no es válido ");
-                };
 
             if (this.errorMensaje.length) this.errorempleados=1;
 
