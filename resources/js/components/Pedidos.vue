@@ -373,14 +373,13 @@
 
                 let me=this;
                 axios.put('/pedidos/update',{
-                    'pedidos': this.pedidos,
+                    'id': this.idPedidos,
                     'consecutivo': this.consecutivo,
                     'fecha': this.fecha,
                     'valor': this.valor,
                     'impuesto': this.impuesto,
                     'total': this.total,
                     'idEmpleados': this.idEmpleados,
-                    'id': this.idPedidos,
                     'idTipofactura': this.idTipofactura,
                     'idProveedores': this.idProveedores
                     //'estado': this.estado,
@@ -574,7 +573,6 @@
                             this.impuesto=data['impuesto'];
                             this.total=data['total'];
                             this.idEmpleados=data['idEmpleados'];
-                            this.Pedidos=data['pedidos'];
                             this.idTipofactura=data['idTipofactura'];
                             this.idProveedores=data['idProveedores'];
                             break;
