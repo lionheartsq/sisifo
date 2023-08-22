@@ -32,7 +32,7 @@
                                 <thead>
                                     <tr>
                                         <th>Opciones</th>
-                                        <th>Detalle Grupos</th>
+                                        <th>Detalle Grupo</th>
                                         <th>Estado</th>
                                     </tr>
                                 </thead>
@@ -101,10 +101,10 @@
                             <div class="modal-body">
                                 <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="text-input">Detalle Grupos</label>
+                                        <label class="col-md-3 form-control-label" for="text-input">Detalle Grupo</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="detalleGrupos" class="form-control" placeholder="Detalle Grupos de los grupos">
-                                            <span class="help-block">(*) Ingrese al detalle grupos de los grupos</span>
+                                            <input type="text" v-model="detalleGrupos" class="form-control" placeholder="Nombre del grupo">
+                                            <span class="help-block">(*) Ingrese nombre del grupo</span>
                                         </div>
                                     </div>
                                     <div class="form-group row div-error" v-show="errorGrupos">
@@ -344,7 +344,7 @@
                         case 'crear':{
                             this.modal=1;
                             this.Grupos='';
-                            this.tituloModal='Crear nuevo grupos';
+                            this.tituloModal='Crear nuevo grupo';
                             this.tipoAccion= 1;
                             break;
                         }
