@@ -36,7 +36,7 @@
                                 <thead>
                                     <tr>
                                         <th>Opciones</th>
-                                        <th>Fecha Abono</th>
+                                        <th>Fecha abono</th>
                                         <th>Valor Pago</th>
                                         <th>Abono</th>
                                         <th>Pedidos</th>
