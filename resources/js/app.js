@@ -121,6 +121,9 @@ Vue.component('reservas', require('./components/Reservas.vue').default);
 Vue.component('empleados', require('./components/Empleados.vue').default);
 Vue.component('control', require('./components/Control.vue').default);
 Vue.component('historico', require('./components/Historico.vue').default);
+Vue.component('habitacion', require('./components/Habitacion.vue').default);
+Vue.component('ocupacion', require('./components/Ocupacion.vue').default);
+Vue.component('tipo', require('./components/Tipo.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

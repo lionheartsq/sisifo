@@ -58,4 +58,16 @@
 <template v-if="menu==18">
     <empleados></empleados>
 </template>
+<template v-if="menu==19">
+    <reservas></reservas>
+</template>
+<template v-if="menu==20">
+    <habitacion></habitacion>
+</template>
+<template v-if="menu==21">
+    <ocupacion></ocupacion>
+</template>
+<template v-if="menu==22">
+    <tipo></tipo>
+</template>
 @endsection
