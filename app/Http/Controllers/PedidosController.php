@@ -76,6 +76,7 @@ class PedidosController extends Controller
         $Pedidos->impuesto=$request->impuesto;
         $Pedidos->total=$request->total;
         $Pedidos->idVendedor=$request->idEmpleados;
+        $Pedidos->idEmpresa=$idEmpresa;
         $Pedidos->idTipoFactura=$request->idTipofactura;
         $Pedidos->idProveedores=$request->idProveedores;
         $Pedidos->estado=1;
@@ -92,6 +93,7 @@ class PedidosController extends Controller
         $Pedidos->impuesto=$request->impuesto;
         $Pedidos->total=$request->total;
         $Pedidos->idVendedor=$request->idEmpleados;
+        $Pedidos->idEmpresa=$idEmpresa;
         $Pedidos->idTipoFactura=$request->idTipofactura;
         $Pedidos->idProveedores=$request->idProveedores;
         $Pedidos->estado=1;
