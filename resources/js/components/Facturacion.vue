@@ -45,15 +45,15 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label class="col-md-3 form-control-label" for="text-input">Direccion</label>
+                                                    <label class="col-md-3 form-control-label" for="text-input">Dirección</label>
                                                     <div class="col-md-9">
-                                                        <input type="text" v-model="direccion" class="form-control" placeholder="Direccion del cliente">
+                                                        <input type="text" v-model="direccion" class="form-control" placeholder="Dirección del cliente">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label class="col-md-3 form-control-label" for="text-input">Telefono</label>
+                                                    <label class="col-md-3 form-control-label" for="text-input">Teléfono</label>
                                                     <div class="col-md-9">
-                                                        <input type="text" v-model="telefono" class="form-control" placeholder="Telefono del cliente">
+                                                        <input type="text" v-model="telefono" class="form-control" placeholder="Teléfono del cliente">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -63,7 +63,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label class="col-md-3 form-control-label" for="text-input">Tipo Factura</label>
+                                                    <label class="col-md-3 form-control-label" for="text-input">Tipo de factura</label>
                                                     <div class="col-md-9">
                                                         <div class="row">
                                                             <div class="col-md-6">
@@ -90,13 +90,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label class="col-md-3 form-control-label" for="text-input">Valor antes de iva</label>
+                                                    <label class="col-md-3 form-control-label" for="text-input">Valor antes de IVA</label>
                                                     <div class="col-md-9">
                                                         <input type="text" v-model="valor" class="form-control" readonly>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label class="col-md-3 form-control-label" for="text-input">Iva</label>
+                                                    <label class="col-md-3 form-control-label" for="text-input">IVA</label>
                                                     <div class="col-md-9">
                                                         <input type="text" v-model="impuesto" class="form-control" readonly>
                                                     </div>

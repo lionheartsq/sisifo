@@ -36,7 +36,7 @@
                                 <thead>
                                     <tr>
                                         <th>Opciones</th>
-                                        <th>Fecha Abono</th>
+                                        <th>Fecha abono</th>
                                         <th>Valor Pago</th>
                                         <th>Abono</th>
                                         <th>Pedidos</th>
@@ -114,20 +114,20 @@
                                 <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
 
                                     <div class="form-group row">
-                                        <label class="col-md-2 form-control-label" for="text-input">Fecha Abono</label>
+                                        <label class="col-md-2 form-control-label" for="text-input">Fecha abono</label>
                                         <div class="col-md-10">
-                                            <input type="date" v-model="fechaAbono" class="form-control" placeholder="Fecha Abono de los pagos">
-                                            <span class="help-block">(*) Ingrese la fecha abono de los pagos</span>
+                                            <input type="date" v-model="fechaAbono" class="form-control" placeholder="Fecha de abono del pago">
+                                            <span class="help-block">(*) Ingrese la fecha de abono del pago</span>
                                         </div>
                                     </div>
 
                              <div class="row">
                                     <div class="col-md-6">
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="text-input">Valor Pago</label>
+                                        <label class="col-md-3 form-control-label" for="text-input">Valor pago</label>
                                         <div class="col-md-9">
-                                            <input type="number" v-model="valorPago" class="form-control" placeholder="Valor Pagos de los pagos">
-                                            <span class="help-block">(*) Ingrese el valor pago de los pagos</span>
+                                            <input type="number" v-model="valorPago" class="form-control" placeholder="Valor del Pago">
+                                            <span class="help-block">(*) Ingrese el valor del pago</span>
                                         </div>
                                     </div>
                                 </div>
@@ -146,7 +146,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="text-input">Pedidos</label>
+                                        <label class="col-md-3 form-control-label" for="text-input">Numero de pedido</label>
                                         <div class="col-md-9">
                                             <input type="text" v-model="idPedidos" class="form-control" placeholder="Pedidos de los pagos">
                                             <span class="help-block">(*) Ingrese los pedidos de los pagos</span>
@@ -407,7 +407,7 @@
                         case 'crear':{
                             this.modal=1;
                             this.Pagos='';
-                            this.tituloModal='Crear nuevo pagos';
+                            this.tituloModal='Crear nuevo pago';
                             this.tipoAccion= 1;
                             break;
                         }

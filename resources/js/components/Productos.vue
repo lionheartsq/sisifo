@@ -66,8 +66,8 @@
                                         <td v-text="productos.plu"></td>
                                         <td v-text="productos.detalle"></td>
                                         <td v-text="productos.nombreMedida"></td>
-                                        <td v-text="productos.valorCompra"></td>
-                                        <td v-text="productos.pvp"></td>
+                                        <td>{{productos.valorCompra | currency}}</td>
+                                        <td>{{productos.pvp | currency}}</td>
                                         <td v-text="productos.nombreImpuesto"></td>
                                         <td v-text="productos.nombreGrupos"></td>
                                         <td>
@@ -117,10 +117,10 @@
                         <div class="row">
                                  <div class="col-md-6">
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="text-input">plu</label>
+                                        <label class="col-md-3 form-control-label" for="text-input">PLU</label>
                                         <div class="col-md-9">
-                                            <input type="number" v-model="plu" class="form-control" placeholder="plu de los productos">
-                                            <span class="help-block">(*) Ingrese el plu de los productos</span>
+                                            <input type="number" v-model="plu" class="form-control" placeholder="PLU del producto">
+                                            <span class="help-block">(*) Ingrese el PLU del producto</span>
                                         </div>
                                     </div>
                                 </div>
@@ -141,8 +141,8 @@
                                     <div class="form-group row">
                                         <label class="col-md-2 form-control-label" for="text-input">Detalle</label>
                                         <div class="col-md-10">
-                                            <input type="text" v-model="detalle" class="form-control" placeholder="Detalles de los productos">
-                                            <span class="help-block">(*) Ingrese el detalle de los productos</span>
+                                            <input type="text" v-model="detalle" class="form-control" placeholder="Detalle del producto">
+                                            <span class="help-block">(*) Ingrese el detalle del producto</span>
                                         </div>
                                     </div>
 
@@ -151,18 +151,18 @@
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Valor Compra</label>
                                         <div class="col-md-9">
-                                            <input type="number" v-model="valorCompra" class="form-control" placeholder="Valor Compra de los productos">
-                                            <span class="help-block">(*) Ingrese el valor compra de los productos</span>
+                                            <input type="number" v-model="valorCompra" class="form-control" placeholder="Valor compra del producto">
+                                            <span class="help-block">(*) Ingrese el valor compra del producto</span>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="text-input">pvp</label>
+                                        <label class="col-md-3 form-control-label" for="text-input">Pvp</label>
                                         <div class="col-md-9">
-                                            <input type="number" v-model="pvp" class="form-control" placeholder="pvp de los productos">
-                                            <span class="help-block">(*) Ingrese el pvp de los productos</span>
+                                            <input type="number" v-model="pvp" class="form-control" placeholder="Pvp del producto">
+                                            <span class="help-block">(*) Ingrese el pvp del producto</span>
                                         </div>
                                     </div>
                                 </div>
@@ -500,7 +500,7 @@
                         case 'crear':{
                             this.modal=1;
                             this.Productos='';
-                            this.tituloModal='Crear nuevo productos';
+                            this.tituloModal='Crear nuevo producto';
                             this.tipoAccion= 1;
                             break;
                         }

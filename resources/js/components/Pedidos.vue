@@ -126,8 +126,8 @@
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Consecutivo</label>
                                         <div class="col-md-9">
-                                            <input type="number" v-model="consecutivo" class="form-control" placeholder="Consecutivo de los pedidos">
-                                            <span class="help-block">(*) Ingrese el consecutivo de los pedidos</span>
+                                            <input type="number" v-model="consecutivo" class="form-control" placeholder="Consecutivo del pedido">
+                                            <span class="help-block">(*) Ingrese el consecutivo del pedido</span>
                                         </div>
                                     </div>
                                 </div>
@@ -136,8 +136,8 @@
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Fecha</label>
                                         <div class="col-md-9">
-                                            <input type="date" v-model="fecha" class="form-control" placeholder="Fechas de los pedidos">
-                                            <span class="help-block">(*) Ingrese la fecha de los pedidos</span>
+                                            <input type="date" v-model="fecha" class="form-control" placeholder="Fechas del pedido">
+                                            <span class="help-block">(*) Ingrese la fecha del pedido</span>
                                         </div>
                                     </div>
                                 </div>
@@ -148,8 +148,8 @@
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Valor</label>
                                         <div class="col-md-9">
-                                            <input type="number" v-model="valor" class="form-control" placeholder="Valor de los pedidos">
-                                            <span class="help-block">(*) Ingrese el valor de los pedidos</span>
+                                            <input type="number" v-model="valor" class="form-control" placeholder="Valor del pedido">
+                                            <span class="help-block">(*) Ingrese el valor del pedido</span>
                                         </div>
                                     </div>
                                 </div>
@@ -170,8 +170,8 @@
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Total</label>
                                         <div class="col-md-9">
-                                            <input type="number" v-model="total" class="form-control" placeholder="Total de los pedidos">
-                                            <span class="help-block">(*) Ingrese el total de los pedidos</span>
+                                            <input type="number" v-model="total" class="form-control" placeholder="Total del pedido">
+                                            <span class="help-block">(*) Ingrese el total del pedido</span>
                                         </div>
                                     </div>
                                 </div>
@@ -181,7 +181,7 @@
                                         <label class="col-md-3 form-control-label" for="text-input">Vendedor</label>
                                         <div class="col-md-9">
                                             <select class="form-control" v-model="idEmpleados">
-                                                <option value="0" disabled>Seleccione un empleados</option>
+                                                <option value="0" disabled>Seleccione un empleado</option>
                                                 <option v-for="relacion in arrayEmpleados" :key="relacion.id" :value="relacion.id" v-text="relacion.nombres+' '+relacion.apellidos+' - '+relacion.documento"></option>
                                             </select>
                                         </div>
@@ -373,14 +373,13 @@
 
                 let me=this;
                 axios.put('/pedidos/update',{
-                    'pedidos': this.pedidos,
+                    'id': this.idPedidos,
                     'consecutivo': this.consecutivo,
                     'fecha': this.fecha,
                     'valor': this.valor,
                     'impuesto': this.impuesto,
                     'total': this.total,
                     'idEmpleados': this.idEmpleados,
-                    'id': this.idPedidos,
                     'idTipofactura': this.idTipofactura,
                     'idProveedores': this.idProveedores
                     //'estado': this.estado,
@@ -558,7 +557,7 @@
                         case 'crear':{
                             this.modal=1;
                             this.Pedidos='';
-                            this.tituloModal='Crear nuevo pedidos';
+                            this.tituloModal='Crear nuevo pedido';
                             this.tipoAccion= 1;
                             break;
                         }
@@ -574,7 +573,6 @@
                             this.impuesto=data['impuesto'];
                             this.total=data['total'];
                             this.idEmpleados=data['idEmpleados'];
-                            this.Pedidos=data['pedidos'];
                             this.idTipofactura=data['idTipofactura'];
                             this.idProveedores=data['idProveedores'];
                             break;
