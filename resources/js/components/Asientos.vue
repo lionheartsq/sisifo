@@ -23,7 +23,7 @@
                                         <option value="fecha">Fecha</option>
                                         <option value="concepto">Concepto</option>
                                         <option value="detalle">Detalle</option>
-                                        <option value="tipologia">Tipologia</option>
+                                        <option value="tipologia">Tipología</option>
                                         <option value="idEmpresa">idEmpresa</option>
                                         </select>
                                         <input type="text" v-model="buscar" @keyup.enter="listarAsientos(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
@@ -39,7 +39,7 @@
                                         <th>Fecha</th>
                                         <th>Concepto</th>
                                         <th>Detalle</th>
-                                        <th>Tipologia</th>
+                                        <th>Tipología</th>
                                         <th>Empresa</th>
                                     </tr>
                                 </thead>
@@ -137,10 +137,10 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="text-input">Tipologia</label>
+                                        <label class="col-md-3 form-control-label" for="text-input">Tipología</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="tipologia" class="form-control" placeholder="Tipologia del asiento">
-                                            <span class="help-block">(*) Ingrese la tipologia del asiento</span>
+                                            <input type="text" v-model="tipologia" class="form-control" placeholder="Tipología del asiento">
+                                            <span class="help-block">(*) Ingrese la Tipología del asiento</span>
                                         </div>
                                     </div>
                                     <div class="form-group row div-error" v-show="errorUsuario">
@@ -383,7 +383,7 @@
                         case 'crear':{
                             this.modal=1;
                             this.Asientos='';
-                            this.tituloModal='Crear nuevo asientos';
+                            this.tituloModal='Crear nuevo asiento';
                             this.tipoAccion= 1;
                             break;
                         }

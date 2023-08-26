@@ -114,20 +114,20 @@
                                 <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
 
                                     <div class="form-group row">
-                                        <label class="col-md-2 form-control-label" for="text-input">Fecha Abono</label>
+                                        <label class="col-md-2 form-control-label" for="text-input">Fecha abono</label>
                                         <div class="col-md-10">
-                                            <input type="date" v-model="fechaAbono" class="form-control" placeholder="Fecha Abono de los cobros">
-                                            <span class="help-block">(*) Ingrese la Fecha Abono de los cobros</span>
+                                            <input type="date" v-model="fechaAbono" class="form-control" placeholder="Fecha del abono del cobro">
+                                            <span class="help-block">(*) Ingrese la fecha del abono del cobro</span>
                                         </div>
                                     </div>
 
                             <div class="row">
                                         <div class="col-md-6">
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="text-input">Valor Cobro</label>
+                                        <label class="col-md-3 form-control-label" for="text-input">Valor del cobro</label>
                                         <div class="col-md-9">
-                                            <input type="number" v-model="valorCobro" class="form-control" placeholder="Valor Cobro de los cobros">
-                                            <span class="help-block">(*) Ingrese el Valor Cobro de los cobros</span>
+                                            <input type="number" v-model="valorCobro" class="form-control" placeholder="Valor cobrado">
+                                            <span class="help-block">(*) Ingrese el valor cobrado</span>
                                         </div>
                                     </div>
                                 </div>
@@ -136,8 +136,8 @@
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Abono</label>
                                         <div class="col-md-9">
-                                            <input type="number" v-model="abono" class="form-control" placeholder="Abono de los cobros">
-                                            <span class="help-block">(*) Ingrese el Abono de los cobros</span>
+                                            <input type="number" v-model="abono" class="form-control" placeholder="Abono del cobro">
+                                            <span class="help-block">(*) Ingrese el abono del cobro</span>
                                         </div>
                                     </div>
                                 </div>
@@ -148,8 +148,8 @@
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Facturas</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="idFacturas" class="form-control" placeholder="Facturas de los cobros">
-                                            <span class="help-block">(*) Ingrese las Facturas de los cobros</span>
+                                            <input type="text" v-model="idFacturas" class="form-control" placeholder="Facturas del cobro">
+                                            <span class="help-block">(*) Ingrese la factura del cobro</span>
                                         </div>
                                     </div>
                                 </div>
@@ -158,8 +158,8 @@
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Empresa</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="idEmpresa" class="form-control" placeholder="Empresa de los cobros">
-                                            <span class="help-block">(*) Ingrese las Empresa de los cobros</span>
+                                            <input type="text" v-model="idEmpresa" class="form-control" placeholder="Empresa que se le realiza el cobro">
+                                            <span class="help-block">(*) Ingrese la empresa que se le realiza el cobro</span>
                                         </div>
                                     </div>
                                 </div>
@@ -412,7 +412,7 @@
                         case 'crear':{
                             this.modal=1;
                             this.Cobros='';
-                            this.tituloModal='Crear nuevo cobros';
+                            this.tituloModal='Registrar nuevo abono';
                             this.tipoAccion= 1;
                             break;
                         }
