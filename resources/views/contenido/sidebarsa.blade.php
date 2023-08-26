@@ -47,6 +47,18 @@
                     <li @click="menu=10" class="nav-item">
                         <a class="nav-link" href="#"><i class="icon-book-open"></i> Departamentos</a>
                     </li>
+                    <li @click="menu=19" class="nav-item">
+                        <a class="nav-link" href="#"><i class="icon-book-open"></i> Reservas</a>
+                    </li>
+                    <li @click="menu=20" class="nav-item">
+                        <a class="nav-link" href="#"><i class="icon-book-open"></i> Habitacion</a>
+                    </li>
+                    <li @click="menu=21" class="nav-item">
+                        <a class="nav-link" href="#"><i class="icon-book-open"></i> Ocupacion</a>
+                    </li>
+                    <li @click="menu=22" class="nav-item">
+                        <a class="nav-link" href="#"><i class="icon-book-open"></i> Tipo</a>
+                    </li>
                 </ul>
             </li>
             <li class="nav-item nav-dropdown">
