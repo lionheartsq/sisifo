@@ -117,7 +117,7 @@ Vue.component('roles', require('./components/Roles.vue').default);
 Vue.component('tipofactura', require('./components/Tipofactura.vue').default);
 Vue.component('tipologia', require('./components/Tipologia.vue').default);
 Vue.component('usuarios', require('./components/Usuarios.vue').default);
-
+Vue.component('reservas', require('./components/Reservas.vue').default);
 Vue.component('empleados', require('./components/Empleados.vue').default);
 Vue.component('control', require('./components/Control.vue').default);
 Vue.component('historico', require('./components/Historico.vue').default);
