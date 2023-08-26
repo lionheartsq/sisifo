@@ -66,8 +66,8 @@
                                         <td v-text="productos.plu"></td>
                                         <td v-text="productos.detalle"></td>
                                         <td v-text="productos.nombreMedida"></td>
-                                        <td v-text="productos.valorCompra"></td>
-                                        <td v-text="productos.pvp"></td>
+                                        <td>{{productos.valorCompra | currency}}</td>
+                                        <td>{{productos.pvp | currency}}</td>
                                         <td v-text="productos.nombreImpuesto"></td>
                                         <td v-text="productos.nombreGrupos"></td>
                                         <td>

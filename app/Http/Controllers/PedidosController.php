@@ -20,7 +20,7 @@ class PedidosController extends Controller
             $pedidos = Pedidos::join("empleados","pedidos.idVendedor","=","empleados.id")
             ->join("proveedores","pedidos.idProveedores","=","proveedores.id")
             ->join("tipofactura","pedidos.idTipoFactura","=","tipofactura.id")
-            ->select("pedidos.id", "pedidos.consecutivo", "pedidos.fecha", "pedidos.valor", "pedidos.impuesto", "pedidos.total", "pedidos.idVendedor", "pedidos.idTipoFactura", 
+            ->select("pedidos.id", "pedidos.consecutivo", "pedidos.fecha", "pedidos.valor", "pedidos.impuesto", "pedidos.total", "pedidos.idVendedor", "pedidos.idTipoFactura",
             "pedidos.idProveedores", "pedidos.idEmpresa", "pedidos.estado","empleados.id as idEmpleado","empleados.nombres as nombresVendedor", "tipofactura.detalle as tipoFactura",
             "empleados.apellidos as apellidosVendedor","proveedores.id as idProveedores","proveedores.razonSocial")
             ->orderBy('pedidos.id','desc')
@@ -30,7 +30,7 @@ class PedidosController extends Controller
             $pedidos = Pedidos::join("empleados","pedidos.idVendedor","=","empleados.id")
             ->join("proveedores","pedidos.idProveedores","=","proveedores.id")
             ->join("tipofactura","pedidos.idTipoFactura","=","tipofactura.id")
-            ->select("pedidos.id", "pedidos.consecutivo", "pedidos.fecha", "pedidos.valor", "pedidos.impuesto", "pedidos.total", "pedidos.idVendedor", "pedidos.idTipoFactura", 
+            ->select("pedidos.id", "pedidos.consecutivo", "pedidos.fecha", "pedidos.valor", "pedidos.impuesto", "pedidos.total", "pedidos.idVendedor", "pedidos.idTipoFactura",
             "pedidos.idProveedores", "pedidos.idEmpresa", "pedidos.estado","empleados.id as idEmpleado","empleados.nombres as nombresVendedor", "tipofactura.detalle as tipoFactura",
             "empleados.apellidos as apellidosVendedor","proveedores.id as idProveedores","proveedores.razonSocial")
             ->where('pedidos.estado','=','1')
@@ -56,7 +56,7 @@ class PedidosController extends Controller
         $pedidos = Pedidos::join("empleados","pedidos.idVendedor","=","empleados.id")
         ->join("proveedores","pedidos.idProveedores","=","proveedores.id")
         ->join("tipofactura","pedidos.idTipoFactura","=","tipofactura.id")
-        ->select("pedidos.id", "pedidos.consecutivo", "pedidos.fecha", "pedidos.valor", "pedidos.impuesto", "pedidos.total", "pedidos.idVendedor", "pedidos.idTipoFactura", 
+        ->select("pedidos.id", "pedidos.consecutivo", "pedidos.fecha", "pedidos.valor", "pedidos.impuesto", "pedidos.total", "pedidos.idVendedor", "pedidos.idTipoFactura",
         "pedidos.idProveedores", "pedidos.idEmpresa", "pedidos.estado","empleados.id as idEmpleado","empleados.nombres as nombresVendedor", "tipofactura.detalle as tipoFactura",
         "empleados.apellidos as apellidosVendedor","proveedores.id as idProveedores","proveedores.razonSocial")
         ->where('pedidos.estado','=','1')
@@ -78,7 +78,6 @@ class PedidosController extends Controller
         $Pedidos->idVendedor=$request->idEmpleados;
         $Pedidos->idTipoFactura=$request->idTipofactura;
         $Pedidos->idProveedores=$request->idProveedores;
-        $Pedidos->idEmpresa=$idEmpresa;
         $Pedidos->estado=1;
         $Pedidos->save();
     }
@@ -87,12 +86,15 @@ class PedidosController extends Controller
         //if(!$request->ajax()) return redirect('/');
         $idEmpresa=Auth::user()->idEmpresa;
         $Pedidos=Pedidos::findOrFail($request->id);
-        $Pedidos->cedula=$request->cedula;
-        $Pedidos->nombres=$request->nombres;
-        $Pedidos->apellidos=$request->apellidos;
-        $Pedidos->direccion=$request->direccion;
-        $Pedidos->idEmpresa=$idEmpresa;
-        $Pedidos->correo=$request->correo;
+        $Pedidos->consecutivo=$request->consecutivo;
+        $Pedidos->fecha=$request->fecha;
+        $Pedidos->valor=$request->valor;
+        $Pedidos->impuesto=$request->impuesto;
+        $Pedidos->total=$request->total;
+        $Pedidos->idVendedor=$request->idEmpleados;
+        $Pedidos->idTipoFactura=$request->idTipofactura;
+        $Pedidos->idProveedores=$request->idProveedores;
+        $Pedidos->estado=1;
         $Pedidos->save();
     }
 
