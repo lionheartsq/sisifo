@@ -12,6 +12,7 @@ class Medida extends Model
 
     protected $fillable = [
         'nombre',
-        'estado'
+        'estado',
+        'idEmpresa'
     ];
 }

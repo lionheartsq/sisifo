@@ -16,6 +16,7 @@ class Registros extends Model
         'detalle',
         'idAsientos',
         'entrada',
-        'salida'
-    ]; 
+        'salida',
+        'idEmpresa'
+    ];
 }

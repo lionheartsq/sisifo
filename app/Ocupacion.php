@@ -19,6 +19,6 @@ class Ocupacion extends Model
         'horaSalida',
         'idCliente',
         'idHabitacion',
-        'idEmpresas'
+        'idEmpresa'
     ];
 }

@@ -9,7 +9,7 @@ class Tb_orden_produccion_detalle extends Model
     //
     protected $table = 'tb_orden_produccion_detalle';
 
-    protected $fillable = ['idGestionMateria','cantidadRequerida','cantidadEntregada','idOrdenProduccion','estado'];
+    protected $fillable = ['idGestionMateria','cantidadRequerida','cantidadEntregada','idOrdenProduccion','estado','idEmpresa'];
 
     public $timestamps = false;
 }

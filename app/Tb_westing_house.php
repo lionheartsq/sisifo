@@ -9,7 +9,7 @@ class Tb_westing_house extends Model
     //
     protected $table = 'tb_westing_house';
 
-    protected $fillable = ['idHabilidad','idEsfuerzo','idCondiciones','idConsistencia','idTiempoEstandar'];
+    protected $fillable = ['idHabilidad','idEsfuerzo','idCondiciones','idConsistencia','idTiempoEstandar','idEmpresa'];
 
     public $timestamps = false;
 }

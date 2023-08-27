@@ -9,7 +9,7 @@ class Tb_rela_simulacion extends Model
     //
     protected $table = 'tb_rela_simulacion';
 
-    protected $fillable = ['idProducto','cantidad','horas','idSimulacion'];
+    protected $fillable = ['idProducto','cantidad','horas','idSimulacion','idEmpresa'];
 
     public $timestamps = false;
 }
