@@ -29,7 +29,7 @@ class CreateTbVistaPersonalizadaTable extends Migration
             $table->boolean('nomina')->default(1);
             $table->boolean('gestionFinanciera')->default(1);
             $table->foreignId('idUser')->constrained('users');
-
+            $table->foreignId('idEmpresa')->constrained('tb_configuracion_basica');
         });
     }
 

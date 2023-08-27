@@ -20,6 +20,7 @@ class CreateTbWestingHouseTable extends Migration
             $table->foreignId('idCondiciones')->constrained('tb_calificacion_condiciones');
             $table->foreignId('idConsistencia')->constrained('tb_calificacion_consistencia');
             $table->foreignId('idTiempoEstandar')->constrained('tb_tiempo_estandar');
+            $table->foreignId('idEmpresa')->constrained('tb_configuracion_basica');
             //$table->timestamps();
         });
     }

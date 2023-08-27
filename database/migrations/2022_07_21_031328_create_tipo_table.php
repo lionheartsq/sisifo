@@ -17,7 +17,7 @@ class CreateTipoTable extends Migration
 			$table->id();
 			$table->string('nombre', 45);
             $table->integer('estado')->default(1);
-            $table->foreignId('idEmpresa')->constrained('empresa');
+            $table->foreignId('idEmpresa')->constrained('tb_configuracion_basica');
         });
     }
 

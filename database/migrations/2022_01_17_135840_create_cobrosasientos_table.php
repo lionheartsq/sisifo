@@ -18,6 +18,7 @@ class CreateCobrosasientosTable extends Migration {
 			$table->id();
 			$table->foreignId('idCobros')->constrained('cobros');
 			$table->foreignId('idAsientos')->constrained('asientos');
+            $table->foreignId('idEmpresa')->constrained('tb_configuracion_basica');
 		});
 	}
 

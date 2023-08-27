@@ -18,6 +18,7 @@ class CreateTbPerfilTable extends Migration
             $table->string('perfil', 150);
             $table->foreignId('idProceso')->constrained('tb_proceso');
             $table->integer('valorMinuto')->unsigned();
+            $table->foreignId('idEmpresa')->constrained('tb_configuracion_basica');
             $table->boolean('estado')->default(1);
             //$table->timestamps();
         });

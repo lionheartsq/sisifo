@@ -22,7 +22,7 @@ class CreateDetallefacturasTable extends Migration {
 			$table->integer('total');
 			$table->foreignId('idFacturas')->constrained('facturas');
 			$table->foreignId('idProductos')->constrained('productos');
-            $table->foreignId('idEmpresa')->constrained('empresa');
+            $table->foreignId('idEmpresa')->constrained('tb_configuracion_basica');
 		});
 	}
 

@@ -20,6 +20,7 @@ class CreateTbDetalleCotizacionTable extends Migration
             $table->integer('precioVenta');
             $table->foreignId('idProducto')->constrained('tb_producto');
             $table->foreignId('idCotizacion')->constrained('tb_cotizacion');
+            $table->foreignId('idEmpresa')->constrained('tb_configuracion_basica');
             //$table->timestamps();
         });
     }

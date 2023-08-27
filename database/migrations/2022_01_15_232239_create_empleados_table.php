@@ -22,7 +22,7 @@ class CreateEmpleadosTable extends Migration
             $table->string('cargo', 250);
 			$table->bigInteger('telefono')->default('1');
             $table->string('email');
-            $table->foreignId('idEmpresa')->constrained('empresa');
+            $table->foreignId('idEmpresa')->constrained('tb_configuracion_basica');
             $table->boolean('estado')->default(1);
         });
 

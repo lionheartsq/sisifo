@@ -17,7 +17,7 @@ class CreateAsociacionTable extends Migration {
 		{
 			$table->id();
 			$table->foreignId('idClientes')->constrained('clientes');
-            $table->foreignId('idEmpresa')->constrained('empresa');
+            $table->foreignId('idEmpresa')->constrained('tb_configuracion_basica');
 		});
 	}
 

@@ -19,6 +19,7 @@ class CreateTbRelaSimulacionTable extends Migration
             $table->integer('unidades')->unsigned();
             $table->float('tiempo');
             $table->foreignId('idSimulacion')->constrained('tb_simulacion');
+            $table->foreignId('idEmpresa')->constrained('tb_configuracion_basica');
             //$table->timestamps();
         });
     }

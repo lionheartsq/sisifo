@@ -16,6 +16,7 @@ class CreateTbDocumentosTable extends Migration
         Schema::create('tb_documentos', function (Blueprint $table) {
             $table->id();
             $table->string('nombredocumento', 255);
+            $table->foreignId('idEmpresa')->constrained('tb_configuracion_basica');
         });
     }
 

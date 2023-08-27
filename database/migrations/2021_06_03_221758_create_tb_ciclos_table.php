@@ -18,6 +18,7 @@ class CreateTbCiclosTable extends Migration
             $table->integer('tiempo');
             $table->integer('piezas');
             $table->foreignId('idTiempoEstandar')->constrained('tb_tiempo_estandar');
+            $table->foreignId('idEmpresa')->constrained('tb_configuracion_basica');
             //$table->timestamps();
         });
     }

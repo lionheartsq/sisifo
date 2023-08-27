@@ -24,7 +24,7 @@ class CreatePedidosTable extends Migration {
 			$table->foreignId('idVendedor')->constrained('empleados');
 			$table->foreignId('idTipoFactura')->constrained('tipofactura');
 			$table->foreignId('idProveedores')->constrained('proveedores');
-			$table->foreignId('idEmpresa')->constrained('empresa');
+			$table->foreignId('idEmpresa')->constrained('tb_configuracion_basica');
             $table->integer('estado')->default(1);
 		});
 	}

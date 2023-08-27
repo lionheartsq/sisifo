@@ -20,7 +20,7 @@ class CreateReservasTable extends Migration
             $table->date('fecha');
 			$table->foreignId('idCliente')->constrained('clientes');
             $table->foreignId('idHabitacion')->constrained('habitacion');
-            $table->foreignId('idEmpresa')->constrained('empresa');
+            $table->foreignId('idEmpresa')->constrained('tb_configuracion_basica');
         });
     }
 
