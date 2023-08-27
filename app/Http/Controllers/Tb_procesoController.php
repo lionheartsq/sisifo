@@ -102,13 +102,13 @@ class Tb_procesoController extends Controller
         $tb_proceso->idArea='1';
         $tb_proceso->estado='1';
         $tb_proceso->save();
-    }
+    }S
 
     public function deactivate(Request $request)
     {
         if(!$request->ajax()) return redirect('/');
         $tb_proceso=Tb_proceso::findOrFail($request->id);
-        $tb_proceso->estado='0';
+        $tb_proceso->estado='2';
         $tb_proceso->save();
     }
 
