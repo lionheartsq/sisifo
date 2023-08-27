@@ -276,7 +276,7 @@
                                     </div>
 
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="text-input">Nivel Arl</label>
+                                        <label class="col-md-3 form-control-label" for="text-input">Nivel ARL</label>
                                         <div class="col-md-9">
                                             <select class="form-control" v-model="idNivelArl">
                                                 <option value="0" disabled>Seleccione un nivel de riesgo</option>
@@ -675,7 +675,7 @@
                         case 'crear':{
                             this.modal=1;
                             this.vinculacion='';
-                            this.tituloModal='Crear nueva vinculacion';
+                            this.tituloModal='Crear nueva vinculación';
                             this.tipoAccion= 1;
                             break;
                         }

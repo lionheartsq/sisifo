@@ -132,7 +132,7 @@
                                             <select class="form-control" v-model="idDocumentos" @change='onChange($event)'>
                                                 <option value="0" disabled>Seleccione tipo de documento</option>
                                                 <option value="8">Entrega de producción</option>
-                                                <option value="9">Devolucion cliente</option>
+                                                <option value="9">Devolución cliente</option>
                                                 <!-- <option value="3">Inventario inicial</option> -->
                                             </select>
                                         </div>

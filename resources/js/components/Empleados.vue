@@ -39,9 +39,9 @@
                                     <th>Email</th>
                                     <th>Nombres</th>
                                     <th>Apellidos</th>
-                                    <th>Direccion</th>
+                                    <th>Dirección</th>
                                     <th>Cargo</th>
-                                    <th>Telefono</th>
+                                    <th>Teléfono</th>
                                     <th>Estado</th>
                                 </tr>
                             </thead>

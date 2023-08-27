@@ -20,7 +20,7 @@
                                 <div class="col-md-9">
                                     <div class="input-group">
                                         <select class="form-control col-md-3" v-model="criterio">
-                                        <option value="plu">Plu</option>
+                                        <option value="plu">PLU</option>
                                         <option value="detalle">Productos</option>
                                         </select>
                                         <input type="text" v-model="buscar" @keyup.enter="listarProductos(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
@@ -33,7 +33,7 @@
                                 <thead>
                                     <tr>
                                         <th>Opciones</th>
-                                        <th>Plu</th>
+                                        <th>PLU</th>
                                         <th>Detalle</th>
                                         <th>Medida</th>
                                         <th>Valor Compra</th>

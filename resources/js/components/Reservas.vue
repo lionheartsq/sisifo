@@ -24,7 +24,7 @@
                                         <option value="estado">Estado</option>
                                         <option value="fecha">Fecha</option>
                                         <option value="idCliente">idCliente</option>
-                                        <option value="idHabitacion">idHabitacion</option>
+                                        <option value="idHabitacion">idHabitación</option>
                                         <option value="idEmpresas">idEmpresas</option>
                                         </select>
                                         <input type="text" v-model="buscar" @keyup.enter="listarReservas(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
@@ -41,7 +41,7 @@
                                         <th>Estado</th>
                                         <th>Fecha</th>
                                         <th>idCliente</th>
-                                        <th>idHabitacion</th>
+                                        <th>idHabitación</th>
                                         <th>idEmpresas</th>
                                     </tr>
                                 </thead>
@@ -126,22 +126,22 @@
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Detalle</label>
                                         <div class="col-md-9">
-                                            <input type="number" v-model="detalle" class="form-control" placeholder="Detalle de las reservas">
-                                            <span class="help-block">(*) Ingrese el detalle de las reservas</span>
+                                            <input type="number" v-model="detalle" class="form-control" placeholder="Detalle de la reserva">
+                                            <span class="help-block">(*) Ingrese el detalle de la reserva</span>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Estado</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="estado" class="form-control" placeholder="Estados de las reservas">
-                                            <span class="help-block">(*) Ingrese el estado de las reservas</span>
+                                            <input type="text" v-model="estado" class="form-control" placeholder="Estado de la reserva">
+                                            <span class="help-block">(*) Ingrese el estado de la reserva</span>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Fecha</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="fecha" class="form-control" placeholder="Fecha de las reservas">
-                                            <span class="help-block">(*) Ingrese la fecha de las reservas</span>
+                                            <input type="text" v-model="fecha" class="form-control" placeholder="Fecha de la reserva">
+                                            <span class="help-block">(*) Ingrese la fecha de la reserva</span>
                                         </div>
                                     </div>
                                     <div class="form-group row div-error" v-show="errorUsuario">
@@ -383,7 +383,7 @@
                         case 'crear':{
                             this.modal=1;
                             this.Reservas='';
-                            this.tituloModal='Crear nuevo reservas';
+                            this.tituloModal='Crear nueva reserva';
                             this.tipoAccion= 1;
                             break;
                         }

@@ -39,8 +39,8 @@
                                         <th>Cedula</th>
                                         <th>Nombres</th>
                                         <th>Apellidos</th>
-                                        <th>Direccion</th>
-                                        <th>Telefono</th>
+                                        <th>Dirección</th>
+                                        <th>Teléfono</th>
                                         <th>Correo</th>
                                         <th>Estado</th>
                                     </tr>
@@ -287,9 +287,9 @@
                 this.cedula='';
                 this.nombres='';
                 this.apellidos='';
-                this.direccion='';
+                this.dirección='';
                 this.correo='';
-                this.telefono='';
+                this.teléfono='';
             },
             crearClientes(){
                 //valido con el metodo de validacion creado
@@ -301,9 +301,9 @@
                     'cedula': this.cedula,
                     'nombres': this.nombres,
                     'apellidos': this.apellidos,
-                    'direccion': this.direccion,
+                    'direccion': this.dirección,
                     'correo': this.correo,
-                    'telefono': this.telefono
+                    'telefono': this.teléfono
                 }).then(function (response) {
                 me.limpiarmodal();
                 me.cerrarModal();
@@ -323,9 +323,9 @@
                     'cedula': this.cedula,
                     'nombres': this.nombres,
                     'apellidos': this.apellidos,
-                    'direccion': this.direccion,
+                    'direccion': this.dirección,
                     'correo': this.correo,
-                    'telefono': this.telefono
+                    'telefono': this.teléfono
                 }).then(function (response) {
                 me.cerrarModal();
                 me.listarClientes(1,'','clientes');

@@ -11,7 +11,7 @@
                     <div class="container-fluid">
                         <div class="card">
                             <div class="card-header">
-                            <i class="fa fa-align-justify"></i> Tiempo Estandar
+                            <i class="fa fa-align-justify"></i> Tiempo Estándar
                             <button type="button" @click="abrirModal('tiempoestandar','crear')" class="btn btn-secondary">
                                 <i class="icon-plus"></i>&nbsp;Nuevo
                             </button>
@@ -90,7 +90,7 @@
                     </div>
                     </template>
                     <!-- Fin Listado -->
- 
+
                     <!-- Detalle -->
                     <template v-if="listado==2">
                         <div class="container-fluid">
@@ -207,13 +207,13 @@
                                         <div class="text-center text-error">
                                             <div v-for="error in errorMensaje" :key="error" v-text="error"></div>
                                         </div>
-                                    </div> 
+                                    </div>
                                     <div v-if="tipoModal==1" class="modal-footer">
                                     <button type="button" class="btn btn-secondary" @click="cerrarModal()">Cerrar</button>
                                    <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="crearTiempoTiempoEstandar()">Guardar</button>
                                    </div>
                                     <!--Termina el modal para crear tiempo estandar-->
-                                    
+
                                     <!--Inicia el modal para crear ciclos-->
                                     <div v-if="tipoModal==2" class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Tiempo en Ciclos<br></label>
@@ -426,7 +426,7 @@
              validarTiempoEstandar(){
                 this.errorTiempoEstandar=0;
                 this.errorMensaje=[];
-                
+
                 if (!this.piezasPar) this.errorMensaje.push("Las piezas por par no pueden estar vacias");
                 if (this.errorMensaje.length) this.errorTiempoEstandar=1;
 
@@ -486,7 +486,7 @@
                         case 'crear':{
                             this.modal=1;
                                 this.tipoModal=1; //carga tipos de campos y footers
-                                this.tituloModal='Crear tiempo estandar';
+                                this.tituloModal='Crear tiempo estándar';
                                 this.tipoAccion= 1; //carga tipos de botón en el footer
                                 this.fecha= moment().format('YYYY-MM-DD');
                                 break;
