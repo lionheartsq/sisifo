@@ -18,6 +18,7 @@ class CreateTbOrdenPedidoProveedorDetalle extends Migration
             $table->foreignId('idProducto')->constrained('tb_producto');
             $table->float('cantidad');
             $table->integer('valor');
+            $table->foreignId('idEmpresa')->constrained('tb_configuracion_basica');
             $table->boolean('estado')->default(1);
             //$table->timestamps();
         });

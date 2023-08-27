@@ -20,7 +20,7 @@ class CreateCobrosTable extends Migration {
 			$table->integer('valorCobro');
 			$table->integer('abono');
 			$table->foreignId('idFacturas')->constrained('facturas');
-			$table->foreignId('idEmpresa')->constrained('empresa');
+			$table->foreignId('idEmpresa')->constrained('tb_configuracion_basica');
 		});
 	}
 

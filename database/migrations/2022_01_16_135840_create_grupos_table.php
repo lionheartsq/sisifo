@@ -18,7 +18,7 @@ class CreateGruposTable extends Migration {
 			$table->id();
 			$table->string('detalleGrupos', 250);
 			$table->integer('estado')->default(1);
-            $table->foreignId('idEmpresa')->constrained('empresa');
+            $table->foreignId('idEmpresa')->constrained('tb_configuracion_basica');
 		});
 	}
 

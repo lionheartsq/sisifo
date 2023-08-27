@@ -18,7 +18,7 @@ class CreateControlTable extends Migration
 			$table->foreignId('idEmpleado')->constrained('empleados');
             $table->timestamp('ingreso')->useCurrent();
             $table->timestamp('salida')->nullable();
-            $table->foreignId('idEmpresa')->constrained('empresa');
+            $table->foreignId('idEmpresa')->constrained('tb_configuracion_basica');
             $table->boolean('estado')->default(1);
         });
     }

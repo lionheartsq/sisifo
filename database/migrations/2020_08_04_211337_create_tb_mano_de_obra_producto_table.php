@@ -20,6 +20,7 @@ class CreateTbManoDeObraProductoTable extends Migration
             $table->integer('precio')->unsigned();
             $table->integer('tipoPago')->unsigned();
             $table->foreignId('idHoja')->constrained('tb_hoja_de_costo');
+            $table->foreignId('idEmpresa')->constrained('tb_configuracion_basica');
             //$table->timestamps();
         });
     }

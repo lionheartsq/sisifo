@@ -19,6 +19,7 @@ class CreateTbRelaSimuladorTable extends Migration
             $table->integer('unidades')->unsigned();
             $table->foreignId('idPrecio')->constrained('tb_precios_venta');
             $table->foreignId('idSimulador')->constrained('tb_simulador');
+            $table->foreignId('idEmpresa')->constrained('tb_configuracion_basica');
             //$table->timestamps();
         });
     }

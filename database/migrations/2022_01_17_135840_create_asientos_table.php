@@ -20,7 +20,7 @@ class CreateAsientosTable extends Migration {
 			$table->string('concepto', 250);
 			$table->string('detalle', 250);
 			$table->integer('tipologia');
-			$table->foreignId('idEmpresa')->constrained('empresa');
+			$table->foreignId('idEmpresa')->constrained('tb_configuracion_basica');
 		});
 	}
 

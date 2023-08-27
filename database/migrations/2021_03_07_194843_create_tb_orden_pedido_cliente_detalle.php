@@ -20,6 +20,7 @@ class CreateTbOrdenPedidoClienteDetalle extends Migration
             $table->integer('precioCosto');
             $table->integer('precioVenta');
             $table->foreignId('idOrdenPedido')->constrained('tb_orden_pedido_cliente');
+            $table->foreignId('idEmpresa')->constrained('tb_configuracion_basica');
             $table->boolean('estado')->default(1);
            //$table->timestamps();
         });

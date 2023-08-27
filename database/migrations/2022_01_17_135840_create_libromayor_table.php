@@ -20,7 +20,7 @@ class CreateLibromayorTable extends Migration {
 			$table->integer('valorSalida');
 			$table->integer('acumulado');
 			$table->foreignId('idAsientos')->constrained('asientos');
-            $table->foreignId('idEmpresa')->constrained('empresa');
+            $table->foreignId('idEmpresa')->constrained('tb_configuracion_basica');
 		});
 	}
 

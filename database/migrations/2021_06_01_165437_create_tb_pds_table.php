@@ -23,6 +23,7 @@ class CreateTbPdsTable extends Migration
             $table->foreignId('idEspera')->constrained('tb_espera')->nullable();
             $table->integer('valorEspera');
             $table->foreignId('idTiempoEstandar')->constrained('tb_tiempo_estandar');
+            $table->foreignId('idEmpresa')->constrained('tb_configuracion_basica');
             //$table->timestamps();
         });
     }

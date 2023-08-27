@@ -32,6 +32,7 @@ class CreateTbDetalladoSimuladorTable extends Migration
             $table->float('puntodeequilibrioproducto');
             $table->foreignId('idProducto')->constrained('tb_producto');
             $table->foreignId('idSimulador')->constrained('tb_simulador');
+            $table->foreignId('idEmpresa')->constrained('tb_configuracion_basica');
             //$table->timestamps();
         });
     }

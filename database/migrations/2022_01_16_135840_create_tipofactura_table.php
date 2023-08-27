@@ -18,6 +18,7 @@ class CreateTipofacturaTable extends Migration {
 			$table->id();
 			$table->string('detalle', 250);
             $table->integer('estado')->default(1);
+            $table->foreignId('idEmpresa')->constrained('tb_configuracion_basica');
 		});
 	}
 

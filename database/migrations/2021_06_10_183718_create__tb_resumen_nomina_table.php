@@ -67,6 +67,7 @@ class CreateTbResumenNominaTable extends Migration
             $table->integer('sueldoBasicoMensual')->nullable();
             $table->foreignId('idEmpleado')->constrained('tb_empleado');
             $table->foreignId('idNomina')->constrained('tb_nomina');
+            $table->foreignId('idEmpresa')->constrained('tb_configuracion_basica');
         });
     }
 

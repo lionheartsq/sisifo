@@ -17,6 +17,7 @@ class CreateTbHojaDeCostoTable extends Migration
             $table->id();
             $table->foreignId('idProducto')->constrained('tb_producto');
             $table->integer('capacidadMensual')->default(1);
+            $table->foreignId('idEmpresa')->constrained('tb_configuracion_basica');
             $table->boolean('estado')->default(1);
             //$table->timestamps();
         });

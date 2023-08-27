@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration {
 			$table->string('nombres', 250);
 			$table->string('apellidos', 250);
             $table->string('password', 255);
-            $table->foreignId('idEmpresa')->constrained('empresa');
+            $table->foreignId('idEmpresa')->constrained('tb_configuracion_basica');
             $table->foreignId('idRol')->constrained('roles');
 			$table->integer('estado')->default('1');
 		});

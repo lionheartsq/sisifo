@@ -20,7 +20,7 @@ class CreatePagosTable extends Migration {
 			$table->integer('valorPago');
 			$table->integer('abono');
 			$table->foreignId('idPedidos')->constrained('pedidos');
-			$table->foreignId('idEmpresa')->constrained('empresa');
+			$table->foreignId('idEmpresa')->constrained('tb_configuracion_basica');
 		});
 	}
 

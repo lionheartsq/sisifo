@@ -22,7 +22,7 @@ class CreateDetallepedidosTable extends Migration {
 			$table->integer('total');
 			$table->foreignId('idPedidos')->constrained('pedidos');
 			$table->foreignId('idProductos')->constrained('productos');
-            $table->foreignId('idEmpresa')->constrained('empresa');
+            $table->foreignId('idEmpresa')->constrained('tb_configuracion_basica');
 		});
 	}
 
