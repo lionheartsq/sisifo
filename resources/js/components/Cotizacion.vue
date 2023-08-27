@@ -26,7 +26,7 @@
                                         <option value="id">Id</option>
                                         <option value="consecutivo">Consecutivo</option>
                                         <option value="fecha">Fecha</option>
-                                        <option value="condicionEntrega">Condición Entrega</option>
+                                        <option value="condicionEntrega">Condición de entrega</option>
                                         <option value="vigencia">Vigencia</option>
                                         <option value="idCliente">Cliente</option>
                                         </select>
@@ -42,8 +42,8 @@
                                         <th>Acciones</th>
                                         <th>Consecutivo</th>
                                         <th>Fecha</th>
-                                        <th>Condición Entrega</th>
-                                        <th>Vigencia (número de dias)</th>
+                                        <th>Condición de entrega</th>
+                                        <th>Vigencia (número de días)</th>
                                         <th>Cliente</th>
                                     </tr>
                                 </thead>
@@ -140,17 +140,17 @@
                                 <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
 
                                     <div v-if="tipoModal==1" class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="text-input">Condición Entrega</label>
+                                        <label class="col-md-3 form-control-label" for="text-input">Condición entrega</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="condicionEntrega" class="form-control" placeholder="Condición Entrega">
-                                            <span class="help-block">(*) Ingrese la Condición Entrega</span>
+                                            <input type="text" v-model="condicionEntrega" class="form-control" placeholder="Condición de entrega">
+                                            <span class="help-block">(*) Ingrese la Condición de entrega</span>
                                         </div>
                                     </div>
                                     <div v-if="tipoModal==1" class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Vigencia</label>
                                         <div class="col-md-9">
                                             <input type="number" v-model="vigencia" class="form-control" placeholder="Vigencia">
-                                            <span class="help-block">(*) Ingrese la Vigencia en número de dias</span>
+                                            <span class="help-block">(*) Ingrese la Vigencia en número de días</span>
                                         </div>
                                     </div>
                                     <div v-if="tipoModal==1" class="form-group row">

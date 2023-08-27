@@ -10,7 +10,7 @@
 
                     <div class="card">
                         <div class="card-header">
-                            <i class="fa fa-align-justify"></i> Habitacion &nbsp;
+                            <i class="fa fa-align-justify"></i> Habitación &nbsp;
                             <button type="button" @click="abrirModal('habitacion','crear')" class="btn btn-secondary">
                                 <i class="icon-plus"></i>&nbsp;Nuevo
                             </button>
@@ -123,36 +123,36 @@
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Detalle</label>
                                         <div class="col-md-9">
-                                            <input type="number" v-model="detalle" class="form-control" placeholder="Detalle de la habitacion">
-                                            <span class="help-block">(*) Ingrese el detalle de la habitacion</span>
+                                            <input type="number" v-model="detalle" class="form-control" placeholder="Detalle de la habitación">
+                                            <span class="help-block">(*) Ingrese el detalle de la habitación</span>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Estado</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="estado" class="form-control" placeholder="Estado de la habitacion">
-                                            <span class="help-block">(*) Ingrese el estado de la habitacion</span>
+                                            <input type="text" v-model="estado" class="form-control" placeholder="Estado de la habitación">
+                                            <span class="help-block">(*) Ingrese el estado de la habitación</span>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Fecha</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="fecha" class="form-control" placeholder="Fecha de la habitacion">
-                                            <span class="help-block">(*) Ingrese la fecha de la habitacion</span>
+                                            <input type="text" v-model="fecha" class="form-control" placeholder="Fecha de la habitación">
+                                            <span class="help-block">(*) Ingrese la fecha de la habitación</span>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Tipo</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="idTipo" class="form-control" placeholder="Tipo de la habitacion">
-                                            <span class="help-block">(*) Ingrese el tipo de la habitacion</span>
+                                            <input type="text" v-model="idTipo" class="form-control" placeholder="Tipo de la habitación">
+                                            <span class="help-block">(*) Ingrese el tipo de la habitación</span>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="text-input">Empresas</label>
+                                        <label class="col-md-3 form-control-label" for="text-input">Empresa</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="idEmpresas" class="form-control" placeholder="Empresas de la habitacion">
-                                            <span class="help-block">(*) Ingrese la empresa de la habitacion</span>
+                                            <input type="text" v-model="idEmpresas" class="form-control" placeholder="Empresa de la habitación">
+                                            <span class="help-block">(*) Ingrese la empresa de la habitación</span>
                                         </div>
                                     </div>
                                     <div class="form-group row div-error" v-show="errorUsuario">
@@ -396,7 +396,7 @@
                         case 'crear':{
                             this.modal=1;
                             this.Habitacion='';
-                            this.tituloModal='Crear nuevo habitacion';
+                            this.tituloModal='Crear nueva habitación';
                             this.tipoAccion= 1;
                             break;
                         }

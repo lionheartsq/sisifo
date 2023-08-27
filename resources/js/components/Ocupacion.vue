@@ -22,12 +22,12 @@
                                         <select class="form-control col-md-3" v-model="criterio">
                                         <option value="detalle">Detalle</option>
                                         <option value="estado">Estado</option>
-                                        <option value="fechaIngreso">fechaIngreso</option>
-                                        <option value="fechaSalida">fechaSalida</option>
-                                        <option value="horaIngreso">horaIngreso</option>
-                                        <option value="horaSalida">horaSalida</option>
+                                        <option value="fechaIngreso">fecha de ingreso</option>
+                                        <option value="fechaSalida">fecha de salida</option>
+                                        <option value="horaIngreso">hora de ingreso</option>
+                                        <option value="horaSalida">hora de salida</option>
                                         <option value="idCliente">idCliente</option>
-                                        <option value="idHabitacion">idHabitacion</option>
+                                        <option value="idHabitacion">idHabitación</option>
                                         <option value="idEmpresas">idEmpresas</option>
                                         </select>
                                         <input type="text" v-model="buscar" @keyup.enter="listarOcupacion(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
@@ -47,7 +47,7 @@
                                         <th>Hora Ingreso</th>
                                         <th>Hora Salida</th>
                                         <th>idCliente</th>
-                                        <th>idHabitacion</th>
+                                        <th>idHabitación</th>
                                         <th>idEmpresas</th>
                                     </tr>
                                 </thead>
@@ -135,43 +135,43 @@
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Detalle</label>
                                         <div class="col-md-9">
-                                            <input type="number" v-model="detalle" class="form-control" placeholder="Detalle de la ocupacion">
-                                            <span class="help-block">(*) Ingrese el detalle de la ocupacion</span>
+                                            <input type="number" v-model="detalle" class="form-control" placeholder="Detalle de la ocupación">
+                                            <span class="help-block">(*) Ingrese el detalle de la ocupación</span>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Estado</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="estado" class="form-control" placeholder="Estados de la ocupacion">
-                                            <span class="help-block">(*) Ingrese el estado de la ocupacion</span>
+                                            <input type="text" v-model="estado" class="form-control" placeholder="Estado de la ocupación">
+                                            <span class="help-block">(*) Ingrese el estado de la ocupación</span>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="text-input">Fecha Ingreso</label>
+                                        <label class="col-md-3 form-control-label" for="text-input">Fecha de Ingreso</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="fechaIngreso" class="form-control" placeholder="Fecha Ingreso de la ocupacion">
-                                            <span class="help-block">(*) Ingrese la fecha ingreso de la ocupacion</span>
+                                            <input type="text" v-model="fechaIngreso" class="form-control" placeholder="Fecha Ingreso de la ocupación">
+                                            <span class="help-block">(*) Ingrese la fecha ingreso de la ocupación</span>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="text-input">Fecha Salida</label>
+                                        <label class="col-md-3 form-control-label" for="text-input">Fecha de Salida</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="fechaSalida" class="form-control" placeholder="Fecha Salida de la ocupacion">
-                                            <span class="help-block">(*) Ingrese la fecha salida de la ocupacion</span>
+                                            <input type="text" v-model="fechaSalida" class="form-control" placeholder="Fecha Salida de la ocupación">
+                                            <span class="help-block">(*) Ingrese la fecha salida de la ocupación</span>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="text-input">Hora Ingreso</label>
+                                        <label class="col-md-3 form-control-label" for="text-input">Hora de Ingreso</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="horaIngreso" class="form-control" placeholder="Hora Ingreso de la ocupacion">
-                                            <span class="help-block">(*) Ingrese la hora ingreso de la ocupacion</span>
+                                            <input type="text" v-model="horaIngreso" class="form-control" placeholder="Hora Ingreso de la ocupación">
+                                            <span class="help-block">(*) Ingrese la hora ingreso de la ocupación</span>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="text-input">Hora Salida</label>
+                                        <label class="col-md-3 form-control-label" for="text-input">Hora de Salida</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="horaSalida" class="form-control" placeholder="Hora Salida de la ocupacion">
-                                            <span class="help-block">(*) Ingrese la hora salida de la ocupacion</span>
+                                            <input type="text" v-model="horaSalida" class="form-control" placeholder="Hora Salida de la ocupación">
+                                            <span class="help-block">(*) Ingrese la hora salida de la ocupación</span>
                                         </div>
                                     </div>
                                     <div class="form-group row div-error" v-show="errorUsuario">

@@ -23,8 +23,8 @@
                                     <div class="input-group">
                                         <select class="form-control col-md-3" v-model="criterio">
                                         <option value="producto">Producto</option>
-                                        <option value="coleccion">Coleccion</option>
-                                        <option value="area">Area</option>
+                                        <option value="coleccion">Colección</option>
+                                        <option value="area">Área</option>
                                         </select>
                                         <input type="text" v-model="buscar" @keyup.enter="listarProducto(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
                                         <button type="submit" @click="listarProducto(1,buscar,criterio)" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
@@ -39,9 +39,9 @@
                                         <th>Producto</th>
                                         <th>Referencia</th>
                                         <th>Foto</th>
-                                        <th>Descripcion</th>
-                                        <th>Coleccion</th>
-                                        <th>Area</th>
+                                        <th>Descripción</th>
+                                        <th>Colección</th>
+                                        <th>Área</th>
                                         <th>Estado</th>
                                     </tr>
                                 </thead>

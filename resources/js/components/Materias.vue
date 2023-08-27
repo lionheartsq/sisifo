@@ -102,7 +102,7 @@
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="tipoMateria" class="form-control" placeholder="Nombre de clasificación">
+                                            <input type="text" v-model="tipoMateria" class="form-control" placeholder="Nombre de la clasificación">
                                             <span class="help-block">(*) Ingrese el nombre de la clasificación</span>
                                         </div>
                                     </div>
@@ -353,7 +353,7 @@
                         case 'crear':{
                             this.modal=1;
                             this.tipoMateria='';
-                            this.tituloModal='Crear nueva Clasificación';
+                            this.tituloModal='Crear nueva clasificación';
                             this.tipoAccion= 1;
                             break;
                         }

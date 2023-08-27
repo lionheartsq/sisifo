@@ -127,7 +127,7 @@
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Vida útil en años</label>
                                         <div class="col-md-9">
-                                            <input type="number" v-model="tiempoDeVidaUtil" class="form-control" placeholder="Tiempo de vida util">
+                                            <input type="number" v-model="tiempoDeVidaUtil" class="form-control" placeholder="Tiempo de vida útil">
                                             <span class="help-block">(*) Ingrese el tiempo de vida útil en años</span>
                                         </div>
                                     </div>

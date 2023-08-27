@@ -21,7 +21,7 @@
                                 <div class="col-md-9">
                                     <div class="input-group">
                                         <select class="form-control col-md-3" v-model="criterio">
-                                        <option value="coleccion">Coleccion</option>
+                                        <option value="coleccion">Colección</option>
                                         <option value="id">Id</option>
                                         </select>
                                         <!--para modificar luego-->
@@ -36,7 +36,7 @@
                                     <tr>
                                         <th>Opciones</th>
                                         <th>Id</th>
-                                        <th>Coleccion</th>
+                                        <th>Colección</th>
                                         <th>Referencia</th>
                                         <th>Estado</th>
                                     </tr>

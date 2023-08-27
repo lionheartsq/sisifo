@@ -114,8 +114,8 @@
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Rol</label>
                                         <div class="col-md-9">
-                                            <input type="number" v-model="rol" class="form-control" placeholder="Rol de roles">
-                                            <span class="help-block">(*) Ingrese el rol de roles</span>
+                                            <input type="number" v-model="rol" class="form-control" placeholder="Rol del usuario">
+                                            <span class="help-block">(*) Ingrese el rol del usuario</span>
                                         </div>
                                     </div>
                                     <div class="form-group row div-error" v-show="errorUsuario">
@@ -355,7 +355,7 @@
                         case 'crear':{
                             this.modal=1;
                             this.Roles='';
-                            this.tituloModal='Crear nuevo roles';
+                            this.tituloModal='Crear nuevo rol';
                             this.tipoAccion= 1;
                             break;
                         }

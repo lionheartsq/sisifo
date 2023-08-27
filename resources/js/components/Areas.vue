@@ -10,7 +10,7 @@
 
                     <div class="card">
                         <div class="card-header">
-                            <i class="fa fa-align-justify"></i> Areas &nbsp;
+                            <i class="fa fa-align-justify"></i> Áreas &nbsp;
                             <button type="button" @click="abrirModal('area','crear')" class="btn btn-secondary">
                                 <i class="icon-plus"></i>&nbsp;Nuevo
                             </button>
@@ -21,7 +21,7 @@
                                     <div class="input-group">
                                         <select class="form-control col-md-3" v-model="criterio">
                                         <option value="id">Id</option>
-                                        <option value="area">Area</option>
+                                        <option value="area">Área</option>
                                         </select>
                                         <input type="text" v-model="buscar" @keyup.enter="listarArea(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
                                         <button type="submit" @click="listarArea(1,buscar,criterio)" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
@@ -34,7 +34,7 @@
                                     <tr>
                                         <th>Opciones</th>
                                         <th>Id</th>
-                                        <th>Area</th>
+                                        <th>Área</th>
                                         <th>Estado</th>
                                     </tr>
                                 </thead>

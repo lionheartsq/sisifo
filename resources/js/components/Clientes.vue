@@ -301,9 +301,9 @@
                     'cedula': this.cedula,
                     'nombres': this.nombres,
                     'apellidos': this.apellidos,
-                    'direccion': this.direccion,
+                    'direccion': this.dirección,
                     'correo': this.correo,
-                    'telefono': this.telefono
+                    'telefono': this.teléfono
                 }).then(function (response) {
                 me.limpiarmodal();
                 me.cerrarModal();
@@ -323,9 +323,9 @@
                     'cedula': this.cedula,
                     'nombres': this.nombres,
                     'apellidos': this.apellidos,
-                    'direccion': this.direccion,
+                    'direccion': this.dirección,
                     'correo': this.correo,
-                    'telefono': this.telefono
+                    'telefono': this.teléfono
                 }).then(function (response) {
                 me.cerrarModal();
                 me.listarClientes(1,'','clientes');
