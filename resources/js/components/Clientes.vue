@@ -20,7 +20,7 @@
                                 <div class="col-md-9">
                                     <div class="input-group">
                                         <select class="form-control col-md-3" v-model="criterio">
-                                        <option value="cedula">Cedula</option>
+                                        <option value="cedula">Cédula</option>
                                         <option value="nombres">Nombres</option>
                                         <option value="apellidos">Apellidos</option>
                                         <option value="telefono">Teléfono</option>
@@ -36,7 +36,7 @@
                                 <thead>
                                     <tr>
                                         <th>Opciones</th>
-                                        <th>Cedula</th>
+                                        <th>Cédula</th>
                                         <th>Nombres</th>
                                         <th>Apellidos</th>
                                         <th>Dirección</th>
@@ -118,10 +118,10 @@
                             <div class="row">
                                  <div class="col-md-6">
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="text-input">Cedula</label>
+                                        <label class="col-md-3 form-control-label" for="text-input">Cédula</label>
                                         <div class="col-md-9">
-                                            <input type="number" v-model="cedula" class="form-control" placeholder="Cedula del cliente">
-                                            <span class="help-block">(*) Ingrese la cedula del cliente</span>
+                                            <input type="number" v-model="cedula" class="form-control" placeholder="Cédula del cliente">
+                                            <span class="help-block">(*) Ingrese la cédula del cliente</span>
                                         </div>
                                     </div>
                                 </div>
@@ -284,7 +284,7 @@
                 me.listarClientes(page,buscar,criterio);
             },
             limpiarmodal(){
-                this.cedula='';
+                this.cédula='';
                 this.nombres='';
                 this.apellidos='';
                 this.dirección='';

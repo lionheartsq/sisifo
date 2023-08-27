@@ -322,7 +322,7 @@ export default {
                 'email': this.email,
                 'direccion': this.direccion,
                 'cargo': this.cargo,
-                'telefono': this.telefono
+                'telefono': this.teléfono
             }).then(function (response) {
             me.cerrarModal();
             me.listarempleados(1,'','nombres');
@@ -344,9 +344,9 @@ export default {
                 'apellidos': this.apellidos,
                 'documento': this.documento,
                 'email': this.email,
-                'direccion': this.direccion,
+                'direccion': this.dirección,
                 'cargo': this.cargo,
-                'telefono': this.telefono
+                'telefono': this.teléfono
 
             }).then(function (response) {
             me.cerrarModal();
