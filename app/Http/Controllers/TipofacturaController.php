@@ -82,6 +82,7 @@ class TipofacturaController extends Controller
         $idEmpresa=Auth::user()->idEmpresa;
         $Tipofactura=new Tipofactura();
         $Tipofactura->detalle=$request->detalle;
+        $Tipofactura->idEmpresa=$idEmpresa;
         $Tipofactura->save();
     }
 
@@ -90,6 +91,7 @@ class TipofacturaController extends Controller
         $idEmpresa=Auth::user()->idEmpresa;
         $Tipofactura=Tipofactura::findOrFail($request->id);
         $Tipofactura->detalle=$request->detalle;
+        $Tipofactura->idEmpresa=$idEmpresa;
         $Tipofactura->save();
     }
 
