@@ -55,6 +55,16 @@ class Tb_rolController extends Controller
 
     public function store(Request $request)
     {
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
+        //cambios multiempresa
+
         if(!$request->ajax()) return redirect('/');
         $tb_rol=new Tb_rol();
         $tb_rol->rol=$request->rol;
@@ -74,7 +84,7 @@ class Tb_rolController extends Controller
     {
         if(!$request->ajax()) return redirect('/');
         $tb_rol=Tb_rol::findOrFail($request->id);
-        $tb_rol->estado='0';
+        $tb_rol->estado='2';
         $tb_rol->save();
     }
 

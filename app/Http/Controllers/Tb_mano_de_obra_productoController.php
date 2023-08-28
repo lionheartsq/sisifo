@@ -92,6 +92,16 @@ class Tb_mano_de_obra_productoController extends Controller
 
     public function store(Request $request)
     {
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
+        //cambios multiempresa
+
         if(!$request->ajax()) return redirect('/');
         $tb_mano_de_obra_producto=new Tb_mano_de_obra_producto();
         $tb_mano_de_obra_producto->idPerfil=$request->idPerfil;

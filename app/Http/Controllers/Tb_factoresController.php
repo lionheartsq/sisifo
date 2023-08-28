@@ -49,6 +49,16 @@ class Tb_factoresController extends Controller
     }
     public function store(Request $request)
     {
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
+        //cambios multiempresa
+
         $tb_factores_nomina=new Tb_factores_nomina();
         $tb_factores_nomina->extraDiurna=$request->extraDiurna;
         $tb_factores_nomina->extraNocturna=$request->extraNocturna;

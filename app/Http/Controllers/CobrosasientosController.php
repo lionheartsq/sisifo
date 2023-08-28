@@ -52,6 +52,16 @@ class CobrosasientosController extends Controller
     }
 
     public function listado(){
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
+        //cambios multiempresa
+
 
         $cobrosasientos = Cobrosasientos::where('cobrosasientos.estado','=','1')
         ->orderBy('cobrosasientos.id','desc')

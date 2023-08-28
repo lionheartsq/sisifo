@@ -98,7 +98,7 @@ class Tb_unidad_baseController extends Controller
     {
         if(!$request->ajax()) return redirect('/');
         $tb_unidad_base=Tb_unidad_base::findOrFail($request->id);
-        $tb_unidad_base->estado='0';
+        $tb_unidad_base->estado='2';
         $tb_unidad_base->save();
     }
 

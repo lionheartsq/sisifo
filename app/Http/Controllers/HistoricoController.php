@@ -14,6 +14,16 @@ class HistoricoController extends Controller
     //
     public function listarfecha(Request $request)
     {
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
+        //cambios multiempresa
+
         if(!$request->ajax()) return redirect('/');
 
             $fecha1= $request->ingreso;
@@ -81,6 +91,15 @@ class HistoricoController extends Controller
     }
 
     public function listado(){
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
+        //cambios multiempresa
 
         $historico = Historico::where('historico.estado','=','1')
         ->orderBy('historico.id','desc')
@@ -91,6 +110,16 @@ class HistoricoController extends Controller
     }
 
     public function store2(Request $request){
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
+        //cambios multiempresa
+
         // if(!$request->ajax()) return redirect('/');
         $idEmpresa=Auth::user()->idEmpresa;
         $historico=new Historico();
@@ -109,6 +138,16 @@ class HistoricoController extends Controller
     }
 
     public function store(Request $request){
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
+        //cambios multiempresa
+
         // if(!$request->ajax()) return redirect('/');
         $idEmpresa=Auth::user()->idEmpresa;
         $historico=new Historico();
@@ -143,7 +182,7 @@ class HistoricoController extends Controller
     public function deactivate(Request $request){
         if(!$request->ajax()) return redirect('/');
         $historico=Historico::findOrFail($request->id);
-        $historico->estado='0';
+        $historico->estado='2';
         $historico->save();
 
     }
@@ -157,6 +196,16 @@ class HistoricoController extends Controller
     }
 
     public function selectNombresApellidos($documento){
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
+        //cambios multiempresa
+
 
         $resultado=Empleados::select('empleados.nombres','empleados.apellidos')
         ->where('empleados.documento','=',$documento)
@@ -172,6 +221,16 @@ class HistoricoController extends Controller
                 ];
     }
     public function selectHistorico(){
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
+        //cambios multiempresa
+
         $historico = Historico::where('estado','=','1')
         ->select('id as idEmpleado','historico')->orderBy('historico','asc')->get();
 
@@ -179,6 +238,16 @@ class HistoricoController extends Controller
     }
 
     public function mostrarHistorico(){
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
+        //cambios multiempresa
+
 
         $historico = Historico::join('control','historico.idEmpleado','=','control.id')
         ->select('historico.id','control.documento','control.nombres','control.apellidos',
@@ -189,6 +258,16 @@ class HistoricoController extends Controller
         return ['historico' => $historico ];
     }
     public function mostrarIngresos(){
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
+        //cambios multiempresa
+
         $ingresos= Historico::join('control','historico.idEmpleado','=','control.id')
         ->select('historico.id','control.documento','control.nombres','control.apellidos',
         'historico.ingreso','historico.salida','historico.estado')
@@ -201,6 +280,16 @@ class HistoricoController extends Controller
     }
 
     public function mostrarSalidas(){
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
+        //cambios multiempresa
+
         $salidas= Historico::join('control','historico.idEmpleado','=','control.id')
         ->select('historico.id','control.documento','control.nombres','control.apellidos','historico.ingreso',
         'historico.salida','historico.estado')

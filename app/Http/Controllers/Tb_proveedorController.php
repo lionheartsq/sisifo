@@ -114,7 +114,7 @@ class Tb_proveedorController extends Controller
     {
         if(!$request->ajax()) return redirect('/');
         $tb_proveedor=Tb_proveedor::findOrFail($request->id);
-        $tb_proveedor->estado='0';
+        $tb_proveedor->estado='2';
         $tb_proveedor->save();
     }
 

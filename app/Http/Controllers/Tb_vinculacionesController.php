@@ -166,7 +166,7 @@ class Tb_vinculacionesController extends Controller
     {
         if(!$request->ajax()) return redirect('/');
         $tb_vinculaciones=Tb_vinculaciones::findOrFail($request->id);
-        $tb_vinculaciones->estado='0';
+        $tb_vinculaciones->estado='2';
         $tb_vinculaciones->fechaFin=$request->fechaFin;
         $tb_vinculaciones->save();
     }

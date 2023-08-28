@@ -162,7 +162,7 @@ class Tb_perfilController extends Controller
     {
         if(!$request->ajax()) return redirect('/');
         $tb_perfil=Tb_perfil::findOrFail($request->id);
-        $tb_perfil->estado='0';
+        $tb_perfil->estado='2';
         $tb_perfil->save();
     }
 

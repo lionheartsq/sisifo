@@ -187,7 +187,7 @@ class Tb_gestion_materia_primaController extends Controller
         {
             if(!$request->ajax()) return redirect('/');
             $tb_gestion_materia_prima=Tb_gestion_materia_prima::findOrFail($request->id);
-            $tb_gestion_materia_prima->estado='0';
+            $tb_gestion_materia_prima->estado='2';
             $tb_gestion_materia_prima->save();
         }
 

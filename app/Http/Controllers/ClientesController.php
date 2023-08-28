@@ -50,6 +50,16 @@ class ClientesController extends Controller
     }
 
     public function listado(){
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
+        //cambios multiempresa
+
         $clientes = Clientes::where('clientes.estado','=','1')
         ->orderBy('clientes.id','desc')
         ->get();
@@ -58,6 +68,16 @@ class ClientesController extends Controller
     }
 
     public function listadoFiltrado(Request $request){
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
+        //cambios multiempresa
+
         $clientes = Clientes::where('clientes.estado','=','1')
         ->where('clientes.cedula','=',$request->cedula)
         ->orderBy('clientes.id','desc')
@@ -67,6 +87,16 @@ class ClientesController extends Controller
     }
 
     public function store(Request $request){
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
+        //cambios multiempresa
+
         //if(!$request->ajax()) return redirect('/');
         $idEmpresa=Auth::user()->idEmpresa;
         $Clientes=new Clientes();

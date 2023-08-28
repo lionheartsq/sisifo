@@ -116,7 +116,7 @@ class Tb_clienteController extends Controller
     {
         if(!$request->ajax()) return redirect('/');
         $tb_cliente=Tb_cliente::findOrFail($request->id);
-        $tb_cliente->estado='0';
+        $tb_cliente->estado='2';
         $tb_cliente->save();
     }
 

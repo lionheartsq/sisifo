@@ -107,7 +107,7 @@ class Tb_coleccionController extends Controller
     {
         if(!$request->ajax()) return redirect('/');
         $tb_coleccion=Tb_coleccion::findOrFail($request->id);
-        $tb_coleccion->estado='0';
+        $tb_coleccion->estado='2';
         $tb_coleccion->save();
     }
 

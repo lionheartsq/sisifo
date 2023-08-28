@@ -110,7 +110,7 @@ class Tb_maquinariaController extends Controller
     {
         if(!$request->ajax()) return redirect('/');
         $tb_maquinaria=Tb_maquinaria::findOrFail($request->id);
-        $tb_maquinaria->estado='0';
+        $tb_maquinaria->estado='2';
         $tb_maquinaria->save();
     }
 
