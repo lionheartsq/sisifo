@@ -9,8 +9,7 @@
                 Mantenimiento
             </li>
             --}}
-            {{-- @endif
-            @if(Auth::user()->vistas['administracion']) --}}
+            {{-- @if(Auth::user()->vistas['administracion']) --}}
             <li class="nav-item nav-dropdown">
                 <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-settings"></i> <b>Administración</b></a>
                 <ul class="nav-dropdown-items">
@@ -41,6 +40,7 @@
                 </ul>
             </li>
             {{-- @endif --}}
+            {{-- @if(Auth::user()->vistas['reportes']) --}}
             <li class="nav-item nav-dropdown">
                 <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-wrench"></i> <b>Reportes</b></a>
                 <ul class="nav-dropdown-items">
@@ -64,6 +64,8 @@
                     </li>
                 </ul>
             </li>
+            {{-- @endif --}}
+            {{-- @if(Auth::user()->vistas['facturacion']) --}}
             <li class="nav-item nav-dropdown">
                 <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-wrench"></i> <b>Facturación</b></a>
                 <ul class="nav-dropdown-items">
@@ -81,6 +83,8 @@
                     </li>
                 </ul>
             </li>
+            {{-- @endif --}}
+            {{-- @if(Auth::user()->vistas['contabilidad']) --}}
             <li class="nav-item nav-dropdown">
                 <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-basket"></i> <b>Contabilidad</b></a>
                 <ul class="nav-dropdown-items">
@@ -92,6 +96,8 @@
                     </li>
                 </ul>
             </li>
+            {{-- @endif --}}
+            {{-- @if(Auth::user()->vistas['controlIngreso']) --}}
             <li class="nav-item nav-dropdown">
                 <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-settings"></i> <b>Control ingreso</b></a>
                 <ul class="nav-dropdown-items">
@@ -100,7 +106,7 @@
                     </li>
                 </ul>
             </li>
-
+            {{-- @endif --}}
             {{-- @if(Auth::user()->vistas['documentacion']) --}}
             <li class="nav-item nav-dropdown">
                 <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-settings"></i> <b>Documentación</b></a>
@@ -119,6 +125,7 @@
                     </li>
                 </ul>
             </li>
+            {{-- @endif --}}
             {{-- @if(Auth::user()->vistas['conceptosCif']) --}}
             <li class="nav-item nav-dropdown">
                 <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-folder"></i> <b>Conceptos cif</b></a>
@@ -131,8 +138,8 @@
                     </li>
                 </ul>
             </li>
-            {{-- @endif
-            @if(Auth::user()->vistas['materiales']) --}}
+            {{-- @endif --}}
+            {{-- @if(Auth::user()->vistas['materiales']) --}}
             <li class="nav-item nav-dropdown">
                 <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-wrench"></i> <b>Materiales</b></a>
                 <ul class="nav-dropdown-items">
@@ -147,8 +154,8 @@
                     </li>
                 </ul>
             </li>
-            {{-- @endif
-            @if(Auth::user()->vistas['productos']) --}}
+            {{-- @endif --}}
+            {{-- @if(Auth::user()->vistas['productos']) --}}
             <li class="nav-item nav-dropdown">
                 <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-basket"></i> <b>Productos</b></a>
                 <ul class="nav-dropdown-items">
@@ -166,8 +173,8 @@
                     </li>
                 </ul>
             </li>
-            {{-- @endif
-            @if(Auth::user()->vistas['produccion']) --}}
+            {{-- @endif --}}
+            {{-- @if(Auth::user()->vistas['produccion']) --}}
             <li class="nav-item nav-dropdown">
                 <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-docs"></i> <b>Producción</b></a>
                 <ul class="nav-dropdown-items">
@@ -179,8 +186,8 @@
                     </li>
                 </ul>
             </li>
-            {{-- @endif
-            @if(Auth::user()->vistas['kardex']) --}}
+            {{-- @endif --}}
+            {{-- @if(Auth::user()->vistas['kardex']) --}}
             <li class="nav-item nav-dropdown">
                 <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-folder-alt"></i> <b>Kárdex</b></a>
                 <ul class="nav-dropdown-items">
@@ -195,8 +202,8 @@
                     </li>
                 </ul>
             </li>
-           {{-- @endif
-            @if(Auth::user()->vistas['manoDeObra']) --}}
+           {{-- @endif --}}
+           {{-- @if(Auth::user()->vistas['manoDeObra']) --}}
             <li class="nav-item nav-dropdown">
                 <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-folder-alt"></i> <b>Mano de Obra</b></a>
                 <ul class="nav-dropdown-items">
@@ -205,8 +212,8 @@
                     </li>
                 </ul>
             </li>
-            {{-- @endif
-            @if(Auth::user()->vistas['personas']) --}}
+            {{-- @endif --}}
+            {{-- @if(Auth::user()->vistas['personas']) --}}
             <li class="nav-item nav-dropdown">
                 <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-user"></i> <b>Personas</b></a>
                 <ul class="nav-dropdown-items">
@@ -227,8 +234,8 @@
                     </li>
                 </ul>
             </li>
-            {{-- @endif
-            @if(Auth::user()->vistas['nomina']) --}}
+            {{-- @endif --}}
+            {{-- @if(Auth::user()->vistas['nomina']) --}}
             <li class="nav-item nav-dropdown">
                 <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-settings"></i> <b>Nómina</b></a>
                 <ul class="nav-dropdown-items">
@@ -240,8 +247,8 @@
                     </li>
                 </ul>
             </li>
-            {{-- @endif
-            @if(Auth::user()->vistas['gestionFinanciera']) --}}
+            {{-- @endif --}}
+            {{-- @if(Auth::user()->vistas['gestionFinanciera']) --}}
             <li class="nav-item nav-dropdown">
                 <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-basket"></i> <b>Gestión financiera</b></a>
                 <ul class="nav-dropdown-items">

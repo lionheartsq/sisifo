@@ -16,9 +16,12 @@ class CreateTbVistaPersonalizadaTable extends Migration
         Schema::create('tb_vista_personalizada', function (Blueprint $table) {
 
             $table->id();
-            $table->boolean('escritorio')->default(1);
-            $table->boolean('documentacion')->default(1);
             $table->boolean('administracion')->default(1);
+            $table->boolean('reportes')->default(1);
+            $table->boolean('facturacion')->default(1);
+            $table->boolean('contabilidad')->default(1);
+            $table->boolean('controlIngreso')->default(1);
+            $table->boolean('documentacion')->default(1);
             $table->boolean('conceptosCif')->default(1);
             $table->boolean('materiales')->default(1);
             $table->boolean('productos')->default(1);
@@ -28,6 +31,7 @@ class CreateTbVistaPersonalizadaTable extends Migration
             $table->boolean('personas')->default(1);
             $table->boolean('nomina')->default(1);
             $table->boolean('gestionFinanciera')->default(1);
+            $table->boolean('escritorio')->default(1);
             $table->foreignId('idUser')->constrained('users');
             $table->foreignId('idEmpresa')->constrained('tb_configuracion_basica');
         });
