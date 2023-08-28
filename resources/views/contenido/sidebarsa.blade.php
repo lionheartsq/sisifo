@@ -68,9 +68,6 @@
                     <li @click="menu=21" class="nav-item">
                         <a class="nav-link" href="#"><i class="icon-book-open"></i> Ocupación</a>
                     </li>
-                    <li @click="menu=22" class="nav-item">
-                        <a class="nav-link" href="#"><i class="icon-book-open"></i> Tipo</a>
-                    </li>
                 </ul>
             </li>
             {{-- @endif --}}

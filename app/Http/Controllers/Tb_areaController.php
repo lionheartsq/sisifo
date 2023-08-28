@@ -26,14 +26,12 @@ class Tb_areaController extends Controller
         //cambios multiempresa
 
         if ($buscar=='') {
-            $areas = Tb_area::where('tb_area.estado','=','1')
-            ->orderBy('tb_area.id','desc')
+            $areas = Tb_area::orderBy('tb_area.id','desc')
             //->where('tb_area.idEmpresa','=',$idEmpresa)
             ->paginate(5);
         }
         else {
-            $areas = Tb_area::where('tb_area.estado','=','1')
-            ->where($criterio, 'like', '%'. $buscar . '%')
+            $areas = Tb_area::where($criterio, 'like', '%'. $buscar . '%')
             //->where('tb_area.idEmpresa','=',$idEmpresa)
             ->orderBy('tb_area.id','desc')
             ->paginate(5);
@@ -98,6 +96,7 @@ class Tb_areaController extends Controller
         $tb_area=Tb_area::findOrFail($request->id);
         $tb_area->area=$request->area;
         $tb_area->idEmpresa=$idEmpresa;
+        $tb_area->estado='1';
         $tb_area->save();
     }
 

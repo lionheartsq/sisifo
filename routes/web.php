@@ -128,13 +128,6 @@ Route::group(['middleware' => ['Superadministrador']], function () {
     Route::put("/detallepedidos/activate", "DetallepedidosController@activate");
     Route::get("/detallepedidos/listado", "DetallepedidosController@listado");
 
-    Route::get("/empresa", "EmpresaController@index");
-    Route::post("/empresa/store", "EmpresaController@store");
-    Route::post("/empresa/update", "EmpresaController@update");
-    Route::put("/empresa/deactivate", "EmpresaController@deactivate");
-    Route::put("/empresa/activate", "EmpresaController@activate");
-    Route::get("/empresa/listado", "EmpresaController@listado");
-
     Route::get("/facturas", "FacturasController@index");
     Route::post("/facturas/store", "FacturasController@store");
     Route::put("/facturas/update", "FacturasController@update");
@@ -163,13 +156,6 @@ Route::group(['middleware' => ['Superadministrador']], function () {
     Route::put("/libromayor/deactivate", "LibromayorController@deactivate");
     Route::put("/libromayor/activate", "LibromayorController@activate");
     Route::get("/libromayor/listado", "LibromayorController@listado");
-
-    Route::get("/medida", "MedidaController@index");
-    Route::post("/medida/store", "MedidaController@store");
-    Route::put("/medida/update", "MedidaController@update");
-    Route::put("/medida/deactivate", "MedidaController@deactivate");
-    Route::put("/medida/activate", "MedidaController@activate");
-    Route::get("/medida/listado", "MedidaController@listado");
 
     Route::get("/pagos", "PagosController@index");
     Route::post("/pagos/store", "PagosController@store");

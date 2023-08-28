@@ -49,7 +49,7 @@
                                             <i class="icon-pencil"></i>
                                             </button> &nbsp;
 
-                                        <template v-if="perfil.estado">
+                                        <template v-if="perfil.estado==1">
                                             <button type="button" class="btn btn-danger btn-sm" @click="desactivarPerfil(perfil.id)">
                                                 <i class="icon-trash"></i>
                                             </button>
@@ -66,7 +66,7 @@
                                         <td v-text="perfil.proceso"></td>
                                         <!-- <td v-text="perfil.area"></td> -->
                                         <td>
-                                            <div v-if="perfil.estado">
+                                            <div v-if="perfil.estado==1">
                                             <span class="badge badge-success">Activo</span>
                                             </div>
                                             <div v-else>
