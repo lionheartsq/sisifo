@@ -9,7 +9,16 @@ class Tb_pds extends Model
     //
     protected $table = 'tb_pds';
 
-    protected $fillable = ['idEsfuerzoMental','idEsfuerzoFisico','idSuplementarios','idPersonales','idMonotonia','idEspera','idTiempoEstandar','idEmpresa'];
+    protected $fillable = [
+        'idEsfuerzoMental',
+        'idEsfuerzoFisico',
+        'idSuplementarios',
+        'idPersonales',
+        'idMonotonia',
+        'idEspera',
+        'idTiempoEstandar',
+        'idEmpresa'
+    ];
 
     public $timestamps = false;
 }

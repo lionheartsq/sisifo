@@ -9,7 +9,10 @@ class Tb_suplementarios extends Model
     //
     protected $table = 'tb_suplementarios';
 
-    protected $fillable = ['grado','porcentaje'];
+    protected $fillable = [
+        'grado',
+        'porcentaje'
+    ];
 
     public $timestamps = false;
 }

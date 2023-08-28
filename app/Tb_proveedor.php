@@ -9,7 +9,16 @@ class Tb_proveedor extends Model
     //
     protected $table = 'tb_proveedores';
 
-    protected $fillable = ['nit','razonSocial','contacto','telefono','direccion','correo','estado','idEmpresa'];
+    protected $fillable = [
+        'nit',
+        'razonSocial',
+        'contacto',
+        'telefono',
+        'direccion',
+        'correo',
+        'estado',
+        'idEmpresa'
+    ];
 
     public $timestamps = false;
 

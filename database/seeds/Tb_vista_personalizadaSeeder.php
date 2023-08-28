@@ -26,7 +26,8 @@ class Tb_vista_personalizadaSeeder extends Seeder
             'personas' => 1,
             'nomina' => 1,
             'gestionFinanciera' => 1,
-            'idUser' => 1
+            'idUser' => 1,
+            'idEmpresa' => '1'
         ]);
     }
 }

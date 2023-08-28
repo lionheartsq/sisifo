@@ -21,7 +21,8 @@ class Tb_westing_houseSeeder extends Seeder
                 'idEsfuerzo' => $item->idEsfuerzo,
                 'idCondiciones' => $item->idCondiciones,
                 'idConsistencia' => $item->idConsistencia,
-                'idTiempoEstandar' => $item->idTiempoEstandar
+                'idTiempoEstandar' => $item->idTiempoEstandar,
+                'idEmpresa' => $item->idEmpresa
             ));
             }
     }

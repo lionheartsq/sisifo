@@ -1,12 +1,12 @@
 [
-{"IdDocumento":"1","NombreDocumento":"Compra de material"},
-{"IdDocumento":"2","NombreDocumento":"Devolución de producción"},
-{"IdDocumento":"3","NombreDocumento":"Inventario inicial"},
-{"IdDocumento":"4","NombreDocumento":"Devolución a proveedor"},
-{"IdDocumento":"5","NombreDocumento":"Entrega de material"},
-{"IdDocumento":"6","NombreDocumento":"Bajas"},
-{"IdDocumento":"7","NombreDocumento":"Ajuste de inventario"},
-{"IdDocumento":"8","NombreDocumento":"Entrega de orden producción"},
-{"IdDocumento":"9","NombreDocumento":"Devolución orden producción"},
-{"IdDocumento":"10","NombreDocumento":"Entrega pedido"}
+{"IdDocumento":"1","NombreDocumento":"Compra de material","idEmpresa":"1"},
+{"IdDocumento":"2","NombreDocumento":"Devolución de producción","idEmpresa":"1"},
+{"IdDocumento":"3","NombreDocumento":"Inventario inicial","idEmpresa":"1"},
+{"IdDocumento":"4","NombreDocumento":"Devolución a proveedor","idEmpresa":"1"},
+{"IdDocumento":"5","NombreDocumento":"Entrega de material","idEmpresa":"1"},
+{"IdDocumento":"6","NombreDocumento":"Bajas","idEmpresa":"1"},
+{"IdDocumento":"7","NombreDocumento":"Ajuste de inventario","idEmpresa":"1"},
+{"IdDocumento":"8","NombreDocumento":"Entrega de orden producción","idEmpresa":"1"},
+{"IdDocumento":"9","NombreDocumento":"Devolución orden producción","idEmpresa":"1"},
+{"IdDocumento":"10","NombreDocumento":"Entrega pedido","idEmpresa":"1"}
 ]

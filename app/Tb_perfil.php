@@ -8,7 +8,13 @@ class Tb_perfil extends Model
 {
     protected $table = 'tb_perfil';
 
-    protected $fillable = ['perfil','idProceso','valorMinuto','estado','idEmpresa'];
+    protected $fillable = [
+        'perfil',
+        'idProceso',
+        'valorMinuto',
+        'estado',
+        'idEmpresa'
+    ];
 
     public $timestamps = false;
 

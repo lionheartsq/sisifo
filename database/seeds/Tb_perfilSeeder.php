@@ -18,6 +18,7 @@ class Tb_perfilSeeder extends Seeder
                 'perfil' => $item->perfil,
                 'idProceso' => $item->idProceso,
                 'valorMinuto' => $item->valorMinuto,
+                'idEmpresa' => $item->idEmpresa
             ));
             }
     }

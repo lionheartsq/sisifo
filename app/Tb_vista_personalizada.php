@@ -9,8 +9,22 @@ class Tb_vista_personalizada extends Model
     //
     protected $table = 'tb_vista_personalizada';
 
-    protected $fillable = ['escritorio','documentacion','administracion','conceptosCif','materiales','productos','produccion','kardex','manoDeObra','personas','nomina','gestionFinanciera','idUser',
-    'idEmpresa'];
+    protected $fillable = [
+        'escritorio',
+        'documentacion',
+        'administracion',
+        'conceptosCif',
+        'materiales',
+        'productos',
+        'produccion',
+        'kardex',
+        'manoDeObra',
+        'personas',
+        'nomina',
+        'gestionFinanciera',
+        'idUser',
+        'idEmpresa'
+];
 
     public $timestamps = false;
 }

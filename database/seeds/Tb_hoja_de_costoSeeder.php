@@ -18,7 +18,8 @@ class Tb_hoja_de_costoSeeder extends Seeder
                 //'id' => $item->IdRol,
                 'idProducto' => $item->IdProducto,
                 'capacidadMensual' => $item->CapacidadMensual,
-                'estado' => $item->Estado
+                'estado' => $item->Estado,
+                'idEmpresa' => $item->idEmpresa
             ));
             }
         /*

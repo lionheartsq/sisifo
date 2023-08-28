@@ -9,8 +9,19 @@ class Tb_tiempo_estandar extends Model
     //
     protected $table = 'tb_tiempo_estandar';
 
-    protected $fillable = ['fecha','idEmpleado','tiempoElemental','tiempoNormal','factorPds','tiempoEstandar','numeroPiezas',
-    'piezasPar','tiempoPiezas','factorValoracion','idEmpresa'];
+    protected $fillable = [
+        'fecha',
+        'idEmpleado',
+        'tiempoElemental',
+        'tiempoNormal',
+        'factorPds',
+        'tiempoEstandar',
+        'numeroPiezas',
+        'piezasPar',
+        'tiempoPiezas',
+        'factorValoracion',
+        'idEmpresa'
+    ];
 
     public $timestamps = false;
 

@@ -8,7 +8,17 @@ class Tb_producto extends Model
 {
     protected $table = 'tb_producto';
 
-    protected $fillable = ['producto','referencia','foto','descripcion','idColeccion','idArea','presentacion','estado','idEmpresa'];
+    protected $fillable = [
+        'producto',
+        'referencia',
+        'foto',
+        'descripcion',
+        'idColeccion',
+        'idArea',
+        'presentacion',
+        'estado',
+        'idEmpresa'
+    ];
 
     public $timestamps = false;
 
