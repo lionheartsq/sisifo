@@ -115,7 +115,7 @@ class Tb_procesoController extends Controller
         $tb_proceso->idArea='1';
         $tb_proceso->estado='1';
         $tb_proceso->save();
-    }S
+    }
 
     public function deactivate(Request $request)
     {
