@@ -5,10 +5,6 @@
     <facturacion></facturacion>
 </template>
 
-<template v-if="menu==1">
-    <empresa></empresa>
-</template>
-
 <template v-if="menu==2">
     <usuarios></usuarios>
 </template>
@@ -67,10 +63,6 @@
 
 <template v-if="menu==16">
     <impuesto></impuesto>
-</template>
-
-<template v-if="menu==17">
-    <medida></medida>
 </template>
 
 <template v-if="menu==18">
@@ -175,14 +167,6 @@
 
 <template v-if="menu==43">
     <manual></manual>
-</template>
-
-<template v-if="menu==44">
-    <cartilla></cartilla>
-</template>
-
-<template v-if="menu==45">
-    <cartilladigital></cartilladigital>
 </template>
 
 <template v-if="menu==46">

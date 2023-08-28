@@ -102,7 +102,6 @@
                             </div>
                             <div class="modal-body">
                                 <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
-                                    <!--
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Area</label>
                                         <div class="col-md-9">
@@ -111,7 +110,6 @@
                                             </select>
                                         </div>
                                     </div>
-                                    -->
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
                                         <div class="col-md-9">

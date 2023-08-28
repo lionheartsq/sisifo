@@ -101,7 +101,7 @@ class Tb_perfilController extends Controller
             ->where('tb_proceso.idEmpresa','=',$idEmpresa)
             ->where([
                     ['tb_area.estado','=','1'],
-                    ['idArea','=','1'],
+                    ['idArea','=',$id],
                 ])
                 ->select('tb_proceso.id as idProceso','proceso')
                 ->orderBy('proceso','asc')->get();
@@ -128,11 +128,22 @@ class Tb_perfilController extends Controller
 
     public function store(Request $request)
     {
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
+        //cambios multiempresa
+
         if(!$request->ajax()) return redirect('/');
         $tb_perfil=new Tb_perfil();
         $tb_perfil->perfil=$request->perfil;
         $tb_perfil->idProceso=$request->idProceso;
         $tb_perfil->valorMinuto=$request->valorMinuto;
+        $tb_perfil->idEmpresa=$idEmpresa;
         $tb_perfil->save();
     }
 
