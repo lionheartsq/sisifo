@@ -7,6 +7,7 @@ use App\User;
 use App\Tb_usuario_tiene_rol;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class Tb_rolController extends Controller
 {
