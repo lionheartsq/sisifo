@@ -21,10 +21,13 @@ class Tb_configuracion_basicaSeeder extends Seeder
                 'nit' => $item->nit,
                 'telefono' => $item->telefono,
                 'representante' => $item->representante,
+                'regimen' => $item->regimen,
                 'cajaCompensacion' => $item->cajaCompensacion,
                 'arl' => $item->arl,
                 'nivelRiesgo' => $item->nivelRiesgo,
-                'idTipoNomina' => $item->idTipoNomina
+                'tipo' => $item->tipo,
+                'idTipoNomina' => $item->idTipoNomina,
+                'estado' => $item->estado
             ));
             }
     }
