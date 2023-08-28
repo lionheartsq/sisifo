@@ -30,8 +30,8 @@ class Tb_factores_nominaSeeder extends Seeder
             'festivaDiurna' => '2',
             'festivaNocturna' => '2.5',
             'recargos' => '0.35',
-            'minimolegal' => '908526',
-            'auxilio' => '106454',
+            'minimolegal' => '1160000',
+            'auxilio' => '140606',
         ]
         );
 

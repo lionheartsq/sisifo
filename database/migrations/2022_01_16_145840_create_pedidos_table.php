@@ -21,7 +21,7 @@ class CreatePedidosTable extends Migration {
 			$table->integer('valor');
 			$table->integer('impuesto');
 			$table->integer('total');
-			$table->foreignId('idVendedor')->constrained('empleados');
+			$table->foreignId('idVendedor')->constrained('tb_empleado');
 			$table->foreignId('idTipoFactura')->constrained('tipofactura');
 			$table->foreignId('idProveedores')->constrained('proveedores');
 			$table->foreignId('idEmpresa')->constrained('tb_configuracion_basica');

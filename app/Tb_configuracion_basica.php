@@ -15,10 +15,13 @@ class Tb_configuracion_basica extends Model
         'nit',
         'telefono',
         'representante',
+        'regimen',
         'cajaCompensacion',
         'arl',
         'nivelRiesgo',
-        'idTipoNomina'
+        'tipo',
+        'idTipoNomina',
+        'estado'
     ];
 
     public $timestamps = false;
