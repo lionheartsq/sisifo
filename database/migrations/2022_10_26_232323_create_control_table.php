@@ -15,7 +15,7 @@ class CreateControlTable extends Migration
     {
         Schema::create('control', function (Blueprint $table) {
             $table->id();
-			$table->foreignId('idEmpleado')->constrained('empleados');
+			$table->foreignId('idEmpleado')->constrained('tb_empleado');
             $table->timestamp('ingreso')->useCurrent();
             $table->timestamp('salida')->nullable();
             $table->foreignId('idEmpresa')->constrained('tb_configuracion_basica');

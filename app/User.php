@@ -47,6 +47,14 @@ class User extends Authenticatable
 
     public $timestamps = false;
 
+    public function roles() {
+        return $this->belongsTo('App\Tb_rol', 'idRol', 'id');
+    }
+
+    public function empresas() {
+        return $this->belongsTo('App\Tb_configuracion_basica', 'idEmpresa', 'id');
+    }
+
     public function vistas() {
         return $this->hasOne('App\Tb_vista_personalizada', 'idUser', 'id');
     }

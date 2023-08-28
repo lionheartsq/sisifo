@@ -18,7 +18,7 @@ class CreateProductosTable extends Migration {
 			$table->id();
 			$table->string('plu', 250);
 			$table->string('detalle', 700);
-			$table->foreignId('idMedida')->constrained('medida');
+			$table->foreignId('idMedida')->constrained('tb_unidad_base');
 			$table->integer('valorCompra');
 			$table->integer('pvp');
 			$table->foreignId('idImpuesto')->constrained('impuesto');

@@ -11,7 +11,8 @@ class Roles extends Model
 	public $timestamps = false;
 
 	protected $fillable = [
-		'rol'
+		'rol',
+        'estado'
 	];
 
 	public function usuarios()
