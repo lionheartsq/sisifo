@@ -246,7 +246,7 @@ class Tb_empleadoController extends Controller
     {
         if(!$request->ajax()) return redirect('/');
         $tb_empleado=Tb_empleado::findOrFail($request->id);
-        $tb_empleado->estado='0';
+        $tb_empleado->estado='2';
         $tb_empleado->save();
     }
 

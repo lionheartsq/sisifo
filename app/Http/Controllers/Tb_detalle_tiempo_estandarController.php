@@ -31,6 +31,16 @@ class Tb_detalle_tiempo_estandarController extends Controller
     // Aca comienza la tabla de ciclos
     public function listarciclos(Request $request)
     {
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
+        //cambios multiempresa
+
         //if(!$request->ajax()) return redirect('/');
         $id=$request->id;
         $ciclos = Tb_ciclos::join('tb_tiempo_estandar','tb_ciclos.idTiempoEstandar','=','tb_tiempo_estandar.id')

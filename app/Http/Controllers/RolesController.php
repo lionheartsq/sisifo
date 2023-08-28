@@ -52,6 +52,16 @@ class RolesController extends Controller
     }
 
     public function listado(){
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
+        //cambios multiempresa
+
 
         $roles = Roles::where('roles.estado','=','1')
         ->orderBy('roles.rol','asc')
@@ -61,6 +71,16 @@ class RolesController extends Controller
     }
 
     public function store(Request $request){
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
+        //cambios multiempresa
+
         //if(!$request->ajax()) return redirect('/');
         $idEmpresa=Auth::user()->idEmpresa;
         $Roles=new Roles();

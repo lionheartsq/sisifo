@@ -53,6 +53,16 @@ class ControlController extends Controller
     }
 
     public function listado(){
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
+        //cambios multiempresa
+
         $control = Control::where('control.estado','=','1')
         ->orderBy('control.id','desc')
         ->get();
@@ -61,6 +71,16 @@ class ControlController extends Controller
     }
 
     public function store(Request $request){
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
+        //cambios multiempresa
+
         if(!$request->ajax()) return redirect('/');
         $idEmpresa=Auth::user()->idEmpresa;
         $control=new Control();
@@ -86,7 +106,7 @@ class ControlController extends Controller
     public function deactivate(Request $request){
         if(!$request->ajax()) return redirect('/');
         $control=Control::findOrFail($request->id);
-        $control->estado='0';
+        $control->estado='2';
         $control->save();
 
     }

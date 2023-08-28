@@ -159,6 +159,16 @@ class Tb_rela_simulacionController extends Controller
 
     public function store(Request $request)
     {
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
+        //cambios multiempresa
+
         if(!$request->ajax()) return redirect('/');
         $tb_rela_simulacion=new Tb_rela_simulacion();
         $tb_rela_simulacion->idProducto=$request->idProducto;

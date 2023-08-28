@@ -100,7 +100,7 @@ class Tb_tipo_materiaController extends Controller
     {
         if(!$request->ajax()) return redirect('/');
         $tb_tipo_materia=Tb_tipo_materia::findOrFail($request->id);
-        $tb_tipo_materia->estado='0';
+        $tb_tipo_materia->estado='2';
         $tb_tipo_materia->save();
     }
 

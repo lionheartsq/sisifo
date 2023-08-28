@@ -101,7 +101,7 @@ class Tb_concepto_cifController extends Controller
     {
         if(!$request->ajax()) return redirect('/');
         $tb_concepto=Tb_concepto_cif::findOrFail($request->id);
-        $tb_concepto->estado='0';
+        $tb_concepto->estado='2';
         $tb_concepto->save();
     }
 

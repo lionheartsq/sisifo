@@ -132,6 +132,16 @@ class Tb_materia_prima_productoController extends Controller
 
         public function store(Request $request)
         {
+            // Cambios multiempresa
+            $user = Auth::user();
+            $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+            if ($empresa) {
+                $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+                // Realizar operaciones con $idEmpresa
+            }
+            //cambios multiempresa
+
             if(!$request->ajax()) return redirect('/');
             $tb_materia_prima_producto=new Tb_materia_prima_producto();
             $tb_materia_prima_producto->idMateriaPrima=$request->idMateriaPrima;

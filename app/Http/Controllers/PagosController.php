@@ -52,6 +52,16 @@ class PagosController extends Controller
     }
 
     public function listado(){
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
+        //cambios multiempresa
+
 
         $pagos = Pagos::where('pagos.estado','=','1')
         ->orderBy('pagos.id','desc')
@@ -61,6 +71,16 @@ class PagosController extends Controller
     }
 
     public function store(Request $request){
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
+        //cambios multiempresa
+
         //if(!$request->ajax()) return redirect('/');
         $idEmpresa=Auth::user()->idEmpresa;
         $Pagos=new Pagos();

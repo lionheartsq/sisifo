@@ -190,7 +190,7 @@ class Tb_productoController extends Controller
     {
         if(!$request->ajax()) return redirect('/');
         $tb_producto=Tb_producto::findOrFail($request->id);
-        $tb_producto->estado='0';
+        $tb_producto->estado='2';
         $tb_producto->save();
     }
 

@@ -142,7 +142,7 @@ class UserController extends Controller
         if(!$request->ajax()) return redirect('/');
 
         $users=User::findOrFail($request->id);
-        $users->estado='0';
+        $users->estado='2';
         $users->save();
     }
 
