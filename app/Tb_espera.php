@@ -9,7 +9,11 @@ class Tb_espera extends Model
     //
     protected $table = 'tb_espera';
 
-    protected $fillable = ['rangoMin','rangoMax','factor'];
+    protected $fillable = [
+        'rangoMin',
+        'rangoMax',
+        'factor'
+    ];
 
     public $timestamps = false;
 }

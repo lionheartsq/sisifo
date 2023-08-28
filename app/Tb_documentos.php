@@ -9,7 +9,10 @@ class Tb_documentos extends Model
     //
     protected $table = 'tb_documentos';
 
-    protected $fillable = ['nombredocumento','idEmpresa'];
+    protected $fillable = [
+        'nombredocumento',
+        'idEmpresa'
+    ];
 
     public $timestamps = false;
 }

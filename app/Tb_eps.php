@@ -9,7 +9,9 @@ class Tb_eps extends Model
     //
     protected $table = 'tb_eps';
 
-    protected $fillable = ['nombreEps'];
+    protected $fillable = [
+        'nombreEps'
+    ];
 
     public $timestamps = false;
 }

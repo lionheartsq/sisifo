@@ -8,7 +8,12 @@ class tb_hoja_de_costo extends Model
 {
     protected $table = 'tb_hoja_de_costo';
 
-    protected $fillable = ['idProducto','capacidadMensual','estado','idEmpresa'];
+    protected $fillable = [
+        'idProducto',
+        'capacidadMensual',
+        'estado',
+        'idEmpresa'
+    ];
 
     public $timestamps = false;
 

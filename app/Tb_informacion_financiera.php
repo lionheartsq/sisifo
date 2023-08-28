@@ -8,7 +8,16 @@ class Tb_informacion_financiera extends Model
 {
     protected $table = 'tb_informacion_financiera';
 
-    protected $fillable = ['vacaciones','prima','cesantias','intereses','salud','pension','arl','caja'];
+    protected $fillable = [
+        'vacaciones',
+        'prima',
+        'cesantias',
+        'intereses',
+        'salud',
+        'pension',
+        'arl',
+        'caja'
+    ];
 
     public $timestamps = false;
 }

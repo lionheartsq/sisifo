@@ -11,5 +11,10 @@ class Historico extends Model
 	protected $primaryKey = 'id';
 	public $timestamps = false;
 
-    protected $fillable = ['idEmpleado','ingreso','salida','estado'];
+    protected $fillable = [
+        'idEmpleado',
+        'ingreso',
+        'salida',
+        'estado'
+    ];
 }

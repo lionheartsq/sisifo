@@ -9,7 +9,14 @@ class Tb_orden_pedido_proveedor extends Model
     //
     protected $table = 'tb_orden_pedido_proveedor';
 
-    protected $fillable = ['consecutivo','fecha','idProveedor','observacion','estado','idEmpresa'];
+    protected $fillable = [
+        'consecutivo',
+        'fecha',
+        'idProveedor',
+        'observacion',
+        'estado',
+        'idEmpresa'
+    ];
 
     public $timestamps = false;
 

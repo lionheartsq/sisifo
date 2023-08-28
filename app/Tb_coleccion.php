@@ -8,7 +8,12 @@ class Tb_coleccion extends Model
 {
     protected $table = 'tb_coleccion';
 
-    protected $fillable = ['coleccion','referencia','estado','idEmpresa'];
+    protected $fillable = [
+        'coleccion',
+        'referencia',
+        'estado',
+        'idEmpresa'
+    ];
 
     public $timestamps = false;
 

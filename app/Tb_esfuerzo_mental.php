@@ -9,7 +9,10 @@ class Tb_esfuerzo_mental extends Model
     //
     protected $table = 'tb_esfuerzo_mental';
 
-    protected $fillable = ['grado','porcentaje'];
+    protected $fillable = [
+        'grado',
+        'porcentaje'
+    ];
 
     public $timestamps = false;
 }

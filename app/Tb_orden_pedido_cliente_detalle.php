@@ -8,7 +8,15 @@ class Tb_orden_pedido_cliente_detalle extends Model
 {
     protected $table = 'tb_orden_pedido_cliente_detalle';
 
-    protected $fillable = ['idProducto','cantidad','precioCosto','precioVenta','idOrdenPedido','estado','idEmpresa'];
+    protected $fillable = [
+        'idProducto',
+        'cantidad',
+        'precioCosto',
+        'precioVenta',
+        'idOrdenPedido',
+        'estado',
+        'idEmpresa'
+    ];
 
     public $timestamps = false;
 

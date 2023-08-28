@@ -9,7 +9,16 @@ class Tb_cliente extends Model
     //
     protected $table = 'tb_clientes';
 
-    protected $fillable = ['documento','nombre','apellido','direccion','telefono','correo','estado','idEmpresa'];
+    protected $fillable = [
+        'documento',
+        'nombre',
+        'apellido',
+        'direccion',
+        'telefono',
+        'correo',
+        'estado',
+        'idEmpresa'
+    ];
 
     public $timestamps = false;
 
