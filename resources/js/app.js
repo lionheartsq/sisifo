@@ -111,7 +111,6 @@ Vue.component('detallekardexproduccion', require('./components/DetalleKardexProd
 Vue.component('departamentos', require('./components/Departamentos.vue').default);
 Vue.component('detallefacturas', require('./components/Detallefacturas.vue').default);
 Vue.component('detallepedidos', require('./components/Detallepedidos.vue').default);
-Vue.component('empresa', require('./components/Empresa.vue').default);
 Vue.component('facturas', require('./components/Facturas.vue').default);
 Vue.component('factores', require('./components/Factores.vue').default);
 Vue.component('financieras', require('./components/Financieras.vue').default);
@@ -135,7 +134,6 @@ Vue.component('materias', require('./components/Materias.vue').default);
 Vue.component('grupos', require('./components/Grupos.vue').default);
 Vue.component('impuesto', require('./components/Impuesto.vue').default);
 Vue.component('libromayor', require('./components/Libromayor.vue').default);
-Vue.component('medida', require('./components/Medida.vue').default);
 Vue.component('pagos', require('./components/Pagos.vue').default);
 Vue.component('pagosasientos', require('./components/Pagosasientos.vue').default);
 Vue.component('pedidos', require('./components/Pedidos.vue').default);

@@ -22,14 +22,8 @@ class CreateTbVistaPersonalizadaTable extends Migration
             $table->boolean('contabilidad')->default(1);
             $table->boolean('controlIngreso')->default(1);
             $table->boolean('documentacion')->default(1);
-            $table->boolean('conceptosCif')->default(1);
-            $table->boolean('materiales')->default(1);
-            $table->boolean('productos')->default(1);
             $table->boolean('produccion')->default(1);
-            $table->boolean('kardex')->default(1);
-            $table->boolean('manoDeObra')->default(1);
             $table->boolean('personas')->default(1);
-            $table->boolean('nomina')->default(1);
             $table->boolean('gestionFinanciera')->default(1);
             $table->boolean('escritorio')->default(1);
             $table->foreignId('idUser')->constrained('users');
