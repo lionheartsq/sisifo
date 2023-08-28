@@ -11,11 +11,22 @@ use App\Exports\DetalleNominaDestajo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Auth;
 
 class Tb_detalle_nominaController extends Controller
 {
     public function listardetalle(Request $request)
     {
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
+        //cambios multiempresa
+
         //if(!$request->ajax()) return redirect('/');
         $id=$request->id;
         $detalles = Tb_resumen_nomina::join('tb_empleado','tb_resumen_nomina.idEmpleado','=','tb_empleado.id')
