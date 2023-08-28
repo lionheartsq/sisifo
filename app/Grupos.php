@@ -12,7 +12,8 @@ class Grupos extends Model
 
     protected $fillable = [
         'detalleGrupos',
-        'estado'
-    ];  
+        'estado',
+        'idEmpresa'
+    ];
 }
 

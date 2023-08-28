@@ -9,7 +9,7 @@ class Tb_detalle_cotizacion extends Model
     //
     protected $table = 'tb_detalle_cotizacion';
 
-    protected $fillable = ['cantidad','valor','precioVenta','idProducto','idCotizacion','estado'];
+    protected $fillable = ['cantidad','valor','precioVenta','idProducto','idCotizacion','estado','idEmpresa'];
 
     public $timestamps = false;
 }

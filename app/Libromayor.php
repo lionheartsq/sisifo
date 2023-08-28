@@ -14,6 +14,7 @@ class Libromayor extends Model
         'valorEntrada',
         'valorSalida',
         'acumulado',
-        'idAsientos'
-    ];   
+        'idAsientos',
+        'idEmpresa'
+    ];
 }

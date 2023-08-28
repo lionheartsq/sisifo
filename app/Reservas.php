@@ -16,6 +16,6 @@ class Reservas extends Model
         'fecha',
         'idCliente',
         'idHabitacion',
-        'idEmpresas'
+        'idEmpresa'
     ];
 }

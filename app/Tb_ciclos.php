@@ -9,7 +9,7 @@ class Tb_ciclos extends Model
     //
     protected $table = 'tb_ciclos';
 
-    protected $fillable = ['tiempo','piezas','idTiempoEstandar'];
+    protected $fillable = ['tiempo','piezas','idTiempoEstandar','idEmpresa'];
 
     public $timestamps = false;
 

@@ -16,6 +16,7 @@ class Detallepedidos extends Model
         'valorImpuesto',
         'total',
         'idPedidos',
-        'idProductos'
-    ]; 
+        'idProductos',
+        'idEmpresa'
+    ];
 }

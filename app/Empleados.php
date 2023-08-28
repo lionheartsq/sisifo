@@ -19,6 +19,7 @@ class Empleados extends Model
         'direccion',
         'telefono',
         'email',
-        'estado'
+        'estado',
+        'idEmpresa'
     ];
 }
