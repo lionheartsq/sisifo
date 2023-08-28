@@ -1,6 +1,5 @@
 [
-    {"id":"1","nombre":"Sena","direccion":"Kilometro 6 Autopista a Floridablanca 50-33","nit":"123456",
-    "telefono":"5461500","representante":"Prueba Uno","cajaCompensacion":"1","arl":"1","nivelRiesgo":"1","idTipoNomina":"4"},
-    {"id":"2","nombre":"Prueba","direccion":"Avenida siempreviva","nit":"12345","telefono":"5461500",
-    "representante":"Prueba Dos","cajaCompensacion":"1","arl":"1","nivelRiesgo":"1","idTipoNomina":"4"}
+    {"id":"1","nombre":"Softclass","direccion":"Carrera 13 # 50-11","nit":"123456","telefono":"3158572686","representante":"Prueba Uno","regimen":"Simplificado","cajaCompensacion":"1","arl":"1","nivelRiesgo":"1","tipo":"1","idTipoNomina":"4","estado":"1"},
+    {"id":"2","nombre":"Zaida","direccion":"Carrera 13 # 50-11","nit":"123456","telefono":"3158572686","representante":"Prueba Dos","regimen":"Simplificado","cajaCompensacion":"1","arl":"1","nivelRiesgo":"1","tipo":"1","idTipoNomina":"4","estado":"1"},
+    {"id":"3","nombre":"Daniela","direccion":"Carrera 13 # 50-11","nit":"123456","telefono":"3158572686","representante":"Prueba Tres","regimen":"Simplificado","cajaCompensacion":"1","arl":"1","nivelRiesgo":"1","tipo":"1","idTipoNomina":"4","estado":"1"}
 ]
