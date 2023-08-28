@@ -8,7 +8,9 @@ class tb_caja_compensacion extends Model
 {
     protected $table = 'tb_caja_compensacion';
 
-    protected $fillable = ['cajaCompensacion'];
+    protected $fillable = [
+        'cajaCompensacion'
+    ];
 
     public $timestamps = false;
 }

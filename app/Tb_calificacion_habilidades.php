@@ -9,7 +9,11 @@ class Tb_calificacion_habilidades extends Model
     //
     protected $table = 'tb_calificacion_habilidades';
 
-    protected $fillable = ['rango','porcentaje','clasificacion'];
+    protected $fillable = [
+        'rango',
+        'porcentaje',
+        'clasificacion'
+    ];
 
     public $timestamps = false;
 }

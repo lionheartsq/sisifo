@@ -9,7 +9,16 @@ class tb_liquidez extends Model
     //
     protected $table = 'tb_liquidez';
 
-    protected $fillable = ['activocorriente','pasivocorriente','razoncorriente','capitaldetrabajo','inventario','pruebaacida','detalle','idEmpresa'];
+    protected $fillable = [
+        'activocorriente',
+        'pasivocorriente',
+        'razoncorriente',
+        'capitaldetrabajo',
+        'inventario',
+        'pruebaacida',
+        'detalle',
+        'idEmpresa'
+    ];
 
     public $timestamps = false;
 }

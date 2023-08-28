@@ -9,7 +9,11 @@ class Tb_necesidades_personales extends Model
     //
     protected $table = 'tb_necesidades_personales';
 
-    protected $fillable = ['grado','porcentajeHombre','porcentajeMujer'];
+    protected $fillable = [
+        'grado',
+        'porcentajeHombre',
+        'porcentajeMujer'
+    ];
 
     public $timestamps = false;
 }

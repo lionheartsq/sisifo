@@ -9,7 +9,14 @@ class Tb_orden_pedido_cliente extends Model
     //
     protected $table = 'tb_orden_pedido_cliente';
 
-    protected $fillable = ['consecutivo','fecha','idCliente','observacion','estado','idEmpresa'];
+    protected $fillable = [
+        'consecutivo',
+        'fecha',
+        'idCliente',
+        'observacion',
+        'estado',
+        'idEmpresa'
+    ];
 
     public $timestamps = false;
 

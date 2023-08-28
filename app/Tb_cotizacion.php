@@ -9,7 +9,15 @@ class Tb_cotizacion extends Model
     //
     protected $table = 'tb_cotizacion';
 
-    protected $fillable = ['consecutivo','fecha','condicionEntrega','vigencia','idCliente','estado','idEmpresa'];
+    protected $fillable = [
+        'consecutivo',
+        'fecha',
+        'condicionEntrega',
+        'vigencia',
+        'idCliente',
+        'estado',
+        'idEmpresa'
+    ];
 
     public $timestamps = false;
 
