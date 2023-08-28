@@ -32,7 +32,6 @@
                                 <thead>
                                     <tr>
                                         <th>Opciones</th>
-                                        <th>Id</th>
                                         <th>Concepto</th>
                                         <th>Valor</th>
                                         <th>Estado</th>
@@ -45,24 +44,21 @@
                                             <button type="button" @click="abrirModal('concepto','actualizar',concepto)" class="btn btn-warning btn-sm">
                                             <i class="icon-pencil"></i>
                                             </button> &nbsp;
-
-                                        <template v-if="concepto.estado">
-                                            <button type="button" class="btn btn-danger btn-sm" @click="desactivarConcepto(concepto.id)">
-                                                <i class="icon-trash"></i>
-                                            </button>
-                                        </template>
-                                        <template v-else>
-                                            <button type="button" class="btn btn-success btn-sm" @click="activarConcepto(concepto.id)">
-                                                <i class="icon-check"></i>
-                                            </button>
-                                        </template>
-
+                                            <template v-if="concepto.estado==1">
+                                                <button type="button" class="btn btn-danger btn-sm" @click="desactivarConcepto(concepto.id)">
+                                                    <i class="icon-trash"></i>
+                                                </button>
+                                            </template>
+                                            <template v-else>
+                                                <button type="button" class="btn btn-success btn-sm" @click="activarConcepto(concepto.id)">
+                                                    <i class="icon-check"></i>
+                                                </button>
+                                            </template>
                                         </td>
-                                        <td v-text="concepto.id"></td>
                                         <td v-text="concepto.concepto"></td>
                                         <td v-text="concepto.valor"></td>
                                         <td>
-                                            <div v-if="concepto.estado">
+                                            <div v-if="concepto.estado==1">
                                             <span class="badge badge-success">Activo</span>
                                             </div>
                                             <div v-else>

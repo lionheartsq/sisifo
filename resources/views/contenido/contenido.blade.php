@@ -81,10 +81,6 @@
     <ocupacion></ocupacion>
 </template>
 
-<template v-if="menu==22">
-    <tipo></tipo>
-</template>
-
 <template v-if="menu==23">
     <areas></areas>
 </template>

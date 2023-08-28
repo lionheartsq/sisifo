@@ -34,7 +34,7 @@
                                     <tr>
                                         <th>Opciones</th>
                                         <th>Proceso</th>
-                                        <!-- <th>Area</th> -->
+                                        <th>Área</th>
                                         <th>Estado</th>
                                     </tr>
                                 </thead>
@@ -46,7 +46,7 @@
                                             <i class="icon-pencil"></i>
                                             </button> &nbsp;
 
-                                        <template v-if="proceso.estado">
+                                        <template v-if="proceso.estado==1">
                                             <button type="button" class="btn btn-danger btn-sm" @click="desactivarProceso(proceso.id)">
                                                 <i class="icon-trash"></i>
                                             </button>
@@ -59,9 +59,9 @@
 
                                         </td>
                                         <td v-text="proceso.proceso"></td>
-                                        <!-- <td v-text="proceso.area"></td> -->
+                                        <td v-text="proceso.area"></td>
                                         <td>
-                                            <div v-if="proceso.estado">
+                                            <div v-if="proceso.estado==1">
                                             <span class="badge badge-success">Activo</span>
                                             </div>
                                             <div v-else>

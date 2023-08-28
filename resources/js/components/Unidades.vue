@@ -45,7 +45,7 @@
                                             <i class="icon-pencil"></i>
                                             </button> &nbsp;
 
-                                        <template v-if="unidad.estado">
+                                        <template v-if="unidad.estado==1">
                                             <button type="button" class="btn btn-danger btn-sm" @click="desactivarUnidad(unidad.id)">
                                                 <i class="icon-trash"></i>
                                             </button>
@@ -59,7 +59,7 @@
                                         <td v-text="unidad.id"></td>
                                         <td v-text="unidad.unidadBase"></td>
                                         <td>
-                                            <div v-if="unidad.estado">
+                                            <div v-if="unidad.estado==1">
                                             <span class="badge badge-success">Activo</span>
                                             </div>
                                             <div v-else>

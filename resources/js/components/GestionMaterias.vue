@@ -3,14 +3,14 @@
                 <!-- Breadcrumb -->
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">Home</li>
-                    <li class="breadcrumb-item active">Gestión Materias</li>
+                    <li class="breadcrumb-item active">Materias Primas</li>
                 </ol>
                 <div class="container-fluid">
                     <!-- Ejemplo de tabla Listado -->
 
                     <div class="card">
                         <div class="card-header">
-                            <i class="fa fa-align-justify"></i> Gestión Materias &nbsp;
+                            <i class="fa fa-align-justify"></i> Materias Primas &nbsp;
                             <button type="button" @click="abrirModal('gestionMateria','crear')" class="btn btn-secondary">
                                 <i class="icon-plus"></i>&nbsp;Nuevo
                             </button>
@@ -49,7 +49,7 @@
                                             <i class="icon-pencil"></i>
                                             </button> &nbsp;
 
-                                        <template v-if="gestionMateria.estado">
+                                        <template v-if="gestionMateria.estado==1">
                                             <button type="button" class="btn btn-danger btn-sm" @click="desactivarGestionMateria(gestionMateria.id)">
                                                 <i class="icon-trash"></i>
                                             </button>
@@ -66,7 +66,7 @@
                                         <td v-text="gestionMateria.precioBase"></td>
                                         <td v-text="gestionMateria.tipoMateria"></td>
                                         <td>
-                                            <div v-if="gestionMateria.estado">
+                                            <div v-if="gestionMateria.estado==1">
                                             <span class="badge badge-success">Activo</span>
                                             </div>
                                             <div v-else>

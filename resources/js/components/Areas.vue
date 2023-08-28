@@ -46,7 +46,7 @@
                                             <i class="icon-pencil"></i>
                                             </button> &nbsp;
 
-                                        <template v-if="area.estado">
+                                        <template v-if="area.estado==1">
                                             <button type="button" class="btn btn-danger btn-sm" @click="desactivarArea(area.id)">
                                                 <i class="icon-trash"></i>
                                             </button>
@@ -60,7 +60,7 @@
                                         <td v-text="area.id"></td>
                                         <td v-text="area.area"></td>
                                         <td>
-                                            <div v-if="area.estado">
+                                            <div v-if="area.estado==1">
                                             <span class="badge badge-success">Activo</span>
                                             </div>
                                             <div v-else>
