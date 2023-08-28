@@ -93,3 +93,4 @@ class Tb_factoresController extends Controller
         $tb_factores_nomina->save();
     }
 }
+
