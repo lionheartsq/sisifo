@@ -8,7 +8,7 @@ class tb_materia_prima_producto_simulador extends Model
 {
     protected $table = 'tb_materia_prima_producto_simulador';
 
-    protected $fillable = ['idMateriaPrima','cantidad','precio','tipoDeCosto','idProducto','idSimulacion'];
+    protected $fillable = ['idMateriaPrima','cantidad','precio','tipoDeCosto','idProducto','idSimulacion','idEmpresa'];
 
     public $timestamps = false;
 }

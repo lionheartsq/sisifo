@@ -12,7 +12,7 @@ class tb_detallado_simulador extends Model
     protected $fillable = ['materiaprima','manodeobradirecta','costovariableunitario','cifaterrizados','costototal',
     'porcentajeganancia','costosfijostotales','gastosfijos','porcentajeparticipacion','unidadesavender',
     'precioventaunitario','margencontribucion','promedioponderado','puntodeequilibriototal','puntodeequilibrioproducto',
-    'idProducto','idSimulador'];
+    'idProducto','idSimulador','idEmpresa'];
 
     public $timestamps = false;
 }

@@ -12,6 +12,7 @@ class Pagosasientos extends Model
 
     protected $fillable = [
         'idPagos',
-        'idAsientos'
-    ];  
+        'idAsientos',
+        'idEmpresa'
+    ];
 }

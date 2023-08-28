@@ -11,6 +11,7 @@ class Control extends Model
 	protected $primaryKey = 'id';
 	public $timestamps = false;
 
-    protected $fillable = ['documento','nombres','apellidos','ingreso','salida','estado'];
-    
+    protected $fillable = ['documento','nombres','apellidos','ingreso','salida','estado',
+    'idEmpresa'];
+
 }

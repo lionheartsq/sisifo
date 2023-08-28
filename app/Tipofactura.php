@@ -12,6 +12,7 @@ class Tipofactura extends Model
 
     protected $fillable = [
         'detalle',
-        'estado'
-    ];  
+        'estado',
+        'idEmpresa'
+    ];
 }

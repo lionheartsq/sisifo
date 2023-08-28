@@ -8,7 +8,7 @@ class Tb_concepto_cif_simula extends Model
 {
     protected $table = 'tb_concepto_cif_simula';
 
-    protected $fillable = ['concepto','valor','idSimulacion'];
+    protected $fillable = ['concepto','valor','idSimulacion','idEmpresa'];
 
     public $timestamps = false;
 }

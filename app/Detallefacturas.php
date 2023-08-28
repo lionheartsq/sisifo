@@ -16,6 +16,7 @@ class Detallefacturas extends Model
         'valorImpuesto',
         'total',
         'idFacturas',
-        'idProductos'
+        'idProductos',
+        'idEmpresa'
     ];
 }

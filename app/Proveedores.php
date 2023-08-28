@@ -17,6 +17,7 @@ class Proveedores extends Model
         'telefono',
         'direccion',
         'correo',
-        'estado'
+        'estado',
+        'idEmpresa'
     ];
-} 
+}

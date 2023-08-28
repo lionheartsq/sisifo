@@ -8,7 +8,7 @@ class Tb_mano_de_obra_producto_simula extends Model
 {
     protected $table = 'tb_mano_de_obra_producto_simula';
 
-    protected $fillable = ['idPerfil','tiempo','precio','tipoPago','idProducto','idSimulacion'];
+    protected $fillable = ['idPerfil','tiempo','precio','tipoPago','idProducto','idSimulacion','idEmpresa'];
 
     public $timestamps = false;
 }

@@ -13,6 +13,6 @@ class Tipo extends Model
     protected $fillable = [
         'nombre',
         'estado',
-        'idEmpresas'
+        'idEmpresa'
     ];
 }

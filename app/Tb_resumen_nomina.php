@@ -20,7 +20,7 @@ class Tb_resumen_nomina extends Model
         'ibcConTope','descuentoSalud','descuentoPension','fondoSolidaridad','retencion','sindicato','prestamos','otros',
         'totalDeducido','totalPagar','aporteSalud','aportePension','aporteArl','aporteIcbf','aporteSena',
         'aporteCaja','cesantias','interesesCesantias','primaServicios','vacaciones',
-        'costoTotalMensual','sueldoBasicoMensual','idEmpleado','idNomina'
+        'costoTotalMensual','sueldoBasicoMensual','idEmpleado','idNomina','idEmpresa'
     ];
 
     public $timestamps = false;
