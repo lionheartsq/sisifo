@@ -50,7 +50,7 @@
                                             <i class="icon-pencil"></i>
                                             </button> &nbsp;
 
-                                        <template v-if="maquinaria.estado">
+                                        <template v-if="maquinaria.estado==1">
                                             <button type="button" class="btn btn-danger btn-sm" @click="desactivarMaquinaria(maquinaria.id)">
                                                 <i class="icon-trash"></i>
                                             </button>
@@ -70,7 +70,7 @@
                                         <td v-text="maquinaria.depreciacionMensual"></td>
                                         <td v-text="maquinaria.fecha"></td>
                                         <td>
-                                            <div v-if="maquinaria.estado">
+                                            <div v-if="maquinaria.estado==1">
                                             <span class="badge badge-success">Activo</span>
                                             </div>
                                             <div v-else>
