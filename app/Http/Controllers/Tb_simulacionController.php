@@ -25,10 +25,14 @@ class Tb_simulacionController extends Controller
     //
     public function index(Request $request)
     {
-        //cambios multiempresa
-        foreach (Auth::user()->empresas as $empresa){
-            $idEmpresa=$empresa['id'];
-         }
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
         //cambios multiempresa
 
         //if(!$request->ajax()) return redirect('/');
@@ -59,10 +63,14 @@ class Tb_simulacionController extends Controller
 
     public function store(Request $request)
     {
-        //cambios multiempresa
-        foreach (Auth::user()->empresas as $empresa){
-            $idEmpresa=$empresa['id'];
-         }
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
         //cambios multiempresa
 
         if(!$request->ajax()) return redirect('/');
@@ -86,10 +94,14 @@ class Tb_simulacionController extends Controller
 
     public function estado(Request $request)
     {
-        //cambios multiempresa
-        foreach (Auth::user()->empresas as $empresa){
-            $idEmpresa=$empresa['id'];
-         }
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
         //cambios multiempresa
 
         //if(!$request->ajax()) return redirect('/');
@@ -229,11 +241,15 @@ public function cifTiempos($identificador)
 //---------------------------------------------------------------------------------------------------------------------------------//
 public function unitarioTotal(Request $request)
 {
-        //cambios multiempresa
-        foreach (Auth::user()->empresas as $empresa){
-            $idEmpresa=$empresa['id'];
-         }
-        //cambios multiempresa
+    // Cambios multiempresa
+    $user = Auth::user();
+    $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+    if ($empresa) {
+        $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+        // Realizar operaciones con $idEmpresa
+    }
+    //cambios multiempresa
 
     $identificador= $request->identificador;
     $simulacion= $request->simulacion;
@@ -391,11 +407,15 @@ public function unitarioTotal(Request $request)
 //------------------------------------------------------------------------------------------------------//
 public function hojaDetalle(Request $request)
 {
-        //cambios multiempresa
-        foreach (Auth::user()->empresas as $empresa){
-            $idEmpresa=$empresa['id'];
-         }
-        //cambios multiempresa
+    // Cambios multiempresa
+    $user = Auth::user();
+    $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+    if ($empresa) {
+        $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+        // Realizar operaciones con $idEmpresa
+    }
+    //cambios multiempresa
 
     $identificador= $request->identificador;
     $simulacion= $request->simulacion;

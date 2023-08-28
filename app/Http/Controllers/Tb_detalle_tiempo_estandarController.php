@@ -70,10 +70,14 @@ class Tb_detalle_tiempo_estandarController extends Controller
          ->where('tb_ciclos.idTiempoEstandar','=',$request->idTiempoEstandar)
          ->avg('tiempo');
 
-        //cambios multiempresa
-        foreach (Auth::user()->empresas as $empresa){
-            $idEmpresa=$empresa['id'];
-         }
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
         //cambios multiempresa
 
          $tiempo_estandar= Tb_tiempo_estandar::find($request->idTiempoEstandar);
@@ -273,10 +277,14 @@ class Tb_detalle_tiempo_estandarController extends Controller
      // Aca comienza el detalle del tiempo estandar
     public function listardetalle(Request $request)
     {
-        //cambios multiempresa
-        foreach (Auth::user()->empresas as $empresa){
-            $idEmpresa=$empresa['id'];
-         }
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
         //cambios multiempresa
 
         //if(!$request->ajax()) return redirect('/');

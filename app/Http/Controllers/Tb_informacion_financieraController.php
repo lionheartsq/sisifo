@@ -10,6 +10,16 @@ class Tb_informacion_financieraController extends Controller
 {
     public function index()
     {
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
+        //cambios multiempresa
+
         //if(!$request->ajax()) return redirect('/');
         $financieras = Tb_informacion_financiera::where('id','=','1')
         ->select('id','vacaciones','prima','cesantias','intereses','salud','pension','arl','caja')->get();

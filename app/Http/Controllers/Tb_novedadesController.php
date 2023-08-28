@@ -18,11 +18,15 @@ class Tb_novedadesController extends Controller
     //
     public function index(Request $request)
     {
-    //cambios multiempresa
-    foreach (Auth::user()->empresas as $empresa){
-        $idEmpresa=$empresa['id'];
-     }
-    //cambios multiempresa
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
+        //cambios multiempresa
 
         //if(!$request->ajax()) return redirect('/');
         $buscar= $request->buscar;
@@ -65,11 +69,15 @@ class Tb_novedadesController extends Controller
     }
     public function index2(Request $request)
     {
-    //cambios multiempresa
-    foreach (Auth::user()->empresas as $empresa){
-        $idEmpresa=$empresa['id'];
-     }
-    //cambios multiempresa
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
+        //cambios multiempresa
 
         //if(!$request->ajax()) return redirect('/');
         $buscar= $request->buscar;
@@ -112,11 +120,15 @@ class Tb_novedadesController extends Controller
     }
     public function detallado(Request $request)
     {
-    //cambios multiempresa
-    foreach (Auth::user()->empresas as $empresa){
-        $idEmpresa=$empresa['id'];
-     }
-    //cambios multiempresa
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
+        //cambios multiempresa
 
         //if(!$request->ajax()) return redirect('/');
         $idEmpleado= $request->idEmpleado;
@@ -137,11 +149,16 @@ class Tb_novedadesController extends Controller
              ];
     }
     public function selectEmpleado(Request $request){
-    //cambios multiempresa
-    foreach (Auth::user()->empresas as $empresa){
-        $idEmpresa=$empresa['id'];
-     }
-    //cambios multiempresa
+
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
+        //cambios multiempresa
 
         $identificador= $request->identificador;
 
@@ -163,11 +180,16 @@ class Tb_novedadesController extends Controller
     }
 
     public function selectTipologia(Request $request){
-    //cambios multiempresa
-    foreach (Auth::user()->empresas as $empresa){
-        $idEmpresa=$empresa['id'];
-     }
-    //cambios multiempresa
+
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
+        //cambios multiempresa
 
         $identificador= $request->identificador;
 
@@ -215,11 +237,16 @@ class Tb_novedadesController extends Controller
     }
 
     public function store(Request $request){
-    //cambios multiempresa
-    foreach (Auth::user()->empresas as $empresa){
-        $idEmpresa=$empresa['id'];
-     }
-    //cambios multiempresa
+
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
+        //cambios multiempresa
 
         //if(!$request->ajax()) return redirect('/');
 
@@ -271,11 +298,15 @@ class Tb_novedadesController extends Controller
 
     public function selectSalario(Request $request)//tipo sueldo
     {
-    //cambios multiempresa
-    foreach (Auth::user()->empresas as $empresa){
-        $idEmpresa=$empresa['id'];
-     }
-    //cambios multiempresa
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
+        //cambios multiempresa
 
         $idEmpleado=$request->identificador;
         $tipoSal='';

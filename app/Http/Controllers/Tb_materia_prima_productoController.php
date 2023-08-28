@@ -14,10 +14,14 @@ class Tb_materia_prima_productoController extends Controller
 {
     public function index(Request $request)
     {
-        //cambios multiempresa
-        foreach (Auth::user()->empresas as $empresa){
-            $idEmpresa=$empresa['id'];
-         }
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
         //cambios multiempresa
 
         //if(!$request->ajax()) return redirect('/');
@@ -90,10 +94,14 @@ class Tb_materia_prima_productoController extends Controller
 
     public function selectMateriaPrimaProducto()
     {
-        //cambios multiempresa
-        foreach (Auth::user()->empresas as $empresa){
-            $idEmpresa=$empresa['id'];
-         }
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
         //cambios multiempresa
 
         $materiaprimaproductos = Tb_materia_prima_producto::join("tb_gestion_materia_prima","tb_materia_prima_producto.idMateriaPrima","=","tb_gestion_materia_prima.id")
@@ -156,11 +164,15 @@ class Tb_materia_prima_productoController extends Controller
 
         public function selectGestionMateria()
         {
-        //cambios multiempresa
-        foreach (Auth::user()->empresas as $empresa){
-            $idEmpresa=$empresa['id'];
-         }
-        //cambios multiempresa
+            // Cambios multiempresa
+            $user = Auth::user();
+            $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+            if ($empresa) {
+                $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+                // Realizar operaciones con $idEmpresa
+            }
+            //cambios multiempresa
 
             $gestionmaterias = Tb_gestion_materia_prima::join('tb_unidad_base','tb_gestion_materia_prima.idUnidadBase','=','tb_unidad_base.id')
             ->select('tb_gestion_materia_prima.id as idGestionMateria','tb_gestion_materia_prima.gestionMateria','tb_gestion_materia_prima.precioBase','tb_gestion_materia_prima.idUnidadBase','tb_unidad_base.unidadBase as unidadBase','tb_gestion_materia_prima.estado')
@@ -174,11 +186,15 @@ class Tb_materia_prima_productoController extends Controller
 
         public function selectDatosMateria($id)
         {
-        //cambios multiempresa
-        foreach (Auth::user()->empresas as $empresa){
-            $idEmpresa=$empresa['id'];
-         }
-        //cambios multiempresa
+            // Cambios multiempresa
+            $user = Auth::user();
+            $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+            if ($empresa) {
+                $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+                // Realizar operaciones con $idEmpresa
+            }
+            //cambios multiempresa
 
             $datosmaterias = Tb_gestion_materia_prima::join('tb_unidad_base','tb_gestion_materia_prima.idUnidadBase','=','tb_unidad_base.id')
             ->select('tb_gestion_materia_prima.id as idGestion','tb_gestion_materia_prima.gestionMateria as nombreMateria','tb_gestion_materia_prima.precioBase as precioBase','tb_unidad_base.unidadBase as unidadBase')
