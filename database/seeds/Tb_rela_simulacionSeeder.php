@@ -19,7 +19,8 @@ class Tb_rela_simulacionSeeder extends Seeder
                 'idProducto' => $item->idProducto,
                 'unidades' => $item->unidades,
                 'tiempo' => $item->tiempo,
-                'idSimulacion' => $item->idSimulacion
+                'idSimulacion' => $item->idSimulacion,
+                'idEmpresa' => $item->idEmpresa
             ));
             }
         /*

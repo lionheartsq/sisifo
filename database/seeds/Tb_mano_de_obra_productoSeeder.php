@@ -20,7 +20,8 @@ class Tb_mano_de_obra_productoSeeder extends Seeder
                 'tiempo' => $item->tiempo,
                 'precio' => $item->precio,
                 'tipoPago' => $item->tipoPago,
-                'idHoja' => $item->idHoja
+                'idHoja' => $item->idHoja,
+                'idEmpresa' => $item->idEmpresa
             ));
             }
         /*

@@ -9,7 +9,18 @@ class tb_precios_venta extends Model
     //
     protected $table = 'tb_precios_venta';
 
-    protected $fillable = ['idProducto','costo','porcentaje','cifunitario','costosfijos','materiaprima','manodeobradirecta','preciodeventa','detalle','idEmpresa'];
+    protected $fillable = [
+        'idProducto',
+        'costo',
+        'porcentaje',
+        'cifunitario',
+        'costosfijos',
+        'materiaprima',
+        'manodeobradirecta',
+        'preciodeventa',
+        'detalle',
+        'idEmpresa'
+    ];
 
     public $timestamps = false;
 }

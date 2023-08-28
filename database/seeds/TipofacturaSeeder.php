@@ -15,10 +15,12 @@ class TipofacturaSeeder extends Seeder
         DB::table('tipofactura')->insert([
             'detalle' => 'Contado',
             'estado' => '1',
+            'idEmpresa' => '1'
         ]);
         DB::table('tipofactura')->insert([
             'detalle' => 'Crédito',
             'estado' => '1',
+            'idEmpresa' => '1'
         ]);
     }
 }

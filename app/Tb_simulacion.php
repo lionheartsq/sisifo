@@ -9,7 +9,12 @@ class Tb_simulacion extends Model
     //
     protected $table = 'tb_simulacion';
 
-    protected $fillable = ['detalle','fecha','tipoCif','idEmpresa'];
+    protected $fillable = [
+        'detalle',
+        'fecha',
+        'tipoCif',
+        'idEmpresa'
+];
 
     public $timestamps = false;
 }

@@ -17,6 +17,7 @@ class Tb_documentosSeeder extends Seeder
         foreach ($data as $item){
             Tb_documentos::create(array(
                 'nombredocumento' => $item->NombreDocumento,
+                'idEmpresa' => $item->idEmpresa
             ));
             }
     }

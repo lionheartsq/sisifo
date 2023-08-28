@@ -20,7 +20,8 @@ class Tb_materia_prima_productoSeeder extends Seeder
                 'cantidad' => $item->cantidad,
                 'precio' => $item->precio,
                 'tipoDeCosto' => $item->tipoDeCosto,
-                'idHoja' => $item->idHoja
+                'idHoja' => $item->idHoja,
+                'idEmpresa' => $item->idEmpresa
             ));
             }
         /*

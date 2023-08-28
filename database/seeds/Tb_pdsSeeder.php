@@ -23,7 +23,8 @@ class Tb_pdsSeeder extends Seeder
                 'idPersonales' => $item->idPersonales,
                 'idMonotonia' => $item->idMonotonia,
                 'idEspera' => $item->idEspera,
-                'idTiempoEstandar' => $item->idTiempoEstandar
+                'idTiempoEstandar' => $item->idTiempoEstandar,
+                'idEmpresa' => $item->idEmpresa
             ));
             }
     }
