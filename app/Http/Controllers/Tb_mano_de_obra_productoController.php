@@ -18,6 +18,16 @@ class Tb_mano_de_obra_productoController extends Controller
      */
     public function index(Request $request)
     {
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
+        //cambios multiempresa
+
         //if(!$request->ajax()) return redirect('/');
         $buscar= $request->buscar;
         $criterio= $request->criterio;
@@ -111,10 +121,15 @@ class Tb_mano_de_obra_productoController extends Controller
     }
 
     public function selectRelacionPerfil($id){
-        //cambios multiempresa
-        foreach (Auth::user()->empresas as $empresa){
-            $idEmpresa=$empresa['id'];
-         }
+
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
         //cambios multiempresa
 
         $perfilrelaciones = tb_perfil::join("tb_proceso","tb_perfil.idProceso","=","tb_proceso.id")

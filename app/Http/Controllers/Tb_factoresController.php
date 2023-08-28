@@ -11,6 +11,16 @@ class Tb_factoresController extends Controller
     //
     public function index()
     {
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
+        //cambios multiempresa
+
         //if(!$request->ajax()) return redirect('/');
         $factores = Tb_factores_nomina::where('id','=','1')
         ->select('id','extraDiurna','extraNocturna','horaDominical','festivaDiurna','festivaNocturna','recargos','minimolegal','auxilio')->get();

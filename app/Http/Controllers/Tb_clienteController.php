@@ -16,10 +16,14 @@ class Tb_clienteController extends Controller
      */
     public function index(Request $request)
     {
-        //cambios multiempresa
-        foreach (Auth::user()->empresas as $empresa){
-            $idEmpresa=$empresa['id'];
-         }
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
         //cambios multiempresa
 
         if(!$request->ajax()) return redirect('/');
@@ -51,10 +55,15 @@ class Tb_clienteController extends Controller
     }
 
     public function selectCliente(){
-        //cambios multiempresa
-        foreach (Auth::user()->empresas as $empresa){
-            $idEmpresa=$empresa['id'];
-         }
+
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
         //cambios multiempresa
 
         $clientes = Tb_cliente::where('estado','=','1')
@@ -66,10 +75,14 @@ class Tb_clienteController extends Controller
 
     public function store(Request $request)
     {
-        //cambios multiempresa
-        foreach (Auth::user()->empresas as $empresa){
-            $idEmpresa=$empresa['id'];
-         }
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
         //cambios multiempresa
 
         if(!$request->ajax()) return redirect('/');

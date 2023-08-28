@@ -18,10 +18,14 @@ class Tb_perfilController extends Controller
      */
     public function index(Request $request)
     {
-        //cambios multiempresa
-        foreach (Auth::user()->empresas as $empresa){
-            $idEmpresa=$empresa['id'];
-         }
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
         //cambios multiempresa
 
         if(!$request->ajax()) return redirect('/');
@@ -82,10 +86,15 @@ class Tb_perfilController extends Controller
     }
 
     public function selectRelacion($id){
-        //cambios multiempresa
-        foreach (Auth::user()->empresas as $empresa){
-            $idEmpresa=$empresa['id'];
-         }
+
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
         //cambios multiempresa
 
         $relaciones = tb_proceso::join("tb_area","tb_proceso.idArea","=","tb_area.id")
@@ -100,10 +109,15 @@ class Tb_perfilController extends Controller
         }
 
     public function selectPerfil(){
-        //cambios multiempresa
-        foreach (Auth::user()->empresas as $empresa){
-            $idEmpresa=$empresa['id'];
-         }
+
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
         //cambios multiempresa
 
         $perfiles = tb_perfil::join("tb_proceso","tb_proceso.id","=","tb_perfil.idProceso")

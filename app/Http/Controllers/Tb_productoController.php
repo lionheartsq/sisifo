@@ -20,10 +20,14 @@ class Tb_productoController extends Controller
      */
     public function index(Request $request)
     {
-        //cambios multiempresa
-        foreach (Auth::user()->empresas as $empresa){
-            $idEmpresa=$empresa['id'];
-         }
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
         //cambios multiempresa
 
         //if(!$request->ajax()) return redirect('/');
@@ -90,10 +94,15 @@ class Tb_productoController extends Controller
     }
 
     public function selectProducto(){
-        //cambios multiempresa
-        foreach (Auth::user()->empresas as $empresa){
-            $idEmpresa=$empresa['id'];
-         }
+
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
         //cambios multiempresa
 
         $productos = Tb_producto::join('tb_coleccion','tb_producto.idColeccion','=','tb_coleccion.id')
@@ -106,10 +115,14 @@ class Tb_productoController extends Controller
 
     public function store(Request $request)
     {
-        //cambios multiempresa
-        foreach (Auth::user()->empresas as $empresa){
-            $idEmpresa=$empresa['id'];
-         }
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
         //cambios multiempresa
 
         //Almacenar Foto de Producto

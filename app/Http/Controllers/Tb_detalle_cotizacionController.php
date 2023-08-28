@@ -18,10 +18,14 @@ class Tb_detalle_cotizacionController extends Controller
      */
     public function index(Request $request)
     {
-        //cambios multiempresa
-        foreach (Auth::user()->empresas as $empresa){
-            $idEmpresa=$empresa['id'];
-         }
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
         //cambios multiempresa
 
         //if(!$request->ajax()) return redirect('/');
@@ -39,10 +43,14 @@ class Tb_detalle_cotizacionController extends Controller
 
     public function posibles(Request $request)
     {
-        //cambios multiempresa
-        foreach (Auth::user()->empresas as $empresa){
-            $idEmpresa=$empresa['id'];
-         }
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
         //cambios multiempresa
 
         //if(!$request->ajax()) return redirect('/');
@@ -60,10 +68,14 @@ class Tb_detalle_cotizacionController extends Controller
 
     public function listar(Request $request)
     {
-        //cambios multiempresa
-        foreach (Auth::user()->empresas as $empresa){
-            $idEmpresa=$empresa['id'];
-         }
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
         //cambios multiempresa
 
         //if(!$request->ajax()) return redirect('/');
@@ -136,10 +148,14 @@ class Tb_detalle_cotizacionController extends Controller
     }
     public function precioproductos($productoid)
     {
-        //cambios multiempresa
-        foreach (Auth::user()->empresas as $empresa){
-            $idEmpresa=$empresa['id'];
-         }
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
         //cambios multiempresa
 
         $identificador= $productoid;
@@ -157,10 +173,10 @@ class Tb_detalle_cotizacionController extends Controller
         //
         $productos = Tb_producto::join('tb_hoja_de_costo','tb_producto.id','=','tb_hoja_de_costo.idProducto')
         ->where('tb_producto.id','=',$identificador)
-        /*         
+        /*
         $productos = Tb_hoja_de_costo::join('tb_producto','tb_hoja_de_costo.idProducto','=','tb_producto.id')
         ->join('tb_area','tb_producto.idArea','=','tb_area.id')
-        ->where('tb_area.idEmpresa','=',$idEmpresa) 
+        ->where('tb_area.idEmpresa','=',$idEmpresa)
         */
         ->select('tb_producto.producto as producto','tb_producto.referencia as referencia','tb_producto.foto as foto',
         'tb_hoja_de_costo.capacidadMensual as capacidadMensual')
@@ -250,10 +266,14 @@ class Tb_detalle_cotizacionController extends Controller
     }
     public function store(Request $request)
     {
-        //cambios multiempresa
-        foreach (Auth::user()->empresas as $empresa){
-            $idEmpresa=$empresa['id'];
-         }
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
         //cambios multiempresa
 
         $identificador=$request->idProducto;

@@ -15,28 +15,38 @@ class HistoricoController extends Controller
     public function listarfecha(Request $request)
     {
         if(!$request->ajax()) return redirect('/');
-        
+
             $fecha1= $request->ingreso;
             $fecha2= $request->salida;
 
-         
+
             $historico = Historico::join('control','historico.idEmpleado','=','control.id')
             ->select('historico.id','control.documento','control.nombres','control.apellidos',
             'historico.ingreso','historico.salida','historico.estado')
             ->where('historico.ingreso','>=',$fecha1)
             ->where('historico.salida','<=',$fecha2 )
-            
+
             ->orderBy('historico.id','desc')
             ->get();
 
         return [
-           
+
                 'historico' => $historico,
         ];
     }
 
     public function index(Request $request)
     {
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
+        //cambios multiempresa
+
         if(!$request->ajax()) return redirect('/');
         $buscar= $request->buscar;
         $criterio= $request->criterio;
@@ -71,13 +81,13 @@ class HistoricoController extends Controller
     }
 
     public function listado(){
-        
+
         $historico = Historico::where('historico.estado','=','1')
         ->orderBy('historico.id','desc')
         ->get();
 
         return ['historico' => $historico];
-    
+
     }
 
     public function store2(Request $request){
@@ -95,7 +105,7 @@ class HistoricoController extends Controller
         $control=Control::findOrFail($request->id);
         $control->estado=$estado;
         $control->save();
-   
+
     }
 
     public function store(Request $request){
@@ -114,7 +124,7 @@ class HistoricoController extends Controller
         $control=Control::findOrFail($request->id);
         $control->estado=$estado;
         $control->save();
-       
+
     }
 
     public function update(Request $request){
@@ -135,7 +145,7 @@ class HistoricoController extends Controller
         $historico=Historico::findOrFail($request->id);
         $historico->estado='0';
         $historico->save();
-        
+
     }
 
     public function activate(Request $request){
@@ -147,7 +157,7 @@ class HistoricoController extends Controller
     }
 
     public function selectNombresApellidos($documento){
-        
+
         $resultado=Empleados::select('empleados.nombres','empleados.apellidos')
         ->where('empleados.documento','=',$documento)
         ->get();
@@ -168,8 +178,8 @@ class HistoricoController extends Controller
         return ['historico' => $historico];
     }
 
-    public function mostrarHistorico(){ 
-       
+    public function mostrarHistorico(){
+
         $historico = Historico::join('control','historico.idEmpleado','=','control.id')
         ->select('historico.id','control.documento','control.nombres','control.apellidos',
         'historico.ingreso','historico.salida','historico.estado')

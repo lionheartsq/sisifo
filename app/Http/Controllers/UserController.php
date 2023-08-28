@@ -22,10 +22,14 @@ class UserController extends Controller
         $buscar= $request->buscar;
         $criterio= $request->criterio;
 
-        //cambios multiempresa
-        foreach (Auth::user()->empresas as $empresa){
-            $idEmpresa=$empresa['id'];
-         }
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
+        }
         //cambios multiempresa
 
         if ($buscar=='') {
@@ -100,11 +104,17 @@ class UserController extends Controller
         $users->password=bcrypt($request->email);
         $users->save();
         $idtabla=DB::getPdo()->lastInsertId();
-        //cambios multiempresa
-        foreach (Auth::user()->empresas as $empresa){
-           $idEmpresa=$empresa['id'];
+
+        // Cambios multiempresa
+        $user = Auth::user();
+        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+        if ($empresa) {
+            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+            // Realizar operaciones con $idEmpresa
         }
         //cambios multiempresa
+
         $usersrela=new Tb_usuario_tiene_rol();
         $usersrela->idUser=$idtabla;
         $usersrela->idRol=$request->idRol;

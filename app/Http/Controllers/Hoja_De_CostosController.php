@@ -21,11 +21,15 @@ class Hoja_De_CostosController extends Controller
 {
         public function acumuladoTotal($identificador)
         {
-        //cambios multiempresa
-        foreach (Auth::user()->empresas as $empresa){
-            $idEmpresa=$empresa['id'];
-         }
-        //cambios multiempresa
+            // Cambios multiempresa
+            $user = Auth::user();
+            $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+            if ($empresa) {
+                $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+                // Realizar operaciones con $idEmpresa
+            }
+            //cambios multiempresa
 
             $total = 0;
             $acumuladomd = 0;
@@ -159,11 +163,15 @@ class Hoja_De_CostosController extends Controller
 //---------------------------------------------------------------------------------------------------------------------------------//
         public function maquinariaTotal($identificador)
         {
-        //cambios multiempresa
-        foreach (Auth::user()->empresas as $empresa){
-            $idEmpresa=$empresa['id'];
-         }
-        //cambios multiempresa
+            // Cambios multiempresa
+            $user = Auth::user();
+            $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+            if ($empresa) {
+                $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+                // Realizar operaciones con $idEmpresa
+            }
+            //cambios multiempresa
 
             $acumuladomaquinaria = 0;
             $id = 1;
@@ -185,11 +193,15 @@ class Hoja_De_CostosController extends Controller
 //---------------------------------------------------------------------------------------------------------------------------------//
         public function cifTiempos($identificador)
         {
-        //cambios multiempresa
-        foreach (Auth::user()->empresas as $empresa){
-            $idEmpresa=$empresa['id'];
-         }
-        //cambios multiempresa
+            // Cambios multiempresa
+            $user = Auth::user();
+            $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+            if ($empresa) {
+                $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+                // Realizar operaciones con $idEmpresa
+            }
+            //cambios multiempresa
 
             //el identificador que paso a esta función es el idSimulacion
             $acumuladocif = 0;
@@ -262,11 +274,15 @@ class Hoja_De_CostosController extends Controller
 //---------------------------------------------------------------------------------------------------------------------------------//
         public function unitarioTotal(Request $request)
         {
-        //cambios multiempresa
-        foreach (Auth::user()->empresas as $empresa){
-            $idEmpresa=$empresa['id'];
-         }
-        //cambios multiempresa
+            // Cambios multiempresa
+            $user = Auth::user();
+            $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+            if ($empresa) {
+                $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+                // Realizar operaciones con $idEmpresa
+            }
+            //cambios multiempresa
 
             $identificador= $request->identificador;
             $simulacion= $request->simulacion;
@@ -425,11 +441,15 @@ class Hoja_De_CostosController extends Controller
 //------------------------------------------------------------------------------------------------------//
         public function hojaDetalle(Request $request)
         {
-        //cambios multiempresa
-        foreach (Auth::user()->empresas as $empresa){
-            $idEmpresa=$empresa['id'];
-         }
-        //cambios multiempresa
+            // Cambios multiempresa
+            $user = Auth::user();
+            $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+            if ($empresa) {
+                $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+                // Realizar operaciones con $idEmpresa
+            }
+            //cambios multiempresa
 
             $identificador= $request->identificador;
             $simulacion= $request->simulacion;
@@ -484,11 +504,15 @@ class Hoja_De_CostosController extends Controller
 //---------------------------------------------------------------------------------------------------------------------------------//
 public function unitarioTotalGen(Request $request)
 {
-        //cambios multiempresa
-        foreach (Auth::user()->empresas as $empresa){
-            $idEmpresa=$empresa['id'];
-         }
-        //cambios multiempresa
+    // Cambios multiempresa
+    $user = Auth::user();
+    $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+    if ($empresa) {
+        $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+        // Realizar operaciones con $idEmpresa
+    }
+    //cambios multiempresa
 
     $identificador= $request->identificador;
 
@@ -615,11 +639,15 @@ public function unitarioTotalGen(Request $request)
 //------------------------------------------------------------------------------------------------------//
 public function hojaDetalleGen(Request $request)
 {
-        //cambios multiempresa
-        foreach (Auth::user()->empresas as $empresa){
-            $idEmpresa=$empresa['id'];
-         }
-        //cambios multiempresa
+    // Cambios multiempresa
+    $user = Auth::user();
+    $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
+
+    if ($empresa) {
+        $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
+        // Realizar operaciones con $idEmpresa
+    }
+    //cambios multiempresa
 
     $identificador= $request->identificador;
 
