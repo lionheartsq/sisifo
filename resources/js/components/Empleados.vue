@@ -23,7 +23,6 @@
                                 <div class="col-md-9">
                                     <div class="input-group">
                                         <select class="form-control col-md-3" v-model="criterio">
-                                        <option value="id">Id</option>
                                         <option value="documento">Documento</option>
                                         <option value="area">Area</option>
                                         <option value="proceso">Proceso</option>
@@ -54,8 +53,11 @@
 
                                     <tr v-for="empleado in arrayEmpleados" :key="empleado.id">
                                         <td>
+                                            <button type="button" @click="mostrarDetalle(empleado.id)" class="btn btn-success btn-sm">
+                                                <i class="icon-eye"></i>
+                                            </button> &nbsp;
 
-                                            <button type="button" @click="abrirModal('empleado','actualizar',empleado)" class="btn btn-warning btn-sm">
+                                            <button type="button" @click="abrirModal('empleado','actualizar', empleado)" class="btn btn-warning btn-sm">
                                             <i class="icon-pencil"></i>
                                             </button> &nbsp;
 
@@ -78,10 +80,10 @@
                                         <td v-text="empleado.proceso"></td>
                                         <td v-text="empleado.perfil"></td>
                                         <td>
-                                            <div v-if="productos.estado == '1'">
+                                            <div v-if="empleado.estado == '1'">
                                             <span class="badge badge-success">Activo</span>
                                             </div>
-                                            <div v-if="productos.estado == '2'">
+                                            <div v-if="empleado.estado == '2'">
                                             <span class="badge badge-danger">Desactivado</span>
                                             </div>
                                         </td>
@@ -311,15 +313,6 @@
                                     </div>
                                 </div>
                             </div>
-                                    <!--<div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="text-input">Genero</label>
-                                         <div class="col-md-9">
-                                        <input type="radio" v-model="genero" value="Masculino">
-                                        <label for="male">Masculino</label><br>
-                                        <input type="radio" v-model="genero" value="Femenino">
-                                        <label for="female">Femenino</label><br>
-                                         </div>
-                                    </div>-->
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group row">
@@ -390,7 +383,7 @@
                                         <label class="col-md-3 form-control-label" for="email-input">Eps</label>
                                         <div class="col-md-9">
                                             <select class="form-control" v-model="idEps">
-                                                <option value="0" disabled>Eps</option>
+                                                <option value="0" disabled>Seleccione Eps</option>
                                                 <option v-for="eps in arrayEps" :key="eps.id" :value="eps.id" v-text="eps.nombreEps"></option>
                                             </select>
                                         </div>
@@ -399,10 +392,10 @@
 
                                 <div class="col-md-6">
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="email-input">Administradora Pensiones</label>
+                                        <label class="col-md-3 form-control-label" for="email-input"> Administradora Pensiones</label>
                                         <div class="col-md-9">
                                             <select class="form-control" v-model="idPensiones">
-                                                <option value="0" disabled>Administradora de Pensiones</option>
+                                                <option value="0" disabled>Seleccione Administradora de Pensiones</option>
                                                 <option v-for="pensiones in arrayPensiones" :key="pensiones.id" :value="pensiones.id" v-text="pensiones.nombrePensiones"></option>
                                             </select>
                                         </div>
@@ -416,7 +409,7 @@
                                         <label class="col-md-3 form-control-label" for="text-input">Tipo de Sangre</label>
                                         <div class="col-md-9">
                                             <select class="form-control" v-model="tipoSangre">
-                                                <option value="0" disabled>Tipo de sangre</option>
+                                                <option value="0" disabled>Seleccione Tipo de sangre</option>
                                                 <option value="A+">A+</option>
                                                 <option value="B+">B+</option>
                                                 <option value="AB+">AB+</option>
@@ -477,7 +470,7 @@
                 contacto:'',
                 telefono: 0,
                 tipoSangre:0,
-                enfermedades:'',
+                enfermedades:'Ninguna',
                 correo:'',
                 estado:'',
                 arrayEmpleados : [],
@@ -848,12 +841,8 @@
                 if (!this.direccion) this.errorMensaje.push("-La Dirección no puede estar vacia ");
                 if (!this.telefono) this.errorMensaje.push("-El Telefono no puede estar vacio ");
                 if (this.telefono<0) this.errorMensaje.push("-El Telefono no puede ser negativo ");
-                if (!this.correo){
-                    this.errorMensaje.push("-El correo del usuario no puede estar vacio ");
-                }else{
-                    if (this.functionMail(this.correo)==false) this.errorMensaje.push("-El formato de correo no es válido ");
-                };
-                if (!this.enfermedades) this.errorMensaje.push("-El telefono de contacto no puede estar vacio ");
+                if (!this.correo){this.errorMensaje.push("-El correo del usuario no puede estar vacio ");}
+                if (!this.telefonocontacto) this.errorMensaje.push("-El telefono de contacto no puede estar vacio ");
                 if (!this.tipoSangre) this.errorMensaje.push("-El tipo de sangre no puede estar vacio ");
                 if (!this.enfermedades) this.errorMensaje.push("-Las enfermedades no pueden estar vacias ");
                 if (this.errorMensaje.length) this.errorEmpleado=1;
@@ -894,6 +883,8 @@
                             this.modal=1;
                             this.empleado='';
                             this.idPerfil=0;
+                            this.tipoSangre=0;
+                            this.enfermedades="Ninguna";
                             this.tituloModal='Crear nuevo empleado';
                             this.tipoAccion= 1;
                             this.selectRelacion(this.idArea);
@@ -901,13 +892,15 @@
                             break;
                         }
                          case 'actualizar':{
-                            //console.log(data);
+                            //console.log(data['enfermedades']);
                             this.modal=1;
                             this.tituloModal='Editar empleado';
                             this.tipoAccion= 2;
                             this.idEmpleado=data['id'];
                             this.documento=data['documento'];
                             this.idArea=data['idArea'];
+                            this.idEps=data['idEps'];
+                            this.idPensiones=data['idPensiones'];
                             this.idProceso=data['idProceso']; //añadido para alimentar el select
                             this.idPerfil=data['idPerfil'];
                             this.nombre=data['nombre'];
@@ -936,7 +929,6 @@
             this.selectPerfil();
             this.selectEps();
             this.selectPensiones();
-            this.selectProceso();
         }
     }
 </script>
