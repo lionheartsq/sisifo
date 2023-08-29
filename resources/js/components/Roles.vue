@@ -41,25 +41,17 @@
 
                                     <tr v-for="roles in arrayRoles" :key="roles.id">
                                         <td>
-                                            <button type="button" @click="abrirModal('roles','actualizar',roles)" class="btn btn-info btn-sm">
-                                            <i class="icon-eye" title="Ver detalles"></i>
-                                            </button> &nbsp;
-
                                             <button type="button" @click="abrirModal('roles','actualizar',roles)" class="btn btn-warning btn-sm">
                                             <i class="icon-pencil" title="Editar datos"></i>
                                             </button> &nbsp;
 
-                                        <template v-if="roles.estado == 'A'">
+                                        <template v-if="roles.estado == '1'">
                                             <button type="button" class="btn btn-danger btn-sm" @click="desactivarRoles(roles.id)">
                                                 <i class="icon-trash" title="Desactivar"></i>
                                             </button>
                                         </template>
-                                        <template v-if="roles.estado == 'E'">
-                                            <button type="button" class="btn btn-danger btn-sm" @click="desactivarRoles(roles.id)">
-                                                <i class="icon-trash" title="Desactivar"></i>
-                                            </button>
-                                        </template>
-                                        <template v-if="roles.estado == 'I'">
+
+                                        <template v-if="roles.estado == '2'">
                                             <button type="button" class="btn btn-success btn-sm" @click="activarRoles(roles.id)">
                                                 <i class="icon-check" title="Reactivar"></i>
                                             </button>

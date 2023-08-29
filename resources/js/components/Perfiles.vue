@@ -37,7 +37,7 @@
                                         <th>Perfil</th>
                                         <th>Valor Minuto</th>
                                         <th>Proceso</th>
-                                        <!-- <th>Area</th> -->
+                                        <th>Area</th>
                                         <th>Estado</th>
                                     </tr>
                                 </thead>
@@ -171,7 +171,7 @@
                 valorMinuto:0,
                 estado:'',
                 arrayPerfil : [],
-                idArea:1,
+                idArea:0,
                 area:'',
                 arrayArea:[],
                 idProceso:0,
@@ -407,6 +407,8 @@
                 this.perfil='';
                 this.valorMinuto='';
                 this.proceso='';
+                this.idProceso= 0;
+                this.idArea= 0;
                 this.errorPerfil = 0,
                 this.errorMensaje = [],
                 this.forceRerender();
@@ -422,7 +424,8 @@
                             this.perfil='';
                             this.tituloModal='Crear nuevo perfil';
                             this.tipoAccion= 1;
-                            this.idProceso= 1;
+                            this.idProceso= 0;
+                            this.idArea= 0;
                             break;
                         }
                         case 'actualizar':{

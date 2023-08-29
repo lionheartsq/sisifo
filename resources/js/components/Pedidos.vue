@@ -121,8 +121,8 @@
                             <div class="modal-body">
                                 <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
 
-                            <div class="ow">
-                                 <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Consecutivo</label>
                                         <div class="col-md-9">
@@ -487,6 +487,9 @@
                 this.modal=0;
                 this.tituloModal='';
                 this.Pedidos='';
+                this.idEmpleados= 0;
+                this.idTipofactura= 0;
+                this.idProveedores= 0;
             },
             listarImpuesto(){
                 let me=this;
@@ -559,6 +562,14 @@
                             this.Pedidos='';
                             this.tituloModal='Crear nuevo pedido';
                             this.tipoAccion= 1;
+                            this.idEmpleados= 0;
+                            this.idTipofactura= 0;
+                            this.idProveedores= 0;
+                            this.consecutivo="";
+                            this.fecha="";
+                            this.valor="";
+                            this.impuesto="";
+                            this.total="";
                             break;
                         }
                         case 'actualizar':{
@@ -594,6 +605,7 @@
 <style>
     .modal-content{
         width: 100% !important;
+        min-width: 1040px;
         position: absolute !important;
     }
     .mostrar{

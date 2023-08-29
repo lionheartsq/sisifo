@@ -448,6 +448,7 @@
                 this.modal=0;
                 this.tituloModal='';
                 this.Usuario='';
+                this.idRol=0;
             },
             abrirModal(modelo, accion, data=[]){
             //tres argumentos, el modelo a modificar o crear, la accion como tal y el arreglo del registro en la tabla
@@ -462,7 +463,7 @@
                             this.nombres='';
                             this.apellidos='';
                             this.password='';
-                            this.idRol=2;
+                            this.idRol=0;
                             this.tituloModal='Crear nuevo usuario';
                             this.tipoAccion= 1;
                             break;
@@ -494,6 +495,7 @@
 <style>
     .modal-content{
         width: 100% !important;
+        min-width: 1040px;
         position: absolute !important;
     }
     .mostrar{
