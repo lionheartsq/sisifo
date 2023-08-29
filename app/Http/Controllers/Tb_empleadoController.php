@@ -127,7 +127,7 @@ class Tb_empleadoController extends Controller
 
         $empleados = Tb_empleado::where('estado','=','1')
         ->where('tb_empleado.idEmpresa','=',$idEmpresa)
-        ->select('id as idEmpleado','empleado')->orderBy('empleado','asc')->get();
+        ->orderBy('nombre','asc')->get();
 
         return ['empleados' => $empleados];
     }

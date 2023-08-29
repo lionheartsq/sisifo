@@ -182,7 +182,7 @@
                                         <div class="col-md-9">
                                             <select class="form-control" v-model="idEmpleados">
                                                 <option value="0" disabled>Seleccione un empleado</option>
-                                                <option v-for="relacion in arrayEmpleados" :key="relacion.id" :value="relacion.id" v-text="relacion.nombres+' '+relacion.apellidos+' - '+relacion.documento"></option>
+                                                <option v-for="relacion in arrayEmpleados" :key="relacion.id" :value="relacion.id" v-text="relacion.nombre+' '+relacion.apellido+' - '+relacion.documento"></option>
                                             </select>
                                         </div>
                                     </div>
@@ -538,7 +538,7 @@
             },
             listarempleados(){
                 let me=this;
-                var url='/empleados/listado';
+                var url='/empleado/selectEmpleado';
                 // Make a request for a user with a given ID
                 axios.get(url).then(function (response) {
                     // handle success

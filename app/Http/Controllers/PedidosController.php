@@ -27,22 +27,22 @@ class PedidosController extends Controller
         $criterio= $request->criterio;
 
         if ($buscar=='') {
-            $pedidos = Pedidos::join("empleados","pedidos.idVendedor","=","empleados.id")
+            $pedidos = Pedidos::join("tb_empleado","pedidos.idVendedor","=","tb_empleado.id")
             ->join("proveedores","pedidos.idProveedores","=","proveedores.id")
             ->join("tipofactura","pedidos.idTipoFactura","=","tipofactura.id")
             ->select("pedidos.id", "pedidos.consecutivo", "pedidos.fecha", "pedidos.valor", "pedidos.impuesto", "pedidos.total", "pedidos.idVendedor", "pedidos.idTipoFactura",
-            "pedidos.idProveedores", "pedidos.idEmpresa", "pedidos.estado","empleados.id as idEmpleado","empleados.nombres as nombresVendedor", "tipofactura.detalle as tipoFactura",
-            "empleados.apellidos as apellidosVendedor","proveedores.id as idProveedores","proveedores.razonSocial")
+            "pedidos.idProveedores", "pedidos.idEmpresa", "pedidos.estado","tb_empleado.id as idEmpleado","tb_empleado.nombre as nombresVendedor", "tipofactura.detalle as tipoFactura",
+            "tb_empleado.apellido as apellidosVendedor","proveedores.id as idProveedores","proveedores.razonSocial")
             ->orderBy('pedidos.id','desc')
             ->paginate(5);
         }
         else {
-            $pedidos = Pedidos::join("empleados","pedidos.idVendedor","=","empleados.id")
+            $pedidos = Pedidos::join("tb_empleado","pedidos.idVendedor","=","tb_empleado.id")
             ->join("proveedores","pedidos.idProveedores","=","proveedores.id")
             ->join("tipofactura","pedidos.idTipoFactura","=","tipofactura.id")
             ->select("pedidos.id", "pedidos.consecutivo", "pedidos.fecha", "pedidos.valor", "pedidos.impuesto", "pedidos.total", "pedidos.idVendedor", "pedidos.idTipoFactura",
-            "pedidos.idProveedores", "pedidos.idEmpresa", "pedidos.estado","empleados.id as idEmpleado","empleados.nombres as nombresVendedor", "tipofactura.detalle as tipoFactura",
-            "empleados.apellidos as apellidosVendedor","proveedores.id as idProveedores","proveedores.razonSocial")
+            "pedidos.idProveedores", "pedidos.idEmpresa", "pedidos.estado","tb_empleado.id as idEmpleado","tb_empleado.nombre as nombresVendedor", "tipofactura.detalle as tipoFactura",
+            "tb_empleado.apellido as apellidosVendedor","proveedores.id as idProveedores","proveedores.razonSocial")
             ->where('pedidos.estado','=','1')
             ->where($criterio, 'like', '%'. $buscar . '%')
             ->orderBy('pedidos.id','desc')
@@ -73,12 +73,12 @@ class PedidosController extends Controller
         }
         //cambios multiempresa
 
-        $pedidos = Pedidos::join("empleados","pedidos.idVendedor","=","empleados.id")
+        $pedidos = Pedidos::join("tb_empleado","pedidos.idVendedor","=","tb_empleado.id")
         ->join("proveedores","pedidos.idProveedores","=","proveedores.id")
         ->join("tipofactura","pedidos.idTipoFactura","=","tipofactura.id")
         ->select("pedidos.id", "pedidos.consecutivo", "pedidos.fecha", "pedidos.valor", "pedidos.impuesto", "pedidos.total", "pedidos.idVendedor", "pedidos.idTipoFactura",
-        "pedidos.idProveedores", "pedidos.idEmpresa", "pedidos.estado","empleados.id as idEmpleado","empleados.nombres as nombresVendedor", "tipofactura.detalle as tipoFactura",
-        "empleados.apellidos as apellidosVendedor","proveedores.id as idProveedores","proveedores.razonSocial")
+        "pedidos.idProveedores", "pedidos.idEmpresa", "pedidos.estado","tb_empleado.id as idEmpleado","tb_empleado.nombre as nombresVendedor", "tipofactura.detalle as tipoFactura",
+        "tb_empleado.apellido as apellidosVendedor","proveedores.id as idProveedores","proveedores.razonSocial")
         ->where('pedidos.estado','=','1')
         ->orderBy('pedidos.id','desc')
         ->get();
