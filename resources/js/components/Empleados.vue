@@ -55,15 +55,11 @@
                                     <tr v-for="empleado in arrayEmpleados" :key="empleado.id">
                                         <td>
 
-                                            <button type="button" @click="mostrarDetalle(empleado.id)" class="btn btn-success btn-sm">
-                                            <i class="icon-eye"></i>
-                                            </button> &nbsp;
-
                                             <button type="button" @click="abrirModal('empleado','actualizar',empleado)" class="btn btn-warning btn-sm">
                                             <i class="icon-pencil"></i>
                                             </button> &nbsp;
 
-                                        <template v-if="empleado.estado">
+                                            <template v-if="empleado.estado==1">
                                             <button type="button" class="btn btn-danger btn-sm" @click="desactivarEmpleado(empleado.id)">
                                                 <i class="icon-trash"></i>
                                             </button>
@@ -82,10 +78,10 @@
                                         <td v-text="empleado.proceso"></td>
                                         <td v-text="empleado.perfil"></td>
                                         <td>
-                                            <div v-if="empleado.estado">
+                                            <div v-if="productos.estado == '1'">
                                             <span class="badge badge-success">Activo</span>
                                             </div>
-                                            <div v-else>
+                                            <div v-if="productos.estado == '2'">
                                             <span class="badge badge-danger">Desactivado</span>
                                             </div>
                                         </td>
@@ -243,16 +239,23 @@
                                 <span aria-hidden="true">×</span>
                                 </button>
                             </div>
+
                             <div class="modal-body">
                                 <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+
+                        <div class="row">
+                            <div class="col-md-6">
                                 <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Documento</label>
                                         <div class="col-md-9">
                                             <input type="number" v-model="documento" class="form-control" placeholder="Documento de Identificación">
                                         </div>
                                     </div>
+                                </div>
+
+                                <div class="col-md-6">
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="text-input">Area</label>
+                                        <label class="col-md-3 form-control-label" for="text-input">Área</label>
                                         <div class="col-md-9">
                                             <select class="form-control" v-model="idArea" @change='selectRelacion(area.idArea)'>
                                                 <option value="0" disabled>Seleccione un área</option>
@@ -260,16 +263,23 @@
                                             </select>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Proceso</label>
                                         <div class="col-md-9">
-                                            <select class="form-control" v-model="idProceso" @change='selectRelacionPerfil(relacion.idProceso)'>
+                                            <select class="form-control" v-model="idProceso" @change='selectRelacionp(proceso.idProceso)'>
                                                 <option value="0" disabled>Seleccione un proceso</option>
-                                                <option v-for="relacion in arrayRelacion" :key="relacion.idProceso" :value="relacion.idProceso" v-text="relacion.proceso"></option>
+                                                <option v-for="proceso in arrayProceso" :key="proceso.idProceso" :value="proceso.idProceso" v-text="proceso.proceso"></option>
                                             </select>
                                         </div>
                                     </div>
+                                </div>
 
+                                <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Perfil</label>
                                         <div class="col-md-9">
@@ -279,18 +289,28 @@
                                             </select>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
                                      <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
                                         <div class="col-md-9">
                                             <input type="text" v-model="nombre" class="form-control" placeholder="Nombre del Empleado">
                                         </div>
                                     </div>
+                                </div>
+
+                                    <div class="col-md-6">
                                      <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Apellido</label>
                                         <div class="col-md-9">
                                             <input type="text" v-model="apellido" class="form-control" placeholder="Apellido del Empleado">
                                         </div>
                                     </div>
+                                </div>
+                            </div>
                                     <!--<div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Genero</label>
                                          <div class="col-md-9">
@@ -300,6 +320,8 @@
                                         <label for="female">Femenino</label><br>
                                          </div>
                                     </div>-->
+                            <div class="row">
+                                <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Genero</label>
                                         <div class="col-md-9">
@@ -310,66 +332,103 @@
                                             </select>
                                         </div>
                                     </div>
+                                </div>
+
+                                    <div class="col-md-6">
                                      <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Dirección</label>
                                         <div class="col-md-9">
                                             <input type="text" v-model="direccion" class="form-control" placeholder="Dirección del Empleado">
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Telefono</label>
                                         <div class="col-md-9">
                                             <input type="number" v-model="telefono" class="form-control" placeholder="Telefono del Empleado">
                                         </div>
                                     </div>
+                                </div>
+
+                                    <div class="col-md-6">
                                      <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Correo</label>
                                         <div class="col-md-9">
                                             <input type="text" v-model="correo" class="form-control" placeholder="Correo del Empleado">
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Contacto emergencia</label>
                                         <div class="col-md-9">
                                             <input type="text" v-model="contacto" class="form-control" placeholder="Contacto de emergencia">
                                         </div>
                                     </div>
+                                </div>
+
+                                 <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Telefono emergencia</label>
                                         <div class="col-md-9">
                                             <input type="number" v-model="telefonocontacto" class="form-control" placeholder="Telefono de emergencia">
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="email-input">Seleccione la Eps</label>
+                                        <label class="col-md-3 form-control-label" for="email-input">Eps</label>
                                         <div class="col-md-9">
                                             <select class="form-control" v-model="idEps">
-                                                <option value="0" disabled>Seleccione la Eps</option>
+                                                <option value="0" disabled>Eps</option>
                                                 <option v-for="eps in arrayEps" :key="eps.id" :value="eps.id" v-text="eps.nombreEps"></option>
                                             </select>
                                         </div>
                                     </div>
+                                </div>
+
+                                <div class="col-md-6">
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="email-input">Seleccione la Administradora Pensiones</label>
+                                        <label class="col-md-3 form-control-label" for="email-input">Administradora Pensiones</label>
                                         <div class="col-md-9">
                                             <select class="form-control" v-model="idPensiones">
-                                                <option value="0" disabled>Seleccione la Administradora de Pensiones</option>
+                                                <option value="0" disabled>Administradora de Pensiones</option>
                                                 <option v-for="pensiones in arrayPensiones" :key="pensiones.id" :value="pensiones.id" v-text="pensiones.nombrePensiones"></option>
                                             </select>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
                                      <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Tipo de Sangre</label>
                                         <div class="col-md-9">
                                             <input type="text" v-model="tipoSangre" class="form-control" placeholder="Tipo de sangre">
                                         </div>
                                     </div>
+                                </div>
+
+                                <div class="col-md-6">
                                     <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="text-input">Enfermedades Existentes</label>
+                                        <label class="col-md-3 form-control-label" for="text-input">Enfermedades</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="enfermedades" class="form-control" placeholder="Enfermedades existentes">
+                                            <input type="text" v-model="enfermedades" class="form-control" placeholder="Enfermedades">
                                         </div>
                                     </div>
+                                </div>
+                            </div>
                                     <div class="form-group row div-error" v-show="errorEmpleado">
                                         <div class="text-center text-error">
                                             <div v-for="error in errorMensaje" :key="error" v-text="error"></div>
@@ -428,7 +487,7 @@
                 relacion:'',
                 perfilrelacion:'',
                 colorx:'#8B0000',
-                arrayRelacion: [],
+                arrayProceso: [],
                 idPerfil:0,
                 perfil:'',
                 arrayPerfilRelacion:[],
@@ -570,12 +629,12 @@
                     console.log(error);
                 })
             },
-            selectRelacion(idArea){
+            selectProceso(){
                 let me=this;
-                var url='/perfil/selectRelacion/'+this.idArea;
+                var url='/proceso/selectProceso/';
                 axios.get(url).then(function (response) {
                 var respuesta=response.data;
-                me.arrayRelacion=respuesta.relaciones;
+                me.arrayProceso=respuesta.proceso;
                 })
                 .catch(function (error) {
                     // handle error
@@ -771,18 +830,22 @@
                 this.errorEmpleado=0;
                 this.errorMensaje=[];
 
-                if (!this.documento) this.errorMensaje.push("El Documento no puede estar vacio");
-                if (this.documento<0) this.errorMensaje.push("El Documento no puede ser negativo");
-                if (!this.nombre) this.errorMensaje.push("El Nombre no puede estar vacio");
-                if (!this.apellido) this.errorMensaje.push("El Apellido no puede estar vacio");
-                if (!this.genero) this.errorMensaje.push("El Genero no puede estar vacio");
-                if (!this.direccion) this.errorMensaje.push("La Dirección no puede estar vacia");
-                if (!this.telefono) this.errorMensaje.push("El Telefono no puede estar vacio");
-                if (this.telefono<0) this.errorMensaje.push("El Telefono puede ser negativo");
-                if (!this.correo) this.errorMensaje.push("El Correo no puede estar vacio");
-                if (!this.enfermedades) this.errorMensaje.push("El telefono de contacto no puede estar vacio");
-                if (!this.tipoSangre) this.errorMensaje.push("El tipo de sangre no puede estar vacio");
-                if (!this.enfermedades) this.errorMensaje.push("Las enfermedades no pueden estar vacias");
+                if (!this.documento) this.errorMensaje.push("-El Documento no puede estar vacio ");
+                if (this.documento<0) this.errorMensaje.push("-El Documento no puede ser negativo ");
+                if (!this.nombre) this.errorMensaje.push("-El Nombre no puede estar vacio ");
+                if (!this.apellido) this.errorMensaje.push("-El Apellido no puede estar vacio ");
+                if (!this.genero) this.errorMensaje.push("-El Genero no puede estar vacio ");
+                if (!this.direccion) this.errorMensaje.push("-La Dirección no puede estar vacia ");
+                if (!this.telefono) this.errorMensaje.push("-El Telefono no puede estar vacio ");
+                if (this.telefono<0) this.errorMensaje.push("-El Telefono no puede ser negativo ");
+                if (!this.correo){
+                    this.errorMensaje.push("-El correo del usuario no puede estar vacio ");
+                }else{
+                    if (this.functionMail(this.correo)==false) this.errorMensaje.push("-El formato de correo no es válido ");
+                };
+                if (!this.enfermedades) this.errorMensaje.push("-El telefono de contacto no puede estar vacio ");
+                if (!this.tipoSangre) this.errorMensaje.push("-El tipo de sangre no puede estar vacio ");
+                if (!this.enfermedades) this.errorMensaje.push("-Las enfermedades no pueden estar vacias ");
                 if (this.errorMensaje.length) this.errorEmpleado=1;
 
                 return this.errorEmpleado;
@@ -824,6 +887,7 @@
                             this.tituloModal='Crear nuevo empleado';
                             this.tipoAccion= 1;
                             this.selectRelacion(this.idArea);
+                            this.selectRelacionp(this.idProceso);
                             break;
                         }
                          case 'actualizar':{
@@ -847,7 +911,7 @@
                             this.tipoSangre=data=['tipoSangre'];
                             this.enfermedades=data=['enfermedades'];
                             this.selectRelacion(this.idArea);
-                            this.selectRelacionPerfil(this.idProceso);
+                            this.selectRelacionp(this.idProceso);
                             break;
                         }
                     }
@@ -862,6 +926,7 @@
             this.selectPerfil();
             this.selectEps();
             this.selectPensiones();
+            this.selectProceso();
         }
     }
 </script>

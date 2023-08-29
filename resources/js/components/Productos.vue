@@ -35,7 +35,7 @@
                                         <th>Opciones</th>
                                         <th>PLU</th>
                                         <th>Detalle</th>
-                                        <th>Medida</th>
+                                        <th>Unidad</th>
                                         <th>Valor Compra</th>
                                         <th>Pvp</th>
                                         <th>Impuesto</th>
@@ -65,7 +65,7 @@
                                         </td>
                                         <td v-text="productos.plu"></td>
                                         <td v-text="productos.detalle"></td>
-                                        <td v-text="productos.nombreMedida"></td>
+                                        <td v-text="productos.unidadBase"></td>
                                         <td>{{productos.valorCompra | currency}}</td>
                                         <td>{{productos.pvp | currency}}</td>
                                         <td v-text="productos.nombreImpuesto"></td>
@@ -127,11 +127,11 @@
 
                             <div class="col-md-6">
                                 <div class="form-group row">
-                                    <label class="col-md-3 form-control-label" for="text-input">Medida</label>
+                                    <label class="col-md-3 form-control-label" for="text-input">Unidad</label>
                                     <div class="col-md-9">
-                                        <select class="form-control" v-model="idMedida">
-                                            <option value="0" disabled>Seleccione una medida</option>
-                                            <option v-for="relacion in arrayMedidas" :key="relacion.id" :value="relacion.id" v-text="relacion.nombre"></option>
+                                        <select class="form-control" v-model="unidad_id">
+                                            <option value="0" disabled>Seleccione una unidad</option>
+                                            <option v-for="relacion in arrayUnidades" :key="relacion.id" :value="relacion.id" v-text="relacion.unidadBase"></option>
                                         </select>
                                     </div>
                                 </div>
@@ -140,7 +140,7 @@
 
                                     <div class="form-group row">
                                         <label class="col-md-2 form-control-label" for="text-input">Detalle</label>
-                                        <div class="col-md-10">
+                                        <div class="col-md-9">
                                             <input type="text" v-model="detalle" class="form-control" placeholder="Detalle del producto">
                                             <span class="help-block">(*) Ingrese el detalle del producto</span>
                                         </div>
@@ -225,14 +225,14 @@
                 productos:'',
                 estado:'',
                 arrayProductos : [],
-                arrayMedidas : [],
+                arrayUnidades : [],
                 arrayImpuestos : [],
                 arrayGrupos : [],
                 modal : 0,
                 tituloModal : '',
                 tipoAccion : 0,
                 idGrupos : 0,
-                idMedida : 0,
+                unidad_id : 0,
                 idImpuesto : 0,
                 errorProductos : 0,
                 errorMensaje : [],
@@ -312,7 +312,7 @@
                 axios.post('/productos/store',{
                     'plu': this.plu,
                     'detalle': this.detalle,
-                    'idMedida': this.idMedida,
+                    'unidad_id': this.unidad_id,
                     'valorCompra': this.valorCompra,
                     'pvp': this.pvp,
                     'idImpuesto': this.idImpuesto,
@@ -337,7 +337,7 @@
                     'id': this.idProductos,
                     'plu': this.plu,
                     'detalle': this.detalle,
-                    'idMedida': this.idMedida,
+                    'unidad_id': this.unidad_id,
                     'idImpuesto': this.idImpuesto,
                     'idGrupos': this.idGrupos,
                     'valorCompra': this.valorCompra,
@@ -432,7 +432,7 @@
 
                 if (!this.plu) this.errorMensaje.push("-El plu de los productos no puede estar vacio ");
                 if (!this.detalle) this.errorMensaje.push("-El detalle de los productos no puede estar vacio ");
-                if (!this.idMedida) this.errorMensaje.push("-La medida de los productos no puede estar vacio ");
+                if (!this.unidad_id) this.errorMensaje.push("-La unidad de los productos no puede estar vacio ");
                 if (!this.valorCompra) this.errorMensaje.push("-El valor compra de los productos no puede estar vacio ");
                 if (!this.pvp) this.errorMensaje.push("-El pvp de los productos no puede estar vacio ");
                 if (!this.idImpuesto) this.errorMensaje.push("-El impuesto de los productos no puede estar vacio ");
@@ -461,14 +461,14 @@
                     console.log(error);
                 })
             },
-            listarMedidas(){
+            listarUnidad(){
                 let me=this;
-                var url='/medida/listado';
+                var url='/unidades/listado';
                 // Make a request for a user with a given ID
                 axios.get(url).then(function (response) {
                     // handle success
                 var respuesta=response.data;
-                me.arrayMedidas=respuesta.medida;
+                me.arrayUnidades=respuesta.unidades;
                     //console.log(response);
                 })
                 .catch(function (error) {
@@ -512,7 +512,7 @@
                             this.idProductos=data['id'];
                             this.plu=data['plu'];
                             this.detalle=data['detalle'];
-                            this.idMedida=data['idMedida'];
+                            this.unidad_id=data['unidad_id'];
                             this.idImpuesto=data['idImpuesto'];
                             this.idGrupos=data['idGrupos'];
                             this.valorCompra=data['valorCompra'];
@@ -526,7 +526,7 @@
         },
         mounted() {
             this.listarProductos(1,this.buscar,this.criterio);
-            this.listarMedidas();
+            this.listarUnidad();
             this.listarImpuestos();
             this.listarGrupos();
         }
@@ -535,6 +535,7 @@
 <style>
     .modal-content{
         width: 100% !important;
+        min-width: 1040px;
         position: absolute !important;
     }
     .mostrar{
