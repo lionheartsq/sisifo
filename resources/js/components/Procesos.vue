@@ -106,6 +106,7 @@
                                         <label class="col-md-3 form-control-label" for="text-input">Area</label>
                                         <div class="col-md-9">
                                             <select class="form-control" v-model="idArea">
+                                                <option value="0" disabled>Seleccione un área</option>
                                                 <option v-for="area in arrayArea" :key="area.idArea" :value="area.idArea" v-text="area.area"></option>
                                             </select>
                                         </div>
@@ -148,7 +149,7 @@
                 proceso:'',
                 estado:'',
                 arrayProceso : [],
-                idArea:1,
+                idArea:0,
                 area:'',
                 arrayArea:[],
                 modal : 0,
@@ -383,7 +384,7 @@
                             this.idArea=data['idArea'];
                             this.tituloModal='Crear nuevo proceso';
                             this.tipoAccion= 1;
-                            this.idArea=1;
+                            this.idArea=0;
                             break;
                         }
                         case 'actualizar':{

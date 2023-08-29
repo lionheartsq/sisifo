@@ -445,6 +445,9 @@
                 this.modal=0;
                 this.tituloModal='';
                 this.Productos='';
+                this.unidad_id=0;
+                this.idImpuesto=0;
+                this.idGrupos=0;
             },
             listarGrupos(){
                 let me=this;
@@ -502,6 +505,13 @@
                             this.Productos='';
                             this.tituloModal='Crear nuevo producto';
                             this.tipoAccion= 1;
+                            this.unidad_id=0;
+                            this.idImpuesto=0;
+                            this.idGrupos=0;
+                            this.plu="";
+                            this.detalle="";
+                            this.valorCompra="";
+                            this.pvp="";
                             break;
                         }
                         case 'actualizar':{
