@@ -340,8 +340,8 @@
                 this.errorConcepto=0;
                 this.errorMensaje=[];
 
-                if (!this.concepto) this.errorMensaje.push("El nombre del concepto no puede estar vacio");
-                if (!this.valor) this.errorMensaje.push("El valor no puede estar vacio");
+                if (!this.concepto) this.errorMensaje.push("-El nombre del concepto no puede estar vacio ");
+                if (!this.valor) this.errorMensaje.push("-El valor no puede estar vacio ");
                 if (this.errorMensaje.length) this.errorConcepto=1;
 
                 return this.errorConcepto;

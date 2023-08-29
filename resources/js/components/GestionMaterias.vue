@@ -105,9 +105,12 @@
                                 <span aria-hidden="true">×</span>
                                 </button>
                             </div>
+
                             <div class="modal-body">
                                 <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
 
+                             <div class="row">
+                                 <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
                                         <div class="col-md-9">
@@ -115,7 +118,9 @@
                                             <span class="help-block">(*) Ingrese el nombre de la materia</span>
                                         </div>
                                     </div>
+                                </div>
 
+                                <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Unidad Base</label>
                                         <div class="col-md-9">
@@ -125,7 +130,11 @@
                                             </select>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
 
+                            <div class="row">
+                                <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Precio base</label>
                                         <div class="col-md-9">
@@ -133,7 +142,9 @@
                                             <span class="help-block">(*) Ingrese el precio base</span>
                                         </div>
                                     </div>
+                                </div>
 
+                                <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Clasificación</label>
                                         <div class="col-md-9">
@@ -143,6 +154,8 @@
                                             </select>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
 
                                     <div class="form-group row div-error" v-show="errorGestionMateria">
                                         <div class="text-center text-error">
@@ -403,10 +416,11 @@
             validarGestionMateria(){
                 this.errorGestionMateria=0;
                 this.errorMensaje=[];
-                if (!this.gestionMateria) this.errorMensaje.push("El nombre de la gestión no puede estar vacio");
-                if (this.idUnidadBase==0) this.errorMensaje.push("Debe elegir una unidad base");
-                if (this.idTipoMateria==0) this.errorMensaje.push("Debe elegir un tipo de materia");
-                if (!this.precioBase) this.errorMensaje.push("El precio base no puede estar vacio");
+
+                if (!this.gestionMateria) this.errorMensaje.push("-El nombre de la gestión no puede estar vacio ");
+                if (this.idUnidadBase==0) this.errorMensaje.push("-Debe elegir una unidad base ");
+                if (this.idTipoMateria==0) this.errorMensaje.push("-Debe elegir un tipo de materia ");
+                if (!this.precioBase) this.errorMensaje.push("-El precio base no puede estar vacio ");
                 if (this.errorMensaje.length) this.errorGestionMateria=1;
 
                 return this.errorGestionMateria;
@@ -468,6 +482,7 @@
 <style>
     .modal-content{
         width: 100% !important;
+        min-width: 1040px;
         position: absolute !important;
     }
     .mostrar{

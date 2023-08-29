@@ -284,12 +284,12 @@
                 me.listarClientes(page,buscar,criterio);
             },
             limpiarmodal(){
-                this.cédula='';
+                this.cedula='';
                 this.nombres='';
                 this.apellidos='';
-                this.dirección='';
+                this.direccion='';
                 this.correo='';
-                this.teléfono='';
+                this.telefono='';
             },
             crearClientes(){
                 //valido con el metodo de validacion creado
@@ -301,9 +301,9 @@
                     'cedula': this.cedula,
                     'nombres': this.nombres,
                     'apellidos': this.apellidos,
-                    'direccion': this.dirección,
+                    'direccion': this.direccion,
                     'correo': this.correo,
-                    'telefono': this.teléfono
+                    'telefono': this.telefono
                 }).then(function (response) {
                 me.limpiarmodal();
                 me.cerrarModal();
@@ -323,9 +323,9 @@
                     'cedula': this.cedula,
                     'nombres': this.nombres,
                     'apellidos': this.apellidos,
-                    'direccion': this.dirección,
+                    'direccion': this.direccion,
                     'correo': this.correo,
-                    'telefono': this.teléfono
+                    'telefono': this.telefono
                 }).then(function (response) {
                 me.cerrarModal();
                 me.listarClientes(1,'','clientes');

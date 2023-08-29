@@ -21,7 +21,6 @@
                                     <div class="input-group">
                                         <select class="form-control col-md-3" v-model="criterio">
                                         <option value="rol">Rol</option>
-                                        <option value="estado">Estado</option>
                                         </select>
                                         <input type="text" v-model="buscar" @keyup.enter="listarRoles(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
                                         <button type="submit" @click="listarRoles(1,buscar,criterio)" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
@@ -59,7 +58,6 @@
 
                                         </td>
                                         <td v-text="roles.rol"></td>
-                                        <td v-text="roles.estado"></td>
                                         <td>
                                             <div v-if="roles.estado == '1'">
                                             <span class="badge badge-success">Activo</span>
@@ -103,14 +101,16 @@
 
                             <div class="modal-body">
                                 <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Rol</label>
                                         <div class="col-md-9">
-                                            <input type="number" v-model="rol" class="form-control" placeholder="Rol del usuario">
+                                            <input type="text" v-model="rol" class="form-control" placeholder="Rol del usuario">
                                             <span class="help-block">(*) Ingrese el rol del usuario</span>
                                         </div>
                                     </div>
-                                    <div class="form-group row div-error" v-show="errorUsuario">
+
+                                    <div class="form-group row div-error" v-show="errorRoles">
                                         <div class="text-center text-error">
                                             <div v-for="error in errorMensaje" :key="error" v-text="error"></div>
                                         </div>
@@ -220,12 +220,12 @@
 
                 let me=this;
                 axios.post('/roles/store',{
-                    'usuario': this.roles
+                    'Roles': this.roles
                     //'estado': this.estado,
                     //'dato': this.dato
                 }).then(function (response) {
                 me.cerrarModal();
-                me.listarRoles(1,'','Roles');
+                me.listarRoles(1,'','roles');
                 })
                 .catch(function (error) {
                     console.log(error);
@@ -309,7 +309,7 @@
                     axios.put('/roles/activate',{
                         'id': id
                     }).then(function (response) {
-                    me.listarroles(1,'','roles');
+                    me.listarRoles(1,'','roles');
                     swalWithBootstrapButtons.fire(
                     'Roles activado!'
                     )
@@ -328,7 +328,7 @@
                 this.errorRoles=0;
                 this.errorMensaje=[];
 
-                if (!this.rol) this.errorMensaje.push("El rol de roles no puede estar vacio");
+                if (!this.rol) this.errorMensaje.push("-El rol del usuario no puede estar vacio ");
                 if (this.errorMensaje.length) this.errorRoles=1;
 
                 return this.errorRoles;

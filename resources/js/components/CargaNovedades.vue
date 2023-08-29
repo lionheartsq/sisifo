@@ -680,6 +680,7 @@ import moment from 'moment';
 <style>
     .modal-content{
         width: 100% !important;
+        min-width: 1040px;
         position: absolute !important;
     }
     .mostrar{
