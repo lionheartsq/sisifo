@@ -213,13 +213,18 @@ Route::group(['middleware' => ['Superadministrador']], function () {
     Route::put("/tipologia/activate", "TipologiaController@activate");
     Route::get("/tipologia/listado", "TipologiaController@listado");
 
-    Route::get("/empleados", "EmpleadosController@index");
-    Route::post("/empleados/store", "EmpleadosController@store");
-    Route::put("/empleados/update", "EmpleadosController@update");
-    Route::put("/empleados/deactivate", "EmpleadosController@deactivate");
-    Route::put("/empleados/activate", "EmpleadosController@activate");
-    Route::get("/empleados/listado", "EmpleadosController@listado");
-    Route::get("/empleados/selectEmpleados", "EmpleadosController@selectEmpleados");
+    Route::get("/empleado", "Tb_empleadoController@index");
+    Route::post("/empleado/store", "Tb_empleadoController@store");
+    Route::put("/empleado/update", "Tb_empleadoController@update");
+    Route::put("/empleado/deactivate", "Tb_empleadoController@deactivate");
+    Route::put("/empleado/activate", "Tb_empleadoController@activate");
+    Route::get("/empleado/detalleEmpleado", "Tb_empleadoController@detalleEmpleado");
+    Route::get("/empleado/vinculacionEmpleado", "Tb_empleadoController@vinculacionEmpleado");
+    Route::get("/empleado/selectEmpleado", "Tb_empleadoController@selectEmpleado");
+    Route::get("/empleado/selectEps", "Tb_empleadoController@selectEps");
+    Route::get("/empleado/selectPensiones", "Tb_empleadoController@selectPensiones");
+    Route::get("/empleado/selectRelacion/{id}", "Tb_empleadoController@selectRelacion");
+    Route::get("/empleado/selectRelacionPerfil/{id}", "Tb_empleadoController@selectRelacionPerfil");
 
     Route::get("/control", "ControlController@index");
     Route::post("/control/store", "ControlController@store");

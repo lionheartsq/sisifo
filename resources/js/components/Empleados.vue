@@ -415,7 +415,17 @@
                                      <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Tipo de Sangre</label>
                                         <div class="col-md-9">
-                                            <input type="text" v-model="tipoSangre" class="form-control" placeholder="Tipo de sangre">
+                                            <select class="form-control" v-model="tipoSangre">
+                                                <option value="0" disabled>Tipo de sangre</option>
+                                                <option value="A+">A+</option>
+                                                <option value="B+">B+</option>
+                                                <option value="AB+">AB+</option>
+                                                <option value="O+">O+</option>
+                                                <option value="A-">A-</option>
+                                                <option value="B-">B-</option>
+                                                <option value="AB-">AB-</option>
+                                                <option value="O-">O-</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
@@ -461,12 +471,12 @@
                 listado: 1,
                 nombre:'',
                 apellido:'',
-                genero:'',
+                genero:0,
                 direccion:'',
                 telefonocontacto:0,
                 contacto:'',
                 telefono: 0,
-                tipoSangre:'',
+                tipoSangre:0,
                 enfermedades:'',
                 correo:'',
                 estado:'',
@@ -629,19 +639,19 @@
                     console.log(error);
                 })
             },
-            selectProceso(){
+            selectRelacion(idArea){
                 let me=this;
-                var url='/proceso/selectProceso/';
+                var url='/perfil/selectRelacion/'+this.idArea;
                 axios.get(url).then(function (response) {
                 var respuesta=response.data;
-                me.arrayProceso=respuesta.proceso;
+                me.arrayProceso=respuesta.relaciones;
                 })
                 .catch(function (error) {
                     // handle error
                     console.log(error);
                 })
             },
-            selectRelacionPerfil(idProceso){
+            selectRelacionp(idProceso){
                 let me=this;
                 var url='/empleado/selectRelacionPerfil/'+this.idProceso;
                 axios.get(url).then(function (response) {
@@ -855,20 +865,20 @@
                 this.tituloModal='';
                 this.empleado='';
                 this.documento="";
-                this.idArea="";
-                this.idProceso="";
-                this.idPerfil=
+                this.idArea=0;
+                this.idProceso=0;
+                this.idPerfil=0;
                 this.nombre="";
                 this.apellido= "";
-                this.genero="";
+                this.genero=0;
                 this.direccion="";
                 this.telefono="";
                 this.correo="";
                 this.contacto="";
                 this.telefonocontacto="";
-                this.idEps="";
-                this.idPensiones="";
-                this.tipoSangre="";
+                this.idEps=0;
+                this.idPensiones=0;
+                this.tipoSangre=0;
                 this.enfermedades="";
                 this.errorEmpleado = 0,
                 this.errorMensaje = [],
@@ -883,7 +893,7 @@
                         case 'crear':{
                             this.modal=1;
                             this.empleado='';
-                            this.idPerfil=data['idPerfil'];
+                            this.idPerfil=0;
                             this.tituloModal='Crear nuevo empleado';
                             this.tipoAccion= 1;
                             this.selectRelacion(this.idArea);
