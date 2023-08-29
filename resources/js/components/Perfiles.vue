@@ -37,7 +37,7 @@
                                         <th>Perfil</th>
                                         <th>Valor Minuto</th>
                                         <th>Proceso</th>
-                                        <th>Area</th>
+                                        <th>Área</th>
                                         <th>Estado</th>
                                     </tr>
                                 </thead>
@@ -64,7 +64,7 @@
                                         <td v-text="perfil.perfil"></td>
                                         <td v-text="perfil.valorMinuto"></td>
                                         <td v-text="perfil.proceso"></td>
-                                        <!-- <td v-text="perfil.area"></td> -->
+                                        <td v-text="perfil.area"></td>
                                         <td>
                                             <div v-if="perfil.estado==1">
                                             <span class="badge badge-success">Activo</span>
@@ -393,10 +393,11 @@
                 this.errorPerfil=0;
                 this.errorMensaje=[];
 
-                if (!this.idProceso) this.errorMensaje.push("El nombre del proceso no puede estar vacio");
-                if (!this.perfil) this.errorMensaje.push("El nombre del perfil no puede estar vacio");
-                if (!this.valorMinuto) this.errorMensaje.push("El valor del minuto no puede estar vacio");
-                if (this.valorMinuto<0) this.errorMensaje.push("El valor del minuto no puede ser negativo");
+                if (!this.idArea) this.errorMensaje.push("-El área del perfil no puede estar vacio ");
+                if (!this.idProceso) this.errorMensaje.push("-El proceso del pefil no puede estar vacio ");
+                if (!this.perfil) this.errorMensaje.push("-El nombre del perfil no puede estar vacio ");
+                if (!this.valorMinuto) this.errorMensaje.push("-El valor del minuto no puede estar vacio ");
+                if (this.valorMinuto<0) this.errorMensaje.push("-El valor del minuto no puede ser negativo ");
                 if (this.errorMensaje.length) this.errorPerfil=1;
 
                 return this.errorPerfil;

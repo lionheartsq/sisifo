@@ -32,7 +32,6 @@
                                 <thead>
                                     <tr>
                                         <th>Opciones</th>
-                                        <th>Id</th>
                                         <th>Maquinaria</th>
                                         <th>Valor</th>
                                         <th>Tiempo de vida util</th>
@@ -62,7 +61,6 @@
                                         </template>
 
                                         </td>
-                                        <td v-text="maquinaria.id"></td>
                                         <td v-text="maquinaria.maquinaria"></td>
                                         <td v-text="maquinaria.valor"></td>
                                         <td v-text="maquinaria.tiempoDeVidaUtil"></td>
@@ -108,8 +106,12 @@
                                 <span aria-hidden="true">×</span>
                                 </button>
                             </div>
+
                             <div class="modal-body">
                                 <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+
+                            <div class="row">
+                                <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
                                         <div class="col-md-9">
@@ -117,6 +119,9 @@
                                             <span class="help-block">(*) Ingrese el nombre de la maquinaria</span>
                                         </div>
                                     </div>
+                                </div>
+
+                                 <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Valor</label>
                                         <div class="col-md-9">
@@ -124,6 +129,11 @@
                                             <span class="help-block">(*) Ingrese el valor de la maquinaria</span>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Vida útil en años</label>
                                         <div class="col-md-9">
@@ -131,6 +141,9 @@
                                             <span class="help-block">(*) Ingrese el tiempo de vida útil en años</span>
                                         </div>
                                     </div>
+                                </div>
+
+                                <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Fecha apróximada compra</label>
                                         <div class="col-md-9">
@@ -138,6 +151,9 @@
                                             <span class="help-block">(*) Ingrese la fecha apróximada de compra</span>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+
                                     <div class="form-group row div-error" v-show="errorMaquinaria">
                                         <div class="text-center text-error">
                                             <div v-for="error in errorMensaje" :key="error" v-text="error"></div>
@@ -373,10 +389,10 @@
                 this.errorMaquinaria=0;
                 this.errorMensaje=[];
 
-                if (!this.maquinaria) this.errorMensaje.push("El nombre de la maquinaria no puede estar vacio");
-                if (!this.valor) this.errorMensaje.push("El valor de la maquinaria no puede estar vacio");
-                if (!this.tiempoDeVidaUtil) this.errorMensaje.push("El tiempo de vida útil no puede estar vacio");
-                if (!this.fecha) this.errorMensaje.push("La fecha de compra no puede estar vacia");
+                if (!this.maquinaria) this.errorMensaje.push("-El nombre de la maquinaria no puede estar vacio ");
+                if (!this.valor) this.errorMensaje.push("-El valor de la maquinaria no puede estar vacio ");
+                if (!this.tiempoDeVidaUtil) this.errorMensaje.push("-El tiempo de vida útil no puede estar vacio ");
+                if (!this.fecha) this.errorMensaje.push("-La fecha de compra no puede estar vacia ");
                 if (this.errorMensaje.length) this.errorMaquinaria=1;
 
                 return this.errorMaquinaria;
@@ -435,6 +451,7 @@
 <style>
     .modal-content{
         width: 100% !important;
+        min-width: 1040px;
         position: absolute !important;
     }
     .mostrar{

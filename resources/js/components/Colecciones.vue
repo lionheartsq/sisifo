@@ -49,7 +49,7 @@
                                             <i class="icon-pencil"></i>
                                             </button> &nbsp;
                                         <!--para modificar luego-->
-                                        <template v-if="coleccion.estado">
+                                        <template v-if="coleccion.estado==1">
                                             <button type="button" class="btn btn-danger btn-sm" @click="desactivarColeccion(coleccion.id)">
                                                 <i class="icon-trash"></i>
                                             </button>
@@ -65,7 +65,7 @@
                                         <td v-text="coleccion.coleccion"></td>
                                         <td v-text="coleccion.referencia"></td>
                                         <td>
-                                            <div v-if="coleccion.estado">
+                                            <div v-if="coleccion.estado==1">
                                             <span class="badge badge-success">Activo</span>
                                             </div>
                                             <div v-else>

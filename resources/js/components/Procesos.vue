@@ -359,7 +359,9 @@
             validarProceso(){
                 this.errorProceso=0;
                 this.errorMensaje=[];
-                if (!this.proceso) this.errorMensaje.push("El nombre del proceso no puede estar vacio");
+
+                if (!this.idArea) this.errorMensaje.push("-El área del proceso no puede estar vacio ");
+                if (!this.proceso) this.errorMensaje.push("-El nombre del proceso no puede estar vacio ");
                 if (this.errorMensaje.length) this.errorProceso=1;
 
                 return this.errorProceso;

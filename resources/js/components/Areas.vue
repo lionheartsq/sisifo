@@ -3,7 +3,7 @@
                 <!-- Breadcrumb -->
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">Home</li>
-                    <li class="breadcrumb-item active">Areas</li>
+                    <li class="breadcrumb-item active">Áreas</li>
                 </ol>
                 <div class="container-fluid">
                     <!-- Ejemplo de tabla Listado -->
@@ -20,7 +20,6 @@
                                 <div class="col-md-9">
                                     <div class="input-group">
                                         <select class="form-control col-md-3" v-model="criterio">
-                                        <option value="id">Id</option>
                                         <option value="area">Área</option>
                                         </select>
                                         <input type="text" v-model="buscar" @keyup.enter="listarArea(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
@@ -33,7 +32,6 @@
                                 <thead>
                                     <tr>
                                         <th>Opciones</th>
-                                        <th>Id</th>
                                         <th>Área</th>
                                         <th>Estado</th>
                                     </tr>
@@ -57,7 +55,6 @@
                                             </button>
                                         </template>
                                         </td>
-                                        <td v-text="area.id"></td>
                                         <td v-text="area.area"></td>
                                         <td>
                                             <div v-if="area.estado==1">
@@ -273,7 +270,7 @@
                     }).then(function (response) {
                     me.listarArea(1,'','area');
                     swalWithBootstrapButtons.fire(
-                    'Area desactivada!'
+                    'Área desactivada!'
                     )
                     }).catch(function (error) {
                         console.log(error);
@@ -310,7 +307,7 @@
                     }).then(function (response) {
                     me.listarArea(1,'','area');
                     swalWithBootstrapButtons.fire(
-                    'Area activada!'
+                    'Área activada!'
                     )
                     }).catch(function (error) {
                         console.log(error);
@@ -327,7 +324,7 @@
                 this.errorArea=0;
                 this.errorMensaje=[];
 
-                if (!this.area) this.errorMensaje.push("El nombre del área no puede estar vacio");
+                if (!this.area) this.errorMensaje.push("-El nombre del área no puede estar vacio ");
                 if (this.errorMensaje.length) this.errorArea=1;
 
                 return this.errorArea;

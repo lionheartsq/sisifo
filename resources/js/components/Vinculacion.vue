@@ -24,7 +24,9 @@
                                 <div class="col-md-9">
                                     <div class="input-group">
                                         <select class="form-control col-md-3" v-model="criterio">
-                                        <option value="id">Id</option>
+                                        <option value="idEmpleado">Empleado</option>
+                                        <option value="tipoContrato">Tipo Contrato</option>
+                                        <option value="tipoSalario">Tipo Salario</option>
                                         </select>
                                         <input type="text" v-model="buscar" @keyup.enter="listarVinculacion(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
                                         <button type="submit" @click="listarVinculacion(1,buscar,criterio)" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
@@ -216,9 +218,12 @@
                                 <span aria-hidden="true">×</span>
                                 </button>
                             </div>
+
                             <div class="modal-body">
                                 <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
 
+                            <div class="row">
+                                <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Empleado</label>
                                         <div class="col-md-9">
@@ -228,7 +233,21 @@
                                             </select>
                                         </div>
                                     </div>
+                                </div>
 
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="col-md-3 form-control-label" for="text-input">Fecha de Inicio</label>
+                                            <div class="col-md-9">
+                                                <input type="date" v-model="fechaInicio" class="form-control" placeholder="Ingrese la fecha de inicio">
+                                                <span class="help-block">(*) Ingrese fecha de inicio</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Tipo Salario</label>
                                         <div class="col-md-9">
@@ -239,10 +258,24 @@
                                             </select>
                                         </div>
                                     </div>
+                                </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="col-md-3 form-control-label" for="text-input">Nivel ARL</label>
+                                            <div class="col-md-9">
+                                                <select class="form-control" v-model="idNivelArl">
+                                                    <option value="0" disabled>Seleccione un nivel de riesgo</option>
+                                                    <option v-for="nivel in arrayNiveles" :key="nivel.id" :value="nivel.id" v-text="nivel.nivelArl"></option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
                                     <div class="form-group row" v-if="flag==1">
-                                        <label class="col-md-3 form-control-label" for="text-input">Tipo Contrato</label>
-                                        <div class="col-md-9">
+                                        <label class="col-md-2 form-control-label" for="text-input">Tipo Contrato</label>
+                                        <div class="col-md-10">
                                             <select class="form-control" v-model="tipoContrato" @change='tiempoPago($event)'>
                                                 <option value="0" disabled>Seleccione un tipo de contrato</option>
                                                 <option value="1">Termino Fijo</option>
@@ -252,36 +285,18 @@
                                     </div>
 
                                     <div class="form-group row" v-if="flag==1 && tiempo==1">
-                                        <label class="col-md-3 form-control-label" for="text-input">Tiempo contrato</label>
-                                        <div class="col-md-9">
+                                        <label class="col-md-2 form-control-label" for="text-input">Tiempo contrato</label>
+                                        <div class="col-md-10">
                                             <input type="number" v-model="tiempoContrato" class="form-control" placeholder="Ingrese el tiempo en dias">
                                             <span class="help-block">(*) Ingrese el tiempo del contrato</span>
                                         </div>
                                     </div>
 
                                     <div class="form-group row" v-if="flag==1">
-                                        <label class="col-md-3 form-control-label" for="text-input">Salario Base</label>
-                                        <div class="col-md-9">
+                                        <label class="col-md-2 form-control-label" for="text-input">Salario Base</label>
+                                        <div class="col-md-10">
                                             <input type="number" v-model="salarioBasicoMensual" class="form-control" placeholder="Ingrese el salario básico mensual">
                                             <span class="help-block">(*) Ingrese el salario básico mensual</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="text-input">Fecha de Inicio</label>
-                                        <div class="col-md-9">
-                                            <input type="date" v-model="fechaInicio" class="form-control" placeholder="Ingrese la fecha de inicio">
-                                            <span class="help-block">(*) Ingrese fecha de inicio</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group row">
-                                        <label class="col-md-3 form-control-label" for="text-input">Nivel ARL</label>
-                                        <div class="col-md-9">
-                                            <select class="form-control" v-model="idNivelArl">
-                                                <option value="0" disabled>Seleccione un nivel de riesgo</option>
-                                                <option v-for="nivel in arrayNiveles" :key="nivel.id" :value="nivel.id" v-text="nivel.nivelArl"></option>
-                                            </select>
                                         </div>
                                     </div>
 
@@ -589,6 +604,10 @@
                 this.errorVinculacion=0;
                 this.errorMensaje=[];
 
+                if (!this.idEmpleado) this.errorMensaje.push("-El empleado de la vinculacion no puede estar vacio ");
+                if (!this.fechaInicio) this.errorMensaje.push("-La fecha inicio de la vinculacion no puede estar vacio ");
+                if (!this.tipoSalario) this.errorMensaje.push("-El tipo salario de la vinculacion no puede estar vacio ");
+                if (!this.idNivelArl) this.errorMensaje.push("-El nivel arl de la vinculacion no puede estar vacio ");
                 //if (!this.idEmpleado) this.errorMensaje.push("El nombre del empleado no puede estar vacio");
                 if (this.errorMensaje.length) this.errorVinculacion=1;
 
@@ -662,6 +681,9 @@
                 this.tipoSalario=0;
                 this.tituloModal='';
                 this.vinculacion='';
+                this.idEmpleado=0;
+                this.fechaInicio='';
+                this.idNivelArl=0;
                 this.errorVinculacion = 0,
                 this.errorMensaje = [],
                 this.forceRerender();

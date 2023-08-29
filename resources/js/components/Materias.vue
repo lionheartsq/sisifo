@@ -20,7 +20,6 @@
                                 <div class="col-md-9">
                                     <div class="input-group">
                                         <select class="form-control col-md-3" v-model="criterio">
-                                        <option value="id">Id</option>
                                         <option value="tipoMateria">Clasificación</option>
                                         </select>
                                         <input type="text" v-model="buscar" @keyup.enter="listarMateria(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
@@ -33,7 +32,6 @@
                                 <thead>
                                     <tr>
                                         <th>Opciones</th>
-                                        <th>Id</th>
                                         <th>Clasificación</th>
                                         <th>Estado</th>
                                     </tr>
@@ -56,7 +54,6 @@
                                             </button>
                                         </template>
                                         </td>
-                                        <td v-text="materia.id"></td>
                                         <td v-text="materia.tipoMateria"></td>
                                         <td>
                                             <div v-if="materia.estado">
@@ -331,7 +328,7 @@
                 this.errorMateria=0;
                 this.errorMensaje=[];
 
-                if (!this.tipoMateria) this.errorMensaje.push("El nombre de la clasificación no puede estar vacio");
+                if (!this.tipoMateria) this.errorMensaje.push("-El nombre de la clasificación no puede estar vacio ");
                 if (this.errorMensaje.length) this.errorMateria=1;
 
                 return this.errorMateria;

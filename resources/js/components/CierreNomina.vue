@@ -138,6 +138,8 @@
                             <div class="modal-body">
                                 <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
 
+                            <div class="row">
+                                <div class="col-md-6">
                                     <div v-if="tipoModal==1" class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Tipo Nómina</label>
                                         <div class="col-md-9">
@@ -149,7 +151,9 @@
                                             </select>
                                         </div>
                                     </div>
+                                </div>
 
+                                <div class="col-md-6">
                                     <div v-if="tipoModal==1"  class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Fecha Inicio</label>
                                         <div class="col-md-9">
@@ -157,6 +161,11 @@
                                             <span class="help-block">(*) Ingrese la fecha de inicio</span>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
                                     <div v-if="tipoModal==1"  class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Fecha Fin</label>
                                         <div class="col-md-9">
@@ -164,15 +173,19 @@
                                             <span class="help-block">(*) Ingrese la fecha de fin</span>
                                         </div>
                                     </div>
-                                    <div v-if="tipoModal==1" class="form-group row">
+                                </div>
 
+                                <div class="col-md-6">
+                                    <div v-if="tipoModal==1" class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Observación</label>
                                         <div class="col-md-9">
                                             <input type="text" v-model="observacion" class="form-control" placeholder="Observación">
                                             <span class="help-block">(*) Ingrese detalle de la nómina</span>
                                         </div>
-
                                     </div>
+                                </div>
+                            </div>
+
                                     <div class="form-group row div-error" v-show="errorNomina">
                                         <div class="text-center text-error">
                                             <div v-for="error in errorMensaje" :key="error" v-text="error"></div>
@@ -211,7 +224,7 @@
 
         data(){
             return{
-                idNomina:0,
+                idNomina:'',
                 identificador:0,
                 id:'',
                 tipoNomina:0,
@@ -464,6 +477,7 @@
 <style>
     .modal-content{
         width: 100% !important;
+        min-width: 1040px;
         position: absolute !important;
     }
     .mostrar{

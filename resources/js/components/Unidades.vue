@@ -20,7 +20,6 @@
                                 <div class="col-md-9">
                                     <div class="input-group">
                                         <select class="form-control col-md-3" v-model="criterio">
-                                        <option value="id">Id</option>
                                         <option value="unidadBase">Unidad</option>
                                         </select>
                                         <input type="text" v-model="buscar" @keyup.enter="listarUnidad(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
@@ -33,7 +32,6 @@
                                 <thead>
                                     <tr>
                                         <th>Opciones</th>
-                                        <th>Id</th>
                                         <th>Unidad</th>
                                         <th>Estado</th>
                                     </tr>
@@ -56,7 +54,6 @@
                                             </button>
                                         </template>
                                         </td>
-                                        <td v-text="unidad.id"></td>
                                         <td v-text="unidad.unidadBase"></td>
                                         <td>
                                             <div v-if="unidad.estado==1">
@@ -334,7 +331,7 @@
                 this.errorUnidad=0;
                 this.errorMensaje=[];
 
-                if (!this.unidadBase) this.errorMensaje.push("El nombre de la unidad no puede estar vacio");
+                if (!this.unidadBase) this.errorMensaje.push("-El nombre de la unidad no puede estar vacio ");
                 if (this.errorMensaje.length) this.errorUnidad=1;
 
                 return this.errorUnidad;
