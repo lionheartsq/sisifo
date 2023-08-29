@@ -445,6 +445,13 @@
                             this.Proveedores='';
                             this.tituloModal='Crear nuevo proveedor';
                             this.tipoAccion= 1;
+                            this.idProveedores="";
+                            this.nit="";
+                            this.razonSocial="";
+                            this.contacto="";
+                            this.telefono="";
+                            this.direccion="";
+                            this.correo="";
                             break;
                         }
                         case 'actualizar':{
@@ -474,6 +481,7 @@
 <style>
     .modal-content{
         width: 100% !important;
+        min-width: 1040px;
         position: absolute !important;
     }
     .mostrar{

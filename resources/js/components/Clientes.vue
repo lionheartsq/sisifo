@@ -447,6 +447,12 @@
                             this.Clientes='';
                             this.tituloModal='Crear nuevo cliente';
                             this.tipoAccion= 1;
+                            this.cedula="";
+                            this.nombres="";
+                            this.apellidos="";
+                            this.direccion="";
+                            this.telefono="";
+                            this.correo="";
                             break;
                         }
                         case 'actualizar':{
@@ -476,6 +482,7 @@
 <style>
     .modal-content{
         width: 100% !important;
+        min-width: 1040px;
         position: absolute !important;
     }
     .mostrar{
