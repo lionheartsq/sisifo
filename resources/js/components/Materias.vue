@@ -45,7 +45,7 @@
                                             <i class="icon-pencil"></i>
                                             </button> &nbsp;
 
-                                        <template v-if="materia.estado">
+                                        <template v-if="materia.estado==1">
                                             <button type="button" class="btn btn-danger btn-sm" @click="desactivarMateria(materia.id)">
                                                 <i class="icon-trash"></i>
                                             </button>
