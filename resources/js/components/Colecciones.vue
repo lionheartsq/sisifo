@@ -22,7 +22,6 @@
                                     <div class="input-group">
                                         <select class="form-control col-md-3" v-model="criterio">
                                         <option value="coleccion">Colección</option>
-                                        <option value="id">Id</option>
                                         </select>
                                         <!--para modificar luego-->
                                         <input type="text" v-model="buscar" @keyup.enter="listarColeccion(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
@@ -35,7 +34,6 @@
                                 <thead>
                                     <tr>
                                         <th>Opciones</th>
-                                        <th>Id</th>
                                         <th>Colección</th>
                                         <th>Referencia</th>
                                         <th>Estado</th>
@@ -61,7 +59,6 @@
                                         </template>
 
                                         </td>
-                                        <td v-text="coleccion.id"></td>
                                         <td v-text="coleccion.coleccion"></td>
                                         <td v-text="coleccion.referencia"></td>
                                         <td>
