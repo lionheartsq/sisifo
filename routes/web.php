@@ -178,12 +178,13 @@ Route::group(['middleware' => ['Superadministrador']], function () {
     Route::put("/pedidos/activate", "PedidosController@activate");
     Route::get("/pedidos/listado", "PedidosController@listado");
 
-    Route::get("/productos", "ProductosController@index");
-    Route::post("/productos/store", "ProductosController@store");
-    Route::put("/productos/update", "ProductosController@update");
-    Route::put("/productos/deactivate", "ProductosController@deactivate");
-    Route::put("/productos/activate", "ProductosController@activate");
-    Route::get("/productos/listado", "ProductosController@listado");
+    Route::get("/productos", "Tb_productoController@index");
+    Route::post("/productos/store", "Tb_productoController@store");
+    Route::put("/productos/update", "Tb_productoController@update");
+    Route::put("/productos/deactivate", "Tb_productoController@deactivate");
+    Route::put("/productos/activate", "Tb_productoController@activate");
+    Route::get("/productos/listado", "Tb_productoController@listado");
+    Route::get("/productos/selectproducto", "Tb_productoController@selectProducto");
 
     Route::get("/registros", "RegistrosController@index");
     Route::post("/registros/store", "RegistrosController@store");

@@ -42,7 +42,8 @@ class Tb_productoController extends Controller
                 $join->on('tb_producto.idArea','=','tb_area.id');
             })
             ->where('tb_coleccion.idEmpresa','=',$idEmpresa)
-            ->select('tb_hoja_de_costo.id as idHojaDeCosto','tb_producto.id','tb_producto.producto','tb_producto.referencia','tb_producto.foto','tb_producto.descripcion','tb_producto.estado','tb_coleccion.id as idColeccion','tb_coleccion.coleccion','tb_coleccion.estado as estado_coleccion','tb_area.id as idArea','tb_area.area','tb_area.estado as estado_area')
+            ->select('tb_hoja_de_costo.id as idHojaDeCosto','tb_producto.id','tb_producto.producto','tb_producto.referencia','tb_producto.foto','tb_producto.descripcion','tb_producto.estado','tb_coleccion.id as idColeccion',
+            'tb_coleccion.coleccion','tb_coleccion.estado as estado_coleccion','tb_area.id as idArea','tb_area.area','tb_area.estado as estado_area')
             ->orderBy('tb_producto.id','desc')->paginate(5);
         }
         else if($criterio=='coleccion'){
@@ -52,7 +53,8 @@ class Tb_productoController extends Controller
                 $join->on('tb_producto.idArea','=','tb_area.id');
             })
             ->where('tb_coleccion.idEmpresa','=',$idEmpresa)
-            ->select('tb_hoja_de_costo.id as idHojaDeCosto','tb_producto.id','tb_producto.producto','tb_producto.referencia','tb_producto.foto','tb_producto.descripcion','tb_producto.estado','tb_coleccion.id as idColeccion','tb_coleccion.coleccion','tb_coleccion.estado as estado_coleccion','tb_area.id as idArea','tb_area.area','tb_area.estado as estado_area')
+            ->select('tb_hoja_de_costo.id as idHojaDeCosto','tb_producto.id','tb_producto.producto','tb_producto.referencia','tb_producto.foto','tb_producto.descripcion','tb_producto.estado','tb_coleccion.id as idColeccion',
+            'tb_coleccion.coleccion','tb_coleccion.estado as estado_coleccion','tb_area.id as idArea','tb_area.area','tb_area.estado as estado_area')
             ->where('tb_coleccion.'.$criterio, 'like', '%'. $buscar . '%')
             ->orderBy('tb_producto.id','desc')->paginate(5);
         }
@@ -63,7 +65,8 @@ class Tb_productoController extends Controller
                 $join->on('tb_producto.idArea','=','tb_area.id');
             })
             ->where('tb_coleccion.idEmpresa','=',$idEmpresa)
-            ->select('tb_hoja_de_costo.id as idHojaDeCosto','tb_producto.id','tb_producto.producto','tb_producto.referencia','tb_producto.foto','tb_producto.descripcion','tb_producto.estado','tb_coleccion.id as idColeccion','tb_coleccion.coleccion','tb_coleccion.estado as estado_coleccion','tb_area.id as idArea','tb_area.area','tb_area.estado as estado_area')
+            ->select('tb_hoja_de_costo.id as idHojaDeCosto','tb_producto.id','tb_producto.producto','tb_producto.referencia','tb_producto.foto','tb_producto.descripcion','tb_producto.estado','tb_coleccion.id as idColeccion',
+            'tb_coleccion.coleccion','tb_coleccion.estado as estado_coleccion','tb_area.id as idArea','tb_area.area','tb_area.estado as estado_area')
             ->where('tb_area.'.$criterio, 'like', '%'. $buscar . '%')
             ->orderBy('tb_producto.id','desc')->paginate(5);
         }
@@ -74,7 +77,8 @@ class Tb_productoController extends Controller
                 $join->on('tb_producto.idArea','=','tb_area.id');
             })
             ->where('tb_coleccion.idEmpresa','=',$idEmpresa)
-            ->select('tb_hoja_de_costo.id as idHojaDeCosto','tb_producto.id','tb_producto.producto','tb_producto.referencia','tb_producto.foto','tb_producto.descripcion','tb_producto.estado','tb_coleccion.id as idColeccion','tb_coleccion.coleccion','tb_coleccion.estado as estado_coleccion','tb_area.id as idArea','tb_area.area','tb_area.estado as estado_area')
+            ->select('tb_hoja_de_costo.id as idHojaDeCosto','tb_producto.id','tb_producto.producto','tb_producto.referencia','tb_producto.foto','tb_producto.descripcion','tb_producto.estado','tb_coleccion.id as idColeccion',
+            'tb_coleccion.coleccion','tb_coleccion.estado as estado_coleccion','tb_area.id as idArea','tb_area.area','tb_area.estado as estado_area')
             ->where('tb_producto.'.$criterio, 'like', '%'. $buscar . '%')
             ->orderBy('tb_producto.id','desc')->paginate(5);
 
@@ -139,11 +143,17 @@ class Tb_productoController extends Controller
         $tb_producto=new Tb_producto();
         $tb_producto->producto=$request->producto;
         $tb_producto->referencia=$request->referencia;
+        $tb_producto->plu=$request->plu;
         $tb_producto->foto=$name;
         $tb_producto->descripcion=$request->descripcion;
+        $tb_producto->idMedida=$request->idMedida;
         $tb_producto->idColeccion=$request->idColeccion;
         $tb_producto->idArea=$request->idArea;
-        $tb_producto->presentacion=$request->presentacion;
+        $tb_producto->idEmpresa=$request->idEmpresa;
+        $tb_producto->idImpuesto=$request->idImpuesto;
+        $tb_producto->tipo=$request->tipo;
+        $tb_producto->valorCompra=$request->valorCompra;
+        $tb_producto->pvp=$request->pvp;
         $tb_producto->save();
 
         $idProducto=$tb_producto->id;

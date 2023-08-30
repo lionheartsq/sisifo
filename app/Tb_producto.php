@@ -11,11 +11,16 @@ class Tb_producto extends Model
     protected $fillable = [
         'producto',
         'referencia',
+        'plu',
         'foto',
         'descripcion',
+        'idMedida',
         'idColeccion',
         'idArea',
-        'presentacion',
+        'idImpuesto',
+        'valorCompra',
+        'pvp',
+        'tipo',
         'estado',
         'idEmpresa'
     ];

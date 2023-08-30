@@ -21,7 +21,7 @@ class CreateDetallepedidosTable extends Migration {
 			$table->integer('valorImpuesto');
 			$table->integer('total');
 			$table->foreignId('idPedidos')->constrained('pedidos');
-			$table->foreignId('idProductos')->constrained('productos');
+			$table->foreignId('idProductos')->constrained('tb_producto');
             $table->foreignId('idEmpresa')->constrained('tb_configuracion_basica');
 		});
 	}
