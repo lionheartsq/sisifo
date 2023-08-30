@@ -230,6 +230,10 @@
                 arrayGrupos : [],
                 modal : 0,
                 tituloModal : '',
+                plu:'',
+                detalle:'',
+                valorCompra:'',
+                pvp:0,
                 tipoAccion : 0,
                 idGrupos : 0,
                 unidad_id : 0,
@@ -430,13 +434,13 @@
                 this.errorProductos=0;
                 this.errorMensaje=[];
 
-                if (!this.plu) this.errorMensaje.push("-El plu de los productos no puede estar vacio ");
-                if (!this.detalle) this.errorMensaje.push("-El detalle de los productos no puede estar vacio ");
-                if (!this.unidad_id) this.errorMensaje.push("-La unidad de los productos no puede estar vacio ");
-                if (!this.valorCompra) this.errorMensaje.push("-El valor compra de los productos no puede estar vacio ");
-                if (!this.pvp) this.errorMensaje.push("-El pvp de los productos no puede estar vacio ");
-                if (!this.idImpuesto) this.errorMensaje.push("-El impuesto de los productos no puede estar vacio ");
-                if (!this.idGrupos) this.errorMensaje.push("-El grupo de los productos no puede estar vacio ");
+                //if (!this.plu) this.errorMensaje.push("-El plu de los productos no puede estar vacio ");
+                //if (!this.detalle) this.errorMensaje.push("-El detalle de los productos no puede estar vacio ");
+                //if (!this.unidad_id) this.errorMensaje.push("-La unidad de los productos no puede estar vacio ");
+                //if (!this.valorCompra) this.errorMensaje.push("-El valor compra de los productos no puede estar vacio ");
+                //if (!this.pvp) this.errorMensaje.push("-El pvp de los productos no puede estar vacio ");
+                //if (!this.idImpuesto) this.errorMensaje.push("-El impuesto de los productos no puede estar vacio ");
+                //if (!this.idGrupos) this.errorMensaje.push("-El grupo de los productos no puede estar vacio ");
                 if (this.errorMensaje.length) this.errorProductos=1;
 
                 return this.errorProductos;
@@ -466,7 +470,7 @@
             },
             listarUnidad(){
                 let me=this;
-                var url='/unidades/listado';
+                var url='/unidad/selectUnidad';
                 // Make a request for a user with a given ID
                 axios.get(url).then(function (response) {
                     // handle success
