@@ -21,7 +21,6 @@
                                 <div class="col-md-9">
                                     <div class="input-group">
                                         <select class="form-control col-md-3" v-model="criterio">
-                                        <option value="id">Id</option>
                                         <option value="idEmpleado">Empleado</option>
                                         </select>
                                         <input type="text" v-model="buscar" @keyup.enter="listarTiempoEstandar(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
