@@ -11,18 +11,22 @@ class Tb_areaController extends Controller
 {
     public function index(Request $request)
     {
+        //if(!$request->ajax()) return redirect('/');
+        $buscar= $request->buscar;
+        $criterio= $request->criterio;
+
         // Cambios multiempresa
         $idEmpresa =Auth::user()->idEmpresa;
         //cambios multiempresa
 
         if ($buscar=='') {
             $areas = Tb_area::orderBy('tb_area.id','desc')
-            //->where('tb_area.idEmpresa','=',$idEmpresa)
+            ->where('tb_area.idEmpresa','=',$idEmpresa)
             ->paginate(5);
         }
         else {
             $areas = Tb_area::where($criterio, 'like', '%'. $buscar . '%')
-            //->where('tb_area.idEmpresa','=',$idEmpresa)
+            ->where('tb_area.idEmpresa','=',$idEmpresa)
             ->orderBy('tb_area.id','desc')
             ->paginate(5);
         }
@@ -57,7 +61,7 @@ class Tb_areaController extends Controller
     public function store(Request $request)
     {
         // Cambios multiempresa
-        $idEmpresa =Auth::user()->idEmpresa;
+        $idEmpresa =Auth        ::user()->idEmpresa;
         //cambios multiempresa
 
         //if(!$request->ajax()) return redirect('/');

@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Tb_rol;
+use App\Roles;
 use App\User;
-use App\Tb_usuario_tiene_rol;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -22,10 +21,10 @@ class Tb_rolController extends Controller
         $criterio= $request->criterio;
 
         if ($buscar=='') {
-            $roles = Tb_rol::orderBy('id','desc')->paginate(5);
+            $roles = Roles::orderBy('id','desc')->paginate(5);
         }
         else {
-            $roles = Tb_rol::where($criterio, 'like', '%'. $buscar . '%')->orderBy('id','desc')->paginate(5);
+            $roles = Roles::where($criterio, 'like', '%'. $buscar . '%')->orderBy('id','desc')->paginate(5);
         }
 
         return [
@@ -42,7 +41,7 @@ class Tb_rolController extends Controller
     }
 
     public function selectRol(){
-        $roles = Tb_rol::where('estado','=','1')
+        $roles = Roles::where('estado','=','1')
         ->select('id as idRol','rol')->orderBy('rol','asc')->get();
         return ['roles' => $roles];
     }
@@ -54,7 +53,7 @@ class Tb_rolController extends Controller
         //cambios multiempresa
 
         if(!$request->ajax()) return redirect('/');
-        $tb_rol=new Tb_rol();
+        $tb_rol=new Roles();
         $tb_rol->rol=$request->rol;
         $tb_rol->save();
     }
@@ -62,7 +61,7 @@ class Tb_rolController extends Controller
     public function update(Request $request)
     {
         if(!$request->ajax()) return redirect('/');
-        $tb_rol=Tb_rol::findOrFail($request->id);
+        $tb_rol=Roles::findOrFail($request->id);
         $tb_rol->rol=$request->rol;
         $tb_rol->estado='1';
         $tb_rol->save();
@@ -71,7 +70,7 @@ class Tb_rolController extends Controller
     public function deactivate(Request $request)
     {
         if(!$request->ajax()) return redirect('/');
-        $tb_rol=Tb_rol::findOrFail($request->id);
+        $tb_rol=Roles::findOrFail($request->id);
         $tb_rol->estado='2';
         $tb_rol->save();
     }
@@ -79,7 +78,7 @@ class Tb_rolController extends Controller
     public function activate(Request $request)
     {
         if(!$request->ajax()) return redirect('/');
-        $tb_rol=Tb_rol::findOrFail($request->id);
+        $tb_rol=Roles::findOrFail($request->id);
         $tb_rol->estado='1';
         $tb_rol->save();
     }
