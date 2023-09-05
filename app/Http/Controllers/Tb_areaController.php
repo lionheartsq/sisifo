@@ -11,18 +11,8 @@ class Tb_areaController extends Controller
 {
     public function index(Request $request)
     {
-        //if(!$request->ajax()) return redirect('/');
-        $buscar= $request->buscar;
-        $criterio= $request->criterio;
-
         // Cambios multiempresa
-        $user = Auth::user();
-        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
-
-        if ($empresa) {
-            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
-            // Realizar operaciones con $idEmpresa
-        }
+        $idEmpresa =Auth::user()->idEmpresa;
         //cambios multiempresa
 
         if ($buscar=='') {
@@ -53,13 +43,7 @@ class Tb_areaController extends Controller
     public function selectArea(){
 
         // Cambios multiempresa
-        $user = Auth::user();
-        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
-
-        if ($empresa) {
-            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
-            // Realizar operaciones con $idEmpresa
-        }
+        $idEmpresa =Auth::user()->idEmpresa;
         //cambios multiempresa
 
         $areas = Tb_area::where('estado','=','1')
@@ -73,13 +57,7 @@ class Tb_areaController extends Controller
     public function store(Request $request)
     {
         // Cambios multiempresa
-        $user = Auth::user();
-        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
-
-        if ($empresa) {
-            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
-            // Realizar operaciones con $idEmpresa
-        }
+        $idEmpresa =Auth::user()->idEmpresa;
         //cambios multiempresa
 
         //if(!$request->ajax()) return redirect('/');
@@ -92,7 +70,10 @@ class Tb_areaController extends Controller
     public function update(Request $request)
     {
         //if(!$request->ajax()) return redirect('/');
-        $idEmpresa=Auth::user()->idEmpresa;
+
+        // Cambios multiempresa
+        $idEmpresa =Auth::user()->idEmpresa;
+        //cambios multiempresa
         $tb_area=Tb_area::findOrFail($request->id);
         $tb_area->area=$request->area;
         $tb_area->idEmpresa=$idEmpresa;

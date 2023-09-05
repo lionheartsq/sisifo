@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Cobros;
+use App\Tb_cliente;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -13,13 +14,7 @@ class CobrosController extends Controller
     public function index(Request $request)
     {
         // Cambios multiempresa
-        $user = Auth::user();
-        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
-
-        if ($empresa) {
-            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
-            // Realizar operaciones con $idEmpresa
-        }
+        $idEmpresa =Auth::user()->idEmpresa;
         //cambios multiempresa
 
         //if(!$request->ajax()) return redirect('/');
@@ -52,14 +47,9 @@ class CobrosController extends Controller
     }
 
     public function listado(){
-        // Cambios multiempresa
-        $user = Auth::user();
-        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
 
-        if ($empresa) {
-            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
-            // Realizar operaciones con $idEmpresa
-        }
+        // Cambios multiempresa
+        $idEmpresa =Auth::user()->idEmpresa;
         //cambios multiempresa
 
 
@@ -70,19 +60,14 @@ class CobrosController extends Controller
         return ['cobros' => $cobros];
     }
     public function store(Request $request){
-        // Cambios multiempresa
-        $user = Auth::user();
-        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
 
-        if ($empresa) {
-            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
-            // Realizar operaciones con $idEmpresa
-        }
+        // Cambios multiempresa
+        $idEmpresa =Auth::user()->idEmpresa;
         //cambios multiempresa
 
         //if(!$request->ajax()) return redirect('/');
         $idEmpresa=Auth::user()->idEmpresa;
-        $Clientes=new Clientes();
+        $Clientes=new Tb_cliente();
         $Clientes->fechaAbono=$request->fechaAbono;
         $Clientes->valorCobro=$request->valorCobro;
         $Clientes->abono=$request->abono;
@@ -94,7 +79,7 @@ class CobrosController extends Controller
     public function update(Request $request){
         //if(!$request->ajax()) return redirect('/');
         $idEmpresa=Auth::user()->idEmpresa;
-        $Clientes=Clientes::findOrFail($request->id);
+        $Clientes=Tb_cliente::findOrFail($request->id);
         $Clientes->fechaAbono=$request->fechaAbono;
         $Clientes->valorCobro=$request->valorCobro;
         $Clientes->abono=$request->abono;
@@ -105,14 +90,14 @@ class CobrosController extends Controller
 
     public function deactivate(Request $request){
         //if(!$request->ajax()) return redirect('/');
-        $Clientes=Clientes::findOrFail($request->id);
+        $Clientes=Tb_cliente::findOrFail($request->id);
         $Clientes->estado='2';
         $Clientes->save();
     }
 
     public function activate(Request $request){
         //if(!$request->ajax()) return redirect('/');
-        $Clientes=Clientes::findOrFail($request->id);
+        $Clientes=Tb_cliente::findOrFail($request->id);
         $Clientes->estado='1';
         $Clientes->save();
     }
