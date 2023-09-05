@@ -13,13 +13,7 @@ class Tb_kardex_produccionController extends Controller
     public function index(Request $request)
     {
         // Cambios multiempresa
-        $user = Auth::user();
-        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
-
-        if ($empresa) {
-            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
-            // Realizar operaciones con $idEmpresa
-        }
+        $idEmpresa =Auth::user()->idEmpresa;
         //cambios multiempresa
 
         //if(!$request->ajax()) return redirect('/');
@@ -69,13 +63,7 @@ class Tb_kardex_produccionController extends Controller
         $identificador= $request->identificador;
 
         // Cambios multiempresa
-        $user = Auth::user();
-        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
-
-        if ($empresa) {
-            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
-            // Realizar operaciones con $idEmpresa
-        }
+        $idEmpresa =Auth::user()->idEmpresa;
         //cambios multiempresa
 
             $productos = Tb_kardex_produccion::join('tb_gestion_materia_prima','tb_kardex_produccion.idGestionMateria','=','tb_gestion_materia_prima.id')
@@ -104,13 +92,7 @@ class Tb_kardex_produccionController extends Controller
     public function general()
     {
         // Cambios multiempresa
-        $user = Auth::user();
-        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
-
-        if ($empresa) {
-            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
-            // Realizar operaciones con $idEmpresa
-        }
+        $idEmpresa =Auth::user()->idEmpresa;
         //cambios multiempresa
 
         //if(!$request->ajax()) return redirect('/');
@@ -125,13 +107,7 @@ class Tb_kardex_produccionController extends Controller
     public function store(Request $request)
     {
         // Cambios multiempresa
-        $user = Auth::user();
-        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
-
-        if ($empresa) {
-            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
-            // Realizar operaciones con $idEmpresa
-        }
+        $idEmpresa =Auth::user()->idEmpresa;
         //cambios multiempresa
 
         if(!$request->ajax()) return redirect('/');

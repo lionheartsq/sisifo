@@ -20,13 +20,7 @@ class Tb_configuracion_basicaController extends Controller
     public function index(Request $request)
     {
         // Cambios multiempresa
-        $user = Auth::user();
-        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
-
-        if ($empresa) {
-            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
-            // Realizar operaciones con $idEmpresa
-        }
+        $idEmpresa =Auth::user()->idEmpresa;
         //cambios multiempresa
 
         //if(!$request->ajax()) return redirect('/');
@@ -44,14 +38,16 @@ class Tb_configuracion_basicaController extends Controller
             $idTipoNomina = $c->idTipoNomina;
         }
 
-        return ['id' => $id,
-        'nombre' => $nombre,
-        'direccion' => $direccion,
-        'telefono' => $telefono,
-        'cajaCompensacion' => $cajaCompensacion,
-        'arl' => $arl,
-        'nivelRiesgo' => $nivelRiesgo,
-        'idTipoNomina' => $idTipoNomina
+        return [
+            'Empresa' => $idEmpresa,
+            'id' => $id,
+            'nombre' => $nombre,
+            'direccion' => $direccion,
+            'telefono' => $telefono,
+            'cajaCompensacion' => $cajaCompensacion,
+            'arl' => $arl,
+            'nivelRiesgo' => $nivelRiesgo,
+            'idTipoNomina' => $idTipoNomina
         ];
     }
 

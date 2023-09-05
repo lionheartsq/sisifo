@@ -13,13 +13,7 @@ class ProveedoresController extends Controller
     public function index(Request $request)
     {
         // Cambios multiempresa
-        $user = Auth::user();
-        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
-
-        if ($empresa) {
-            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
-            // Realizar operaciones con $idEmpresa
-        }
+        $idEmpresa =Auth::user()->idEmpresa;
         //cambios multiempresa
 
         //if(!$request->ajax()) return redirect('/');
@@ -27,11 +21,13 @@ class ProveedoresController extends Controller
         $criterio= $request->criterio;
 
         if ($buscar=='') {
-            $proveedores = Proveedores::orderBy('proveedores.id','desc')
+            $proveedores = Proveedores::where('proveedores.idEmpresa','=',$idEmpresa)
+            ->orderBy('proveedores.id','desc')
             ->paginate(5);
         }
         else {
-            $proveedores = Proveedores::where($criterio, 'like', '%'. $buscar . '%')
+            $proveedores = Proveedores::where('proveedores.idEmpresa','=',$idEmpresa)
+            ->where($criterio, 'like', '%'. $buscar . '%')
             ->orderBy('proveedores.id','desc')
             ->paginate(5);
         }
@@ -50,18 +46,14 @@ class ProveedoresController extends Controller
     }
 
     public function listado(){
-        // Cambios multiempresa
-        $user = Auth::user();
-        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
 
-        if ($empresa) {
-            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
-            // Realizar operaciones con $idEmpresa
-        }
+        // Cambios multiempresa
+        $idEmpresa =Auth::user()->idEmpresa;
         //cambios multiempresa
 
 
-        $proveedores = Proveedores::where('proveedores.estado','=','1')
+        $proveedores = Proveedores::where('proveedores.idEmpresa','=',$idEmpresa)
+        ->where('proveedores.estado','=','1')
         ->orderBy('proveedores.id','desc')
         ->get();
 
@@ -69,14 +61,9 @@ class ProveedoresController extends Controller
     }
 
     public function store(Request $request){
-        // Cambios multiempresa
-        $user = Auth::user();
-        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
 
-        if ($empresa) {
-            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
-            // Realizar operaciones con $idEmpresa
-        }
+        // Cambios multiempresa
+        $idEmpresa =Auth::user()->idEmpresa;
         //cambios multiempresa
 
         //if(!$request->ajax()) return redirect('/');
@@ -95,7 +82,10 @@ class ProveedoresController extends Controller
 
     public function update(Request $request){
         //if(!$request->ajax()) return redirect('/');
-        $idEmpresa=Auth::user()->idEmpresa;
+
+        // Cambios multiempresa
+        $idEmpresa =Auth::user()->idEmpresa;
+        //cambios multiempresa
         $Proveedores=Proveedores::findOrFail($request->id);
         $Proveedores->nit=$request->nit;
         $Proveedores->razonSocial=$request->razonSocial;

@@ -21,13 +21,7 @@ class Tb_productoController extends Controller
     public function index(Request $request)
     {
         // Cambios multiempresa
-        $user = Auth::user();
-        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
-
-        if ($empresa) {
-            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
-            // Realizar operaciones con $idEmpresa
-        }
+        $idEmpresa =Auth::user()->idEmpresa;
         //cambios multiempresa
 
         //if(!$request->ajax()) return redirect('/');
@@ -100,13 +94,7 @@ class Tb_productoController extends Controller
     public function selectProducto(){
 
         // Cambios multiempresa
-        $user = Auth::user();
-        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
-
-        if ($empresa) {
-            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
-            // Realizar operaciones con $idEmpresa
-        }
+        $idEmpresa =Auth::user()->idEmpresa;
         //cambios multiempresa
 
         $productos = Tb_producto::join('tb_coleccion','tb_producto.idColeccion','=','tb_coleccion.id')
@@ -120,13 +108,7 @@ class Tb_productoController extends Controller
     public function store(Request $request)
     {
         // Cambios multiempresa
-        $user = Auth::user();
-        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
-
-        if ($empresa) {
-            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
-            // Realizar operaciones con $idEmpresa
-        }
+        $idEmpresa =Auth::user()->idEmpresa;
         //cambios multiempresa
 
         //Almacenar Foto de Producto

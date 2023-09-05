@@ -62,7 +62,7 @@
 
                                         </td>
                                         <td v-text="maquinaria.maquinaria"></td>
-                                        <td v-text="maquinaria.valor"></td>
+                                        <td>{{maquinaria.valor | currency}}</td>
                                         <td v-text="maquinaria.tiempoDeVidaUtil"></td>
                                         <td v-text="maquinaria.depreciacionAnual"></td>
                                         <td v-text="maquinaria.depreciacionMensual"></td>

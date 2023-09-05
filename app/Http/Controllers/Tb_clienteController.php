@@ -17,13 +17,7 @@ class Tb_clienteController extends Controller
     public function index(Request $request)
     {
         // Cambios multiempresa
-        $user = Auth::user();
-        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
-
-        if ($empresa) {
-            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
-            // Realizar operaciones con $idEmpresa
-        }
+        $idEmpresa =Auth::user()->idEmpresa;
         //cambios multiempresa
 
         if(!$request->ajax()) return redirect('/');
@@ -57,13 +51,7 @@ class Tb_clienteController extends Controller
     public function selectCliente(){
 
         // Cambios multiempresa
-        $user = Auth::user();
-        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
-
-        if ($empresa) {
-            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
-            // Realizar operaciones con $idEmpresa
-        }
+        $idEmpresa =Auth::user()->idEmpresa;
         //cambios multiempresa
 
         $clientes = Tb_cliente::where('estado','=','1')
@@ -76,13 +64,7 @@ class Tb_clienteController extends Controller
     public function store(Request $request)
     {
         // Cambios multiempresa
-        $user = Auth::user();
-        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
-
-        if ($empresa) {
-            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
-            // Realizar operaciones con $idEmpresa
-        }
+        $idEmpresa =Auth::user()->idEmpresa;
         //cambios multiempresa
 
         if(!$request->ajax()) return redirect('/');
@@ -100,6 +82,9 @@ class Tb_clienteController extends Controller
     public function update(Request $request)
     {
         //
+        // Cambios multiempresa
+        $idEmpresa =Auth::user()->idEmpresa;
+        //cambios multiempresa
         if(!$request->ajax()) return redirect('/');
         $tb_cliente = Tb_cliente::findOrFail($request->id);
         $tb_cliente->documento=$request->documento;

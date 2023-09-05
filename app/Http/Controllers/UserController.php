@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
-use App\Tb_rol;
-use App\Tb_usuario_tiene_rol;
+use App\Roles;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -23,63 +22,42 @@ class UserController extends Controller
         $criterio= $request->criterio;
 
         // Cambios multiempresa
-        $user = Auth::user();
-        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
-
-        if ($empresa) {
-            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
-            // Realizar operaciones con $idEmpresa
-        }
+        $idEmpresa =Auth::user()->idEmpresa;
         //cambios multiempresa
 
         if ($buscar=='') {
-            $usuarios = User::join("tb_usuario_tiene_rol","tb_usuario_tiene_rol.idUser","=","users.id")
-            ->leftJoin('tb_rol',function($join){
-                $join->on('tb_usuario_tiene_rol.idRol','=','tb_rol.id');
-            })
-            ->select('users.id','users.name','users.email','users.estado','tb_rol.id as idRol','tb_rol.rol','tb_rol.estado as estado_rol','tb_usuario_tiene_rol.id as idexRol')
-            ->where('tb_usuario_tiene_rol.idEmpresa','=',$idEmpresa)
+            $usuarios = User::join('roles','users.idRol','=','roles.id')
+            ->select('users.id','users.nombres','users.apellidos','users.documento','users.email','users.estado','roles.id as idRol','roles.rol')
+            ->where('users.idEmpresa','=',$idEmpresa)
             ->orderBy('users.id','desc')->paginate(5);
         }
-        else if($criterio=='name'){
-            $usuarios = User::join("tb_usuario_tiene_rol","tb_usuario_tiene_rol.idUser","=","users.id")
-            ->leftJoin('tb_rol',function($join){
-                $join->on('tb_usuario_tiene_rol.idRol','=','tb_rol.id');
-            })
-            ->select('users.id','users.name','users.email','users.estado','tb_rol.id as idRol','tb_rol.rol','tb_rol.estado as estado_rol','tb_usuario_tiene_rol.id as idexRol')
-            ->where('tb_usuario_tiene_rol.idEmpresa','=',$idEmpresa)
-            ->where('users.name', 'like', '%'. $buscar . '%')
+        else if($criterio=='nombres'){
+            $usuarios = User::join('roles','users.idRol','=','roles.id')
+            ->select('users.id','users.nombres','users.apellidos','users.documento','users.email','users.estado','roles.id as idRol','roles.rol')
+            ->where('users.idEmpresa','=',$idEmpresa)
+            ->where('users.nombres', 'like', '%'. $buscar . '%')
             ->orderBy('users.id','desc')->paginate(5);
         }
         else if($criterio=='rol'){
-            $usuarios = User::join("tb_usuario_tiene_rol","tb_usuario_tiene_rol.idUser","=","users.id")
-            ->leftJoin('tb_rol',function($join){
-                $join->on('tb_usuario_tiene_rol.idRol','=','tb_rol.id');
-            })
-            ->select('users.id','users.name','users.email','users.estado','tb_rol.id as idRol','tb_rol.rol','tb_rol.estado as estado_rol','tb_usuario_tiene_rol.id as idexRol')
-            ->where('tb_usuario_tiene_rol.idEmpresa','=',$idEmpresa)
-            ->where('tb_rol.rol', 'like', '%'. $buscar . '%')
+            $usuarios = User::join('roles','users.idRol','=','roles.id')
+            ->select('users.id','users.nombres','users.apellidos','users.documento','users.email','users.estado','roles.id as idRol','roles.rol')
+            ->where('users.idEmpresa','=',$idEmpresa)
+            ->where('roles.rol', 'like', '%'. $buscar . '%')
             ->orderBy('users.id','desc')->paginate(5);
         }
         else if($criterio=='email'){
-            $usuarios = User::join("tb_usuario_tiene_rol","tb_usuario_tiene_rol.idUser","=","users.id")
-            ->leftJoin('tb_rol',function($join){
-                $join->on('tb_usuario_tiene_rol.idRol','=','tb_rol.id');
-            })
-            ->select('users.id','users.name','users.email','users.estado','tb_rol.id as idRol','tb_rol.rol','tb_rol.estado as estado_rol','tb_usuario_tiene_rol.id as idexRol')
-            ->where('tb_rol.rol', 'like', '%'. $buscar . '%')
+            $usuarios = User::join('roles','users.idRol','=','roles.id')
+            ->select('users.id','users.nombres','users.apellidos','users.documento','users.email','users.estado','roles.id as idRol','roles.rol')
+            ->where('users.idEmpresa','=',$idEmpresa)
             ->where('users.email', 'like', '%'. $buscar . '%')
             ->orderBy('users.id','desc')->paginate(5);
         }
         else {
-                $usuarios = User::join("tb_usuario_tiene_rol","tb_usuario_tiene_rol.idUser","=","users.id")
-                ->leftJoin('tb_rol',function($join){
-                    $join->on('tb_usuario_tiene_rol.idRol','=','tb_rol.id');
-                })
-                ->select('users.id','users.name','users.email','users.estado','tb_rol.id as idRol','tb_rol.rol','tb_rol.estado as estado_rol','tb_usuario_tiene_rol.id as idexRol')
-                ->where('tb_rol.rol', 'like', '%'. $buscar . '%')
-                ->where('users.id', 'like', '%'. $buscar . '%')
-                ->orderBy('users.id','desc')->paginate(5);
+            $usuarios = User::join('roles','users.idRol','=','roles.id')
+            ->select('users.id','users.nombres','users.apellidos','users.documento','users.email','users.estado','roles.id as idRol','roles.rol')
+            ->where('users.idEmpresa','=',$idEmpresa)
+            ->where('users.id', 'like', '%'. $buscar . '%')
+            ->orderBy('users.id','desc')->paginate(5);
         }
 
         return [
@@ -97,29 +75,19 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
+        // Cambios multiempresa
+        $idEmpresa =Auth::user()->idEmpresa;
+        //cambios multiempresa
+
         if(!$request->ajax()) return redirect('/');
         $users=new User();
         $users->name=$request->name;
         $users->email=$request->email;
         $users->password=bcrypt($request->email);
+        $users->idRol=$request->idRol;
+        $users->idEmpresa=$idEmpresa; //cambios multiempresa
         $users->save();
         $idtabla=DB::getPdo()->lastInsertId();
-
-        // Cambios multiempresa
-        $user = Auth::user();
-        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
-
-        if ($empresa) {
-            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
-            // Realizar operaciones con $idEmpresa
-        }
-        //cambios multiempresa
-
-        $usersrela=new Tb_usuario_tiene_rol();
-        $usersrela->idUser=$idtabla;
-        $usersrela->idRol=$request->idRol;
-        $usersrela->idEmpresa=$idEmpresa; //cambios multiempresa
-        $usersrela->save();
     }
 
     public function update(Request $request)
@@ -128,13 +96,9 @@ class UserController extends Controller
         $users=User::findOrFail($request->id);
         $users->name=$request->name;
         $users->email=$request->email;
+        $users->idRol=$request->idRol;
         $users->estado='1';
         $users->save();
-
-        $userrela=Tb_usuario_tiene_rol::findOrFail($request->idexRol);
-        $userrela->idUser=$request->id;
-        $userrela->idRol=$request->idRol;
-        $userrela->save();
     }
 
     public function deactivate(Request $request)

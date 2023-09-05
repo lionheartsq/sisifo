@@ -23,7 +23,6 @@
                                 <div class="col-md-9">
                                     <div class="input-group">
                                         <select class="form-control col-md-3" v-model="criterio">
-                                        <option value="id">Id</option>
                                         <option value="consecutivo">Consecutivo</option>
                                         <option value="fecha">Fecha</option>
                                         <option value="condicionEntrega">Condición de entrega</option>

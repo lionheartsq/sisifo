@@ -17,13 +17,7 @@ class Tb_coleccionController extends Controller
     public function index(Request $request)
     {
         // Cambios multiempresa
-        $user = Auth::user();
-        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
-
-        if ($empresa) {
-            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
-            // Realizar operaciones con $idEmpresa
-        }
+        $idEmpresa =Auth::user()->idEmpresa;
         //cambios multiempresa
 
         if(!$request->ajax()) return redirect('/');
@@ -57,13 +51,7 @@ class Tb_coleccionController extends Controller
     public function selectColeccion(){
 
         // Cambios multiempresa
-        $user = Auth::user();
-        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
-
-        if ($empresa) {
-            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
-            // Realizar operaciones con $idEmpresa
-        }
+        $idEmpresa =Auth::user()->idEmpresa;
         //cambios multiempresa
 
         $colecciones = Tb_coleccion::where('estado','=','1')
@@ -76,13 +64,7 @@ class Tb_coleccionController extends Controller
     public function store(Request $request)
     {
         // Cambios multiempresa
-        $user = Auth::user();
-        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
-
-        if ($empresa) {
-            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
-            // Realizar operaciones con $idEmpresa
-        }
+        $idEmpresa =Auth::user()->idEmpresa;
         //cambios multiempresa
 
         if(!$request->ajax()) return redirect('/');
@@ -96,6 +78,9 @@ class Tb_coleccionController extends Controller
     public function update(Request $request)
     {
         if(!$request->ajax()) return redirect('/');
+        // Cambios multiempresa
+        $idEmpresa =Auth::user()->idEmpresa;
+        //cambios multiempresa
         $tb_coleccion=Tb_coleccion::findOrFail($request->id);
         $tb_coleccion->coleccion=$request->coleccion;
         $tb_coleccion->referencia=$request->referencia;

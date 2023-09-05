@@ -25,18 +25,26 @@
                     <li @click="menu=25" class="nav-item">
                         <a class="nav-link" href="#"><i class="icon-book-open"></i> Perfiles</a>
                     </li>
+                    {{--
                     <li @click="menu=11" class="nav-item">
                         <a class="nav-link" href="#"><i class="icon-book-open"></i> Tipo Factura</a>
                     </li>
+                    --}}
+                    {{--
                     <li @click="menu=16" class="nav-item">
                         <a class="nav-link" href="#"><i class="icon-book-open"></i> Impuestos</a>
                     </li>
+                    --}}
+                    {{--
                     <li @click="menu=4" class="nav-item">
                         <a class="nav-link" href="#"><i class="icon-book-open"></i> Ciudades</a>
                     </li>
+                    --}}
+                    {{--
                     <li @click="menu=10" class="nav-item">
                         <a class="nav-link" href="#"><i class="icon-book-open"></i> Departamentos</a>
                     </li>
+                    --}}
                     <li @click="menu=26" class="nav-item">
                         <a class="nav-link" href="#"><i class="icon-notebook"></i> Unidades</a>
                     </li>

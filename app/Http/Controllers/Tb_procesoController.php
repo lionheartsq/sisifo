@@ -18,13 +18,7 @@ class Tb_procesoController extends Controller
     public function index(Request $request)
     {
         // Cambios multiempresa
-        $user = Auth::user();
-        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
-
-        if ($empresa) {
-            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
-            // Realizar operaciones con $idEmpresa
-        }
+        $idEmpresa =Auth::user()->idEmpresa;
         //cambios multiempresa
 
         if(!$request->ajax()) return redirect('/');
@@ -71,13 +65,7 @@ class Tb_procesoController extends Controller
     public function selectProceso(){
 
         // Cambios multiempresa
-        $user = Auth::user();
-        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
-
-        if ($empresa) {
-            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
-            // Realizar operaciones con $idEmpresa
-        }
+        $idEmpresa =Auth::user()->idEmpresa;
         //cambios multiempresa
 
         $procesos = Tb_proceso::where('tb_procesos.idEmpresa','=',$idEmpresa)
@@ -90,13 +78,7 @@ class Tb_procesoController extends Controller
     public function store(Request $request)
     {
         // Cambios multiempresa
-        $user = Auth::user();
-        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
-
-        if ($empresa) {
-            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
-            // Realizar operaciones con $idEmpresa
-        }
+        $idEmpresa =Auth::user()->idEmpresa;
         //cambios multiempresa
 
         if(!$request->ajax()) return redirect('/');
@@ -112,7 +94,7 @@ class Tb_procesoController extends Controller
         if(!$request->ajax()) return redirect('/');
         $tb_proceso=Tb_proceso::findOrFail($request->id);
         $tb_proceso->proceso=$request->proceso;
-        $tb_proceso->idArea='1';
+        $tb_proceso->idArea=$request->idArea;
         $tb_proceso->estado='1';
         $tb_proceso->save();
     }

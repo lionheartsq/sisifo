@@ -12,13 +12,7 @@ class Tb_concepto_cifController extends Controller
     public function index(Request $request)
     {
         // Cambios multiempresa
-        $user = Auth::user();
-        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
-
-        if ($empresa) {
-            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
-            // Realizar operaciones con $idEmpresa
-        }
+        $idEmpresa =Auth::user()->idEmpresa;
         //cambios multiempresa
 
         if(!$request->ajax()) return redirect('/');
@@ -51,13 +45,7 @@ class Tb_concepto_cifController extends Controller
     public function selectConcepto(){
 
         // Cambios multiempresa
-        $user = Auth::user();
-        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
-
-        if ($empresa) {
-            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
-            // Realizar operaciones con $idEmpresa
-        }
+        $idEmpresa =Auth::user()->idEmpresa;
         //cambios multiempresa
 
         $conceptos = Tb_concepto_cif::where('estado','=','1')
@@ -70,13 +58,7 @@ class Tb_concepto_cifController extends Controller
     public function store(Request $request)
     {
         // Cambios multiempresa
-        $user = Auth::user();
-        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
-
-        if ($empresa) {
-            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
-            // Realizar operaciones con $idEmpresa
-        }
+        $idEmpresa =Auth::user()->idEmpresa;
         //cambios multiempresa
 
         if(!$request->ajax()) return redirect('/');
@@ -90,6 +72,9 @@ class Tb_concepto_cifController extends Controller
     public function update(Request $request)
     {
         if(!$request->ajax()) return redirect('/');
+        // Cambios multiempresa
+        $idEmpresa =Auth::user()->idEmpresa;
+        //cambios multiempresa
         $tb_concepto=Tb_concepto_cif::findOrFail($request->id);
         $tb_concepto->concepto=$request->concepto;
         $tb_concepto->valor=$request->valor;

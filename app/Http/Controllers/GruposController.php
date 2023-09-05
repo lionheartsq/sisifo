@@ -13,13 +13,7 @@ class GruposController extends Controller
     public function index(Request $request)
     {
         // Cambios multiempresa
-        $user = Auth::user();
-        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
-
-        if ($empresa) {
-            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
-            // Realizar operaciones con $idEmpresa
-        }
+        $idEmpresa =Auth::user()->idEmpresa;
         //cambios multiempresa
 
         //if(!$request->ajax()) return redirect('/');
@@ -27,11 +21,13 @@ class GruposController extends Controller
         $criterio= $request->criterio;
 
         if ($buscar=='') {
-            $grupos = Grupos::orderBy('grupos.id','desc')
+            $grupos = Grupos::where('grupos.idEmpresa','=',$idEmpresa)
+            ->orderBy('grupos.id','desc')
             ->paginate(5);
         }
         else {
-            $grupos = Grupos::where('grupos.estado','=','1')
+            $grupos = Grupos::where('grupos.idEmpresa','=',$idEmpresa)
+            ->where('grupos.estado','=','1')
             ->orderBy('grupos.id','desc')
             ->paginate(5);
         }
@@ -50,18 +46,14 @@ class GruposController extends Controller
     }
 
     public function listado(){
-        // Cambios multiempresa
-        $user = Auth::user();
-        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
 
-        if ($empresa) {
-            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
-            // Realizar operaciones con $idEmpresa
-        }
+        // Cambios multiempresa
+        $idEmpresa =Auth::user()->idEmpresa;
         //cambios multiempresa
 
 
-        $grupos = Grupos::where('grupos.estado','=','1')
+        $grupos = Grupos::where('grupos.idEmpresa','=',$idEmpresa)
+        ->where('grupos.estado','=','1')
         ->orderBy('grupos.detalleGrupos','asc')
         ->get();
 
@@ -69,16 +61,6 @@ class GruposController extends Controller
     }
 
     public function store(Request $request){
-        // Cambios multiempresa
-        $user = Auth::user();
-        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
-
-        if ($empresa) {
-            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
-            // Realizar operaciones con $idEmpresa
-        }
-        //cambios multiempresa
-
         //if(!$request->ajax()) return redirect('/');
         $idEmpresa=Auth::user()->idEmpresa;
         $Grupos=new Grupos();
@@ -90,7 +72,10 @@ class GruposController extends Controller
 
     public function update(Request $request){
         //if(!$request->ajax()) return redirect('/');
-        $idEmpresa=Auth::user()->idEmpresa;
+
+        // Cambios multiempresa
+        $idEmpresa =Auth::user()->idEmpresa;
+        //cambios multiempresa
         $Grupos=Grupos::findOrFail($request->id);
         $Grupos->detalleGrupos=$request->detalleGrupos;
         $Grupos->idEmpresa=$idEmpresa;

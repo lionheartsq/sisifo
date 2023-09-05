@@ -23,5 +23,25 @@ class Tb_vista_personalizadaSeeder extends Seeder
             'idUser' => 1,
             'idEmpresa' => '1'
         ]);
+        DB::table('tb_vista_personalizada')->insert([
+            'escritorio' => 1,
+            'documentacion' => 1,
+            'administracion' => 1,
+            'produccion' => 1,
+            'personas' => 1,
+            'gestionFinanciera' => 1,
+            'idUser' => 2,
+            'idEmpresa' => '2'
+        ]);
+        DB::table('tb_vista_personalizada')->insert([
+            'escritorio' => 1,
+            'documentacion' => 1,
+            'administracion' => 1,
+            'produccion' => 1,
+            'personas' => 1,
+            'gestionFinanciera' => 1,
+            'idUser' => 3,
+            'idEmpresa' => '3'
+        ]);
     }
 }

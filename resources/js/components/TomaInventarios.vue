@@ -24,7 +24,6 @@
                                     <div class="input-group">
                                         <select class="form-control col-md-3" v-model="criterio">
                                         <option value="empleado">Empleado</option>
-                                        <option value="id">Id</option>
                                         </select>
                                         <input type="text" v-model="buscar" @keyup.enter="listarInventario(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
                                         <button type="submit" @click="listarInventario(1,buscar,criterio)" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>

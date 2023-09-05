@@ -13,13 +13,7 @@ class PedidosController extends Controller
     public function index(Request $request)
     {
         // Cambios multiempresa
-        $user = Auth::user();
-        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
-
-        if ($empresa) {
-            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
-            // Realizar operaciones con $idEmpresa
-        }
+        $idEmpresa =Auth::user()->idEmpresa;
         //cambios multiempresa
 
         //if(!$request->ajax()) return redirect('/');
@@ -33,6 +27,7 @@ class PedidosController extends Controller
             ->select("pedidos.id", "pedidos.consecutivo", "pedidos.fecha", "pedidos.valor", "pedidos.impuesto", "pedidos.total", "pedidos.idVendedor", "pedidos.idTipoFactura",
             "pedidos.idProveedores", "pedidos.idEmpresa", "pedidos.estado","tb_empleado.id as idEmpleado","tb_empleado.nombre as nombresVendedor", "tipofactura.detalle as tipoFactura",
             "tb_empleado.apellido as apellidosVendedor","proveedores.id as idProveedores","proveedores.razonSocial")
+            ->where('pedidos.idEmpresa','=',$idEmpresa)
             ->orderBy('pedidos.id','desc')
             ->paginate(5);
         }
@@ -43,6 +38,7 @@ class PedidosController extends Controller
             ->select("pedidos.id", "pedidos.consecutivo", "pedidos.fecha", "pedidos.valor", "pedidos.impuesto", "pedidos.total", "pedidos.idVendedor", "pedidos.idTipoFactura",
             "pedidos.idProveedores", "pedidos.idEmpresa", "pedidos.estado","tb_empleado.id as idEmpleado","tb_empleado.nombre as nombresVendedor", "tipofactura.detalle as tipoFactura",
             "tb_empleado.apellido as apellidosVendedor","proveedores.id as idProveedores","proveedores.razonSocial")
+            ->where('pedidos.idEmpresa','=',$idEmpresa)
             ->where('pedidos.estado','=','1')
             ->where($criterio, 'like', '%'. $buscar . '%')
             ->orderBy('pedidos.id','desc')
@@ -63,14 +59,9 @@ class PedidosController extends Controller
     }
 
     public function listado(){
-        // Cambios multiempresa
-        $user = Auth::user();
-        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
 
-        if ($empresa) {
-            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
-            // Realizar operaciones con $idEmpresa
-        }
+        // Cambios multiempresa
+        $idEmpresa =Auth::user()->idEmpresa;
         //cambios multiempresa
 
         $pedidos = Pedidos::join("tb_empleado","pedidos.idVendedor","=","tb_empleado.id")
@@ -79,6 +70,7 @@ class PedidosController extends Controller
         ->select("pedidos.id", "pedidos.consecutivo", "pedidos.fecha", "pedidos.valor", "pedidos.impuesto", "pedidos.total", "pedidos.idVendedor", "pedidos.idTipoFactura",
         "pedidos.idProveedores", "pedidos.idEmpresa", "pedidos.estado","tb_empleado.id as idEmpleado","tb_empleado.nombre as nombresVendedor", "tipofactura.detalle as tipoFactura",
         "tb_empleado.apellido as apellidosVendedor","proveedores.id as idProveedores","proveedores.razonSocial")
+        ->where('pedidos.idEmpresa','=',$idEmpresa)
         ->where('pedidos.estado','=','1')
         ->orderBy('pedidos.id','desc')
         ->get();
@@ -87,15 +79,6 @@ class PedidosController extends Controller
     }
 
     public function store(Request $request){
-        // Cambios multiempresa
-        $user = Auth::user();
-        $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
-
-        if ($empresa) {
-            $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
-            // Realizar operaciones con $idEmpresa
-        }
-        //cambios multiempresa
 
         //if(!$request->ajax()) return redirect('/');
         $idEmpresa=Auth::user()->idEmpresa;
@@ -115,7 +98,10 @@ class PedidosController extends Controller
 
     public function update(Request $request){
         //if(!$request->ajax()) return redirect('/');
-        $idEmpresa=Auth::user()->idEmpresa;
+
+        // Cambios multiempresa
+        $idEmpresa =Auth::user()->idEmpresa;
+        //cambios multiempresa
         $Pedidos=Pedidos::findOrFail($request->id);
         $Pedidos->consecutivo=$request->consecutivo;
         $Pedidos->fecha=$request->fecha;

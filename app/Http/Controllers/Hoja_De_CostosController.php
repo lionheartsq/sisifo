@@ -22,13 +22,7 @@ class Hoja_De_CostosController extends Controller
         public function acumuladoTotal($identificador)
         {
             // Cambios multiempresa
-            $user = Auth::user();
-            $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
-
-            if ($empresa) {
-                $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
-                // Realizar operaciones con $idEmpresa
-            }
+            $idEmpresa =Auth::user()->idEmpresa;
             //cambios multiempresa
 
             $total = 0;
@@ -164,13 +158,7 @@ class Hoja_De_CostosController extends Controller
         public function maquinariaTotal($identificador)
         {
             // Cambios multiempresa
-            $user = Auth::user();
-            $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
-
-            if ($empresa) {
-                $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
-                // Realizar operaciones con $idEmpresa
-            }
+            $idEmpresa =Auth::user()->idEmpresa;
             //cambios multiempresa
 
             $acumuladomaquinaria = 0;
@@ -194,13 +182,7 @@ class Hoja_De_CostosController extends Controller
         public function cifTiempos($identificador)
         {
             // Cambios multiempresa
-            $user = Auth::user();
-            $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
-
-            if ($empresa) {
-                $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
-                // Realizar operaciones con $idEmpresa
-            }
+            $idEmpresa =Auth::user()->idEmpresa;
             //cambios multiempresa
 
             //el identificador que paso a esta función es el idSimulacion
@@ -275,13 +257,7 @@ class Hoja_De_CostosController extends Controller
         public function unitarioTotal(Request $request)
         {
             // Cambios multiempresa
-            $user = Auth::user();
-            $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
-
-            if ($empresa) {
-                $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
-                // Realizar operaciones con $idEmpresa
-            }
+            $idEmpresa =Auth::user()->idEmpresa;
             //cambios multiempresa
 
             $identificador= $request->identificador;
@@ -442,13 +418,7 @@ class Hoja_De_CostosController extends Controller
         public function hojaDetalle(Request $request)
         {
             // Cambios multiempresa
-            $user = Auth::user();
-            $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
-
-            if ($empresa) {
-                $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
-                // Realizar operaciones con $idEmpresa
-            }
+            $idEmpresa =Auth::user()->idEmpresa;
             //cambios multiempresa
 
             $identificador= $request->identificador;
@@ -505,13 +475,7 @@ class Hoja_De_CostosController extends Controller
 public function unitarioTotalGen(Request $request)
 {
     // Cambios multiempresa
-    $user = Auth::user();
-    $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
-
-    if ($empresa) {
-        $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
-        // Realizar operaciones con $idEmpresa
-    }
+    $idEmpresa =Auth::user()->idEmpresa;
     //cambios multiempresa
 
     $identificador= $request->identificador;
@@ -640,13 +604,7 @@ public function unitarioTotalGen(Request $request)
 public function hojaDetalleGen(Request $request)
 {
     // Cambios multiempresa
-    $user = Auth::user();
-    $empresa = $user->empresas->first();  // Obtiene la primera empresa de la relación
-
-    if ($empresa) {
-        $idEmpresa = $empresa->id;  // Accede a la propiedad "id" del objeto
-        // Realizar operaciones con $idEmpresa
-    }
+    $idEmpresa =Auth::user()->idEmpresa;
     //cambios multiempresa
 
     $identificador= $request->identificador;
