@@ -21,11 +21,13 @@ class ProveedoresController extends Controller
         $criterio= $request->criterio;
 
         if ($buscar=='') {
-            $proveedores = Proveedores::orderBy('proveedores.id','desc')
+            $proveedores = Proveedores::where('proveedores.idEmpresa','=',$idEmpresa)
+            ->orderBy('proveedores.id','desc')
             ->paginate(5);
         }
         else {
-            $proveedores = Proveedores::where($criterio, 'like', '%'. $buscar . '%')
+            $proveedores = Proveedores::where('proveedores.idEmpresa','=',$idEmpresa)
+            ->where($criterio, 'like', '%'. $buscar . '%')
             ->orderBy('proveedores.id','desc')
             ->paginate(5);
         }
@@ -50,7 +52,8 @@ class ProveedoresController extends Controller
         //cambios multiempresa
 
 
-        $proveedores = Proveedores::where('proveedores.estado','=','1')
+        $proveedores = Proveedores::where('proveedores.idEmpresa','=',$idEmpresa)
+        ->where('proveedores.estado','=','1')
         ->orderBy('proveedores.id','desc')
         ->get();
 

@@ -27,6 +27,7 @@ class PedidosController extends Controller
             ->select("pedidos.id", "pedidos.consecutivo", "pedidos.fecha", "pedidos.valor", "pedidos.impuesto", "pedidos.total", "pedidos.idVendedor", "pedidos.idTipoFactura",
             "pedidos.idProveedores", "pedidos.idEmpresa", "pedidos.estado","tb_empleado.id as idEmpleado","tb_empleado.nombre as nombresVendedor", "tipofactura.detalle as tipoFactura",
             "tb_empleado.apellido as apellidosVendedor","proveedores.id as idProveedores","proveedores.razonSocial")
+            ->where('pedidos.idEmpresa','=',$idEmpresa)
             ->orderBy('pedidos.id','desc')
             ->paginate(5);
         }
@@ -37,6 +38,7 @@ class PedidosController extends Controller
             ->select("pedidos.id", "pedidos.consecutivo", "pedidos.fecha", "pedidos.valor", "pedidos.impuesto", "pedidos.total", "pedidos.idVendedor", "pedidos.idTipoFactura",
             "pedidos.idProveedores", "pedidos.idEmpresa", "pedidos.estado","tb_empleado.id as idEmpleado","tb_empleado.nombre as nombresVendedor", "tipofactura.detalle as tipoFactura",
             "tb_empleado.apellido as apellidosVendedor","proveedores.id as idProveedores","proveedores.razonSocial")
+            ->where('pedidos.idEmpresa','=',$idEmpresa)
             ->where('pedidos.estado','=','1')
             ->where($criterio, 'like', '%'. $buscar . '%')
             ->orderBy('pedidos.id','desc')
@@ -68,6 +70,7 @@ class PedidosController extends Controller
         ->select("pedidos.id", "pedidos.consecutivo", "pedidos.fecha", "pedidos.valor", "pedidos.impuesto", "pedidos.total", "pedidos.idVendedor", "pedidos.idTipoFactura",
         "pedidos.idProveedores", "pedidos.idEmpresa", "pedidos.estado","tb_empleado.id as idEmpleado","tb_empleado.nombre as nombresVendedor", "tipofactura.detalle as tipoFactura",
         "tb_empleado.apellido as apellidosVendedor","proveedores.id as idProveedores","proveedores.razonSocial")
+        ->where('pedidos.idEmpresa','=',$idEmpresa)
         ->where('pedidos.estado','=','1')
         ->orderBy('pedidos.id','desc')
         ->get();
@@ -76,10 +79,6 @@ class PedidosController extends Controller
     }
 
     public function store(Request $request){
-
-        // Cambios multiempresa
-        $idEmpresa =Auth::user()->idEmpresa;
-        //cambios multiempresa
 
         //if(!$request->ajax()) return redirect('/');
         $idEmpresa=Auth::user()->idEmpresa;

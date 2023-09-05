@@ -42,8 +42,9 @@ class Tb_empleadoController extends Controller
             ->join("tb_eps","tb_empleado.idEps","=","tb_eps.id")
             ->join("tb_administradora_pensiones","tb_empleado.idPensiones","=","tb_administradora_pensiones.id")
             ->where('tb_empleado.idEmpresa','=',$idEmpresa)
-            ->select('tb_empleado.id as id','tb_empleado.nombre','tb_empleado.apellido','tb_empleado.documento','tb_empleado.direccion','tb_empleado.telefono','tb_empleado.correo','tb_empleado.contacto','tb_empleado.telefonocontacto',
-            'tb_empleado.genero','tb_empleado.idEps','tb_empleado.idPensiones','tb_empleado.idEps','tb_empleado.idPensiones','tb_eps.nombreEps','tb_administradora_pensiones.nombrePensiones','tb_empleado.tipoSangre','tb_empleado.enfermedades',
+            ->select('tb_empleado.id as id','tb_empleado.nombre','tb_empleado.apellido','tb_empleado.documento','tb_empleado.direccion','tb_empleado.telefono',
+            'tb_empleado.correo','tb_empleado.contacto','tb_empleado.telefonocontacto','tb_empleado.genero','tb_empleado.idEps','tb_empleado.idPensiones',
+            'tb_empleado.idEps','tb_empleado.idPensiones','tb_eps.nombreEps','tb_administradora_pensiones.nombrePensiones','tb_empleado.tipoSangre','tb_empleado.enfermedades',
             'tb_empleado.idPerfil','tb_empleado.estado as estado','tb_perfil.perfil','tb_perfil.idProceso','tb_proceso.proceso','tb_proceso.idArea','tb_area.area')
             ->orderBy('tb_empleado.id','desc')->paginate(5);
         }
@@ -54,8 +55,9 @@ class Tb_empleadoController extends Controller
                 $join->on('tb_proceso.idArea','=','tb_area.id');
             })
             ->where('tb_empleado.idEmpresa','=',$idEmpresa)
-            ->select('tb_empleado.id as id','tb_empleado.nombre','tb_empleado.apellido','tb_empleado.documento','tb_empleado.direccion','tb_empleado.telefono','tb_empleado.correo','tb_empleado.contacto','tb_empleado.telefonocontacto',
-            'tb_empleado.genero','tb_empleado.idEps','tb_empleado.idPensiones','tb_empleado.idEps','tb_empleado.idPensiones','tb_eps.nombreEps','tb_administradora_pensiones.nombrePensiones','tb_empleado.tipoSangre','tb_empleado.enfermedades',
+            ->select('tb_empleado.id as id','tb_empleado.nombre','tb_empleado.apellido','tb_empleado.documento','tb_empleado.direccion','tb_empleado.telefono',
+            'tb_empleado.correo','tb_empleado.contacto','tb_empleado.telefonocontacto','tb_empleado.genero','tb_empleado.idEps','tb_empleado.idPensiones',
+            'tb_empleado.idEps','tb_empleado.idPensiones','tb_eps.nombreEps','tb_administradora_pensiones.nombrePensiones','tb_empleado.tipoSangre','tb_empleado.enfermedades',
             'tb_empleado.idPerfil','tb_empleado.estado as estado','tb_perfil.perfil','tb_perfil.idProceso','tb_proceso.proceso','tb_proceso.idArea','tb_area.area')
             ->where('tb_perfil.perfil', 'like', '%'. $buscar . '%')
             ->orderBy('tb_empleado.id','desc')->paginate(5);
@@ -67,8 +69,9 @@ class Tb_empleadoController extends Controller
                 $join->on('tb_proceso.idArea','=','tb_area.id');
             })
             ->where('tb_empleado.idEmpresa','=',$idEmpresa)
-            ->select('tb_empleado.id as id','tb_empleado.nombre','tb_empleado.apellido','tb_empleado.documento','tb_empleado.direccion','tb_empleado.telefono','tb_empleado.correo','tb_empleado.contacto','tb_empleado.telefonocontacto',
-            'tb_empleado.genero','tb_empleado.idEps','tb_empleado.idPensiones','tb_empleado.idEps','tb_empleado.idPensiones','tb_eps.nombreEps','tb_administradora_pensiones.nombrePensiones','tb_empleado.tipoSangre','tb_empleado.enfermedades',
+            ->select('tb_empleado.id as id','tb_empleado.nombre','tb_empleado.apellido','tb_empleado.documento','tb_empleado.direccion','tb_empleado.telefono',
+            'tb_empleado.correo','tb_empleado.contacto','tb_empleado.telefonocontacto','tb_empleado.genero','tb_empleado.idEps','tb_empleado.idPensiones',
+            'tb_empleado.idEps','tb_empleado.idPensiones','tb_eps.nombreEps','tb_administradora_pensiones.nombrePensiones','tb_empleado.tipoSangre','tb_empleado.enfermedades',
             'tb_empleado.idPerfil','tb_empleado.estado as estado','tb_perfil.perfil','tb_perfil.idProceso','tb_proceso.proceso','tb_proceso.idArea','tb_area.area')
             ->where('tb_perfil.perfil', 'like', '%'. $buscar . '%')
             ->orderBy('tb_empleado.id','desc')->paginate(5);

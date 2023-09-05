@@ -21,11 +21,13 @@ class GruposController extends Controller
         $criterio= $request->criterio;
 
         if ($buscar=='') {
-            $grupos = Grupos::orderBy('grupos.id','desc')
+            $grupos = Grupos::where('grupos.idEmpresa','=',$idEmpresa)
+            ->orderBy('grupos.id','desc')
             ->paginate(5);
         }
         else {
-            $grupos = Grupos::where('grupos.estado','=','1')
+            $grupos = Grupos::where('grupos.idEmpresa','=',$idEmpresa)
+            ->where('grupos.estado','=','1')
             ->orderBy('grupos.id','desc')
             ->paginate(5);
         }
@@ -50,7 +52,8 @@ class GruposController extends Controller
         //cambios multiempresa
 
 
-        $grupos = Grupos::where('grupos.estado','=','1')
+        $grupos = Grupos::where('grupos.idEmpresa','=',$idEmpresa)
+        ->where('grupos.estado','=','1')
         ->orderBy('grupos.detalleGrupos','asc')
         ->get();
 
@@ -58,11 +61,6 @@ class GruposController extends Controller
     }
 
     public function store(Request $request){
-
-        // Cambios multiempresa
-        $idEmpresa =Auth::user()->idEmpresa;
-        //cambios multiempresa
-
         //if(!$request->ajax()) return redirect('/');
         $idEmpresa=Auth::user()->idEmpresa;
         $Grupos=new Grupos();

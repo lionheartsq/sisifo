@@ -90,6 +90,7 @@ class Tb_perfilController extends Controller
             ->where([
                     ['tb_area.estado','=','1'],
                     ['idArea','=',$id],
+                    ['tb_proceso.estado','=','1'],
                 ])
                 ->select('tb_proceso.id as idProceso','proceso')
                 ->orderBy('proceso','asc')->get();

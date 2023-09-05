@@ -57,7 +57,7 @@
                                                 <i class="icon-eye"></i>
                                             </button> &nbsp;
 
-                                            <button type="button" @click="abrirModal('empleado','actualizar', empleado)" class="btn btn-warning btn-sm">
+                                            <button type="button" @click="abrirModal('empleado','actualizar', empleado), listarDetalleEmpleado(empleado.id)" class="btn btn-warning btn-sm">
                                             <i class="icon-pencil"></i>
                                             </button> &nbsp;
 
@@ -872,7 +872,7 @@
                 this.idEps=0;
                 this.idPensiones=0;
                 this.tipoSangre=0;
-                this.enfermedades="";
+                this.enfermedades="Ninguna";
                 this.errorEmpleado = 0,
                 this.errorMensaje = [],
                 this.forceRerender();
@@ -915,8 +915,8 @@
                             this.correo=data['correo'];
                             this.contacto=data['contacto'];
                             this.telefonocontacto=data['telefonocontacto'];
-                            this.tipoSangre=data=['tipoSangre'];
-                            this.enfermedades=data=['enfermedades'];
+                            this.tipoSangre=data['tipoSangre'];
+                            this.enfermedades=data['enfermedades'];
                             this.selectRelacion(this.idArea);
                             this.selectRelacionp(this.idProceso);
                             break;
