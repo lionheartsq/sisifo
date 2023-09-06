@@ -128,7 +128,7 @@ class Tb_productoController extends Controller
         $tb_producto->plu=$request->plu;
         $tb_producto->foto=$name;
         $tb_producto->descripcion=$request->descripcion;
-        $tb_producto->idMedida=$request->idMedida;
+        $tb_producto->idUnidadBase=$request->idUnidadBase;
         $tb_producto->idColeccion=$request->idColeccion;
         $tb_producto->idArea=$request->idArea;
         $tb_producto->idEmpresa=$request->idEmpresa;
