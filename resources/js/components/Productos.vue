@@ -48,6 +48,7 @@
                                     <th>Foto</th>
                                     <th>Descripcion</th>
                                     <th>Coleccion</th>
+                                    <th>Impuesto</th>
                                     <th>Estado</th>
                                 </tr>
                             </thead>
@@ -77,6 +78,7 @@
                                     <td><a class="cursor" v-on:click="showLightbox(`img/avatars/${producto.foto}`)">Ver producto</a></td>
                                     <td v-text="producto.descripcion"></td>
                                     <td v-text="producto.coleccion"></td>
+                                    <td v-text="productos.nombreImpuesto"></td>
                                     <td v-text="producto.area"></td>
                                     <td>
                                         <div v-if="producto.estado">
@@ -253,16 +255,18 @@
                     </div>
 
 
-                    <div class="row">
+                <div class="row">
                         <div class="col-md-6">
                             <div class="form-group row">
-                                <label class="col-md-3 form-control-label" for="text-input">Descripcion</label>
-                                <div class="col-md-9">
-                                    <input type="text" v-model="descripcion" class="form-control" placeholder="Nombre de descripcion">
-                                    <span class="help-block">(*) Ingrese la descripcion</span>
-                                </div>
+                            <label class="col-md-3 form-control-label" for="text-input">Impuesto</label>
+                            <div class="col-md-9">
+                                <select class="form-control" v-model="idImpuesto">
+                                    <option value="0" disabled>Seleccione un impuesto</option>
+                                    <option v-for="relacion in arrayImpuestos" :key="relacion.id" :value="relacion.id" v-text="relacion.nombre"></option>
+                                </select>
                             </div>
                         </div>
+                    </div>
 
                         <div class="col-md-6" v-if="tipo==2">
                             <div class="form-group row">
@@ -272,6 +276,14 @@
                                     <span class="help-block">(*) Ingrese la capacidad de producción mensual</span>
                                 </div>
                             </div>
+                        </div>
+                </div>
+
+                    <div class="form-group row">
+                        <label class="col-md-2 form-control-label" for="text-input">Descripcion</label>
+                        <div class="col-md-9">
+                            <input type="text" v-model="descripcion" class="form-control" placeholder="Nombre de descripcion">
+                            <span class="help-block">(*) Ingrese la descripcion</span>
                         </div>
                     </div>
 
@@ -317,11 +329,15 @@ export default {
             idArea:0,
             presentacion:0,
             idUnidadBase:0,
+            unidadBase: 0,
+            arrayUnidadBase:[],
             tipo:0,
             valorCompra:0,
             pvp:0,
             area:'',
             arrayArea:[],
+            idImpuesto : 0,
+            arrayImpuestos : [],
             modal : 0,
             tituloModal : '',
             plu:'',
@@ -421,6 +437,33 @@ export default {
                 console.log(error);
             })
         },
+        selectUnidadBase(){
+                let me=this;
+                var url='/gestionmateria/selectUnidadBase';
+                axios.get(url).then(function (response) {
+                var respuesta=response.data;
+                me.arrayUnidadBase=respuesta.unidadesbase;
+                })
+                .catch(function (error) {
+                    // handle error
+                    console.log(error);
+                })
+            },
+            listarImpuestos(){
+                let me=this;
+                var url='/impuesto/listado';
+                // Make a request for a user with a given ID
+                axios.get(url).then(function (response) {
+                    // handle success
+                var respuesta=response.data;
+                me.arrayImpuestos=respuesta.impuesto;
+                    //console.log(response);
+                })
+                .catch(function (error) {
+                    // handle error
+                    console.log(error);
+                })
+            },
         cambiarPagina(page,buscar,criterio){
             let me = this;
             //Actualiza la pagina actual
@@ -477,7 +520,8 @@ export default {
                 'idUnidadBase': this.idUnidadBase,
                 'tipo': this.tipo,
                 'valorCompra': this.valorCompra,
-                'pvp': this.pvp
+                'pvp': this.pvp,
+                'idImpuesto': this.idImpuesto,
                 //'dato': this.dato
             }).then(function (response) {
             me.cerrarModal();
@@ -507,7 +551,8 @@ export default {
                 'idUnidadBase': this.idUnidadBase,
                 'tipo': this.tipo,
                 'valorCompra': this.valorCompra,
-                'pvp': this.pvp
+                'pvp': this.pvp,
+                'idImpuesto': this.idImpuesto,
                 //'dato': this.dato
             }).then(function (response) {
             me.cerrarModal();
@@ -598,11 +643,13 @@ export default {
             //if (!this.plu) this.errorMensaje.push("-El plu de los productos no puede estar vacio ");
             //if (this.idColeccion) this.errorMensaje.push("Debe elegir una colección existente");
             //if (this.idArea) this.errorMensaje.push("Debe elegir un área existente");
+            //if (this.idUnidadBase==0) this.errorMensaje.push("-Debe elegir una unidad base ");
             //if (!this.producto) this.errorMensaje.push("El nombre del producto no puede estar vacio");
             //if (!this.referencia) this.errorMensaje.push("La referencia no puede estar vacia");
             //if (!this.capacidadMensual) this.errorMensaje.push("La capacidad de producción no puede estar vacia");
             //if (!this.foto) this.errorMensaje.push("La foto no puede estar vacia");
             //if (!this.descripcion) this.errorMensaje.push("La descripción no puede estar vacia");
+            //if (!this.idImpuesto) this.errorMensaje.push("-El impuesto de los productos no puede estar vacio ");
 
             if (this.errorMensaje.length) this.errorProducto=1;
 
@@ -625,6 +672,7 @@ export default {
             this.tipo=0,
             this.valorCompra=0,
             this.pvp=0,
+            this.idImpuesto=0;
             this.errorProducto = 0,
             this.errorMensaje = [],
             this.forceRerender();
@@ -648,10 +696,11 @@ export default {
                         this.idColeccion= 0;
                         this.idArea=0;
                         this.capacidadMensual='';
-                        this.idUnidadBase=0;
+                        this.idUnidadBase=this.idUnidadBase;
                         this.tipo=0;
                         this.valorCompra=0;
                         this.pvp=0;
+                        this.idImpuesto=0;
                         break;
                     }
                     case 'actualizar':{
@@ -673,6 +722,7 @@ export default {
                         this.tipo=data['tipo'];
                         this.valorCompra=data['valorCompra'];
                         this.pvp=data['pvp'];
+                        this.idImpuesto=data['idImpuesto'];
                         break;
                     }
                 }
@@ -682,6 +732,7 @@ export default {
         this.selectColeccion();
         this.selectthisArea();
         this.selectArea();
+        this.listarImpuestos();
         },
         //funciones para uso del lightbox
         showLightbox(fotoCarga) {
@@ -702,6 +753,7 @@ export default {
         this.selectColeccion();
         this.selectthisArea();
         this.selectArea();
+        this.selectUnidadBase();
     }
 }
 </script>
