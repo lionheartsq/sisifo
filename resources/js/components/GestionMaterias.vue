@@ -429,9 +429,9 @@
                 this.modal=0;
                 this.tituloModal='';
                 this.gestionmateria='';
-                this.idTipoMateria='';
+                this.idTipoMateria=0;
                 this.gestionMateria='';
-                this.idUnidadBase='';
+                this.idUnidadBase=0;
                 this.precioBase='';
                 this.errorGestionMateria = 0,
                 this.errorMensaje = [],
