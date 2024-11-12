@@ -68,8 +68,10 @@ class Tb_procesoController extends Controller
         $idEmpresa =Auth::user()->idEmpresa;
         //cambios multiempresa
 
-        $procesos = Tb_proceso::where('tb_procesos.idEmpresa','=',$idEmpresa)
+        $procesos = Tb_proceso::join('tb_area','tb_proceso.idArea','=','tb_area.id')
+        ->where('tb_procesos.idEmpresa','=',$idEmpresa)
         ->where('tb_proceso.estado','=','1')
+        ->where('tb_area.estado','=','1')
         ->select('id as idProceso','proceso')->orderBy('proceso','asc')->get();
 
         return ['procesos' => $procesos];
