@@ -126,7 +126,7 @@
                                     <div class="form-group row">
                                         <label class="col-md-3 form-control-label" for="text-input">Detalle</label>
                                         <div class="col-md-9">
-                                            <input type="number" v-model="detalle" class="form-control" placeholder="Detalle de la reserva">
+                                            <input type="text" v-model="detalle" class="form-control" placeholder="Detalle de la reserva">
                                             <span class="help-block">(*) Ingrese el detalle de la reserva</span>
                                         </div>
                                     </div>

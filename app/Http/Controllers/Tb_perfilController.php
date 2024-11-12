@@ -87,14 +87,12 @@ class Tb_perfilController extends Controller
 
         $relaciones = tb_proceso::join("tb_area","tb_proceso.idArea","=","tb_area.id")
             ->where('tb_proceso.idEmpresa','=',$idEmpresa)
-            ->where([
-                    ['tb_area.estado','=','1'],
-                    ['idArea','=',$id],
-                    ['tb_proceso.estado','=','1'],
-                ])
-                ->select('tb_proceso.id as idProceso','proceso')
-                ->orderBy('proceso','asc')->get();
-                return ['relaciones' => $relaciones];
+            ->where('tb_area.estado','=','1')
+            ->where('idArea','=',$id)
+            ->where('tb_proceso.estado','=','1')
+            ->select('tb_proceso.id as idProceso','proceso')
+            ->orderBy('proceso','asc')->get();
+            return ['relaciones' => $relaciones];
         }
 
     public function selectPerfil(){
@@ -104,7 +102,10 @@ class Tb_perfilController extends Controller
         //cambios multiempresa
 
         $perfiles = tb_perfil::join("tb_proceso","tb_proceso.id","=","tb_perfil.idProceso")
+        ->join("tb_area","tb_proceso.idArea","=","tb_area.id")
         ->where('tb_proceso.idEmpresa','=',$idEmpresa)
+        ->where('tb_proceso.estado','=','1')
+        ->where('tb_area.estado','=','1')
         ->all();
         return ['perfiles' => $perfiles];
         }

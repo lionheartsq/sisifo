@@ -56,7 +56,7 @@
                                         </td>
                                         <td v-text="materia.tipoMateria"></td>
                                         <td>
-                                            <div v-if="materia.estado">
+                                            <div v-if="materia.estado==1">
                                             <span class="badge badge-success">Activo</span>
                                             </div>
                                             <div v-else>
