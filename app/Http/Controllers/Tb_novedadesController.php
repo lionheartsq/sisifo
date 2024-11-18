@@ -271,7 +271,6 @@ class Tb_novedadesController extends Controller
         $baseSal='';
 
         $salarios = Tb_vinculaciones::first()
-        ->where('tb_nomina.idEmpresa','=',$idEmpresa)
         ->where('tb_vinculaciones.estado','=','1')
         ->where('tb_vinculaciones.idEmpleado','=',$idEmpleado)
         ->orderByDesc('tb_vinculaciones.id')

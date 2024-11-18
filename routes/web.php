@@ -249,9 +249,6 @@ Route::group(['middleware' => ['Superadministrador']], function () {
     Route::get("/historico/mostrarIngresos", "HistoricoController@mostrarIngresos");
     Route::get("/historico/mostrartSalidas", "HistoricoController@mostrarSalidas");
 
-
-
-
     Route::get("/financiera", "Tb_informacion_financieraController@index");
     Route::post("/financiera/store", "Tb_informacion_financieraController@store");
     Route::put("/financiera/update", "Tb_informacion_financieraController@update");
@@ -342,7 +339,7 @@ Route::group(['middleware' => ['Superadministrador']], function () {
     Route::get("/maquinaria/selectMaquinaria", "Tb_maquinariaController@selectMaquinaria");
 
     Route::get("/hojadecosto/total/{identificador}", "Hoja_De_CostosController@acumuladoTotal");
-    Route::get("/hojadecosto/depreciacion/{identificador}", "Hoja_De_CostosController@maquinariaTotal");
+    Route::get("/hojadecosto/depreciacion/", "Hoja_De_CostosController@maquinariaTotal");
     Route::get("/hojadecosto/ciftiempos/{identificador}", "Hoja_De_CostosController@cifTiempos");
     Route::get("/hojadecosto/unitario/", "Hoja_De_CostosController@unitarioTotal");
     Route::get("/hojadecosto/detalle/", "Hoja_De_CostosController@hojaDetalle");

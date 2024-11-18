@@ -15,7 +15,7 @@ class Tb_concepto_cifController extends Controller
         $idEmpresa =Auth::user()->idEmpresa;
         //cambios multiempresa
 
-        if(!$request->ajax()) return redirect('/');
+        //if(!$request->ajax()) return redirect('/');
         $buscar= $request->buscar;
         $criterio= $request->criterio;
 

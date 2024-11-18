@@ -208,6 +208,13 @@
                     console.log(error);
                 })
             },
+            indexChange: function(args) {
+                let newIndex = args.value
+                console.log('Current tab index: ' + newIndex)
+                },
+            forceRerender() {
+                this.componentKey += 1;
+               },
             cambiarPagina(page,buscar,criterio){
                 let me = this;
                 //Actualiza la pagina actual
@@ -215,13 +222,6 @@
                 //envia peticion para ver los valores asociados a esa pagina
                 me.listarConcepto(page,buscar,criterio);
             },
-             indexChange: function(args) {
-                let newIndex = args.value
-                console.log('Current tab index: ' + newIndex)
-                },
-            forceRerender() {
-                this.componentKey += 1;
-               },
             crearConcepto(){
                 //valido con el metodo de validacion creado
                 if(this.validarConcepto()){

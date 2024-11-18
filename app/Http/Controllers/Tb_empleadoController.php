@@ -156,23 +156,25 @@ class Tb_empleadoController extends Controller
         ->orderBy('tb_empleado.id','asc')->get();
         return ['detalleempleados' => $detalleempleados];
     }
+
     public function vinculacionEmpleado(Request $request){
 
         // Cambios multiempresa
         $idEmpresa =Auth::user()->idEmpresa;
         //cambios multiempresa
 
-        $buscar= $request->id;
+        $id= $request->id;
         $detalleempleados = Tb_empleado::join("tb_vinculaciones","tb_empleado.id","=","tb_vinculaciones.idEmpleado")
-        ->join("tb_porcentaje_riesgo","tb_vinculaciones.idNivelArl","=","tb_porcentaje_riesgo.id")
+        ->join("tb_niveles_riesgo","tb_vinculaciones.idNivelArl","=","tb_niveles_riesgo.id")
         ->where('tb_empleado.idEmpresa','=',$idEmpresa)
-        ->where('tb_empleado.id','=',$buscar)
+        ->where('tb_empleado.id','=',$id)
         ->where('tb_vinculaciones.estado','=','1')
         ->select('tb_empleado.id as id','tb_empleado.nombre','tb_empleado.apellido','tb_empleado.direccion','tb_vinculaciones.tipocontrato',
-        'tb_vinculaciones.tiposalario','tb_vinculaciones.salarioBasicoMensual','tb_vinculaciones.fechainicio','tb_porcentaje_riesgo.nivel')
+        'tb_vinculaciones.tiposalario','tb_vinculaciones.salarioBasicoMensual','tb_vinculaciones.fechainicio','tb_niveles_riesgo.nivelArl')
         ->orderBy('tb_empleado.id','asc')->get();
         return ['vinculacionempleados' => $detalleempleados];
     }
+
     public function store(Request $request)
     {
         // Cambios multiempresa

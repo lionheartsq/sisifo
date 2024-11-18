@@ -215,6 +215,7 @@
                 email:'',
                 password:'',
                 estado:'',
+                idRol:'',
                 arrayUsuarios : [],
                 arrayRoles : [],
                 modal : 0,
@@ -310,6 +311,13 @@
                 }
 
                 let me=this;
+                console.log('nombres', this.nombres);
+                console.log('apellidos', this.apellidos);
+                console.log('documento', this.documento);
+                console.log('email', this.email);
+                console.log('idRol', this.idRol);
+                console.log('password', this.password);
+
                 axios.post('/usuarios/store',{
                     'nombres': this.nombres,
                     'apellidos': this.apellidos,

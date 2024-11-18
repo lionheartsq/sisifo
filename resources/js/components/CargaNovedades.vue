@@ -551,6 +551,16 @@ import moment from 'moment';
                 let me=this;
                 this.fecha= moment().format('YYYY-MM-DD');
                 this.valor=(this.cantidad*this.unitario);
+                console.log('fechaNovedad',this.fechaNovedad);
+                console.log('concepto',this.concepto);
+                console.log('valor',this.valor);
+                console.log('cantidad',this.cantidad);
+                console.log('unitario',this.unitario);
+                console.log('observacion',this.observacion);
+                console.log('tipologia',this.tipologia);
+                console.log('idEmpleado',this.idEmpleado);
+                console.log('seguimiento',this.seguimiento);
+                console.log('idNomina',this.identificadornomina);
                 axios.post('/novedades/store',{
                     'fechaNovedad': this.fechaNovedad,
                     'concepto':this.concepto,

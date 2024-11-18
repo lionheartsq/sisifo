@@ -111,7 +111,11 @@ class Tb_nominaController extends Controller
 // Cálculo de nómina fija
 //---------------------------------------------------------------------------------------------------//
 
-    //apertura función cálculo como jobs
+    //apertura función cálculo como jobs o funcion
+    //Correr nómina como job hay que prepararlo:
+    //php artisan queue:work y el el --daemon & si esta utilizando una version de laravel inferior o igual a la 7
+    //php artisan queue:work --daemon &
+
     public function calcularNomina(Request $request)
     {
         //if(!$request->ajax()) return redirect('/');
@@ -123,14 +127,19 @@ class Tb_nominaController extends Controller
         //echo "El valor del id es $nominaid <br>";
         if($flag==1){
             //echo "El flag es 1";
+            //Como job
+            //CalcularNomina::dispatch($nominaid);
+            //Como funcion
             //
-            CalcularNomina::dispatch($nominaid);
+            $this->pruebacalculo($nominaid);
         }
         else{
             //echo "El flag es 2";
+            //Como job
+            //CalculaNominaDestajo::dispatch($nominaid);
+            //Como funcion
             //
-            CalculaNominaDestajo::dispatch($nominaid);
-            //aca iria la otra funcion
+            $this->pruebadestajo($nominaid);
         }
 
     } //cierre función cálculo
@@ -139,12 +148,19 @@ class Tb_nominaController extends Controller
 // Cálculo de nómina fija antigua
 //---------------------------------------------------------------------------------------------------//
 
-public function pruebacalculo(Request $request)
+//public function pruebacalculo(Request $request)
+public function pruebacalculo($id)
 { //abre función cálculo
 // recibo el id de nómina a calcular y saco los datos; de aca tomaré las fechas para revisar las novedades
-    $nominaid = $request->id;
 
-    $nomina = Tb_nomina::where('id','=',$request->id)
+    //$nominaid = $request->id;
+    $nominaid = $id;
+
+    // Cambios multiempresa
+    $idEmpresa =Auth::user()->idEmpresa;
+    //cambios multiempresa
+
+    $nomina = Tb_nomina::where('id','=',$nominaid)
     ->select('id','fechaInicio','fechaFin','tipo','estado')->get();
 
     foreach($nomina as $guianomina){ //apertura foreach nomina
@@ -629,6 +645,7 @@ public function pruebacalculo(Request $request)
         $tb_resumen_nomina->sueldoBasicoMensual=$sueldobase;
         $tb_resumen_nomina->idEmpleado=$empleadonovedadid;
         $tb_resumen_nomina->idNomina=$nominaid;
+        $tb_resumen_nomina->idEmpresa=$idEmpresa;
         $tb_resumen_nomina->save();
 
     } //cierre foreach vinculaciones
@@ -708,12 +725,18 @@ echo "<hr><br>";
 //---------------------------------------------------------------------------------------------------//
 // Cálculo de nómina destajo vieja
 //---------------------------------------------------------------------------------------------------//
-public function pruebadestajo(Request $request)
+//public function pruebadestajo(Request $request)
+public function pruebadestajo($id)
 { //abre función cálculo
     // recibo el id de nómina a calcular y saco los datos; de aca tomaré las fechas para revisar las novedades
-            $nominaid = $request->id;
+            //$nominaid = $request->id;
+            $nominaid = $id;
 
-            $nomina = Tb_nomina::where('id','=',$request->id)
+            // Cambios multiempresa
+            $idEmpresa =Auth::user()->idEmpresa;
+            //cambios multiempresa
+
+            $nomina = Tb_nomina::where('id','=',$nominaid)
             ->select('id','fechaInicio','fechaFin','tipo','estado')->get();
 
             foreach($nomina as $guianomina){ //apertura foreach nomina
@@ -1051,6 +1074,7 @@ public function pruebadestajo(Request $request)
                 $tb_resumen_nomina->sueldoBasicoMensual=$sueldobasico;
                 $tb_resumen_nomina->idEmpleado=$empleadonovedadid;
                 $tb_resumen_nomina->idNomina=$nominaid;
+                $tb_resumen_nomina->idEmpresa=$idEmpresa;
                 $tb_resumen_nomina->save();
 
             } //cierre foreach novedades
